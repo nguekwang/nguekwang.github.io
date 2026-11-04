@@ -43,7 +43,7 @@ projects:
   desc: Perangkat Python untuk mengukur kemiripan bahasa (sedang dikembangkan; direncanakan dirilis sebagai sumber terbuka)
 - name: languer-map
   desc: Atlas interaktif bahasa-bahasa di dunia (sedang dikembangkan)
-- name: Alat pohon sintaksis
+- name: syntax-tree
   desc: Alat untuk menggambar pohon sintaksis tata bahasa generatif (direncanakan)
 - name: Corpora Hub
   desc: Wadah untuk mengumpulkan dan mencari korpus bahasa (direncanakan)

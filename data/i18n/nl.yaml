@@ -43,7 +43,7 @@ projects:
   desc: Python-toolkit voor het meten van taalovereenkomst (in ontwikkeling; open-sourcepublicatie gepland)
 - name: languer-map
   desc: Interactieve atlas van de talen van de wereld (in ontwikkeling)
-- name: Syntaxisboomtool
+- name: syntax-tree
   desc: Tool voor het tekenen van syntaxisbomen in de generatieve grammatica (gepland)
 - name: Corpora Hub
   desc: Platform voor het verzamelen en doorzoeken van taalcorpora (gepland)

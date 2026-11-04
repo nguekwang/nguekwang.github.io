@@ -44,7 +44,7 @@ projects:
   desc: A Python toolkit for measuring language similarity (in development; planned open-source release)
 - name: languer-map
   desc: 'An interactive atlas of the world''s languages (in development)'
-- name: Syntax tree tool
+- name: syntax-tree
   desc: A tool for drawing syntax trees in generative grammar (planned)
 - name: Corpora Hub
   desc: A hub for collecting and searching language corpora (planned)

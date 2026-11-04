@@ -43,7 +43,7 @@ projects:
   desc: Dil benzerliğini ölçmek için Python araç takımı (geliştirme aşamasında; açık kaynak olarak yayımlanması planlanıyor)
 - name: languer-map
   desc: Dünya dillerinin etkileşimli atlası (geliştirme aşamasında)
-- name: Sözdizim ağacı aracı
+- name: syntax-tree
   desc: Üretici dilbilgisinde sözdizim ağaçları çizmek için bir araç (planlanıyor)
 - name: Corpora Hub
   desc: Dil derlemlerini toplamak ve aramak için bir merkez (planlanıyor)
