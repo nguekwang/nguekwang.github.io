@@ -41,8 +41,6 @@ interests:
 projects:
 - name: linguasim
   desc: Bộ công cụ Python để đo độ tương đồng giữa các ngôn ngữ (đang phát triển; dự kiến phát hành mã nguồn mở)
-- name: Mẫu bài báo đa ngôn ngữ
-  desc: Môi trường viết dựa trên Typst, tuân theo quy ước trình bày của 20 ngôn ngữ (đang phát triển)
 keywords:
   typology: Loại hình học ngôn ngữ
   universals: Phổ quát ngôn ngữ

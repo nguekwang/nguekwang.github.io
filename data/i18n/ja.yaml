@@ -41,8 +41,6 @@ interests:
 projects:
 - name: linguasim
   desc: 言語の類似度を測る Python のツール(開発中、オープンソースで公開予定)
-- name: 多言語の論文テンプレート
-  desc: 20言語の組版の慣習に合わせて書ける Typst の執筆環境(開発中)
 keywords:
   typology: 言語類型論
   universals: 言語普遍性

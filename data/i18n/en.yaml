@@ -42,8 +42,6 @@ interests:
 projects:
 - name: linguasim
   desc: A Python toolkit for measuring language similarity (in development; planned open-source release)
-- name: Multilingual paper template
-  desc: A Typst-based writing setup that follows the typographic conventions of 20 languages (in development)
 keywords:
   typology: Linguistic typology
   universals: Language universals

@@ -41,8 +41,6 @@ interests:
 projects:
 - name: linguasim
   desc: Dil benzerliğini ölçmek için Python araç takımı (geliştirme aşamasında; açık kaynak olarak yayımlanması planlanıyor)
-- name: Çok dilli makale şablonu
-  desc: 20 dilin dizgi kurallarına uyan, Typst tabanlı yazım ortamı (geliştirme aşamasında)
 keywords:
   typology: Dil tipolojisi
   universals: Dil evrenselleri

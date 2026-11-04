@@ -41,8 +41,6 @@ interests:
 projects:
 - name: linguasim
   desc: Herramienta en Python para medir la similitud entre lenguas (en desarrollo; se publicará como código abierto)
-- name: Plantilla multilingüe para artículos
-  desc: Entorno de escritura en Typst que sigue las convenciones tipográficas de 20 lenguas (en desarrollo)
 keywords:
   typology: Tipología lingüística
   universals: Universales lingüísticos

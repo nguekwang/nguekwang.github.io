@@ -41,8 +41,6 @@ interests:
 projects:
 - name: linguasim
   desc: Zestaw narzędzi w Pythonie do pomiaru podobieństwa języków (w przygotowaniu; planowane udostępnienie jako open source)
-- name: Wielojęzyczny szablon artykułu
-  desc: Środowisko pisania oparte na Typst, zgodne z konwencjami typograficznymi 20 języków (w przygotowaniu)
 keywords:
   typology: Typologia językowa
   universals: Uniwersalia językowe
