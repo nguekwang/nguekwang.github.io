@@ -85,7 +85,7 @@
     </dl>
   </section>
 
-  <footer>{{ t.updated }}<br><small>&copy; {{ site.copyright_from }}– {{ footer_name }}</small></footer>
+  <footer>{% if updated_url %}<a href="{{ updated_url }}" class="updated">{{ updated }}</a>{% else %}{{ updated }}{% endif %}<br><small>&copy; {{ site.copyright_from }}– {{ footer_name }}</small></footer>
 </main>
 <script src="../lang.js"></script>
 <script data-goatcounter="{{ site.goatcounter }}" async src="https://gc.zgo.at/count.js"></script>

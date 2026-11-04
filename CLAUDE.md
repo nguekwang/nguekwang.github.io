@@ -33,6 +33,7 @@ All page text lives in YAML under `data/`; HTML structure lives in `templates/`.
 - `static/`: files copied as they are (CSS, JS, robots.txt).
 - `pip install -r requirements.txt`, then `python3 tools/build.py --check` checks the data, and `python3 tools/build.py` checks and builds the site into `_site/`.
 - GitHub Actions (`.github/workflows/site.yml`) runs the check and build on every pull request, and on push to `main` builds and deploys to GitHub Pages.
+- The footer's "last updated" date and link come from git, not from the YAML: `updated` in each language file is a label with one `{date}` placeholder, which the build fills with the date of the latest commit that changed `data/`, `templates/`, `static/` or `tools/` (formatted per language with Babel) and links to that commit on GitHub. The workflow checks out full history (`fetch-depth: 0`) for this.
 - When adding a key or a list item, add it to every language file in the same change, or the check fails.
 
 ## Search engines and AI assistants
