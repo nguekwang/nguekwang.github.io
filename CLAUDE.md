@@ -29,6 +29,7 @@ This repository should read as one whose first language is English.
 
 - Do not add a `README.md`.
 - Links that leave the site open in a new tab. The build adds `target="_blank" rel="noopener noreferrer"` to every `http(s)` link outside `site.url` (see `open_external_in_new_tab()` in `tools/build.py`), so do not write `target` or `rel` on links in templates. `mailto:` links, in-page anchors and links between the site's own pages (such as the language menu) stay in the same tab.
+- Switching language must not add a browser history entry, so Back goes to the page before, not to the previous language. `static/lang.js` fetches the other language version and swaps it in with `history.replaceState()` (falling back to `location.replace()`); the URL still shows `/<lang>/`. Keep every language as its own static page with ordinary links, so search engines and visitors without JavaScript still get them. Pages that use it need `connect-src 'self'` in their Content-Security-Policy.
 - Do not add content about other people's projects as if they were the owner's work, and do not commit fonts or files the owner has no right to redistribute.
 
 ## Building
