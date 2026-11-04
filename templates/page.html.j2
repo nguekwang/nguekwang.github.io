@@ -50,13 +50,18 @@
   <section lang="{{ code }}">
     <h2>{{ t.interests_h }}</h2>
     <ul>{% for x in t.interests %}<li>{{ x }}</li>{% endfor %}</ul>
-    <h3>{{ t.current_h }}</h3>
+  </section>
+
+  <section lang="{{ code }}">
+    <h2>{{ t.current_h }}</h2>
     <p>{{ t.current }}</p>
   </section>
 
   <section>
     <h2>{{ t.pubs_h }}</h2>
-    <p class="empty">{{ t.soon }}</p>
+    <ul>
+      <li>{{ t.thesis }}: <bdi dir="auto" lang="{{ thesis_lang }}">{{ thesis_title }}</bdi> {{ t.unpublished }}</li>
+    </ul>
   </section>
 
   <section lang="{{ code }}">
@@ -67,8 +72,7 @@
   <section>
     <h2>{{ t.edu_h }}</h2>
     <ul>
-      <li>{{ t.edu }}<br>
-        <span class="meta">{{ t.thesis }}: <bdi dir="auto" lang="{{ thesis_lang }}">{{ thesis_title }}</bdi> {{ t.unpublished }}</span></li>
+      <li>{{ t.edu }}</li>
     </ul>
   </section>
 

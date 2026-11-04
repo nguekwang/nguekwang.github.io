@@ -9,7 +9,6 @@ request: Demander une autre langue
 pubs_h: Publications et communications
 edu_h: Formation
 contact_h: Contact
-soon: Bientôt disponible.
 role: Licence, École des études étrangères, Université d'Osaka, 2026
 edu: Licence d'espagnol, École des études étrangères, Université d'Osaka, 2026
 thesis: Mémoire
@@ -22,7 +21,7 @@ tagline: J'étudie ce qui est universel dans la manière dont les langues humain
 btn_email: M'écrire
 btn_github: GitHub
 interests_h: Intérêts de recherche
-current_h: Travaux en cours
+current_h: Recherches en cours
 current: Quantifier la similarité entre les langues. À partir d'inventaires de phonèmes (PHOIBLE) et de données lexicales, je mesure la proximité entre langues et dialectes, en commençant par les langues romanes. L'objectif est une mesure applicable à de nombreuses langues, fondée sur des statistiques explicites, qui puisse éclairer où s'arrête un dialecte et où commence une langue.
 projects_h: Projets
 langs_h: Langues

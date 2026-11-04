@@ -9,7 +9,6 @@ request: Request another language
 pubs_h: Publications & Presentations
 edu_h: Education
 contact_h: Contact
-soon: Coming soon.
 role: B.A., School of Foreign Studies, The University of Osaka, 2026
 edu: B.A. in Spanish, School of Foreign Studies, The University of Osaka, 2026
 thesis: Thesis
@@ -22,7 +21,7 @@ tagline: I study what is universal in how human languages encode meaning, using 
 btn_email: Email me
 btn_github: GitHub
 interests_h: Research interests
-current_h: Current work
+current_h: Current research
 current: Quantifying cross-linguistic similarity. Using phoneme inventories (PHOIBLE) and vocabulary data, I measure how close languages and dialects are, starting with the Romance languages. The aim is a measure that works for many languages, rests on explicit statistics, and can inform where a dialect ends and a language begins.
 projects_h: Projects
 langs_h: Languages
