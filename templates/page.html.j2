@@ -39,17 +39,17 @@
     <p class="tagline" lang="{{ code }}">{{ t.tagline }}</p>
     <p class="buttons"><a class="btn" href="mailto:{{ site.email }}" data-cv="email-top">{{ t.btn_email }}</a><a class="btn ghost" href="{{ site.github }}" data-cv="github-top">{{ t.btn_github }}</a></p>
   </header>
+  <section lang="{{ code }}">
+    <h2>{{ t.interests_h }}</h2>
+    <ul>{% for x in t.interests %}<li>{{ x }}</li>{% endfor %}</ul>
+  </section>
+
   <section class="kw">
     <h2>{{ t.keywords_h }}</h2>
     <ul class="keywords">{% for k in site.keywords %}<li>{{ t.keywords[k] }}</li>{% endfor %}</ul>
   </section>
 {% if talks %}  <section class="talks"><div class="carousel">{% for x in talks %}<a class="talk"{% if x.url %} href="{{ x.url }}" data-cv="talk"{% endif %}><span class="meta">{{ x.date }} / {{ x.venue }}</span><strong>{{ x.title }}</strong></a>{% endfor %}</div></section>
 {% endif %}
-
-  <section lang="{{ code }}">
-    <h2>{{ t.interests_h }}</h2>
-    <ul>{% for x in t.interests %}<li>{{ x }}</li>{% endfor %}</ul>
-  </section>
 
   <section lang="{{ code }}">
     <h2>{{ t.current_h }}</h2>
