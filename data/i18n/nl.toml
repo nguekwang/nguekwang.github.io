@@ -1,0 +1,42 @@
+# Nederlands (nl) の文言。
+
+mt_notice = "Deze pagina is automatisch vertaald."  # 機械翻訳の注記。空なら出さない(本人確認済み)
+native = "Nederlands"
+dir = "ltr"
+request = "Andere taal aanvragen"
+pubs_h = "Publicaties en presentaties"
+edu_h = "Opleiding"
+contact_h = "Contact"
+soon = "Binnenkort."
+role = "B.A., Faculteit Buitenlandse Studies, Universiteit van Osaka, 2026"
+edu = "B.A. Spaans, Faculteit Buitenlandse Studies, Universiteit van Osaka, 2026"
+thesis = "Scriptie"
+email = "E-mail"
+updated = "Laatst bijgewerkt: november 2026"
+desc = "Yoshihiro Matsuura: taaltypologie en fonologie, het kwantificeren van gelijkenis tussen talen op basis van foneeminventarissen."
+unpublished = "(niet gepubliceerd)"
+keywords_h = "Trefwoorden"
+tagline = "Ik onderzoek wat universeel is aan de manier waarop menselijke talen betekenis uitdrukken, met formele en computationele methoden op taaloverstijgende data."
+btn_email = "Mail mij"
+btn_github = "GitHub"
+interests_h = "Onderzoeksinteresses"
+current_h = "Huidig werk"
+current = "Het kwantificeren van overeenkomst tussen talen. Met foneeminventarissen (PHOIBLE) en woordenschatdata meet ik hoe dicht talen en dialecten bij elkaar liggen, te beginnen met de Romaanse talen. Het doel is een maat die voor veel talen werkt, op expliciete statistiek berust en kan helpen bepalen waar een dialect ophoudt en een taal begint."
+projects_h = "Projecten"
+langs_h = "Talen"
+langs = "Japans (moedertaal), Engels (vloeiend), Spaans (hoofdvak bachelor)."
+interests = [
+  "Taaluniversalia en typologie: wat alle menselijke talen gemeen hebben en waarin ze verschillen",
+  "Taaloverstijgende semantiek, met formele semantiek als theorie en computationele methoden als gereedschap",
+  "Het meten van overeenkomst tussen talen en dialecten (fonologie, lexicon)",
+  "Computationele en fylogenetische taalkunde",
+  "Schriftsystemen en meertalige informatica (invoermethoden, internationalisering)",
+]
+
+[[projects]]
+name = "linguasim"
+desc = "Python-toolkit voor het meten van taalovereenkomst (in ontwikkeling; open-sourcepublicatie gepland)"
+
+[[projects]]
+name = "Meertalig sjabloon voor artikelen"
+desc = "Op Typst gebaseerde schrijfomgeving die de typografische conventies van 20 talen volgt (in ontwikkeling)"

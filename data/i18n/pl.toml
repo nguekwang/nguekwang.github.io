@@ -1,0 +1,42 @@
+# Polski (pl) の文言。
+
+mt_notice = "Ta strona została przetłumaczona maszynowo."  # 機械翻訳の注記。空なら出さない(本人確認済み)
+native = "Polski"
+dir = "ltr"
+request = "Poproś o inny język"
+pubs_h = "Publikacje i wystąpienia"
+edu_h = "Wykształcenie"
+contact_h = "Kontakt"
+soon = "Wkrótce."
+role = "Licencjat, Wydział Studiów Zagranicznych, Uniwersytet w Osace, 2026"
+edu = "Licencjat (język hiszpański), Wydział Studiów Zagranicznych, Uniwersytet w Osace, 2026"
+thesis = "Praca licencjacka"
+email = "E-mail"
+updated = "Ostatnia aktualizacja: listopad 2026"
+desc = "Yoshihiro Matsuura: typologia językowa i fonologia, ilościowe mierzenie podobieństwa międzyjęzykowego na podstawie inwentarzy fonemów."
+unpublished = "(nieopublikowana)"
+keywords_h = "Słowa kluczowe"
+tagline = "Badam, co jest uniwersalne w sposobie, w jaki języki ludzkie kodują znaczenie, stosując metody formalne i obliczeniowe do danych z wielu języków."
+btn_email = "Napisz do mnie"
+btn_github = "GitHub"
+interests_h = "Zainteresowania badawcze"
+current_h = "Obecne prace"
+current = "Ilościowy pomiar podobieństwa między językami. Na podstawie inwentarzy fonemów (PHOIBLE) i danych leksykalnych mierzę, jak bliskie są sobie języki i dialekty, zaczynając od języków romańskich. Celem jest miara, która działa dla wielu języków, opiera się na jawnej statystyce i może pomóc ustalić, gdzie kończy się dialekt, a zaczyna język."
+projects_h = "Projekty"
+langs_h = "Języki"
+langs = "Japoński (ojczysty), angielski (biegle), hiszpański (kierunek studiów licencjackich)."
+interests = [
+  "Uniwersalia językowe i typologia: co łączy wszystkie języki ludzkie, a czym się one różnią",
+  "Semantyka międzyjęzykowa: semantyka formalna jako teoria, metody obliczeniowe jako narzędzia",
+  "Pomiar podobieństwa między językami i dialektami (fonologia, leksyka)",
+  "Lingwistyka komputerowa i filogenetyczna",
+  "Systemy pisma i informatyka wielojęzyczna (metody wprowadzania tekstu, internacjonalizacja)",
+]
+
+[[projects]]
+name = "linguasim"
+desc = "Zestaw narzędzi w Pythonie do pomiaru podobieństwa języków (w przygotowaniu; planowane udostępnienie jako open source)"
+
+[[projects]]
+name = "Wielojęzyczny szablon artykułu"
+desc = "Środowisko pisania oparte na Typst, zgodne z konwencjami typograficznymi 20 języków (w przygotowaniu)"

@@ -1,0 +1,42 @@
+# Tiếng Việt (vi) の文言。
+
+mt_notice = "Trang này được dịch máy."  # 機械翻訳の注記。空なら出さない(本人確認済み)
+native = "Tiếng Việt"
+dir = "ltr"
+request = "Yêu cầu ngôn ngữ khác"
+pubs_h = "Công bố và báo cáo"
+edu_h = "Học vấn"
+contact_h = "Liên hệ"
+soon = "Sắp ra mắt."
+role = "Cử nhân, Khoa Ngoại ngữ, Đại học Osaka, 2026"
+edu = "Cử nhân tiếng Tây Ban Nha, Khoa Ngoại ngữ, Đại học Osaka, 2026"
+thesis = "Khóa luận tốt nghiệp"
+email = "Email"
+updated = "Cập nhật lần cuối: tháng 11 năm 2026"
+desc = "Yoshihiro Matsuura: loại hình học ngôn ngữ và âm vị học, định lượng độ tương đồng giữa các ngôn ngữ từ hệ thống âm vị."
+unpublished = "(không công bố)"
+keywords_h = "Từ khóa"
+tagline = "Tôi nghiên cứu những gì mang tính phổ quát trong cách các ngôn ngữ của con người mã hóa ý nghĩa, bằng các phương pháp hình thức và tính toán trên dữ liệu liên ngôn ngữ."
+btn_email = "Gửi email"
+btn_github = "GitHub"
+interests_h = "Hướng nghiên cứu"
+current_h = "Công việc hiện tại"
+current = "Định lượng độ tương đồng giữa các ngôn ngữ. Dựa trên bảng âm vị (PHOIBLE) và dữ liệu từ vựng, tôi đo mức độ gần gũi giữa các ngôn ngữ và phương ngữ, bắt đầu từ các ngôn ngữ Rôman. Mục tiêu là một thước đo áp dụng được cho nhiều ngôn ngữ, dựa trên thống kê rõ ràng, và có thể giúp xác định đâu là ranh giới giữa phương ngữ và ngôn ngữ."
+projects_h = "Dự án"
+langs_h = "Ngôn ngữ"
+langs = "Tiếng Nhật (bản ngữ), tiếng Anh (thành thạo), tiếng Tây Ban Nha (chuyên ngành cử nhân)."
+interests = [
+  "Phổ quát ngôn ngữ và loại hình học: điểm chung của mọi ngôn ngữ và sự khác biệt giữa chúng",
+  "Ngữ nghĩa học liên ngôn ngữ, với ngữ nghĩa học hình thức làm lý thuyết và phương pháp tính toán làm công cụ",
+  "Đo độ tương đồng giữa các ngôn ngữ và phương ngữ (âm vị học, từ vựng)",
+  "Ngôn ngữ học tính toán và ngôn ngữ học phát sinh chủng loại",
+  "Hệ thống chữ viết và điện toán đa ngôn ngữ (bộ gõ, quốc tế hóa)",
+]
+
+[[projects]]
+name = "linguasim"
+desc = "Bộ công cụ Python để đo độ tương đồng giữa các ngôn ngữ (đang phát triển; dự kiến phát hành mã nguồn mở)"
+
+[[projects]]
+name = "Mẫu bài báo đa ngôn ngữ"
+desc = "Môi trường viết dựa trên Typst, tuân theo quy ước trình bày của 20 ngôn ngữ (đang phát triển)"

@@ -1,0 +1,24 @@
+# サイト全体の設定とプロフィール(言語によらない値)。
+# 文言を直したら `python3 tools/build.py` を実行するか、push すれば GitHub Actions が作り直す。
+
+url = "https://nguekwang.github.io"
+email = "nguekwang@gmail.com"
+github = "https://github.com/nguekwang"
+goatcounter = "https://nguekwang.goatcounter.com/count"
+copyright_from = 2023
+
+# 言語の並び順(言語メニューの順)。言語を足すときは data/i18n/<コード>.toml を作ってここに足す。
+languages = ["en", "ja", "es", "fr", "ru", "zh-Hans", "zh-Hant", "ar", "ko", "vi", "de", "pt", "it", "nl", "tr", "id", "th", "hi", "fa", "pl", "uk"]
+
+[name]
+latin = "Yoshihiro (Yoshi) MATSUURA"
+latin_short = "Yoshihiro MATSUURA"
+ja = "松浦 義広"
+
+[thesis]
+title_en = "A Quantitative Analysis of Cross-Linguistic Similarity"
+title_ja = "言語間の類似度の定量的な算出"
+
+[translation_request]
+subject = "[REQUEST] Additional Language Support"
+body = "Please add the following language to your research website: "
