@@ -2,6 +2,12 @@
 
 Guidance for Claude (and other contributors) working in this repository.
 
+More detailed rules are in `.claude/rules/` (Claude Code loads them together with this file):
+
+- `working-with-the-owner.md`: how to start a task, ask questions, and report back.
+- `git-and-prs.md`: branches, conflicts, checks and pull requests.
+- `content-and-layout.md`: rules for page content, languages and styling.
+
 ## Language: English first
 
 This repository should read as one whose first language is English.
@@ -15,8 +21,9 @@ This repository should read as one whose first language is English.
 
 ## Git workflow
 
-- Never push to `main` directly. Create a branch and open a pull request for every change, so the owner can review it first.
-- Before committing, check that nothing personal is added beyond what the site already shows publicly (no phone number, address, full birth date, or private email addresses). The birth month and year and home city in the background section were added at the owner's request.
+- Never push to `main` directly. Create a branch and open a pull request for every change, so the owner can review it first. The owner merges.
+- Start every branch from the latest `main`. Never rebase and never force-push. Details: `.claude/rules/git-and-prs.md`.
+- Publish only personal information the owner has explicitly approved. Before committing, check that nothing else personal is added (no phone number, address, full birth date, or private email addresses). The birth month and year and home city in the background section were added at the owner's request.
 
 ## Content rules
 
