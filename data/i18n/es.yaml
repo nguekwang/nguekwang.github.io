@@ -41,6 +41,12 @@ interests:
 projects:
 - name: linguasim
   desc: Herramienta en Python para medir la similitud entre lenguas (en desarrollo; se publicará como código abierto)
+- name: languer-map
+  desc: Atlas interactivo de las lenguas del mundo (en desarrollo)
+- name: Herramienta de árboles sintácticos
+  desc: Herramienta para dibujar árboles sintácticos de la gramática generativa (en proyecto)
+- name: Corpora Hub
+  desc: Plataforma para reunir y consultar corpus lingüísticos (en proyecto)
 keywords:
   typology: Tipología lingüística
   universals: Universales lingüísticos

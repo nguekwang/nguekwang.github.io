@@ -41,6 +41,12 @@ interests:
 projects:
 - name: linguasim
   desc: 用於測量語言相似度的 Python 工具組（開發中，預計開源）
+- name: languer-map
+  desc: 世界語言的互動式地圖（開發中）
+- name: 句法樹繪製工具
+  desc: 用於繪製生成語法句法樹的工具（構想中）
+- name: Corpora Hub
+  desc: 用於收集與檢索語言語料庫的平台（構想中）
 keywords:
   typology: 語言類型學
   universals: 語言共性
