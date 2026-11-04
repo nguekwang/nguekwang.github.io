@@ -1,0 +1,70 @@
+# Before/after screenshots for pull requests that change what visitors see.
+# Builds the site from main (before) and from the pull request (after), takes full-page
+# screenshots of the Japanese page and every right-to-left page at desktop and mobile width
+# (tools/screenshots.py), uploads them as a downloadable artifact, and keeps one comment on the
+# pull request up to date with a table of changed pages and a link to the images.
+name: screenshots
+on:
+  pull_request:
+    paths: [data/**, templates/**, static/**, tools/**, "requirements*.txt"]
+permissions:
+  contents: read
+  pull-requests: write
+concurrency:
+  group: screenshots-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt -r requirements-screenshots.txt
+      - name: Install Chromium and fonts for every script on the site
+        run: |
+          python3 -m playwright install --with-deps chromium
+          sudo apt-get install -y --no-install-recommends fonts-noto-core fonts-noto-cjk
+      - name: Build after (this pull request)
+        run: python3 tools/build.py
+      - name: Build before (main)
+        run: |
+          git worktree add ../before "${{ github.event.pull_request.base.sha }}"
+          python3 ../before/tools/build.py
+      - name: Take screenshots
+        run: python3 tools/screenshots.py --before ../before/_site --after _site --out screenshots
+      - id: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots-pr${{ github.event.pull_request.number }}
+          path: screenshots
+          retention-days: 30
+      - name: Comment on the pull request
+        # Pull requests from forks and Dependabot get a read-only token; the artifact is still there.
+        if: github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]'
+        uses: actions/github-script@v7
+        env:
+          ARTIFACT_URL: ${{ steps.upload.outputs.artifact-url }}
+        with:
+          script: |
+            const fs = require('fs');
+            const marker = '<!-- screenshots-bot -->';
+            const body = [
+              marker,
+              '### Before/after screenshots',
+              '',
+              fs.readFileSync('screenshots/summary.md', 'utf8'),
+              `Download the images (compare-*.png shows both side by side): ${process.env.ARTIFACT_URL}`,
+              '',
+              `Commit ${context.payload.pull_request.head.sha.slice(0, 7)}. The footer date is ignored when deciding "changed".`,
+            ].join('\n');
+            const { owner, repo } = context.repo;
+            const issue_number = context.payload.pull_request.number;
+            const comments = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number });
+            const old = comments.find(c => c.body.startsWith(marker));
+            if (old) await github.rest.issues.updateComment({ owner, repo, comment_id: old.id, body });
+            else await github.rest.issues.createComment({ owner, repo, issue_number, body });
