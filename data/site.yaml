@@ -1,0 +1,56 @@
+# Site-wide settings and profile (values that do not depend on the language).
+# Page text for each language lives in data/i18n/<code>.yaml.
+# Edit the data, open a pull request, and GitHub Actions checks it; after merge it builds and deploys the site.
+
+url: https://nguekwang.github.io
+email: nguekwang@gmail.com
+github: https://github.com/nguekwang
+goatcounter: https://nguekwang.goatcounter.com/count
+copyright_from: 2023
+
+# Language order (as shown in the language menu).
+# To add a language, copy data/i18n/en.yaml to data/i18n/<code>.yaml, translate every value, and add the code here.
+languages: [en, ja, es, fr, ru, zh-Hans, zh-Hant, ar, ko, vi, de, pt, it, nl, tr, id, th, hi, fa, pl, uk]
+
+# Keyword order (display order). Each id needs a translation under `keywords:` in every data/i18n/<code>.yaml.
+keywords:
+  - typology
+  - universals
+  - crossling-semantics
+  - formal-semantics
+  - theoretical
+  - syntax
+  - morphology
+  - generative
+  - cognitive
+  - computational
+  - phylogenetic
+  - similarity
+  - phonology
+  - romance
+  - mozarabic
+  - ladino
+  - ibero-romance
+  - medieval-castilian
+  - writing-systems
+  - nlp
+  - i18n
+  - unicode
+  - input-methods
+  - typesetting
+  - linux
+  - kernels
+  - oss
+
+name:
+  latin: Yoshihiro (Yoshi) MATSUURA
+  latin_short: Yoshihiro MATSUURA
+  ja: 松浦 義広
+
+thesis:
+  title_en: A Quantitative Analysis of Cross-Linguistic Similarity
+  title_ja: 言語間の類似度の定量的な算出
+
+translation_request:
+  subject: "[REQUEST] Additional Language Support"
+  body: "Please add the following language to your research website: "

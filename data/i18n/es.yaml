@@ -1,0 +1,68 @@
+# Page text for one language (es). Every language file must have exactly the same keys,
+# list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
+# Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+
+mt_notice: ''
+native: Español
+dir: ltr
+request: Solicitar otro idioma
+pubs_h: Publicaciones y presentaciones
+edu_h: Formación
+contact_h: Contacto
+soon: Próximamente.
+role: Graduado, Facultad de Estudios Extranjeros, Universidad de Osaka, 2026
+edu: Grado en Español, Facultad de Estudios Extranjeros, Universidad de Osaka, 2026
+thesis: Trabajo de fin de grado
+email: Correo
+updated: 'Última actualización: noviembre de 2026'
+desc: 'Yoshihiro Matsuura: tipología lingüística y fonología; cuantificación de la similitud interlingüística a partir de inventarios fonémicos.'
+unpublished: (no publicado)
+keywords_h: Palabras clave
+tagline: Estudio qué hay de universal en la manera en que las lenguas humanas codifican el significado, con métodos formales y computacionales aplicados a datos de muchas lenguas.
+btn_email: Escríbeme
+btn_github: GitHub
+interests_h: Intereses de investigación
+current_h: Trabajo actual
+current: Cuantificación de la similitud interlingüística. A partir de inventarios fonémicos (PHOIBLE) y datos léxicos, mido cuán cercanas son las lenguas y los dialectos, empezando por las lenguas romances. El objetivo es una medida aplicable a muchas lenguas, con fundamentos estadísticos explícitos, que ayude a decidir dónde termina un dialecto y empieza una lengua.
+projects_h: Proyectos
+langs_h: Idiomas
+langs: Japonés (lengua materna), inglés (fluido), español (especialidad de grado).
+interests:
+- 'Universales lingüísticos y tipología: qué comparten todas las lenguas humanas y en qué se diferencian'
+- Semántica interlingüística, con la semántica formal como teoría y los métodos computacionales como herramientas
+- Medición de la similitud entre lenguas y dialectos (fonología, léxico)
+- Lingüística computacional y filogenética
+- Sistemas de escritura y computación multilingüe (métodos de entrada, internacionalización)
+projects:
+- name: linguasim
+  desc: Herramienta en Python para medir la similitud entre lenguas (en desarrollo; se publicará como código abierto)
+- name: Plantilla multilingüe para artículos
+  desc: Entorno de escritura en Typst que sigue las convenciones tipográficas de 20 lenguas (en desarrollo)
+keywords:
+  typology: Tipología lingüística
+  universals: Universales lingüísticos
+  crossling-semantics: Semántica interlingüística
+  formal-semantics: Semántica formal
+  theoretical: Lingüística teórica
+  syntax: Sintaxis
+  morphology: Morfología
+  generative: Gramática generativa
+  cognitive: Lingüística cognitiva
+  computational: Lingüística computacional
+  phylogenetic: Lingüística filogenética
+  similarity: Similitud entre lenguas
+  phonology: Fonología
+  romance: Lenguas romances
+  mozarabic: Mozárabe (romandalusí)
+  ladino: Ladino (judeoespañol)
+  ibero-romance: Iberorromance
+  medieval-castilian: Castellano medieval
+  writing-systems: Sistemas de escritura
+  nlp: Procesamiento del lenguaje natural
+  i18n: Internacionalización (i18n)
+  unicode: Unicode y codificación de caracteres
+  input-methods: Métodos de entrada
+  typesetting: Composición tipográfica digital
+  linux: Linux
+  kernels: Núcleos de sistemas operativos
+  oss: Software de código abierto

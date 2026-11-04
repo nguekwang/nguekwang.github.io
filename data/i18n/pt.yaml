@@ -1,0 +1,68 @@
+# Page text for one language (pt). Every language file must have exactly the same keys,
+# list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
+# Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+
+mt_notice: Esta página foi traduzida automaticamente.
+native: Português
+dir: ltr
+request: Solicitar outro idioma
+pubs_h: Publicações e apresentações
+edu_h: Formação
+contact_h: Contato
+soon: Em breve.
+role: Bacharelado, Escola de Estudos Estrangeiros, Universidade de Osaka, 2026
+edu: Bacharelado em Espanhol, Escola de Estudos Estrangeiros, Universidade de Osaka, 2026
+thesis: Trabalho de conclusão de curso
+email: E-mail
+updated: 'Última atualização: novembro de 2026'
+desc: 'Yoshihiro Matsuura: tipologia linguística e fonologia, quantificação da semelhança interlinguística a partir de inventários fonêmicos.'
+unpublished: (não publicado)
+keywords_h: Palavras-chave
+tagline: Estudo o que é universal na forma como as línguas humanas codificam o significado, usando métodos formais e computacionais em dados interlinguísticos.
+btn_email: Enviar e-mail
+btn_github: GitHub
+interests_h: Interesses de pesquisa
+current_h: Trabalho atual
+current: Quantificar a semelhança entre línguas. Com inventários de fonemas (PHOIBLE) e dados lexicais, meço a proximidade entre línguas e dialetos, começando pelas línguas românicas. O objetivo é uma medida que funcione para muitas línguas, se apoie em estatística explícita e ajude a indicar onde termina um dialeto e começa uma língua.
+projects_h: Projetos
+langs_h: Línguas
+langs: Japonês (nativo), inglês (fluente), espanhol (graduação).
+interests:
+- 'Universais linguísticos e tipologia: o que todas as línguas humanas compartilham e como diferem'
+- Semântica interlinguística, com a semântica formal como teoria e os métodos computacionais como ferramentas
+- Medição da semelhança entre línguas e dialetos (fonologia, léxico)
+- Linguística computacional e filogenética
+- Sistemas de escrita e computação multilíngue (métodos de entrada, internacionalização)
+projects:
+- name: linguasim
+  desc: Conjunto de ferramentas em Python para medir a semelhança entre línguas (em desenvolvimento; publicação em código aberto prevista)
+- name: Modelo de artigo multilíngue
+  desc: Ambiente de escrita baseado em Typst que segue as convenções tipográficas de 20 línguas (em desenvolvimento)
+keywords:
+  typology: Tipologia linguística
+  universals: Universais linguísticos
+  crossling-semantics: Semântica interlinguística
+  formal-semantics: Semântica formal
+  theoretical: Linguística teórica
+  syntax: Sintaxe
+  morphology: Morfologia
+  generative: Gramática gerativa
+  cognitive: Linguística cognitiva
+  computational: Linguística computacional
+  phylogenetic: Linguística filogenética
+  similarity: Semelhança entre línguas
+  phonology: Fonologia
+  romance: Línguas românicas
+  mozarabic: Moçárabe (romance andalusino)
+  ladino: Ladino (judeu-espanhol)
+  ibero-romance: Ibero-romance
+  medieval-castilian: Castelhano medieval
+  writing-systems: Sistemas de escrita
+  nlp: Processamento de linguagem natural
+  i18n: Internacionalização (i18n)
+  unicode: Unicode e codificação de caracteres
+  input-methods: Métodos de entrada
+  typesetting: Composição tipográfica digital
+  linux: Linux
+  kernels: Núcleos de sistemas operacionais
+  oss: Software de código aberto
