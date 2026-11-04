@@ -21,6 +21,7 @@ This repository should read as one whose first language is English.
 ## Content rules
 
 - Do not add a `README.md`.
+- Links that leave the site open in a new tab. The build adds `target="_blank" rel="noopener noreferrer"` to every `http(s)` link outside `site.url` (see `open_external_in_new_tab()` in `tools/build.py`), so do not write `target` or `rel` on links in templates. `mailto:` links, in-page anchors and links between the site's own pages (such as the language menu) stay in the same tab.
 - Do not add content about other people's projects as if they were the owner's work, and do not commit fonts or files the owner has no right to redistribute.
 
 ## Building

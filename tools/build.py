@@ -16,8 +16,12 @@ The check fails when any language file differs in structure from data/i18n/en.ya
 
 The "last updated" footer is filled in from git: the date of the latest commit that changed the
 site (SITE_PATHS), formatted for each language with Babel, linked to that commit on GitHub.
+
+Links that leave the site (http/https URLs outside site.url) open in a new tab: write() adds
+target="_blank" rel="noopener noreferrer" to them in every generated HTML file, so templates
+never need to set it per link. mailto: links and links between the site's own pages are left as they are.
 """
-import datetime, json, os, shutil, subprocess, sys, urllib.parse
+import datetime, json, os, re, shutil, subprocess, sys, urllib.parse
 
 import yaml
 from babel import Locale
@@ -31,6 +35,11 @@ OUT = os.path.join(ROOT, "_site")
 REFERENCE = "en"
 # Keys whose value may be an empty string (an empty value means "do not show").
 MAY_BE_EMPTY = {"mt_notice"}
+# Opening tag of an <a> element; group 1 holds its attributes.
+A_TAG = re.compile(r"<a\b([^>]*)>", re.IGNORECASE)
+HREF = re.compile(r"""\bhref\s*=\s*["']([^"']*)["']""", re.IGNORECASE)
+# Set by main() from site.url; links under it stay in the same tab.
+SITE_URL = None
 # Paths whose changes count as a site update for the "last updated" footer.
 # Workflow files, CLAUDE.md and requirements.txt do not change what visitors see.
 SITE_PATHS = ["data", "templates", "static", "tools"]
@@ -122,7 +131,9 @@ def updated_text(site, code, template, date):
 
 
 def main():
+    global SITE_URL
     site = load("site.yaml")
+    SITE_URL = site["url"].rstrip("/")
     texts = {}
     for code in site["languages"]:
         if os.path.exists(os.path.join(DATA, "i18n", code + ".yaml")):
@@ -238,7 +249,29 @@ def jsonld(site, code, t, title):
     return Markup(json.dumps(data, ensure_ascii=False, indent=1).replace("</", "<\\/"))
 
 
+def is_external(href):
+    """True for an http(s) URL that points outside this site."""
+    if not href.lower().startswith(("http://", "https://")):
+        return False
+    return not (SITE_URL and (href == SITE_URL or href.startswith(SITE_URL + "/")))
+
+
+def open_external_in_new_tab(html):
+    """Add target="_blank" rel="noopener noreferrer" to every <a> that leaves the site."""
+    def fix(m):
+        attrs = m.group(1)
+        href = HREF.search(attrs)
+        if not href or not is_external(href.group(1)) or re.search(r"\btarget\s*=", attrs, re.IGNORECASE):
+            return m.group(0)
+        if re.search(r"\brel\s*=", attrs, re.IGNORECASE):
+            raise SystemExit(f"external link already has rel=, set target/rel in one place: {m.group(0)}")
+        return f'<a{attrs} target="_blank" rel="noopener noreferrer">'
+    return A_TAG.sub(fix, html)
+
+
 def write(rel, text):
+    if rel.endswith(".html"):
+        text = open_external_in_new_tab(text)
     path = os.path.join(OUT, rel)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
