@@ -29,7 +29,7 @@
       <summary>{{ t.native }}</summary>
       <div class="panel">
         <ul>{% for o in langs %}{% if o.code == code %}<li><span lang="{{ o.code }}">{{ o.native }}</span></li>{% else %}<li><a href="../{{ o.code }}/" lang="{{ o.code }}" hreflang="{{ o.code }}">{{ o.native }}</a></li>{% endif %}{% endfor %}</ul>
-        <a class="req" href="{{ request_mailto }}">{{ t.request }}</a>
+        <a class="req" href="{{ request_mailto }}" data-cv="request-lang">{{ t.request }}</a>
       </div>
     </details></nav>
   {% if t.mt_notice %}<p class="mt">{{ t.mt_notice }}</p>{% endif %}
@@ -38,13 +38,13 @@
     <p class="alt" lang="{{ alt_lang }}">{{ alt_name }}</p>
     <p class="role">{{ t.role }}</p>
     <p class="tagline" lang="{{ code }}">{{ t.tagline }}</p>
-    <p class="buttons"><a class="btn" href="mailto:{{ site.email }}">{{ t.btn_email }}</a><a class="btn ghost" href="{{ site.github }}">{{ t.btn_github }}</a></p>
+    <p class="buttons"><a class="btn" href="mailto:{{ site.email }}" data-cv="email-top">{{ t.btn_email }}</a><a class="btn ghost" href="{{ site.github }}" data-cv="github-top">{{ t.btn_github }}</a></p>
   </header>
   <section class="kw">
     <h2>{{ t.keywords_h }}</h2>
     <ul class="keywords">{% for k in site.keywords %}<li>{{ t.keywords[k] }}</li>{% endfor %}</ul>
   </section>
-{% if talks %}  <section class="talks"><div class="carousel">{% for x in talks %}<a class="talk"{% if x.url %} href="{{ x.url }}"{% endif %}><span class="meta">{{ x.date }} / {{ x.venue }}</span><strong>{{ x.title }}</strong></a>{% endfor %}</div></section>
+{% if talks %}  <section class="talks"><div class="carousel">{% for x in talks %}<a class="talk"{% if x.url %} href="{{ x.url }}" data-cv="talk"{% endif %}><span class="meta">{{ x.date }} / {{ x.venue }}</span><strong>{{ x.title }}</strong></a>{% endfor %}</div></section>
 {% endif %}
 
   <section lang="{{ code }}">
@@ -80,14 +80,15 @@
   <section>
     <h2>{{ t.contact_h }}</h2>
     <dl class="contact">
-      <dt>{{ t.email }}</dt><dd><a href="mailto:{{ site.email }}" dir="ltr">{{ site.email }}</a></dd>
-      <dt>GitHub</dt><dd><a href="{{ site.github }}" dir="ltr">{{ site.github | replace("https://", "") }}</a></dd>
+      <dt>{{ t.email }}</dt><dd><a href="mailto:{{ site.email }}" dir="ltr" data-cv="email-contact">{{ site.email }}</a></dd>
+      <dt>GitHub</dt><dd><a href="{{ site.github }}" dir="ltr" data-cv="github-contact">{{ site.github | replace("https://", "") }}</a></dd>
     </dl>
   </section>
 
   <footer>{{ t.updated }}<br><small>&copy; {{ site.copyright_from }}– {{ footer_name }}</small></footer>
 </main>
 <script src="../lang.js"></script>
+<script src="../cv.js"></script>
 <script data-goatcounter="{{ site.goatcounter }}" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
