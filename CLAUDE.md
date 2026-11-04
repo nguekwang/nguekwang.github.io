@@ -11,6 +11,7 @@ This repository should read as one whose first language is English.
   - page text for the Japanese version (`ja/`, the values in `data/i18n/ja.toml`, `ja = ...` entries in `data/keywords.toml`, `title_ja` in `data/site.toml`);
   - personal names (e.g. `松浦 義広`) and language names in the language menu (e.g. `日本語`).
 - Other languages' page text lives in their own `data/i18n/<code>.toml` files and stays in that language.
+- This rule covers repository contents only. Chat with the owner (Claude replies, questions, reports) is in Japanese.
 
 ## Git workflow
 
