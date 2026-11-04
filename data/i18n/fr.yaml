@@ -25,7 +25,10 @@ current_h: Recherches en cours
 current: Quantifier la similarité entre les langues. À partir d'inventaires de phonèmes (PHOIBLE) et de données lexicales, je mesure la proximité entre langues et dialectes, en commençant par les langues romanes. L'objectif est une mesure applicable à de nombreuses langues, fondée sur des statistiques explicites, qui puisse éclairer où s'arrête un dialecte et où commence une langue.
 projects_h: Projets
 langs_h: Langues
-langs: Japonais (langue maternelle), anglais (courant), espagnol (licence, spécialité).
+langs:
+- Japonais (langue maternelle)
+- Anglais (courant)
+- Espagnol (licence, spécialité)
 interests:
 - 'Universaux linguistiques et typologie : ce que partagent toutes les langues humaines et ce qui les distingue'
 - Sémantique interlinguistique, avec la sémantique formelle comme théorie et les méthodes computationnelles comme outils
