@@ -45,7 +45,7 @@ projects:
   desc: Bản đồ tương tác về các ngôn ngữ trên thế giới (đang phát triển)
 - name: Công cụ vẽ cây cú pháp
   desc: Công cụ vẽ cây cú pháp theo ngữ pháp tạo sinh (đang lên ý tưởng)
-- name: Corpora Hub
+- name: Corpus Hub
   desc: Nền tảng thu thập và tra cứu kho ngữ liệu ngôn ngữ (đang lên ý tưởng)
 keywords:
   typology: Loại hình học ngôn ngữ

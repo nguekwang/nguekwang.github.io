@@ -45,7 +45,7 @@ projects:
   desc: Interaktywny atlas języków świata (w przygotowaniu)
 - name: Narzędzie do drzew składniowych
   desc: Narzędzie do rysowania drzew składniowych gramatyki generatywnej (w planach)
-- name: Corpora Hub
+- name: Corpus Hub
   desc: Platforma do gromadzenia i przeszukiwania korpusów językowych (w planach)
 keywords:
   typology: Typologia językowa

@@ -45,7 +45,7 @@ projects:
   desc: Atlas interaktif bahasa-bahasa di dunia (sedang dikembangkan)
 - name: Alat pohon sintaksis
   desc: Alat untuk menggambar pohon sintaksis tata bahasa generatif (direncanakan)
-- name: Corpora Hub
+- name: Corpus Hub
   desc: Wadah untuk mengumpulkan dan mencari korpus bahasa (direncanakan)
 keywords:
   typology: Tipologi bahasa

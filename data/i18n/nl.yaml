@@ -45,7 +45,7 @@ projects:
   desc: Interactieve atlas van de talen van de wereld (in ontwikkeling)
 - name: Syntaxisboomtool
   desc: Tool voor het tekenen van syntaxisbomen in de generatieve grammatica (gepland)
-- name: Corpora Hub
+- name: Corpus Hub
   desc: Platform voor het verzamelen en doorzoeken van taalcorpora (gepland)
 keywords:
   typology: Taaltypologie
