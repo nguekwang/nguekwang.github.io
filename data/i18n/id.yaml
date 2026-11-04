@@ -75,3 +75,18 @@ keywords:
   linux: Linux
   kernels: Kernel sistem operasi
   oss: Perangkat lunak sumber terbuka
+
+# Page about how institution names are written (/<lang>/institution-names/).
+# names_h is also the small link under the background list.
+names_h: "Tentang nama lembaga pendidikan dan penelitian"
+names_intro: "Untuk setiap lembaga dalam riwayat saya, halaman ini menjelaskan apakah nama yang dipakai dalam bahasa ini diterbitkan oleh lembaga itu sendiri atau merupakan terjemahan."
+names_official: "Lembaga ini menerbitkan nama ini dalam bahasa ini."
+names_translated: "Belum ada nama dalam bahasa ini yang diterbitkan, sehingga ini adalah terjemahan makna berdasarkan nama lain."
+names_basis: "Berdasarkan"
+names_source: "Sumber"
+names_back: "Kembali ke profil"
+# Names as written on this language's pages. Status per language: data/institutions.yaml.
+institutions:
+  motomachi-hs: "SMA Kota Hiroshima Motomachi"
+  osaka-u: "Universitas Osaka"
+  osaka-u-sfs: "Fakultas Studi Asing, jurusan Bahasa Spanyol"

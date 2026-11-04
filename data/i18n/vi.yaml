@@ -75,3 +75,18 @@ keywords:
   linux: Linux
   kernels: Nhân hệ điều hành
   oss: Phần mềm nguồn mở
+
+# Page about how institution names are written (/<lang>/institution-names/).
+# names_h is also the small link under the background list.
+names_h: "Về tên gọi của các cơ sở giáo dục và nghiên cứu"
+names_intro: "Với mỗi cơ sở trong phần tiểu sử, trang này cho biết tên dùng bằng ngôn ngữ này do chính cơ sở công bố hay là bản dịch."
+names_official: "Cơ sở đã công bố tên này bằng ngôn ngữ này."
+names_translated: "Chưa có tên nào bằng ngôn ngữ này được công bố, nên đây là bản dịch nghĩa dựa trên một tên khác."
+names_basis: "Dựa trên"
+names_source: "Nguồn"
+names_back: "Quay lại hồ sơ"
+# Names as written on this language's pages. Status per language: data/institutions.yaml.
+institutions:
+  motomachi-hs: "Trường THPT Thành phố Hiroshima Motomachi"
+  osaka-u: "Đại học Osaka"
+  osaka-u-sfs: "Khoa Ngoại ngữ, chuyên ngành tiếng Tây Ban Nha"

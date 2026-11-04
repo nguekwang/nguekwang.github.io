@@ -75,3 +75,18 @@ keywords:
   linux: Linux
   kernels: Besturingssysteemkernels
   oss: Opensourcesoftware
+
+# Page about how institution names are written (/<lang>/institution-names/).
+# names_h is also the small link under the background list.
+names_h: "Over de namen van onderwijs- en onderzoeksinstellingen"
+names_intro: "Voor elke instelling in mijn achtergrond geeft deze pagina aan of de naam in deze taal door de instelling zelf is gepubliceerd of een vertaling is."
+names_official: "De instelling publiceert deze naam in deze taal."
+names_translated: "Er is geen naam in deze taal gepubliceerd; dit is daarom een vertaling van de betekenis op basis van een andere naam."
+names_basis: "Gebaseerd op"
+names_source: "Bron"
+names_back: "Terug naar het profiel"
+# Names as written on this language's pages. Status per language: data/institutions.yaml.
+institutions:
+  motomachi-hs: "Gemeentelijke Motomachi-middelbare school Hiroshima"
+  osaka-u: "Universiteit van Osaka"
+  osaka-u-sfs: "Faculteit Buitenlandse Studies, hoofdvak Spaans"

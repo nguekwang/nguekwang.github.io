@@ -75,3 +75,18 @@ keywords:
   linux: Linux
   kernels: Núcleos de sistemas operativos
   oss: Software de código abierto
+
+# Page about how institution names are written (/<lang>/institution-names/).
+# names_h is also the small link under the background list.
+names_h: "Sobre los nombres de los centros educativos y de investigación"
+names_intro: "Para cada centro de mi trayectoria, esta página indica si el nombre usado en este idioma lo publica el propio centro o es una traducción."
+names_official: "El centro publica este nombre en este idioma."
+names_translated: "No se ha publicado un nombre en este idioma, por lo que es una traducción del significado basada en otro nombre."
+names_basis: "Basado en"
+names_source: "Fuente"
+names_back: "Volver al perfil"
+# Names as written on this language's pages. Status per language: data/institutions.yaml.
+institutions:
+  motomachi-hs: "Instituto Municipal Motomachi de Hiroshima"
+  osaka-u: "Universidad de Osaka"
+  osaka-u-sfs: "Facultad de Estudios Extranjeros, especialidad de Español"

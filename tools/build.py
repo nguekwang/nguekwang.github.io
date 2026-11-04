@@ -5,6 +5,7 @@ All page text lives in YAML under data/:
   data/site.yaml          site-wide settings, names, language order, keyword order
   data/i18n/<code>.yaml   page text for one language
   data/talks.yaml         talks (language-independent)
+  data/institutions.yaml  per institution and language: official name or our translation
 HTML structure lives in templates/. This script only joins the two.
 
 Usage:
@@ -43,6 +44,9 @@ SITE_URL = None
 # Paths whose changes count as a site update for the "last updated" footer.
 # Workflow files, CLAUDE.md and requirements.txt do not change what visitors see.
 SITE_PATHS = ["data", "templates", "static", "tools"]
+# Page that explains how institution names are written, at /<lang>/<NAMES_SLUG>/.
+NAMES_SLUG = "institution-names"
+NAME_STATUSES = {"official", "translated"}
 
 
 def load(*parts):
@@ -76,7 +80,7 @@ def compare(ref, other, path, errors):
         errors.append(f"{path}: empty")
 
 
-def check(site, texts):
+def check(site, texts, institutions):
     errors = []
     i18n_dir = os.path.join(DATA, "i18n")
     on_disk = {f[:-5] for f in os.listdir(i18n_dir) if f.endswith(".yaml")}
@@ -93,9 +97,40 @@ def check(site, texts):
             errors.append(f"data/site.yaml keywords: ids differ from data/i18n/{REFERENCE}.yaml keywords")
         for code, t in texts.items():
             compare(ref, t, code, errors)
+        if set(ref.get("institutions", {})) != set(institutions.get("order", [])):
+            errors.append(f"data/institutions.yaml order: ids differ from data/i18n/{REFERENCE}.yaml institutions")
+    errors += check_institutions(site, institutions)
     for code, t in texts.items():
         if isinstance(t.get("updated"), str) and t["updated"].count("{date}") != 1:
             errors.append(f"{code}.updated: must contain {{date}} exactly once")
+    return errors
+
+
+def check_institutions(site, institutions):
+    """Every institution needs an official/translated entry for every language."""
+    errors = []
+    order = institutions.get("order", [])
+    entries = institutions.get("institutions", {})
+    if len(set(order)) != len(order):
+        errors.append("data/institutions.yaml order: duplicate ids")
+    if set(order) != set(entries):
+        errors.append("data/institutions.yaml: ids in order differ from ids under institutions")
+    langs = set(site["languages"])
+    for iid, inst in entries.items():
+        names = (inst or {}).get("names") or {}
+        where = f"data/institutions.yaml {iid}"
+        for code in langs - names.keys():
+            errors.append(f"{where}.{code}: missing")
+        for code in names.keys() - langs:
+            errors.append(f"{where}.{code}: not a language in data/site.yaml")
+        for code, n in names.items():
+            status = (n or {}).get("status")
+            if status not in NAME_STATUSES:
+                errors.append(f"{where}.{code}: status must be one of {sorted(NAME_STATUSES)}")
+            elif status == "official" and not str(n.get("source", "")).startswith("https://"):
+                errors.append(f"{where}.{code}: official needs a source URL")
+            elif status == "translated" and (n.get("basis") not in names or names[n["basis"]].get("status") != "official"):
+                errors.append(f"{where}.{code}: basis must be a language whose name is official")
     return errors
 
 
@@ -138,7 +173,8 @@ def main():
     for code in site["languages"]:
         if os.path.exists(os.path.join(DATA, "i18n", code + ".yaml")):
             texts[code] = load("i18n", code + ".yaml")
-    errors = check(site, texts)
+    institutions = load("institutions.yaml") or {}
+    errors = check(site, texts, institutions)
     if errors:
         print(f"{len(errors)} problem(s) in data/:", file=sys.stderr)
         for e in errors:
@@ -177,11 +213,29 @@ def main():
             alt_name=site["name"]["latin"] if ja else site["name"]["ja"],
             alt_lang="en" if ja else "ja",
             thesis_title=site["thesis"]["title_ja"] if ja else site["thesis"]["title_en"],
-            thesis_lang="ja" if ja else "en",
+            thesis_lang="ja" if ja else "en", names_slug=NAMES_SLUG,
             footer_name=site["name"]["ja"] if ja else site["name"]["latin_short"],
             request_mailto=f"mailto:{site['email']}?subject={urllib.parse.quote(req['subject'])}&body={urllib.parse.quote(req['body'])}",
         )
         write(os.path.join(code, "index.html"), html)
+
+    names_page = env.get_template("names.html.j2")
+    for code in site["languages"]:
+        t = texts[code]
+        rows = []
+        for iid in institutions["order"]:
+            n = institutions["institutions"][iid]["names"][code]
+            row = {"name": t["institutions"][iid], "status": n["status"], "source": n.get("source")}
+            if n["status"] == "translated":
+                row["basis_name"] = texts[n["basis"]]["institutions"][iid]
+                row["basis_lang"] = n["basis"]
+            rows.append(row)
+        write(os.path.join(code, NAMES_SLUG, "index.html"), names_page.render(
+            site=site, langs=langs, code=code, t=t, rows=rows, slug=NAMES_SLUG,
+            title=f"{t['names_h']} – {site['name']['ja'] if code == 'ja' else site['name']['latin']}",
+            updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
+            footer_name=site["name"]["ja"] if code == "ja" else site["name"]["latin_short"],
+        ))
 
     codes = site["languages"]
     en = texts[REFERENCE]
@@ -190,8 +244,8 @@ def main():
         jsonld=jsonld(site, None, en, site["name"]["latin"])))
     write("llms.txt", env.get_template("llms.txt.j2").render(
         site=site, langs=langs, t=en, keywords=[en["keywords"][k] for k in site["keywords"]]))
-    write("sitemap.xml", env.get_template("sitemap.xml.j2").render(site=site, codes=codes))
-    print(f"built {len(codes)} language pages into _site/")
+    write("sitemap.xml", env.get_template("sitemap.xml.j2").render(site=site, codes=codes, slug=NAMES_SLUG))
+    print(f"built {len(codes)} language pages (and their {NAMES_SLUG}/ pages) into _site/")
 
 
 def jsonld(site, code, t, title):

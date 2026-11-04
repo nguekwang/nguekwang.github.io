@@ -75,3 +75,18 @@ keywords:
   linux: Linux
   kernels: OSカーネル
   oss: オープンソースソフトウェア(OSS)
+
+# Page about how institution names are written (/<lang>/institution-names/).
+# names_h is also the small link under the background list.
+names_h: "教育機関・研究機関の名称について"
+names_intro: "経歴に載せている教育機関・研究機関について、このページの言語で使っている名称が機関の発表したものか、翻訳したものかを示します。"
+names_official: "この言語での名称は機関が発表しています。"
+names_translated: "この言語での名称は発表されていないため、他の名称を基にした意味翻訳になっています。"
+names_basis: "基にした名称"
+names_source: "出典"
+names_back: "プロフィールに戻る"
+# Names as written on this language's pages. Status per language: data/institutions.yaml.
+institutions:
+  motomachi-hs: "広島市立基町高等学校"
+  osaka-u: "大阪大学"
+  osaka-u-sfs: "外国語学部 スペイン語専攻"

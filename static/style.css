@@ -75,3 +75,11 @@ nav { align-items: center; }
    has almost no side bearing, so at footer size it touches the "3". The year and dash sit
    in an LTR <bdi> so the dash stays after the year on right-to-left pages too. */
 .range-dash { margin-left: 0.12em; }
+
+/* Small gray link under the background list to the institution-names page. */
+.note-link { margin: 8px 0 0; font-size: 13px; }
+.note-link a, .back a { color: var(--sub); }
+.back { font-size: 14px; margin: 0 0 16px; }
+.page-h { font-size: 24px; margin: 0 0 16px; }
+.names { margin-top: 20px; }
+.names li { margin-bottom: 18px; }
