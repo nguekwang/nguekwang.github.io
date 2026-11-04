@@ -9,7 +9,6 @@ request: Başka bir dil iste
 pubs_h: Yayınlar ve sunumlar
 edu_h: Eğitim
 contact_h: İletişim
-soon: Yakında.
 role: Lisans, Yabancı Diller Fakültesi, Osaka Üniversitesi, 2026
 edu: İspanyolca Lisans, Yabancı Diller Fakültesi, Osaka Üniversitesi, 2026
 thesis: Bitirme tezi
@@ -22,7 +21,7 @@ tagline: İnsan dillerinin anlamı kodlama biçimindeki evrensel yönleri, dille
 btn_email: E-posta gönder
 btn_github: GitHub
 interests_h: Araştırma ilgi alanları
-current_h: Güncel çalışma
+current_h: Güncel araştırma
 current: Diller arası benzerliğin nicel olarak ölçülmesi. Sesbirim envanterleri (PHOIBLE) ve sözcük verileriyle, Roman dillerinden başlayarak dillerin ve lehçelerin birbirine ne kadar yakın olduğunu ölçüyorum. Amaç, pek çok dil için işe yarayan, açık istatistiklere dayanan ve bir lehçenin nerede bitip bir dilin nerede başladığına ışık tutabilecek bir ölçüt geliştirmek.
 projects_h: Projeler
 langs_h: Diller

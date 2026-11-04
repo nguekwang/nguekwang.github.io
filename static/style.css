@@ -29,7 +29,6 @@ p { margin: 0 0 12px; }
 ul { margin: 0; padding-left: 1.2em; }
 li { margin-bottom: 10px; }
 .meta { color: var(--sub); font-size: 14px; }
-.empty { color: var(--sub); font-size: 14px; }
 dl.contact { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; }
 dl.contact dt { color: var(--sub); font-size: 14px; }
 dl.contact dd { margin: 0; overflow-wrap: anywhere; }
@@ -67,7 +66,6 @@ nav { align-items: center; }
 .buttons { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0 0; }
 .btn { display: inline-block; padding: 8px 16px; border-radius: 999px; background: var(--accent); color: var(--bg); text-decoration: none; font-size: 15px; font-weight: 600; }
 .btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
-h3 { font-size: 15px; margin: 20px 0 8px; }
 .carousel { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
 .talk { flex: 0 0 85%; scroll-snap-align: start; border: 1px solid var(--line); border-radius: 10px; padding: 14px; text-decoration: none; color: var(--text); display: flex; flex-direction: column; gap: 6px; }
 .chooser { list-style: none; padding: 0; columns: 2; margin-top: 24px; } .chooser li { margin-bottom: 8px; }

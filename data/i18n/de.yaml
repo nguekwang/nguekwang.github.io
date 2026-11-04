@@ -9,7 +9,6 @@ request: Weitere Sprache anfragen
 pubs_h: Publikationen und Vorträge
 edu_h: Ausbildung
 contact_h: Kontakt
-soon: Demnächst.
 role: B.A., Fakultät für Fremdsprachenstudien, Universität Osaka, 2026
 edu: B.A. Spanisch, Fakultät für Fremdsprachenstudien, Universität Osaka, 2026
 thesis: Abschlussarbeit
@@ -22,7 +21,7 @@ tagline: Ich untersuche, was an der Art, wie menschliche Sprachen Bedeutung kodi
 btn_email: E-Mail schreiben
 btn_github: GitHub
 interests_h: Forschungsinteressen
-current_h: Aktuelle Arbeit
+current_h: Aktuelle Forschung
 current: Quantifizierung sprachübergreifender Ähnlichkeit. Anhand von Phoneminventaren (PHOIBLE) und Wortschatzdaten messe ich, wie nah Sprachen und Dialekte einander sind, beginnend mit den romanischen Sprachen. Ziel ist ein Maß, das für viele Sprachen funktioniert, auf expliziter Statistik beruht und Hinweise darauf geben kann, wo ein Dialekt endet und eine Sprache beginnt.
 projects_h: Projekte
 langs_h: Sprachen

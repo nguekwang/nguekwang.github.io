@@ -17,6 +17,10 @@
 
 {% for x in t.interests %}- {{ x }}
 {% endfor %}
+## {{ t.pubs_h }}
+
+- {{ t.thesis }}: {{ site.thesis.title_en }} {{ t.unpublished }}
+
 ## {{ t.projects_h }}
 
 {% for p in t.projects %}- {{ p.name }}: {{ p.desc }}
