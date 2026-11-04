@@ -78,7 +78,7 @@
 
   <section lang="{{ code }}">
     <h2>{{ t.langs_h }}</h2>
-    <p>{{ t.langs }}</p>
+    <ul>{% for x in t.langs %}<li>{{ x }}</li>{% endfor %}</ul>
   </section>
 
   <section>

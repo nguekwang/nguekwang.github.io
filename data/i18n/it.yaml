@@ -25,7 +25,10 @@ current_h: Ricerca attuale
 current: Quantificare la somiglianza tra le lingue. Usando inventari fonematici (PHOIBLE) e dati lessicali, misuro quanto sono vicini lingue e dialetti, a partire dalle lingue romanze. L'obiettivo è una misura valida per molte lingue, basata su statistiche esplicite, che aiuti a capire dove finisce un dialetto e comincia una lingua.
 projects_h: Progetti
 langs_h: Lingue
-langs: Giapponese (madrelingua), inglese (fluente), spagnolo (laurea triennale).
+langs:
+- Giapponese (madrelingua)
+- Inglese (fluente)
+- Spagnolo (laurea triennale)
 interests:
 - 'Universali linguistici e tipologia: che cosa hanno in comune tutte le lingue umane e in che cosa differiscono'
 - Semantica interlinguistica, con la semantica formale come teoria e i metodi computazionali come strumenti

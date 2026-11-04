@@ -25,7 +25,10 @@ current_h: Nghiên cứu hiện tại
 current: Định lượng độ tương đồng giữa các ngôn ngữ. Dựa trên bảng âm vị (PHOIBLE) và dữ liệu từ vựng, tôi đo mức độ gần gũi giữa các ngôn ngữ và phương ngữ, bắt đầu từ các ngôn ngữ Rôman. Mục tiêu là một thước đo áp dụng được cho nhiều ngôn ngữ, dựa trên thống kê rõ ràng, và có thể giúp xác định đâu là ranh giới giữa phương ngữ và ngôn ngữ.
 projects_h: Dự án
 langs_h: Ngôn ngữ
-langs: Tiếng Nhật (bản ngữ), tiếng Anh (thành thạo), tiếng Tây Ban Nha (chuyên ngành cử nhân).
+langs:
+- Tiếng Nhật (bản ngữ)
+- Tiếng Anh (thành thạo)
+- Tiếng Tây Ban Nha (chuyên ngành cử nhân)
 interests:
 - 'Phổ quát ngôn ngữ và loại hình học: điểm chung của mọi ngôn ngữ và sự khác biệt giữa chúng'
 - Ngữ nghĩa học liên ngôn ngữ, với ngữ nghĩa học hình thức làm lý thuyết và phương pháp tính toán làm công cụ
