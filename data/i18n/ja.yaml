@@ -43,7 +43,7 @@ projects:
   desc: 言語の類似度を測る Python のツール(開発中、オープンソースで公開予定)
 - name: Languer Map
   desc: 世界の言語のインタラクティブな地図(開発中)
-- name: 構文木作成ツール
+- name: phrase-marker-gen
   desc: 生成文法の構文木を描くツール(構想中)
 - name: Corpus Hub
   desc: 言語コーパスを集めて検索するためのハブ(構想中)

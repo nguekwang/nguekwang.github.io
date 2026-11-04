@@ -43,7 +43,7 @@ projects:
   desc: Python-Toolkit zur Messung von Sprachähnlichkeit (in Entwicklung; Open-Source-Veröffentlichung geplant)
 - name: Languer Map
   desc: Interaktiver Atlas der Sprachen der Welt (in Entwicklung)
-- name: Syntaxbaum-Werkzeug
+- name: phrase-marker-gen
   desc: Werkzeug zum Zeichnen von Syntaxbäumen der generativen Grammatik (in Planung)
 - name: Corpus Hub
   desc: Plattform zum Sammeln und Durchsuchen sprachlicher Korpora (in Planung)

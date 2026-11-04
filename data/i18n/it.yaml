@@ -43,7 +43,7 @@ projects:
   desc: Toolkit Python per misurare la somiglianza tra lingue (in sviluppo; rilascio open source previsto)
 - name: Languer Map
   desc: Atlante interattivo delle lingue del mondo (in sviluppo)
-- name: Strumento per alberi sintattici
+- name: phrase-marker-gen
   desc: Strumento per disegnare alberi sintattici della grammatica generativa (in progetto)
 - name: Corpus Hub
   desc: Piattaforma per raccogliere e consultare corpora linguistici (in progetto)

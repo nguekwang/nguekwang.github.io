@@ -43,7 +43,7 @@ projects:
   desc: Zestaw narzędzi w Pythonie do pomiaru podobieństwa języków (w przygotowaniu; planowane udostępnienie jako open source)
 - name: Languer Map
   desc: Interaktywny atlas języków świata (w przygotowaniu)
-- name: Narzędzie do drzew składniowych
+- name: phrase-marker-gen
   desc: Narzędzie do rysowania drzew składniowych gramatyki generatywnej (w planach)
 - name: Corpus Hub
   desc: Platforma do gromadzenia i przeszukiwania korpusów językowych (w planach)
