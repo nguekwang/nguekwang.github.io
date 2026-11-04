@@ -1,5 +1,5 @@
+# All crawlers, including search engines and AI assistants, may read the whole site.
 User-agent: *
 Allow: /
-Disallow: /tools/
 
 Sitemap: https://nguekwang.github.io/sitemap.xml
