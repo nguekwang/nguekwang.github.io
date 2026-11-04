@@ -45,7 +45,7 @@ projects:
   desc: Atlante interattivo delle lingue del mondo (in sviluppo)
 - name: Strumento per alberi sintattici
   desc: Strumento per disegnare alberi sintattici della grammatica generativa (in progetto)
-- name: Corpora Hub
+- name: Corpus Hub
   desc: Piattaforma per raccogliere e consultare corpora linguistici (in progetto)
 keywords:
   typology: Tipologia linguistica

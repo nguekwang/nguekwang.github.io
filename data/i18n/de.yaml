@@ -45,7 +45,7 @@ projects:
   desc: Interaktiver Atlas der Sprachen der Welt (in Entwicklung)
 - name: Syntaxbaum-Werkzeug
   desc: Werkzeug zum Zeichnen von Syntaxbäumen der generativen Grammatik (in Planung)
-- name: Corpora Hub
+- name: Corpus Hub
   desc: Plattform zum Sammeln und Durchsuchen sprachlicher Korpora (in Planung)
 keywords:
   typology: Sprachtypologie

@@ -45,7 +45,7 @@ projects:
   desc: 세계 언어의 인터랙티브 지도 (개발 중)
 - name: 통사 트리 작성 도구
   desc: 생성문법의 통사 트리를 그리는 도구 (구상 중)
-- name: Corpora Hub
+- name: Corpus Hub
   desc: 언어 코퍼스를 모으고 검색하는 허브 (구상 중)
 keywords:
   typology: 언어 유형론

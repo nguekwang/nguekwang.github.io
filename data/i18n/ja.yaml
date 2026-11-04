@@ -45,7 +45,7 @@ projects:
   desc: 世界の言語のインタラクティブな地図(開発中)
 - name: 構文木作成ツール
   desc: 生成文法の構文木を描くツール(構想中)
-- name: Corpora Hub
+- name: Corpus Hub
   desc: 言語コーパスを集めて検索するためのハブ(構想中)
 keywords:
   typology: 言語類型論

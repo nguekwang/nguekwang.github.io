@@ -45,7 +45,7 @@ projects:
   desc: Dünya dillerinin etkileşimli atlası (geliştirme aşamasında)
 - name: Sözdizim ağacı aracı
   desc: Üretici dilbilgisinde sözdizim ağaçları çizmek için bir araç (planlanıyor)
-- name: Corpora Hub
+- name: Corpus Hub
   desc: Dil derlemlerini toplamak ve aramak için bir merkez (planlanıyor)
 keywords:
   typology: Dil tipolojisi
