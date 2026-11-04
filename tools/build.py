@@ -14,10 +14,11 @@ Usage:
 The check fails when any language file differs in structure from data/i18n/en.yaml
 (missing or extra keys, different list lengths, empty text), so every language shows the same items.
 """
-import os, shutil, sys, urllib.parse
+import json, os, shutil, sys, urllib.parse
 
 import yaml
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
+from markupsafe import Markup
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
@@ -99,7 +100,7 @@ def main():
     req = site["translation_request"]
     env = Environment(
         loader=FileSystemLoader(os.path.join(ROOT, "templates")),
-        autoescape=select_autoescape(["j2"]),
+        autoescape=select_autoescape(["html.j2", "xml.j2"]),
         undefined=StrictUndefined,
         keep_trailing_newline=True,
     )
@@ -110,9 +111,13 @@ def main():
     page = env.get_template("page.html.j2")
     for code in site["languages"]:
         ja = code == "ja"
+        t = texts[code]
+        h1 = site["name"]["ja"] if ja else site["name"]["latin"]
+        title = f"{h1} – {t['keywords']['typology']}"
         html = page.render(
-            site=site, langs=langs, talks=talks, code=code, t=texts[code],
-            h1=site["name"]["ja"] if ja else site["name"]["latin"],
+            site=site, langs=langs, talks=talks, code=code, t=t,
+            h1=h1, title=title,
+            jsonld=jsonld(site, code, t, title),
             alt_name=site["name"]["latin"] if ja else site["name"]["ja"],
             alt_lang="en" if ja else "ja",
             thesis_title=site["thesis"]["title_ja"] if ja else site["thesis"]["title_en"],
@@ -123,9 +128,69 @@ def main():
         write(os.path.join(code, "index.html"), html)
 
     codes = site["languages"]
-    write("index.html", env.get_template("root.html.j2").render(site=site, langs=langs))
+    en = texts[REFERENCE]
+    write("index.html", env.get_template("root.html.j2").render(
+        site=site, langs=langs, title=site["name"]["latin"], description=en["desc"],
+        jsonld=jsonld(site, None, en, site["name"]["latin"])))
+    write("llms.txt", env.get_template("llms.txt.j2").render(
+        site=site, langs=langs, t=en, keywords=[en["keywords"][k] for k in site["keywords"]]))
     write("sitemap.xml", env.get_template("sitemap.xml.j2").render(site=site, codes=codes))
     print(f"built {len(codes)} language pages into _site/")
+
+
+def jsonld(site, code, t, title):
+    """Structured data (schema.org JSON-LD) for one page.
+
+    Every page describes the same Person and WebSite (same @id), so search engines and
+    AI assistants can join the language versions into one entity. `code` is None for the
+    root language chooser.
+    """
+    base = site["url"]
+    name = site["name"]
+    person = {
+        "@type": "Person",
+        "@id": f"{base}/#person",
+        "name": name["latin_short"],
+        "alternateName": [name["latin"], name["ja"], name["nickname"]],
+        "givenName": name["given"],
+        "familyName": name["family"],
+        "url": f"{base}/",
+        "email": f"mailto:{site['email']}",
+        "description": t["desc"],
+        "knowsAbout": [t["keywords"][k] for k in site["keywords"]],
+        "knowsLanguage": site["knows_language"],
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": site["alumni_of"]["name"],
+            "alternateName": site["alumni_of"]["alternate_name"],
+            "url": site["alumni_of"]["url"],
+        },
+        "sameAs": site["same_as"],
+    }
+    website = {
+        "@type": "WebSite",
+        "@id": f"{base}/#website",
+        "url": f"{base}/",
+        "name": name["latin"],
+        "inLanguage": site["languages"],
+        "about": {"@id": f"{base}/#person"},
+    }
+    graph = [website, person]
+    if code is not None:
+        url = f"{base}/{code}/"
+        graph.insert(0, {
+            "@type": "ProfilePage",
+            "@id": f"{url}#page",
+            "url": url,
+            "name": title,
+            "description": t["desc"],
+            "inLanguage": code,
+            "isPartOf": {"@id": f"{base}/#website"},
+            "mainEntity": {"@id": f"{base}/#person"},
+        })
+    data = {"@context": "https://schema.org", "@graph": graph}
+    # Escape "</" so the JSON can never close the surrounding <script> element.
+    return Markup(json.dumps(data, ensure_ascii=False, indent=1).replace("</", "<\\/"))
 
 
 def write(rel, text):

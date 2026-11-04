@@ -34,3 +34,10 @@ All page text lives in YAML under `data/`; HTML structure lives in `templates/`.
 - `pip install -r requirements.txt`, then `python3 tools/build.py --check` checks the data, and `python3 tools/build.py` checks and builds the site into `_site/`.
 - GitHub Actions (`.github/workflows/site.yml`) runs the check and build on every pull request, and on push to `main` builds and deploys to GitHub Pages.
 - When adding a key or a list item, add it to every language file in the same change, or the check fails.
+
+## Search engines and AI assistants
+
+- Every page carries a title, description, Open Graph tags, canonical and hreflang links, and schema.org JSON-LD (`ProfilePage`, `WebSite`, `Person`) built by `jsonld()` in `tools/build.py`. All pages share the same `Person` `@id`, so the language versions read as one person.
+- `same_as` in `data/site.yaml` lists the owner's other profiles (GitHub now; add ORCID and researchmap when they exist).
+- `verification` in `data/site.yaml` holds the Google Search Console and Bing Webmaster Tools tokens (HTML meta tag method).
+- `_site/llms.txt` is a plain-text English summary for AI assistants, generated from `data/i18n/en.yaml`.

@@ -1,0 +1,31 @@
+# {{ site.name.latin }}
+
+> {{ t.desc }}
+
+{{ t.tagline }}
+
+- Name: {{ site.name.latin }} ({{ site.name.ja }})
+- {{ t.role }}
+- Email: {{ site.email }}
+{% for u in site.same_as %}- Profile: {{ u }}
+{% endfor %}
+## {{ t.current_h }}
+
+{{ t.current }}
+
+## {{ t.interests_h }}
+
+{% for x in t.interests %}- {{ x }}
+{% endfor %}
+## {{ t.projects_h }}
+
+{% for p in t.projects %}- {{ p.name }}: {{ p.desc }}
+{% endfor %}
+## {{ t.keywords_h }}
+
+{{ keywords | join(", ") }}
+
+## Pages
+
+{% for o in langs %}- [{{ o.native }}]({{ site.url }}/{{ o.code }}/)
+{% endfor %}

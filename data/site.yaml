@@ -8,6 +8,19 @@ github: https://github.com/nguekwang
 goatcounter: https://nguekwang.goatcounter.com/count
 copyright_from: 2023
 
+# Other profiles of the same person, listed as `sameAs` in the structured data (JSON-LD)
+# so that search engines and AI assistants can tell these accounts belong to one person.
+# Add the ORCID iD URL (https://orcid.org/0000-...) and researchmap URL once they exist.
+same_as:
+  - https://github.com/nguekwang
+
+# Search engine ownership checks (public tokens, safe to commit). Leave empty until needed.
+# Google Search Console: "HTML tag" method, the value of content="..." only.
+# Bing Webmaster Tools: "HTML Meta Tag" method (msvalidate.01), the value of content="..." only.
+verification:
+  google: ""
+  bing: ""
+
 # Language order (as shown in the language menu).
 # To add a language, copy data/i18n/en.yaml to data/i18n/<code>.yaml, translate every value, and add the code here.
 languages: [en, ja, es, fr, ru, zh-Hans, zh-Hant, ar, ko, vi, de, pt, it, nl, tr, id, th, hi, fa, pl, uk]
@@ -46,6 +59,16 @@ name:
   latin: Yoshihiro (Yoshi) MATSUURA
   latin_short: Yoshihiro MATSUURA
   ja: 松浦 義広
+  given: Yoshihiro
+  family: Matsuura
+  nickname: Yoshi
+
+# Facts used only in the structured data (JSON-LD) that search engines and AI assistants read.
+knows_language: [ja, en, es]
+alumni_of:
+  name: The University of Osaka
+  alternate_name: 大阪大学
+  url: https://www.osaka-u.ac.jp/en
 
 thesis:
   title_en: A Quantitative Analysis of Cross-Linguistic Similarity

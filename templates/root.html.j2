@@ -4,11 +4,21 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ site.name.latin }}</title>
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<meta name="author" content="{{ site.name.latin_short }}">
+{% include "verification.html.j2" %}
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.name.latin }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:url" content="{{ site.url }}/">
+<meta name="twitter:card" content="summary">
 <link rel="canonical" href="{{ site.url }}/">
 {% for o in langs %}<link rel="alternate" hreflang="{{ o.code }}" href="{{ site.url }}/{{ o.code }}/">
 {% endfor %}<link rel="alternate" hreflang="x-default" href="{{ site.url }}/">
 <link rel="stylesheet" href="style.css">
+<script type="application/ld+json">{{ jsonld }}</script>
 <script src="redirect.js" data-langs="{{ langs | map(attribute='code') | join(' ') }}"></script>
 </head>
 <body>
