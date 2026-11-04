@@ -59,13 +59,13 @@
   <section>
     <h2>{{ t.pubs_h }}</h2>
     <ul>
-      <li>{{ t.thesis }}: <bdi dir="auto" lang="{{ thesis_lang }}">{{ thesis_title }}</bdi> {{ t.unpublished }}</li>
+      <li>{{ t.thesis }}{{ t.colon }}<bdi dir="auto" lang="{{ thesis_lang }}">{{ thesis_title }}</bdi> {{ t.unpublished }}</li>
     </ul>
   </section>
 
   <section lang="{{ code }}">
     <h2>{{ t.projects_h }}</h2>
-    <ul>{% for p in t.projects %}<li><strong>{{ p.name }}</strong>: {{ p.desc }}</li>{% endfor %}</ul>
+    <ul>{% for p in t.projects %}<li><strong>{{ p.name }}</strong>{{ t.colon }}{{ p.desc }}</li>{% endfor %}</ul>
   </section>
 
   <section>
