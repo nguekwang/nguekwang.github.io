@@ -7,10 +7,12 @@ native: Deutsch
 dir: ltr
 request: Weitere Sprache anfragen
 pubs_h: Publikationen und Vorträge
-edu_h: Ausbildung
+career_h: "Werdegang"
 contact_h: Kontakt
-role: B.A., Fakultät für Fremdsprachenstudien, Universität Osaka, 2026
-edu: B.A. Spanisch, Fakultät für Fremdsprachenstudien, Universität Osaka, 2026
+career:
+- "Geboren 2003 in Hiroshima, Japan"
+- "Schulabschluss, Städtische Motomachi-Oberschule Hiroshima (allgemeiner Zweig, Standardkurs), März 2022"
+- B.A. Spanisch, Fakultät für Fremdsprachenstudien, Universität Osaka, 2026
 thesis: Abschlussarbeit
 email: E-Mail
 updated: 'Zuletzt aktualisiert: {date}'

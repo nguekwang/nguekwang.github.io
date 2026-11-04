@@ -36,7 +36,6 @@
   <header>
     <h1>{{ h1 }}</h1>
     <p class="alt" lang="{{ alt_lang }}">{{ alt_name }}</p>
-    <p class="role">{{ t.role }}</p>
     <p class="tagline" lang="{{ code }}">{{ t.tagline }}</p>
     <p class="buttons"><a class="btn" href="mailto:{{ site.email }}">{{ t.btn_email }}</a><a class="btn ghost" href="{{ site.github }}">{{ t.btn_github }}</a></p>
   </header>
@@ -70,10 +69,8 @@
   </section>
 
   <section>
-    <h2>{{ t.edu_h }}</h2>
-    <ul>
-      <li>{{ t.edu }}</li>
-    </ul>
+    <h2>{{ t.career_h }}</h2>
+    <ul>{% for x in t.career %}<li>{{ x }}</li>{% endfor %}</ul>
   </section>
 
   <section lang="{{ code }}">

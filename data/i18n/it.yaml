@@ -7,10 +7,12 @@ native: Italiano
 dir: ltr
 request: Richiedi un'altra lingua
 pubs_h: Pubblicazioni e presentazioni
-edu_h: Formazione
+career_h: "Percorso"
 contact_h: Contatti
-role: Laurea triennale, Scuola di Studi Stranieri, Università di Osaka, 2026
-edu: Laurea triennale in Spagnolo, Scuola di Studi Stranieri, Università di Osaka, 2026
+career:
+- "Nato nel 2003 a Hiroshima, Giappone"
+- "Diploma di scuola superiore, Liceo municipale Motomachi di Hiroshima (indirizzo generale, percorso standard), marzo 2022"
+- Laurea triennale in Spagnolo, Scuola di Studi Stranieri, Università di Osaka, 2026
 thesis: Tesi di laurea
 email: E-mail
 updated: 'Ultimo aggiornamento: {date}'

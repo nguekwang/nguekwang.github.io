@@ -7,10 +7,12 @@ native: Polski
 dir: ltr
 request: Poproś o inny język
 pubs_h: Publikacje i wystąpienia
-edu_h: Wykształcenie
+career_h: "Życiorys"
 contact_h: Kontakt
-role: Licencjat, Wydział Studiów Zagranicznych, Uniwersytet w Osace, 2026
-edu: Licencjat (język hiszpański), Wydział Studiów Zagranicznych, Uniwersytet w Osace, 2026
+career:
+- "Urodzony w 2003 r. w Hiroszimie (Japonia)"
+- "Świadectwo ukończenia szkoły średniej, Miejskie Liceum Motomachi w Hiroszimie (kierunek ogólny, ścieżka standardowa), marzec 2022 r."
+- Licencjat (język hiszpański), Wydział Studiów Zagranicznych, Uniwersytet w Osace, 2026
 thesis: Praca licencjacka
 email: E-mail
 updated: 'Ostatnia aktualizacja: {date}'

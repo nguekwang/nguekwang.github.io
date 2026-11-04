@@ -7,10 +7,12 @@ native: Bahasa Indonesia
 dir: ltr
 request: Minta bahasa lain
 pubs_h: Publikasi dan presentasi
-edu_h: Pendidikan
+career_h: "Riwayat"
 contact_h: Kontak
-role: Sarjana, Fakultas Studi Asing, Universitas Osaka, 2026
-edu: Sarjana Bahasa Spanyol, Fakultas Studi Asing, Universitas Osaka, 2026
+career:
+- "Lahir tahun 2003 di Hiroshima, Jepang"
+- "Lulus SMA, SMA Kota Hiroshima Motomachi (jurusan umum, program standar), Maret 2022"
+- Sarjana Bahasa Spanyol, Fakultas Studi Asing, Universitas Osaka, 2026
 thesis: Skripsi
 email: Email
 updated: 'Terakhir diperbarui: {date}'

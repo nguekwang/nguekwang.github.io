@@ -7,10 +7,12 @@ native: Nederlands
 dir: ltr
 request: Andere taal aanvragen
 pubs_h: Publicaties en presentaties
-edu_h: Opleiding
+career_h: "Achtergrond"
 contact_h: Contact
-role: B.A., Faculteit Buitenlandse Studies, Universiteit van Osaka, 2026
-edu: B.A. Spaans, Faculteit Buitenlandse Studies, Universiteit van Osaka, 2026
+career:
+- "Geboren in 2003 in Hiroshima, Japan"
+- "Middelbareschooldiploma, Gemeentelijke Motomachi-middelbare school Hiroshima (algemene richting, standaardtraject), maart 2022"
+- B.A. Spaans, Faculteit Buitenlandse Studies, Universiteit van Osaka, 2026
 thesis: Scriptie
 email: E-mail
 updated: 'Laatst bijgewerkt: {date}'
