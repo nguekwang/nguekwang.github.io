@@ -41,7 +41,7 @@ interests:
 projects:
 - name: linguasim
   desc: Bộ công cụ Python để đo độ tương đồng giữa các ngôn ngữ (đang phát triển; dự kiến phát hành mã nguồn mở)
-- name: languer-map
+- name: Languer Map
   desc: Bản đồ tương tác về các ngôn ngữ trên thế giới (đang phát triển)
 - name: Công cụ vẽ cây cú pháp
   desc: Công cụ vẽ cây cú pháp theo ngữ pháp tạo sinh (đang lên ý tưởng)

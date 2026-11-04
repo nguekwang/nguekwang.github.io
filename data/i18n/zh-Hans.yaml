@@ -41,7 +41,7 @@ interests:
 projects:
 - name: linguasim
   desc: 用于测量语言相似度的 Python 工具包（开发中，计划开源）
-- name: languer-map
+- name: Languer Map
   desc: 世界语言的交互式地图（开发中）
 - name: 句法树绘制工具
   desc: 用于绘制生成语法句法树的工具（构想中）

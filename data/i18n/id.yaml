@@ -41,7 +41,7 @@ interests:
 projects:
 - name: linguasim
   desc: Perangkat Python untuk mengukur kemiripan bahasa (sedang dikembangkan; direncanakan dirilis sebagai sumber terbuka)
-- name: languer-map
+- name: Languer Map
   desc: Atlas interaktif bahasa-bahasa di dunia (sedang dikembangkan)
 - name: Alat pohon sintaksis
   desc: Alat untuk menggambar pohon sintaksis tata bahasa generatif (direncanakan)

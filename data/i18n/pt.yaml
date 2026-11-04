@@ -41,7 +41,7 @@ interests:
 projects:
 - name: linguasim
   desc: Conjunto de ferramentas em Python para medir a semelhança entre línguas (em desenvolvimento; publicação em código aberto prevista)
-- name: languer-map
+- name: Languer Map
   desc: Atlas interativo das línguas do mundo (em desenvolvimento)
 - name: Ferramenta de árvores sintáticas
   desc: Ferramenta para desenhar árvores sintáticas da gramática gerativa (em planejamento)
