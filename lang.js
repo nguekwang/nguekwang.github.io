@@ -1,4 +1,4 @@
-// 言語メニュー: メニューの外をクリックしたら閉じる
+// Language menu: close it when the user clicks outside the menu
 (function () {
   var menu = document.querySelector('.langmenu');
   if (!menu) return;

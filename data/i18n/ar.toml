@@ -1,6 +1,6 @@
-# العربية (ar) の文言。
+# Page text in العربية (ar).
 
-mt_notice = "تُرجمت هذه الصفحة آليًا."  # 機械翻訳の注記。空なら出さない(本人確認済み)
+mt_notice = "تُرجمت هذه الصفحة آليًا."  # machine-translation notice; not shown when empty (reviewed by the site owner)
 native = "العربية"
 dir = "rtl"
 request = "طلب لغة أخرى"

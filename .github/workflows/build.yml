@@ -1,4 +1,4 @@
-# data/ か tools/ を変えて push すると、ページを作り直して自動でコミットする。
+# When a push changes data/ or tools/, rebuild the pages and commit them automatically.
 name: build
 on:
   push:

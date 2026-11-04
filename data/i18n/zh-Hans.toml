@@ -1,6 +1,6 @@
-# 简体中文 (zh-Hans) の文言。
+# Page text in 简体中文 (zh-Hans).
 
-mt_notice = "本页面为机器翻译。"  # 機械翻訳の注記。空なら出さない(本人確認済み)
+mt_notice = "本页面为机器翻译。"  # machine-translation notice; not shown when empty (reviewed by the site owner)
 native = "简体中文"
 dir = "ltr"
 request = "申请其他语言版本"

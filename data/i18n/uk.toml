@@ -1,6 +1,6 @@
-# Українська (uk) の文言。
+# Page text in Українська (uk).
 
-mt_notice = "Цю сторінку перекладено машинно."  # 機械翻訳の注記。空なら出さない(本人確認済み)
+mt_notice = "Цю сторінку перекладено машинно."  # machine-translation notice; not shown when empty (reviewed by the site owner)
 native = "Українська"
 dir = "ltr"
 request = "Запросити іншу мову"

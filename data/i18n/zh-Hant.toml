@@ -1,6 +1,6 @@
-# 繁體中文 (zh-Hant) の文言。
+# Page text in 繁體中文 (zh-Hant).
 
-mt_notice = "本頁面為機器翻譯。"  # 機械翻訳の注記。空なら出さない(本人確認済み)
+mt_notice = "本頁面為機器翻譯。"  # machine-translation notice; not shown when empty (reviewed by the site owner)
 native = "繁體中文"
 dir = "ltr"
 request = "申請其他語言版本"

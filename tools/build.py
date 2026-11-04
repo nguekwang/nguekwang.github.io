@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""全言語のトップページを生成する。使い方: python3 tools/build.py
-英語はサイト直下(/)、ほかの言語は /<言語コード>/ に出力する。"""
+"""Generate the top page for every language. Usage: python3 tools/build.py
+Each language is written to /<language code>/; the site root (/) is a language chooser."""
 import html, os, sys, urllib.parse
 sys.path.insert(0, os.path.dirname(__file__))
 from content import LANGS, NEW, TALKS, KEYWORDS, UNPUB, SITE_CONF as C
@@ -138,7 +138,7 @@ for L in LANGS:
         f.write(page(L))
 print(f"{len(LANGS)} pages")
 
-# サイト直下(/)は言語の振り分けページ。ブラウザの言語に合う版へ移動し、?ref= などはそのまま引き継ぐ
+# The site root (/) is a language chooser: it redirects to the version matching the browser language, keeping ?ref= and other query parameters
 codes = [o["code"] for o in LANGS]
 links = "".join(f'<li><a href="{o["code"]}/" lang="{o["code"]}" hreflang="{o["code"]}">{E(o["native"])}</a></li>' for o in LANGS)
 alts = "\n".join(f'<link rel="alternate" hreflang="{o["code"]}" href="{SITE}/{o["code"]}/">' for o in LANGS)

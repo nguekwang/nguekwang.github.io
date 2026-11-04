@@ -1,6 +1,6 @@
-# 한국어 (ko) の文言。
+# Page text in 한국어 (ko).
 
-mt_notice = "이 페이지는 기계 번역되었습니다."  # 機械翻訳の注記。空なら出さない(本人確認済み)
+mt_notice = "이 페이지는 기계 번역되었습니다."  # machine-translation notice; not shown when empty (reviewed by the site owner)
 native = "한국어"
 dir = "ltr"
 request = "다른 언어 요청"

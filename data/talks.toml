@@ -1,7 +1,7 @@
-# 最新の発表。新しいものを上に、1件 = 1つの [[talk]]。
-# 例:
+# Latest talks. Newest first; one talk = one [[talk]] entry.
+# Example:
 # [[talk]]
 # date = "2027-03-15"
-# title = "発表タイトル"
-# venue = "学会名"
-# url = "https://..."   # 発表資料(なければ省略)
+# title = "Talk title"
+# venue = "Conference name"
+# url = "https://..."   # slides or handout (omit if none)
