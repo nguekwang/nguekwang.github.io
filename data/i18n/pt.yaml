@@ -43,7 +43,7 @@ projects:
   desc: Conjunto de ferramentas em Python para medir a semelhança entre línguas (em desenvolvimento; publicação em código aberto prevista)
 - name: languer-map
   desc: Atlas interativo das línguas do mundo (em desenvolvimento)
-- name: syntax-tree
+- name: phrase-marker-gen
   desc: Ferramenta para desenhar árvores sintáticas da gramática gerativa (em planejamento)
 - name: Corpora Hub
   desc: Plataforma para reunir e consultar corpora linguísticos (em planejamento)

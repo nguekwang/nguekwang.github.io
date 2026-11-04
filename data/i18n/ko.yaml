@@ -43,7 +43,7 @@ projects:
   desc: 언어 유사도를 측정하는 Python 도구 모음 (개발 중, 오픈 소스 공개 예정)
 - name: languer-map
   desc: 세계 언어의 인터랙티브 지도 (개발 중)
-- name: syntax-tree
+- name: phrase-marker-gen
   desc: 생성문법의 통사 트리를 그리는 도구 (구상 중)
 - name: Corpora Hub
   desc: 언어 코퍼스를 모으고 검색하는 허브 (구상 중)

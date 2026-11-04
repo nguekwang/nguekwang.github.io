@@ -43,7 +43,7 @@ projects:
   desc: Bộ công cụ Python để đo độ tương đồng giữa các ngôn ngữ (đang phát triển; dự kiến phát hành mã nguồn mở)
 - name: languer-map
   desc: Bản đồ tương tác về các ngôn ngữ trên thế giới (đang phát triển)
-- name: syntax-tree
+- name: phrase-marker-gen
   desc: Công cụ vẽ cây cú pháp theo ngữ pháp tạo sinh (đang lên ý tưởng)
 - name: Corpora Hub
   desc: Nền tảng thu thập và tra cứu kho ngữ liệu ngôn ngữ (đang lên ý tưởng)
