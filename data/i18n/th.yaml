@@ -75,3 +75,18 @@ keywords:
   linux: Linux
   kernels: เคอร์เนลระบบปฏิบัติการ
   oss: ซอฟต์แวร์โอเพนซอร์ส
+
+# Page about how institution names are written (/<lang>/institution-names/).
+# names_h is also the small link under the background list.
+names_h: "เกี่ยวกับชื่อสถาบันการศึกษาและสถาบันวิจัย"
+names_intro: "หน้านี้ระบุว่าชื่อของแต่ละสถาบันในประวัติที่ใช้ในภาษานี้ เป็นชื่อที่สถาบันประกาศเองหรือเป็นคำแปล"
+names_official: "สถาบันประกาศชื่อนี้ในภาษานี้"
+names_translated: "ยังไม่มีการประกาศชื่อในภาษานี้ ชื่อนี้จึงเป็นการแปลความหมายจากชื่ออื่น"
+names_basis: "อ้างอิงจาก"
+names_source: "แหล่งที่มา"
+names_back: "กลับไปที่โปรไฟล์"
+# Names as written on this language's pages. Status per language: data/institutions.yaml.
+institutions:
+  motomachi-hs: "โรงเรียนมัธยมปลายเทศบาลโมโตมาจิ ฮิโรชิมะ"
+  osaka-u: "มหาวิทยาลัยโอซากะ"
+  osaka-u-sfs: "คณะการศึกษาต่างประเทศ สาขาภาษาสเปน"

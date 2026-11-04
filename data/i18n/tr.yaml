@@ -75,3 +75,18 @@ keywords:
   linux: Linux
   kernels: İşletim sistemi çekirdekleri
   oss: Açık kaynak yazılım
+
+# Page about how institution names are written (/<lang>/institution-names/).
+# names_h is also the small link under the background list.
+names_h: "Eğitim ve araştırma kurumlarının adları hakkında"
+names_intro: "Bu sayfa, geçmişimdeki her kurum için bu dilde kullanılan adın kurumun kendisi tarafından yayımlanıp yayımlanmadığını, yoksa bir çeviri mi olduğunu belirtir."
+names_official: "Kurum bu adı bu dilde yayımlamaktadır."
+names_translated: "Bu dilde yayımlanmış bir ad bulunmadığından, bu ad başka bir ada dayanan anlam çevirisidir."
+names_basis: "Dayandığı ad"
+names_source: "Kaynak"
+names_back: "Profile dön"
+# Names as written on this language's pages. Status per language: data/institutions.yaml.
+institutions:
+  motomachi-hs: "Hiroşima Belediyesi Motomachi Lisesi"
+  osaka-u: "Osaka Üniversitesi"
+  osaka-u-sfs: "Yabancı Diller Fakültesi, İspanyolca bölümü"

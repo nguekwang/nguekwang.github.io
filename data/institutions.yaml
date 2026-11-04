@@ -1,0 +1,86 @@
+# Institutions named in the background section, and for each language whether the name on
+# that language's page is published by the institution itself or is our own translation.
+# Shown on /<lang>/institution-names/. The name in each language lives in
+# data/i18n/<code>.yaml under `institutions:` (same ids as here).
+#
+# For every institution, `names` must list every language in data/site.yaml `languages`:
+#   official:   the institution publishes this name in this language. `source` is the URL of
+#               the page where it does.
+#   translated: no name in this language is published, so ours is a translation of meaning.
+#               `basis` is the language code of the published (official) name it is based on.
+# Checked 2026-11-04 against the institutions' own sites (high school: Japanese only;
+# university: ja, en, zh-Hans, ko; faculty and major: ja, en).
+# `python3 tools/build.py --check` enforces this.
+
+order: [motomachi-hs, osaka-u, osaka-u-sfs]
+
+institutions:
+  motomachi-hs:
+    names:
+      ja: {status: official, source: "https://www.city.hiroshima.lg.jp/facility/school/1031782/index.html"}
+      en: {status: translated, basis: ja}
+      es: {status: translated, basis: ja}
+      fr: {status: translated, basis: ja}
+      ru: {status: translated, basis: ja}
+      zh-Hans: {status: translated, basis: ja}
+      zh-Hant: {status: translated, basis: ja}
+      ar: {status: translated, basis: ja}
+      ko: {status: translated, basis: ja}
+      vi: {status: translated, basis: ja}
+      de: {status: translated, basis: ja}
+      pt: {status: translated, basis: ja}
+      it: {status: translated, basis: ja}
+      nl: {status: translated, basis: ja}
+      tr: {status: translated, basis: ja}
+      id: {status: translated, basis: ja}
+      th: {status: translated, basis: ja}
+      hi: {status: translated, basis: ja}
+      fa: {status: translated, basis: ja}
+      pl: {status: translated, basis: ja}
+      uk: {status: translated, basis: ja}
+  osaka-u:
+    names:
+      ja: {status: official, source: "https://www.osaka-u.ac.jp/ja"}
+      en: {status: official, source: "https://www.osaka-u.ac.jp/en/news/topics/2024/11/27001"}
+      es: {status: translated, basis: en}
+      fr: {status: translated, basis: en}
+      ru: {status: translated, basis: en}
+      zh-Hans: {status: official, source: "https://www.osaka-u.ac.jp/zh"}
+      zh-Hant: {status: translated, basis: zh-Hans}
+      ar: {status: translated, basis: en}
+      ko: {status: official, source: "https://www.osaka-u.ac.jp/ko"}
+      vi: {status: translated, basis: en}
+      de: {status: translated, basis: en}
+      pt: {status: translated, basis: en}
+      it: {status: translated, basis: en}
+      nl: {status: translated, basis: en}
+      tr: {status: translated, basis: en}
+      id: {status: translated, basis: en}
+      th: {status: translated, basis: en}
+      hi: {status: translated, basis: en}
+      fa: {status: translated, basis: en}
+      pl: {status: translated, basis: en}
+      uk: {status: translated, basis: en}
+  osaka-u-sfs:
+    names:
+      ja: {status: official, source: "https://www.sfs.osaka-u.ac.jp/"}
+      en: {status: official, source: "https://www.sfs.osaka-u.ac.jp/en/"}
+      es: {status: translated, basis: en}
+      fr: {status: translated, basis: en}
+      ru: {status: translated, basis: en}
+      zh-Hans: {status: translated, basis: ja}
+      zh-Hant: {status: translated, basis: ja}
+      ar: {status: translated, basis: en}
+      ko: {status: translated, basis: ja}
+      vi: {status: translated, basis: en}
+      de: {status: translated, basis: en}
+      pt: {status: translated, basis: en}
+      it: {status: translated, basis: en}
+      nl: {status: translated, basis: en}
+      tr: {status: translated, basis: en}
+      id: {status: translated, basis: en}
+      th: {status: translated, basis: en}
+      hi: {status: translated, basis: en}
+      fa: {status: translated, basis: en}
+      pl: {status: translated, basis: en}
+      uk: {status: translated, basis: en}

@@ -75,3 +75,18 @@ keywords:
   linux: Linux
   kernels: هستهٔ سیستم‌عامل
   oss: نرم‌افزار متن‌باز
+
+# Page about how institution names are written (/<lang>/institution-names/).
+# names_h is also the small link under the background list.
+names_h: "دربارهٔ نام مؤسسه‌های آموزشی و پژوهشی"
+names_intro: "این صفحه برای هر مؤسسه در سوابق من نشان می‌دهد که نام به‌کاررفته در این زبان را خود مؤسسه منتشر کرده است یا ترجمه است."
+names_official: "مؤسسه این نام را به این زبان منتشر کرده است."
+names_translated: "نامی به این زبان منتشر نشده است، بنابراین این ترجمهٔ معنایی بر پایهٔ نامی دیگر است."
+names_basis: "بر پایهٔ"
+names_source: "منبع"
+names_back: "بازگشت به نمایه"
+# Names as written on this language's pages. Status per language: data/institutions.yaml.
+institutions:
+  motomachi-hs: "دبیرستان شهری موتوماچی هیروشیما"
+  osaka-u: "دانشگاه اوساکا"
+  osaka-u-sfs: "دانشکدهٔ مطالعات خارجی، رشتهٔ زبان اسپانیایی"
