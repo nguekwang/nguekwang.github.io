@@ -12,6 +12,7 @@ contact_h: Contact
 role: Licence, École des études étrangères, Université d'Osaka, 2026
 edu: Licence d'espagnol, École des études étrangères, Université d'Osaka, 2026
 thesis: Mémoire
+colon: "\u00a0: "
 email: E-mail
 updated: 'Dernière mise à jour : {date}'
 desc: 'Yoshihiro Matsuura : typologie linguistique et phonologie, quantification de la similarité interlinguistique à partir des inventaires phonémiques.'

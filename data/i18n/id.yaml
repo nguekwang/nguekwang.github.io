@@ -12,6 +12,7 @@ contact_h: Kontak
 role: Sarjana, Fakultas Studi Asing, Universitas Osaka, 2026
 edu: Sarjana Bahasa Spanyol, Fakultas Studi Asing, Universitas Osaka, 2026
 thesis: Skripsi
+colon: ': '
 email: Email
 updated: 'Terakhir diperbarui: {date}'
 desc: 'Yoshihiro Matsuura: tipologi bahasa dan fonologi, pengukuran kemiripan antarbahasa secara kuantitatif dari inventaris fonem.'

@@ -12,6 +12,7 @@ contact_h: Contact
 role: B.A., Faculteit Buitenlandse Studies, Universiteit van Osaka, 2026
 edu: B.A. Spaans, Faculteit Buitenlandse Studies, Universiteit van Osaka, 2026
 thesis: Scriptie
+colon: ': '
 email: E-mail
 updated: 'Laatst bijgewerkt: {date}'
 desc: 'Yoshihiro Matsuura: taaltypologie en fonologie, het kwantificeren van gelijkenis tussen talen op basis van foneeminventarissen.'

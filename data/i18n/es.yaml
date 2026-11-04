@@ -12,6 +12,7 @@ contact_h: Contacto
 role: Graduado, Facultad de Estudios Extranjeros, Universidad de Osaka, 2026
 edu: Grado en Español, Facultad de Estudios Extranjeros, Universidad de Osaka, 2026
 thesis: Trabajo de fin de grado
+colon: ': '
 email: Correo
 updated: 'Última actualización: {date}'
 desc: 'Yoshihiro Matsuura: tipología lingüística y fonología; cuantificación de la similitud interlingüística a partir de inventarios fonémicos.'

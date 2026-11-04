@@ -12,6 +12,7 @@ contact_h: Contato
 role: Bacharelado, Escola de Estudos Estrangeiros, Universidade de Osaka, 2026
 edu: Bacharelado em Espanhol, Escola de Estudos Estrangeiros, Universidade de Osaka, 2026
 thesis: Trabalho de conclusão de curso
+colon: ': '
 email: E-mail
 updated: 'Última atualização: {date}'
 desc: 'Yoshihiro Matsuura: tipologia linguística e fonologia, quantificação da semelhança interlinguística a partir de inventários fonêmicos.'
