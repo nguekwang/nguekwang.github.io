@@ -7,10 +7,12 @@ native: English
 dir: ltr
 request: Request another language
 pubs_h: Publications & Presentations
-edu_h: Education
+career_h: "Background"
 contact_h: Contact
-role: B.A., School of Foreign Studies, The University of Osaka, 2026
-edu: B.A. in Spanish, School of Foreign Studies, The University of Osaka, 2026
+career:
+- "Born in December 2003 in Hiroshima, Japan"
+- "Graduated, Hiroshima Municipal Motomachi High School (general course, standard track), March 2022"
+- B.A. in Spanish, School of Foreign Studies, The University of Osaka, March 2026
 thesis: Thesis
 email: Email
 updated: 'Last updated: {date}'

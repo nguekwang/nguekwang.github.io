@@ -7,10 +7,12 @@ native: Português
 dir: ltr
 request: Solicitar outro idioma
 pubs_h: Publicações e apresentações
-edu_h: Formação
+career_h: "Trajetória"
 contact_h: Contato
-role: Bacharelado, Escola de Estudos Estrangeiros, Universidade de Osaka, 2026
-edu: Bacharelado em Espanhol, Escola de Estudos Estrangeiros, Universidade de Osaka, 2026
+career:
+- "Nascido em dezembro de 2003 em Hiroshima, Japão"
+- "Ensino médio, Escola Secundária Municipal Motomachi de Hiroshima (curso geral, percurso padrão), março de 2022"
+- Bacharelado em Espanhol, Escola de Estudos Estrangeiros, Universidade de Osaka, março de 2026
 thesis: Trabalho de conclusão de curso
 email: E-mail
 updated: 'Última atualização: {date}'

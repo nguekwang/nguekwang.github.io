@@ -16,7 +16,7 @@ This repository should read as one whose first language is English.
 ## Git workflow
 
 - Never push to `main` directly. Create a branch and open a pull request for every change, so the owner can review it first.
-- Before committing, check that nothing personal is added beyond what the site already shows publicly (no phone number, address, birth date, or private email addresses).
+- Before committing, check that nothing personal is added beyond what the site already shows publicly (no phone number, address, full birth date, or private email addresses). The birth month and year and home city in the background section were added at the owner's request.
 
 ## Content rules
 

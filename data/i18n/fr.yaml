@@ -7,10 +7,12 @@ native: Français
 dir: ltr
 request: Demander une autre langue
 pubs_h: Publications et communications
-edu_h: Formation
+career_h: "Parcours"
 contact_h: Contact
-role: Licence, École des études étrangères, Université d'Osaka, 2026
-edu: Licence d'espagnol, École des études étrangères, Université d'Osaka, 2026
+career:
+- "Né en décembre 2003 à Hiroshima, Japon"
+- "Diplôme de fin d'études secondaires, lycée municipal Motomachi de Hiroshima (filière générale, parcours standard), mars 2022"
+- Licence d'espagnol, École des études étrangères, Université d'Osaka, mars 2026
 thesis: Mémoire
 email: E-mail
 updated: 'Dernière mise à jour : {date}'

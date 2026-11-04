@@ -7,10 +7,12 @@ native: Español
 dir: ltr
 request: Solicitar otro idioma
 pubs_h: Publicaciones y presentaciones
-edu_h: Formación
+career_h: "Trayectoria"
 contact_h: Contacto
-role: Graduado, Facultad de Estudios Extranjeros, Universidad de Osaka, 2026
-edu: Grado en Español, Facultad de Estudios Extranjeros, Universidad de Osaka, 2026
+career:
+- "Nacido en diciembre de 2003 en Hiroshima, Japón"
+- "Bachillerato, Instituto Municipal Motomachi de Hiroshima (rama general, itinerario estándar), marzo de 2022"
+- Grado en Español, Facultad de Estudios Extranjeros, Universidad de Osaka, marzo de 2026
 thesis: Trabajo de fin de grado
 email: Correo
 updated: 'Última actualización: {date}'

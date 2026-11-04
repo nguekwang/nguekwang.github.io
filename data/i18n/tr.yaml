@@ -7,10 +7,12 @@ native: Türkçe
 dir: ltr
 request: Başka bir dil iste
 pubs_h: Yayınlar ve sunumlar
-edu_h: Eğitim
+career_h: "Özgeçmiş"
 contact_h: İletişim
-role: Lisans, Yabancı Diller Fakültesi, Osaka Üniversitesi, 2026
-edu: İspanyolca Lisans, Yabancı Diller Fakültesi, Osaka Üniversitesi, 2026
+career:
+- "Aralık 2003, Hiroşima (Japonya) doğumlu"
+- "Lise, Hiroşima Belediyesi Motomachi Lisesi (genel bölüm, standart program), Mart 2022"
+- İspanyolca Lisans, Yabancı Diller Fakültesi, Osaka Üniversitesi, Mart 2026
 thesis: Bitirme tezi
 email: E-posta
 updated: 'Son güncelleme: {date}'

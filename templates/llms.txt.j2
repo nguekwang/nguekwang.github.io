@@ -5,7 +5,6 @@
 {{ t.tagline }}
 
 - Name: {{ site.name.latin }} ({{ site.name.ja }})
-- {{ t.role }}
 - Email: {{ site.email }}
 {% for u in site.same_as %}- Profile: {{ u }}
 {% endfor %}
@@ -16,6 +15,10 @@
 ## {{ t.interests_h }}
 
 {% for x in t.interests %}- {{ x }}
+{% endfor %}
+## {{ t.career_h }}
+
+{% for x in t.career %}- {{ x }}
 {% endfor %}
 ## {{ t.pubs_h }}
 

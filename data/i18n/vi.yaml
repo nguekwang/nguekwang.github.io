@@ -7,10 +7,12 @@ native: Tiếng Việt
 dir: ltr
 request: Yêu cầu ngôn ngữ khác
 pubs_h: Công bố và báo cáo
-edu_h: Học vấn
+career_h: "Tiểu sử"
 contact_h: Liên hệ
-role: Cử nhân, Khoa Ngoại ngữ, Đại học Osaka, 2026
-edu: Cử nhân tiếng Tây Ban Nha, Khoa Ngoại ngữ, Đại học Osaka, 2026
+career:
+- "Sinh tháng 12 năm 2003 tại Hiroshima, Nhật Bản"
+- "Tốt nghiệp THPT, Trường THPT Thành phố Hiroshima Motomachi (ban phổ thông, chương trình tiêu chuẩn), tháng 3 năm 2022"
+- Cử nhân tiếng Tây Ban Nha, Khoa Ngoại ngữ, Đại học Osaka, tháng 3 năm 2026
 thesis: Khóa luận tốt nghiệp
 email: Email
 updated: 'Cập nhật lần cuối: {date}'
