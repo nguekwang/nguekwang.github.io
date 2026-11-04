@@ -14,7 +14,7 @@ role: 大阪大學外國語學部 學士(2026)
 edu: 大阪大學外國語學部 西班牙語專業 學士(2026)
 thesis: 畢業論文
 email: 電子郵件
-updated: 最後更新：2026年11月
+updated: '最後更新：{date}'
 desc: 松浦義廣：語言類型學與音韻學，基於音位庫存的跨語言相似度定量研究。
 unpublished: （未公開）
 keywords_h: 關鍵詞

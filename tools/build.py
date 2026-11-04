@@ -13,10 +13,15 @@ Usage:
 
 The check fails when any language file differs in structure from data/i18n/en.yaml
 (missing or extra keys, different list lengths, empty text), so every language shows the same items.
+
+The "last updated" footer is filled in from git: the date of the latest commit that changed the
+site (SITE_PATHS), formatted for each language with Babel, linked to that commit on GitHub.
 """
-import json, os, shutil, sys, urllib.parse
+import datetime, json, os, shutil, subprocess, sys, urllib.parse
 
 import yaml
+from babel import Locale
+from babel.dates import format_skeleton
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
 from markupsafe import Markup
 
@@ -26,6 +31,9 @@ OUT = os.path.join(ROOT, "_site")
 REFERENCE = "en"
 # Keys whose value may be an empty string (an empty value means "do not show").
 MAY_BE_EMPTY = {"mt_notice"}
+# Paths whose changes count as a site update for the "last updated" footer.
+# Workflow files, CLAUDE.md and requirements.txt do not change what visitors see.
+SITE_PATHS = ["data", "templates", "static", "tools"]
 
 
 def load(*parts):
@@ -76,7 +84,41 @@ def check(site, texts):
             errors.append(f"data/site.yaml keywords: ids differ from data/i18n/{REFERENCE}.yaml keywords")
         for code, t in texts.items():
             compare(ref, t, code, errors)
+    for code, t in texts.items():
+        if isinstance(t.get("updated"), str) and t["updated"].count("{date}") != 1:
+            errors.append(f"{code}.updated: must contain {{date}} exactly once")
     return errors
+
+
+def last_change():
+    """Return (sha, date) of the latest commit that changed SITE_PATHS, or (None, today).
+
+    Merge commits that only bring in an already-listed change are skipped by git's history
+    simplification, so the link points at the commit that holds the actual diff.
+    """
+    try:
+        shallow = subprocess.run(["git", "rev-parse", "--is-shallow-repository"], cwd=ROOT,
+                                 capture_output=True, text=True, check=True).stdout.strip()
+        if shallow == "true":
+            print("warning: shallow clone, the last-updated commit may be wrong "
+                  "(use fetch-depth: 0)", file=sys.stderr)
+        out = subprocess.run(["git", "log", "-1", "--format=%H %cs", "--", *SITE_PATHS], cwd=ROOT,
+                             capture_output=True, text=True, check=True).stdout.split()
+        if len(out) == 2:
+            return out[0], datetime.date.fromisoformat(out[1])
+    except (OSError, subprocess.CalledProcessError):
+        pass
+    print("warning: no git history, the last-updated date is today and has no link", file=sys.stderr)
+    return None, datetime.date.today()
+
+
+def updated_text(site, code, template, date):
+    """Fill {date} with the month and year in the language's own format (e.g. 2026年11月)."""
+    text = format_skeleton("yMMMM", date, locale=Locale.parse(code, sep="-"))
+    digits = site.get("digits", {}).get(code)
+    if digits:
+        text = text.translate(str.maketrans("0123456789", digits))
+    return template.replace("{date}", text)
 
 
 def main():
@@ -98,6 +140,8 @@ def main():
     talks = (load("talks.yaml") or {}).get("talks") or []
     langs = [{"code": c, "native": texts[c]["native"]} for c in site["languages"]]
     req = site["translation_request"]
+    sha, date = last_change()
+    updated_url = f"{site['repo']}/commit/{sha}" if sha else None
     env = Environment(
         loader=FileSystemLoader(os.path.join(ROOT, "templates")),
         autoescape=select_autoescape(["html.j2", "xml.j2"]),
@@ -117,6 +161,7 @@ def main():
         html = page.render(
             site=site, langs=langs, talks=talks, code=code, t=t,
             h1=h1, title=title,
+            updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
             jsonld=jsonld(site, code, t, title),
             alt_name=site["name"]["latin"] if ja else site["name"]["ja"],
             alt_lang="en" if ja else "ja",
