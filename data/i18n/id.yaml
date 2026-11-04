@@ -1,0 +1,68 @@
+# Page text for one language (id). Every language file must have exactly the same keys,
+# list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
+# Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+
+mt_notice: Halaman ini diterjemahkan secara otomatis.
+native: Bahasa Indonesia
+dir: ltr
+request: Minta bahasa lain
+pubs_h: Publikasi dan presentasi
+edu_h: Pendidikan
+contact_h: Kontak
+soon: Segera hadir.
+role: Sarjana, Fakultas Studi Asing, Universitas Osaka, 2026
+edu: Sarjana Bahasa Spanyol, Fakultas Studi Asing, Universitas Osaka, 2026
+thesis: Skripsi
+email: Email
+updated: 'Terakhir diperbarui: November 2026'
+desc: 'Yoshihiro Matsuura: tipologi bahasa dan fonologi, pengukuran kemiripan antarbahasa secara kuantitatif dari inventaris fonem.'
+unpublished: (tidak dipublikasikan)
+keywords_h: Kata kunci
+tagline: Saya meneliti apa yang universal dalam cara bahasa manusia mengodekan makna, dengan metode formal dan komputasional pada data lintas bahasa.
+btn_email: Kirim email
+btn_github: GitHub
+interests_h: Minat penelitian
+current_h: Penelitian saat ini
+current: Mengukur kemiripan antarbahasa secara kuantitatif. Dengan inventaris fonem (PHOIBLE) dan data kosakata, saya mengukur seberapa dekat bahasa dan dialek satu sama lain, dimulai dari bahasa-bahasa Roman. Tujuannya adalah ukuran yang berlaku untuk banyak bahasa, berdasarkan statistik yang eksplisit, dan dapat membantu menentukan di mana dialek berakhir dan bahasa dimulai.
+projects_h: Proyek
+langs_h: Bahasa
+langs: Bahasa Jepang (bahasa ibu), bahasa Inggris (fasih), bahasa Spanyol (jurusan S1).
+interests:
+- 'Kesemestaan bahasa dan tipologi: apa yang dimiliki bersama oleh semua bahasa manusia dan bagaimana bahasa-bahasa itu berbeda'
+- Semantik lintas bahasa, dengan semantik formal sebagai teori dan metode komputasional sebagai alat
+- Pengukuran kemiripan antarbahasa dan antardialek (fonologi, leksikon)
+- Linguistik komputasional dan filogenetik
+- Sistem tulisan dan komputasi multibahasa (metode input, internasionalisasi)
+projects:
+- name: linguasim
+  desc: Perangkat Python untuk mengukur kemiripan bahasa (sedang dikembangkan; direncanakan dirilis sebagai sumber terbuka)
+- name: Templat makalah multibahasa
+  desc: Lingkungan penulisan berbasis Typst yang mengikuti konvensi tipografi 20 bahasa (sedang dikembangkan)
+keywords:
+  typology: Tipologi bahasa
+  universals: Kesemestaan bahasa
+  crossling-semantics: Semantik lintas bahasa
+  formal-semantics: Semantik formal
+  theoretical: Linguistik teoretis
+  syntax: Sintaksis
+  morphology: Morfologi
+  generative: Tata bahasa generatif
+  cognitive: Linguistik kognitif
+  computational: Linguistik komputasional
+  phylogenetic: Linguistik filogenetik
+  similarity: Kemiripan antarbahasa
+  phonology: Fonologi
+  romance: Bahasa-bahasa Roman
+  mozarabic: Bahasa Mozarab (Roman Andalus)
+  ladino: Bahasa Ladino (Yahudi-Spanyol)
+  ibero-romance: Ibero-Roman
+  medieval-castilian: Bahasa Kastilia abad pertengahan
+  writing-systems: Sistem tulisan
+  nlp: Pemrosesan bahasa alami
+  i18n: Internasionalisasi (i18n)
+  unicode: Unicode dan pengodean karakter
+  input-methods: Metode input
+  typesetting: Tata letak digital
+  linux: Linux
+  kernels: Kernel sistem operasi
+  oss: Perangkat lunak sumber terbuka

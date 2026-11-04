@@ -1,0 +1,68 @@
+# Page text for one language (zh-Hant). Every language file must have exactly the same keys,
+# list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
+# Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+
+mt_notice: 本頁面為機器翻譯。
+native: 繁體中文
+dir: ltr
+request: 申請其他語言版本
+pubs_h: 論文與發表
+edu_h: 學歷
+contact_h: 聯絡方式
+soon: 敬請期待。
+role: 大阪大學外國語學部 學士(2026)
+edu: 大阪大學外國語學部 西班牙語專業 學士(2026)
+thesis: 畢業論文
+email: 電子郵件
+updated: 最後更新：2026年11月
+desc: 松浦義廣：語言類型學與音韻學，基於音位庫存的跨語言相似度定量研究。
+unpublished: （未公開）
+keywords_h: 關鍵詞
+tagline: 我研究人類語言在表達意義上的普遍性，對跨語言資料運用形式化與計算方法。
+btn_email: 寄送電子郵件
+btn_github: GitHub
+interests_h: 研究興趣
+current_h: 目前的工作
+current: 跨語言相似度的量化。我利用音位清單（PHOIBLE）與詞彙資料測量語言與方言之間的距離，首先從羅曼語族著手。目標是建立一個適用於多種語言、基於明確統計方法、並能為「方言與語言的界線在哪裡」提供依據的度量。
+projects_h: 專案
+langs_h: 語言
+langs: 日語（母語）、英語（流利）、西班牙語（大學主修）。
+interests:
+- 語言共性與類型學：所有人類語言的共同點與差異
+- 跨語言語意學：以形式語意學為理論，以計算方法為工具
+- 語言與方言之間相似度的測量（音韻、詞彙）
+- 計算語言學與親緣語言學
+- 文字系統與多語言運算（輸入法、國際化）
+projects:
+- name: linguasim
+  desc: 用於測量語言相似度的 Python 工具組（開發中，預計開源）
+- name: 多語言論文範本
+  desc: 以 Typst 為基礎的寫作環境，遵循 20 種語言的排版規範（開發中）
+keywords:
+  typology: 語言類型學
+  universals: 語言共性
+  crossling-semantics: 跨語言語意學
+  formal-semantics: 形式語意學
+  theoretical: 理論語言學
+  syntax: 句法學
+  morphology: 構詞學
+  generative: 生成語法
+  cognitive: 認知語言學
+  computational: 計算語言學
+  phylogenetic: 親緣語言學
+  similarity: 語言相似度
+  phonology: 音韻學
+  romance: 羅曼語族
+  mozarabic: 莫札拉布語（安達盧斯羅曼語）
+  ladino: 拉迪諾語（猶太西班牙語）
+  ibero-romance: 伊比利亞-羅曼語支
+  medieval-castilian: 中世紀卡斯提亞語
+  writing-systems: 文字系統
+  nlp: 自然語言處理
+  i18n: 國際化（i18n）
+  unicode: Unicode 與字元編碼
+  input-methods: 輸入法
+  typesetting: 數位排版
+  linux: Linux
+  kernels: 作業系統核心
+  oss: 開源軟體

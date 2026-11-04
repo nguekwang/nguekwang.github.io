@@ -1,0 +1,68 @@
+# Page text for one language (de). Every language file must have exactly the same keys,
+# list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
+# Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+
+mt_notice: Diese Seite wurde maschinell übersetzt.
+native: Deutsch
+dir: ltr
+request: Weitere Sprache anfragen
+pubs_h: Publikationen und Vorträge
+edu_h: Ausbildung
+contact_h: Kontakt
+soon: Demnächst.
+role: B.A., Fakultät für Fremdsprachenstudien, Universität Osaka, 2026
+edu: B.A. Spanisch, Fakultät für Fremdsprachenstudien, Universität Osaka, 2026
+thesis: Abschlussarbeit
+email: E-Mail
+updated: 'Zuletzt aktualisiert: November 2026'
+desc: 'Yoshihiro Matsuura: Sprachtypologie und Phonologie, Quantifizierung sprachübergreifender Ähnlichkeit anhand von Phoneminventaren.'
+unpublished: (unveröffentlicht)
+keywords_h: Schlagwörter
+tagline: Ich untersuche, was an der Art, wie menschliche Sprachen Bedeutung kodieren, universell ist, mit formalen und computergestützten Methoden an sprachübergreifenden Daten.
+btn_email: E-Mail schreiben
+btn_github: GitHub
+interests_h: Forschungsinteressen
+current_h: Aktuelle Arbeit
+current: Quantifizierung sprachübergreifender Ähnlichkeit. Anhand von Phoneminventaren (PHOIBLE) und Wortschatzdaten messe ich, wie nah Sprachen und Dialekte einander sind, beginnend mit den romanischen Sprachen. Ziel ist ein Maß, das für viele Sprachen funktioniert, auf expliziter Statistik beruht und Hinweise darauf geben kann, wo ein Dialekt endet und eine Sprache beginnt.
+projects_h: Projekte
+langs_h: Sprachen
+langs: Japanisch (Muttersprache), Englisch (fließend), Spanisch (Hauptfach im Bachelor).
+interests:
+- 'Sprachuniversalien und Typologie: was alle menschlichen Sprachen gemeinsam haben und worin sie sich unterscheiden'
+- Sprachübergreifende Semantik, mit formaler Semantik als Theorie und computergestützten Methoden als Werkzeug
+- Messung der Ähnlichkeit zwischen Sprachen und Dialekten (Phonologie, Lexikon)
+- Computerlinguistik und phylogenetische Linguistik
+- Schriftsysteme und mehrsprachige Informatik (Eingabemethoden, Internationalisierung)
+projects:
+- name: linguasim
+  desc: Python-Toolkit zur Messung von Sprachähnlichkeit (in Entwicklung; Open-Source-Veröffentlichung geplant)
+- name: Mehrsprachige Vorlage für Fachartikel
+  desc: Typst-basierte Schreibumgebung, die den typografischen Konventionen von 20 Sprachen folgt (in Entwicklung)
+keywords:
+  typology: Sprachtypologie
+  universals: Sprachuniversalien
+  crossling-semantics: Sprachübergreifende Semantik
+  formal-semantics: Formale Semantik
+  theoretical: Theoretische Linguistik
+  syntax: Syntax
+  morphology: Morphologie
+  generative: Generative Grammatik
+  cognitive: Kognitive Linguistik
+  computational: Computerlinguistik
+  phylogenetic: Phylogenetische Linguistik
+  similarity: Sprachähnlichkeit
+  phonology: Phonologie
+  romance: Romanische Sprachen
+  mozarabic: Mozarabisch (andalusisches Romanisch)
+  ladino: Ladino (Judenspanisch)
+  ibero-romance: Iberoromanisch
+  medieval-castilian: Mittelalterliches Kastilisch
+  writing-systems: Schriftsysteme
+  nlp: Verarbeitung natürlicher Sprache
+  i18n: Internationalisierung (i18n)
+  unicode: Unicode und Zeichenkodierung
+  input-methods: Eingabemethoden
+  typesetting: Digitaler Satz
+  linux: Linux
+  kernels: Betriebssystemkerne
+  oss: Open-Source-Software

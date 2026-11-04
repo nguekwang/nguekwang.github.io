@@ -1,0 +1,7 @@
+# Latest talks, newest first. One talk = one list item. Language-independent (shown as written).
+# Example:
+# - date: "2027-03-15"
+#   title: Talk title
+#   venue: Conference name
+#   url: https://...   # slides (omit if none)
+talks: []
