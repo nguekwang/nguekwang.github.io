@@ -41,8 +41,6 @@ interests:
 projects:
 - name: linguasim
   desc: Python-toolkit voor het meten van taalovereenkomst (in ontwikkeling; open-sourcepublicatie gepland)
-- name: Meertalig sjabloon voor artikelen
-  desc: Op Typst gebaseerde schrijfomgeving die de typografische conventies van 20 talen volgt (in ontwikkeling)
 keywords:
   typology: Taaltypologie
   universals: Taaluniversalia

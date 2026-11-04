@@ -41,8 +41,6 @@ interests:
 projects:
 - name: linguasim
   desc: 언어 유사도를 측정하는 Python 도구 모음 (개발 중, 오픈 소스 공개 예정)
-- name: 다국어 논문 템플릿
-  desc: 20개 언어의 조판 관례를 따르는 Typst 기반 집필 환경 (개발 중)
 keywords:
   typology: 언어 유형론
   universals: 언어 보편성

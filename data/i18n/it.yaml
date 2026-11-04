@@ -41,8 +41,6 @@ interests:
 projects:
 - name: linguasim
   desc: Toolkit Python per misurare la somiglianza tra lingue (in sviluppo; rilascio open source previsto)
-- name: Modello di articolo multilingue
-  desc: Ambiente di scrittura basato su Typst che segue le convenzioni tipografiche di 20 lingue (in sviluppo)
 keywords:
   typology: Tipologia linguistica
   universals: Universali linguistici

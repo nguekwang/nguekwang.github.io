@@ -41,8 +41,6 @@ interests:
 projects:
 - name: linguasim
   desc: Perangkat Python untuk mengukur kemiripan bahasa (sedang dikembangkan; direncanakan dirilis sebagai sumber terbuka)
-- name: Templat makalah multibahasa
-  desc: Lingkungan penulisan berbasis Typst yang mengikuti konvensi tipografi 20 bahasa (sedang dikembangkan)
 keywords:
   typology: Tipologi bahasa
   universals: Kesemestaan bahasa

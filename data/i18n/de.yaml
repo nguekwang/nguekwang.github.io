@@ -41,8 +41,6 @@ interests:
 projects:
 - name: linguasim
   desc: Python-Toolkit zur Messung von Sprachähnlichkeit (in Entwicklung; Open-Source-Veröffentlichung geplant)
-- name: Mehrsprachige Vorlage für Fachartikel
-  desc: Typst-basierte Schreibumgebung, die den typografischen Konventionen von 20 Sprachen folgt (in Entwicklung)
 keywords:
   typology: Sprachtypologie
   universals: Sprachuniversalien

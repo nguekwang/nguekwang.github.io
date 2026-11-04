@@ -41,8 +41,6 @@ interests:
 projects:
 - name: linguasim
   desc: 用于测量语言相似度的 Python 工具包（开发中，计划开源）
-- name: 多语言论文模板
-  desc: 基于 Typst 的写作环境，遵循 20 种语言的排版规范（开发中）
 keywords:
   typology: 语言类型学
   universals: 语言共性
