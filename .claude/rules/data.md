@@ -15,7 +15,7 @@ All page text lives here as YAML. HTML structure is in `templates/`.
 ## Every language has the same items
 
 - The site's languages are the ones listed under `languages` in `data/site.yaml`. Apply every change to all of them, not only to Japanese or English.
-- Every language file must have exactly the same keys, list lengths and keyword ids as `en.yaml`. Only `mt_notice` may be empty.
+- Every language file must have exactly the same keys, list lengths and keyword ids as `en.yaml`. Only `mt_notice` may be empty (see `writing-style.md`).
 - When adding a key or a list item, add it to every language file in the same change. `python3 tools/build.py --check` (and CI) fails otherwise. Fix the data; never add a fallback.
 - Do not hard-code the number of languages anywhere; it grows when someone requests a new translation.
 - To add a language: copy `data/i18n/en.yaml` to `data/i18n/<code>.yaml`, translate every value, and add the code to `languages`.

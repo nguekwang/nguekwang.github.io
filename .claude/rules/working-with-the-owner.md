@@ -20,4 +20,5 @@ These rules cover how Claude works with the site's owner. They apply to every ta
 - Talk to the owner in Japanese, in plain, short sentences. Explain technical terms. (Repository contents stay in English; see `english-first.md`.)
 - Do not use emoji.
 - A report gives the pull request link, what changed, and what stayed the same and why.
-- End every report with three parts: Problems / What I checked / What I could not check (for example, that the live site cannot be opened from the sandbox).
+- End every report with three parts: Problems / What I checked / What I could not check (for example, that the live site cannot be opened from the sandbox), and leave one line in the execution log.
+- When asked which questions are still open, reply with the link to the Q&A table and the number of open rows; do not list them in the chat.

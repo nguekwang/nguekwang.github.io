@@ -18,3 +18,4 @@
 - For any visible change, attach before and after screenshots (at least the Japanese page and one right-to-left page such as Arabic).
 - Watch CI on the pull request and fix failures until it passes. Do not skip or weaken a check to make it pass.
 - The owner reviews and merges. Do not merge your own pull request.
+- If you open a new pull request that replaces an older one, say in the report that the older one can be closed.

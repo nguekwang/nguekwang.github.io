@@ -7,3 +7,6 @@ This repository and the site are public. Anything committed here can be read by 
 - Do not commit fonts or other files the owner has no right to redistribute.
 - Data that must stay private, such as measurement results, the measurement plan and the list of initiatives (施策), is kept outside this repository.
 - Do not add a `README.md`.
+- The thesis is listed by title only. Do not publish its PDF.
+- Affiliation: do not use titles that look like an official position (such as "assistant"). Do not name supervising or collaborating professors until they have agreed.
+- The email address is shown as plain text and a `mailto:` link, without obfuscation.

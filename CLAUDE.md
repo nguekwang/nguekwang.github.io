@@ -23,10 +23,12 @@ Loaded in every session:
 - `.claude/rules/git-and-prs.md`: branches, conflicts, checks, pull requests.
 - `.claude/rules/english-first.md`: which language each part of the repository is written in.
 - `.claude/rules/publishing.md`: what may be published and what stays out of this repository.
+- `.claude/rules/security.md`: escaping, scripts, Content-Security-Policy, no forms.
 
 Loaded when Claude works on matching files:
 
 - `.claude/rules/data.md`: `data/**`
+- `.claude/rules/writing-style.md`: `data/**` (wording, project names, institution names, machine translation notice)
 - `.claude/rules/templates.md`: `templates/**`
 - `.claude/rules/static.md`: `static/**`
 - `.claude/rules/build-and-ci.md`: `tools/**`, `.github/**`, `requirements.txt`

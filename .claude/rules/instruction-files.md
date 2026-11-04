@@ -30,3 +30,4 @@ paths:
 - No private information: this repository is public (see `publishing.md`).
 - Split a rule file when it grows past about 60 lines.
 - When adding, renaming or removing a rule file, update the map in `CLAUDE.md`.
+- When a rule here would also fit the owner's other repositories (such as the thesis template), propose adding it there too.
