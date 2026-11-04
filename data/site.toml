@@ -1,5 +1,5 @@
-# サイト全体の設定とプロフィール(言語によらない値)。
-# 文言を直したら `python3 tools/build.py` を実行するか、push すれば GitHub Actions が作り直す。
+# Site-wide settings and profile (values that do not depend on the language).
+# After editing any text, run `python3 tools/build.py`, or just push and GitHub Actions rebuilds the pages.
 
 url = "https://nguekwang.github.io"
 email = "nguekwang@gmail.com"
@@ -7,7 +7,7 @@ github = "https://github.com/nguekwang"
 goatcounter = "https://nguekwang.goatcounter.com/count"
 copyright_from = 2023
 
-# 言語の並び順(言語メニューの順)。言語を足すときは data/i18n/<コード>.toml を作ってここに足す。
+# Language order (as shown in the language menu). To add a language, create data/i18n/<code>.toml and add the code here.
 languages = ["en", "ja", "es", "fr", "ru", "zh-Hans", "zh-Hant", "ar", "ko", "vi", "de", "pt", "it", "nl", "tr", "id", "th", "hi", "fa", "pl", "uk"]
 
 [name]

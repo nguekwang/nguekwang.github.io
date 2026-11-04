@@ -1,6 +1,6 @@
-# Türkçe (tr) の文言。
+# Page text in Türkçe (tr).
 
-mt_notice = "Bu sayfa makine çevirisiyle çevrilmiştir."  # 機械翻訳の注記。空なら出さない(本人確認済み)
+mt_notice = "Bu sayfa makine çevirisiyle çevrilmiştir."  # machine-translation notice; not shown when empty (reviewed by the site owner)
 native = "Türkçe"
 dir = "ltr"
 request = "Başka bir dil iste"

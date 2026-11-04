@@ -1,6 +1,6 @@
-# Français (fr) の文言。
+# Page text in Français (fr).
 
-mt_notice = "Cette page a été traduite automatiquement."  # 機械翻訳の注記。空なら出さない(本人確認済み)
+mt_notice = "Cette page a été traduite automatiquement."  # machine-translation notice; not shown when empty (reviewed by the site owner)
 native = "Français"
 dir = "ltr"
 request = "Demander une autre langue"

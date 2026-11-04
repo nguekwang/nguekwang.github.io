@@ -1,6 +1,6 @@
-# Português (pt) の文言。
+# Page text in Português (pt).
 
-mt_notice = "Esta página foi traduzida automaticamente."  # 機械翻訳の注記。空なら出さない(本人確認済み)
+mt_notice = "Esta página foi traduzida automaticamente."  # machine-translation notice; not shown when empty (reviewed by the site owner)
 native = "Português"
 dir = "ltr"
 request = "Solicitar outro idioma"

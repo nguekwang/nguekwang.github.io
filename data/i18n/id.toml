@@ -1,6 +1,6 @@
-# Bahasa Indonesia (id) の文言。
+# Page text in Bahasa Indonesia (id).
 
-mt_notice = "Halaman ini diterjemahkan secara otomatis."  # 機械翻訳の注記。空なら出さない(本人確認済み)
+mt_notice = "Halaman ini diterjemahkan secara otomatis."  # machine-translation notice; not shown when empty (reviewed by the site owner)
 native = "Bahasa Indonesia"
 dir = "ltr"
 request = "Minta bahasa lain"

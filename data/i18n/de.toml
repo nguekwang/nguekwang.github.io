@@ -1,6 +1,6 @@
-# Deutsch (de) の文言。
+# Page text in Deutsch (de).
 
-mt_notice = "Diese Seite wurde maschinell übersetzt."  # 機械翻訳の注記。空なら出さない(本人確認済み)
+mt_notice = "Diese Seite wurde maschinell übersetzt."  # machine-translation notice; not shown when empty (reviewed by the site owner)
 native = "Deutsch"
 dir = "ltr"
 request = "Weitere Sprache anfragen"

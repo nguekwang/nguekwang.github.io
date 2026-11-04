@@ -1,6 +1,6 @@
-# Español (es) の文言。
+# Page text in Español (es).
 
-mt_notice = ""  # 機械翻訳の注記。空なら出さない(本人確認済み)
+mt_notice = ""  # machine-translation notice; not shown when empty (reviewed by the site owner)
 native = "Español"
 dir = "ltr"
 request = "Solicitar otro idioma"

@@ -1,6 +1,6 @@
-# 日本語 (ja) の文言。
+# Page text in 日本語 (ja).
 
-mt_notice = ""  # 機械翻訳の注記。空なら出さない(本人確認済み)
+mt_notice = ""  # machine-translation notice; not shown when empty (reviewed by the site owner)
 native = "日本語"
 dir = "ltr"
 request = "他の言語の翻訳版をリクエスト"

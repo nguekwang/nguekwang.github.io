@@ -1,6 +1,6 @@
-# हिन्दी (hi) の文言。
+# Page text in हिन्दी (hi).
 
-mt_notice = "यह पृष्ठ मशीन द्वारा अनूदित है।"  # 機械翻訳の注記。空なら出さない(本人確認済み)
+mt_notice = "यह पृष्ठ मशीन द्वारा अनूदित है।"  # machine-translation notice; not shown when empty (reviewed by the site owner)
 native = "हिन्दी"
 dir = "ltr"
 request = "दूसरी भाषा का अनुरोध करें"

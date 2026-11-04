@@ -1,6 +1,6 @@
-# Tiếng Việt (vi) の文言。
+# Page text in Tiếng Việt (vi).
 
-mt_notice = "Trang này được dịch máy."  # 機械翻訳の注記。空なら出さない(本人確認済み)
+mt_notice = "Trang này được dịch máy."  # machine-translation notice; not shown when empty (reviewed by the site owner)
 native = "Tiếng Việt"
 dir = "ltr"
 request = "Yêu cầu ngôn ngữ khác"

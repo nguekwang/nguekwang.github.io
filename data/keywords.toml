@@ -1,8 +1,8 @@
-# キーワード節。1語 = 1つの [[keyword]]。並び順がそのまま表示順。
-# 足すときは全言語ぶん書く(書けない言語は en の値が使われる)。
+# Keywords section. One keyword = one [[keyword]] entry; the order here is the display order.
+# When adding one, fill in every language (any language left out falls back to the en value).
 
 [[keyword]]
-key = "typology"  # 識別用(表示されない)
+key = "typology"  # identifier (not displayed)
 en = "Linguistic typology"
 ja = "言語類型論"
 es = "Tipología lingüística"
@@ -26,7 +26,7 @@ pl = "Typologia językowa"
 uk = "Лінгвістична типологія"
 
 [[keyword]]
-key = "universals"  # 識別用(表示されない)
+key = "universals"  # identifier (not displayed)
 en = "Language universals"
 ja = "言語普遍性"
 es = "Universales lingüísticos"
@@ -50,7 +50,7 @@ pl = "Uniwersalia językowe"
 uk = "Мовні універсалії"
 
 [[keyword]]
-key = "crossling-semantics"  # 識別用(表示されない)
+key = "crossling-semantics"  # identifier (not displayed)
 en = "Cross-linguistic semantics"
 ja = "通言語的意味論"
 es = "Semántica interlingüística"
@@ -74,7 +74,7 @@ pl = "Semantyka międzyjęzykowa"
 uk = "Міжмовна семантика"
 
 [[keyword]]
-key = "formal-semantics"  # 識別用(表示されない)
+key = "formal-semantics"  # identifier (not displayed)
 en = "Formal semantics"
 ja = "形式意味論"
 es = "Semántica formal"
@@ -98,7 +98,7 @@ pl = "Semantyka formalna"
 uk = "Формальна семантика"
 
 [[keyword]]
-key = "theoretical"  # 識別用(表示されない)
+key = "theoretical"  # identifier (not displayed)
 en = "Theoretical linguistics"
 ja = "理論言語学"
 es = "Lingüística teórica"
@@ -122,7 +122,7 @@ pl = "Językoznawstwo teoretyczne"
 uk = "Теоретична лінгвістика"
 
 [[keyword]]
-key = "syntax"  # 識別用(表示されない)
+key = "syntax"  # identifier (not displayed)
 en = "Syntax"
 ja = "統語論"
 es = "Sintaxis"
@@ -146,7 +146,7 @@ pl = "Składnia"
 uk = "Синтаксис"
 
 [[keyword]]
-key = "morphology"  # 識別用(表示されない)
+key = "morphology"  # identifier (not displayed)
 en = "Morphology"
 ja = "形態論"
 es = "Morfología"
@@ -170,7 +170,7 @@ pl = "Morfologia"
 uk = "Морфологія"
 
 [[keyword]]
-key = "generative"  # 識別用(表示されない)
+key = "generative"  # identifier (not displayed)
 en = "Generative grammar"
 ja = "生成文法"
 es = "Gramática generativa"
@@ -194,7 +194,7 @@ pl = "Gramatyka generatywna"
 uk = "Генеративна граматика"
 
 [[keyword]]
-key = "cognitive"  # 識別用(表示されない)
+key = "cognitive"  # identifier (not displayed)
 en = "Cognitive linguistics"
 ja = "認知言語学"
 es = "Lingüística cognitiva"
@@ -218,7 +218,7 @@ pl = "Językoznawstwo kognitywne"
 uk = "Когнітивна лінгвістика"
 
 [[keyword]]
-key = "computational"  # 識別用(表示されない)
+key = "computational"  # identifier (not displayed)
 en = "Computational linguistics"
 ja = "計算言語学"
 es = "Lingüística computacional"
@@ -242,7 +242,7 @@ pl = "Lingwistyka komputerowa"
 uk = "Комп'ютерна лінгвістика"
 
 [[keyword]]
-key = "phylogenetic"  # 識別用(表示されない)
+key = "phylogenetic"  # identifier (not displayed)
 en = "Phylogenetic linguistics"
 ja = "系統言語学"
 es = "Lingüística filogenética"
@@ -266,7 +266,7 @@ pl = "Lingwistyka filogenetyczna"
 uk = "Філогенетична лінгвістика"
 
 [[keyword]]
-key = "similarity"  # 識別用(表示されない)
+key = "similarity"  # identifier (not displayed)
 en = "Language similarity"
 ja = "言語間の類似度"
 es = "Similitud entre lenguas"
@@ -290,7 +290,7 @@ pl = "Podobieństwo języków"
 uk = "Подібність мов"
 
 [[keyword]]
-key = "phonology"  # 識別用(表示されない)
+key = "phonology"  # identifier (not displayed)
 en = "Phonology"
 ja = "音韻論"
 es = "Fonología"
@@ -314,7 +314,7 @@ pl = "Fonologia"
 uk = "Фонологія"
 
 [[keyword]]
-key = "romance"  # 識別用(表示されない)
+key = "romance"  # identifier (not displayed)
 en = "Romance languages"
 ja = "ロマンス諸語"
 es = "Lenguas romances"
@@ -338,7 +338,7 @@ pl = "Języki romańskie"
 uk = "Романські мови"
 
 [[keyword]]
-key = "mozarabic"  # 識別用(表示されない)
+key = "mozarabic"  # identifier (not displayed)
 en = "Mozarabic (Andalusi Romance)"
 ja = "モサラベ語(アンダルシア=ロマンス語)"
 es = "Mozárabe (romandalusí)"
@@ -362,7 +362,7 @@ pl = "Mozarabski (romański andaluzyjski)"
 uk = "Мосарабська (андалуська романська)"
 
 [[keyword]]
-key = "ladino"  # 識別用(表示されない)
+key = "ladino"  # identifier (not displayed)
 en = "Ladino (Judaeo-Spanish)"
 ja = "ラディノ語(ユダヤ=スペイン語)"
 es = "Ladino (judeoespañol)"
@@ -386,7 +386,7 @@ pl = "Ladino (judeo-hiszpański)"
 uk = "Ладино (єврейсько-іспанська)"
 
 [[keyword]]
-key = "ibero-romance"  # 識別用(表示されない)
+key = "ibero-romance"  # identifier (not displayed)
 en = "Ibero-Romance"
 ja = "イベロ=ロマンス語"
 es = "Iberorromance"
@@ -410,7 +410,7 @@ pl = "Języki iberoromańskie"
 uk = "Іберо-романські мови"
 
 [[keyword]]
-key = "medieval-castilian"  # 識別用(表示されない)
+key = "medieval-castilian"  # identifier (not displayed)
 en = "Medieval Castilian"
 ja = "中世カスティーリャ語"
 es = "Castellano medieval"
@@ -434,7 +434,7 @@ pl = "Średniowieczny kastylijski"
 uk = "Середньовічна кастильська"
 
 [[keyword]]
-key = "writing-systems"  # 識別用(表示されない)
+key = "writing-systems"  # identifier (not displayed)
 en = "Writing systems"
 ja = "文字体系"
 es = "Sistemas de escritura"
@@ -458,7 +458,7 @@ pl = "Systemy pisma"
 uk = "Системи письма"
 
 [[keyword]]
-key = "nlp"  # 識別用(表示されない)
+key = "nlp"  # identifier (not displayed)
 en = "Natural language processing"
 ja = "自然言語処理"
 es = "Procesamiento del lenguaje natural"
@@ -482,7 +482,7 @@ pl = "Przetwarzanie języka naturalnego"
 uk = "Обробка природної мови"
 
 [[keyword]]
-key = "i18n"  # 識別用(表示されない)
+key = "i18n"  # identifier (not displayed)
 en = "Internationalization (i18n)"
 ja = "国際化(i18n)"
 es = "Internacionalización (i18n)"
@@ -506,7 +506,7 @@ pl = "Internacjonalizacja (i18n)"
 uk = "Інтернаціоналізація (i18n)"
 
 [[keyword]]
-key = "unicode"  # 識別用(表示されない)
+key = "unicode"  # identifier (not displayed)
 en = "Unicode and character encoding"
 ja = "Unicode・文字コード"
 es = "Unicode y codificación de caracteres"
@@ -530,7 +530,7 @@ pl = "Unicode i kodowanie znaków"
 uk = "Юнікод і кодування символів"
 
 [[keyword]]
-key = "input-methods"  # 識別用(表示されない)
+key = "input-methods"  # identifier (not displayed)
 en = "Input methods"
 ja = "入力メソッド"
 es = "Métodos de entrada"
@@ -554,7 +554,7 @@ pl = "Metody wprowadzania tekstu"
 uk = "Методи введення"
 
 [[keyword]]
-key = "typesetting"  # 識別用(表示されない)
+key = "typesetting"  # identifier (not displayed)
 en = "Digital typesetting"
 ja = "デジタル組版"
 es = "Composición tipográfica digital"
@@ -578,7 +578,7 @@ pl = "Skład cyfrowy"
 uk = "Цифрова верстка"
 
 [[keyword]]
-key = "linux"  # 識別用(表示されない)
+key = "linux"  # identifier (not displayed)
 en = "Linux"
 ja = "Linux"
 es = "Linux"
@@ -602,7 +602,7 @@ pl = "Linux"
 uk = "Linux"
 
 [[keyword]]
-key = "kernels"  # 識別用(表示されない)
+key = "kernels"  # identifier (not displayed)
 en = "Operating system kernels"
 ja = "OSカーネル"
 es = "Núcleos de sistemas operativos"
@@ -626,7 +626,7 @@ pl = "Jądra systemów operacyjnych"
 uk = "Ядра операційних систем"
 
 [[keyword]]
-key = "oss"  # 識別用(表示されない)
+key = "oss"  # identifier (not displayed)
 en = "Open-source software"
 ja = "オープンソースソフトウェア(OSS)"
 es = "Software de código abierto"

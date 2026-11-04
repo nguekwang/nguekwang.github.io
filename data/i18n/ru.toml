@@ -1,6 +1,6 @@
-# Русский (ru) の文言。
+# Page text in Русский (ru).
 
-mt_notice = "Эта страница переведена автоматически."  # 機械翻訳の注記。空なら出さない(本人確認済み)
+mt_notice = "Эта страница переведена автоматически."  # machine-translation notice; not shown when empty (reviewed by the site owner)
 native = "Русский"
 dir = "ltr"
 request = "Запросить другой язык"

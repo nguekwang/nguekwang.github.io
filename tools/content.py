@@ -1,4 +1,4 @@
-"""data/ の TOML を読み、build.py が使う形にして返す。文言はすべて data/ にあり、ここには書かない。"""
+"""Load the TOML files in data/ and return them in the shape build.py expects. All page text lives in data/, never here."""
 import os, tomllib
 
 DATA = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data")
@@ -15,7 +15,7 @@ for code in SITE_CONF["languages"]:
     d["mt"] = d.get("mt_notice") or None
     d["projects"] = [[p["name"], p["desc"]] for p in d.get("projects", [])]
     LANGS.append(d)
-NEW = {L["code"]: L for L in LANGS}          # 互換のため(build.py は N[...] でも参照する)
+NEW = {L["code"]: L for L in LANGS}          # kept for compatibility (build.py also looks things up via N[...])
 UNPUB = {L["code"]: L["unpublished"] for L in LANGS}
 _kw = _load("keywords.toml").get("keyword", [])
 KEYWORDS = {L["code"]: (L["keywords_h"], [k.get(L["code"]) or k["en"] for k in _kw]) for L in LANGS}

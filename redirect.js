@@ -1,5 +1,5 @@
-// 言語の振り分け: ブラウザの言語設定に合う版(/<言語>/)へ移動する。合う版がなければ英語版。
-// ?ref= などはそのまま引き継ぐ。外部サイトから来た場合は、元のサイト名を ref に入れて流入元が消えないようにする。
+// Language redirect: go to the version (/<lang>/) that matches the browser language settings, or English if none matches.
+// Query parameters such as ?ref= are kept. When the visitor comes from another site, its host name is put into ref so the traffic source is not lost.
 (function () {
   var langs = document.currentScript.getAttribute('data-langs').split(' ');
   function pick(tag) {

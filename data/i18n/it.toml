@@ -1,6 +1,6 @@
-# Italiano (it) の文言。
+# Page text in Italiano (it).
 
-mt_notice = "Questa pagina è stata tradotta automaticamente."  # 機械翻訳の注記。空なら出さない(本人確認済み)
+mt_notice = "Questa pagina è stata tradotta automaticamente."  # machine-translation notice; not shown when empty (reviewed by the site owner)
 native = "Italiano"
 dir = "ltr"
 request = "Richiedi un'altra lingua"
