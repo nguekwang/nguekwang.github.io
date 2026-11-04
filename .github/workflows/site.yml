@@ -1,0 +1,46 @@
+# Check the data, build the static site from data/ + templates/, and deploy it to GitHub Pages.
+# - Pull requests: check and build only (fails if any language differs in structure from en.yaml).
+# - Push to main: check, build, and deploy.
+# Requires Settings > Pages > Build and deployment > Source = "GitHub Actions".
+name: site
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: site-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Check that every language has the same items
+        run: python3 tools/build.py --check
+      - name: Build
+        run: python3 tools/build.py
+      - if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

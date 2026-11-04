@@ -1,0 +1,68 @@
+# Page text for one language (tr). Every language file must have exactly the same keys,
+# list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
+# Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+
+mt_notice: Bu sayfa makine çevirisiyle çevrilmiştir.
+native: Türkçe
+dir: ltr
+request: Başka bir dil iste
+pubs_h: Yayınlar ve sunumlar
+edu_h: Eğitim
+contact_h: İletişim
+soon: Yakında.
+role: Lisans, Yabancı Diller Fakültesi, Osaka Üniversitesi, 2026
+edu: İspanyolca Lisans, Yabancı Diller Fakültesi, Osaka Üniversitesi, 2026
+thesis: Bitirme tezi
+email: E-posta
+updated: 'Son güncelleme: Kasım 2026'
+desc: 'Yoshihiro Matsuura: dil tipolojisi ve sesbilim, fonem envanterlerinden diller arası benzerliğin nicel ölçümü.'
+unpublished: (yayımlanmamış)
+keywords_h: Anahtar sözcükler
+tagline: İnsan dillerinin anlamı kodlama biçimindeki evrensel yönleri, diller arası veriler üzerinde biçimsel ve hesaplamalı yöntemlerle inceliyorum.
+btn_email: E-posta gönder
+btn_github: GitHub
+interests_h: Araştırma ilgi alanları
+current_h: Güncel çalışma
+current: Diller arası benzerliğin nicel olarak ölçülmesi. Sesbirim envanterleri (PHOIBLE) ve sözcük verileriyle, Roman dillerinden başlayarak dillerin ve lehçelerin birbirine ne kadar yakın olduğunu ölçüyorum. Amaç, pek çok dil için işe yarayan, açık istatistiklere dayanan ve bir lehçenin nerede bitip bir dilin nerede başladığına ışık tutabilecek bir ölçüt geliştirmek.
+projects_h: Projeler
+langs_h: Diller
+langs: Japonca (anadil), İngilizce (akıcı), İspanyolca (lisans ana dalı).
+interests:
+- 'Dil evrenselleri ve dil tipolojisi: tüm insan dillerinin ortak yönleri ve farklılıkları'
+- 'Diller arası anlambilim: kuram olarak biçimsel anlambilim, araç olarak hesaplamalı yöntemler'
+- Diller ve lehçeler arasındaki benzerliğin ölçülmesi (sesbilim, sözcük dağarcığı)
+- Hesaplamalı ve filogenetik dilbilim
+- Yazı sistemleri ve çok dilli bilişim (giriş yöntemleri, uluslararasılaştırma)
+projects:
+- name: linguasim
+  desc: Dil benzerliğini ölçmek için Python araç takımı (geliştirme aşamasında; açık kaynak olarak yayımlanması planlanıyor)
+- name: Çok dilli makale şablonu
+  desc: 20 dilin dizgi kurallarına uyan, Typst tabanlı yazım ortamı (geliştirme aşamasında)
+keywords:
+  typology: Dil tipolojisi
+  universals: Dil evrenselleri
+  crossling-semantics: Diller arası anlambilim
+  formal-semantics: Biçimsel anlambilim
+  theoretical: Kuramsal dilbilim
+  syntax: Sözdizim
+  morphology: Biçimbilim
+  generative: Üretici dilbilgisi
+  cognitive: Bilişsel dilbilim
+  computational: Hesaplamalı dilbilim
+  phylogenetic: Filogenetik dilbilim
+  similarity: Diller arası benzerlik
+  phonology: Sesbilim
+  romance: Roman dilleri
+  mozarabic: Mozarapça (Endülüs Romans dili)
+  ladino: Ladino (Yahudi İspanyolcası)
+  ibero-romance: İber-Roman dilleri
+  medieval-castilian: Orta Çağ Kastilyacası
+  writing-systems: Yazı sistemleri
+  nlp: Doğal dil işleme
+  i18n: Uluslararasılaştırma (i18n)
+  unicode: Unicode ve karakter kodlama
+  input-methods: Giriş yöntemleri
+  typesetting: Dijital dizgi
+  linux: Linux
+  kernels: İşletim sistemi çekirdekleri
+  oss: Açık kaynak yazılım

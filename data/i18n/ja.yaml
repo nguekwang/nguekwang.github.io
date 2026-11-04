@@ -1,0 +1,68 @@
+# Page text for one language (ja). Every language file must have exactly the same keys,
+# list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
+# Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+
+mt_notice: ''
+native: 日本語
+dir: ltr
+request: 他の言語の翻訳版をリクエスト
+pubs_h: 業績・発表
+edu_h: 学歴
+contact_h: 連絡先
+soon: 準備中
+role: 大阪大学 外国語学部 スペイン語専攻 卒業(2026)
+edu: 2026年 大阪大学 外国語学部 スペイン語専攻 卒業
+thesis: 卒業論文
+email: メール
+updated: '最終更新: 2026年11月'
+desc: 松浦 義広。言語類型論・音韻論。音素目録にもとづく言語間類似度の定量化。
+unpublished: (非公開)
+keywords_h: キーワード
+tagline: 人間の言語が意味を表すしくみのうち、何が普遍的なのかを、形式的・計算的な方法と多言語のデータで調べています。
+btn_email: メールする
+btn_github: GitHub
+interests_h: 研究関心
+current_h: いま取り組んでいること
+current: 言語間の類似度の定量化。音素目録(PHOIBLE)や語彙のデータから、言語や方言がどれだけ近いかを測っています。まずはロマンス諸語から始め、多くの言語に使えて統計的な根拠がはっきりした尺度を作り、方言と言語の線引きの議論に役立てることを目指しています。
+projects_h: プロジェクト
+langs_h: 使用言語
+langs: 日本語(母語)、英語(流暢)、スペイン語(学部専攻)。
+interests:
+- '言語の普遍性と類型論: すべての言語に共通するもの、言語ごとに違うもの'
+- '言語横断の意味論: 形式意味論を理論の核に、計算的方法を道具に'
+- 言語・方言どうしの類似度の測定(音韻、語彙)
+- 計算言語学・計算系統言語学
+- 文字体系と多言語の情報処理(入力メソッド、国際化)
+projects:
+- name: linguasim
+  desc: 言語の類似度を測る Python のツール(開発中、オープンソースで公開予定)
+- name: 多言語の論文テンプレート
+  desc: 20言語の組版の慣習に合わせて書ける Typst の執筆環境(開発中)
+keywords:
+  typology: 言語類型論
+  universals: 言語普遍性
+  crossling-semantics: 通言語的意味論
+  formal-semantics: 形式意味論
+  theoretical: 理論言語学
+  syntax: 統語論
+  morphology: 形態論
+  generative: 生成文法
+  cognitive: 認知言語学
+  computational: 計算言語学
+  phylogenetic: 系統言語学
+  similarity: 言語間の類似度
+  phonology: 音韻論
+  romance: ロマンス諸語
+  mozarabic: モサラベ語(アンダルシア=ロマンス語)
+  ladino: ラディノ語(ユダヤ=スペイン語)
+  ibero-romance: イベロ=ロマンス語
+  medieval-castilian: 中世カスティーリャ語
+  writing-systems: 文字体系
+  nlp: 自然言語処理
+  i18n: 国際化(i18n)
+  unicode: Unicode・文字コード
+  input-methods: 入力メソッド
+  typesetting: デジタル組版
+  linux: Linux
+  kernels: OSカーネル
+  oss: オープンソースソフトウェア(OSS)
