@@ -1,0 +1,13 @@
+---
+paths:
+  - "data/site.yaml"
+  - "templates/page.html.j2"
+  - "static/cv.js"
+---
+
+# Measurement (GoatCounter)
+
+- Page views are counted by GoatCounter (`goatcounter` in `data/site.yaml`). Links we share carry a campaign tag, e.g. `?ref=card` (business card QR) or `?ref=github`.
+- Conversions are clicks on links marked with `data-cv="<name>"` in `templates/page.html.j2`. `static/cv.js` sends each one as the GoatCounter event `cv-<name>`, with the visit's `?ref=` as its referrer, and keeps `?ref=` on language menu links.
+- Current names: `email-top`, `email-contact`, `github-top`, `github-contact`, `talk`, `request-lang`. When adding a link to another profile (ORCID, researchmap), give it a `data-cv` name too.
+- Results and plans stay outside this repository (see `publishing.md`).

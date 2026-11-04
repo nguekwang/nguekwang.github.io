@@ -4,7 +4,8 @@ These rules cover how Claude works with the site's owner. They apply to every ta
 
 ## Starting a task
 
-- Read `CLAUDE.md` and every file in `.claude/rules/` first. Earlier decisions are recorded there; follow them rather than proposing something that was already decided. If a request conflicts with a recorded rule, say so and ask instead of overriding it.
+- Read `CLAUDE.md` and the rule files first. Earlier decisions are recorded there; follow them rather than proposing something that was already decided. If a request conflicts with a recorded rule, say so and ask instead of overriding it.
+- Rule files with `paths` load only when a matching file is opened. Before planning a change in a directory, read its rule file (the map is in `CLAUDE.md`).
 - Write the completion criteria (the conditions under which the task counts as done) at the start of the task. Rewrite them if the scope changes. Do not treat the task as finished until they are met.
 - If a request can be read more than one way, start on the most likely reading and say which one you chose.
 
@@ -16,7 +17,7 @@ These rules cover how Claude works with the site's owner. They apply to every ta
 
 ## Reporting
 
-- Talk to the owner in Japanese, in plain, short sentences. Explain technical terms. (Repository contents stay in English; see `CLAUDE.md`.)
+- Talk to the owner in Japanese, in plain, short sentences. Explain technical terms. (Repository contents stay in English; see `english-first.md`.)
 - Do not use emoji.
 - A report gives the pull request link, what changed, and what stayed the same and why.
 - End every report with three parts: Problems / What I checked / What I could not check (for example, that the live site cannot be opened from the sandbox).

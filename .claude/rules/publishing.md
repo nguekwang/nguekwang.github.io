@@ -1,0 +1,9 @@
+# What may be published
+
+This repository and the site are public. Anything committed here can be read by anyone.
+
+- Publish only personal information the owner has explicitly approved. Before committing, check the diff: no phone number, address, full birth date, or private email addresses. The birth month and year and home city in the background section were added at the owner's request.
+- Do not present other people's work (projects, fonts, writing) as the owner's.
+- Do not commit fonts or other files the owner has no right to redistribute.
+- Data that must stay private, such as measurement results, the measurement plan and the list of initiatives (施策), is kept outside this repository.
+- Do not add a `README.md`.
