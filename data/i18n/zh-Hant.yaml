@@ -23,7 +23,7 @@ keywords_h: 關鍵詞
 tagline: 我研究人類語言在表達意義上的普遍性，對跨語言資料運用形式化與計算方法。
 btn_email: 寄送電子郵件
 btn_github: GitHub
-interests_h: 研究興趣
+interests_h: 研究主題
 current_h: 目前的研究
 current: 跨語言相似度的量化。我利用音位清單（PHOIBLE）與詞彙資料測量語言與方言之間的距離，首先從羅曼語族著手。目標是建立一個適用於多種語言、基於明確統計方法、並能為「方言與語言的界線在哪裡」提供依據的度量。
 projects_h: 專案
