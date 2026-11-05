@@ -38,7 +38,6 @@ keyword_groups:
   math: "数学与数据"
   objects: "研究对象"
   tech: "技术"
-tagline: 语言类型学、语义学、计算语言学
 btn_email: 发送邮件
 btn_github: GitHub
 btn_cv: "简历 (PDF)"

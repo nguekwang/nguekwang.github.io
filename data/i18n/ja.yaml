@@ -38,7 +38,6 @@ keyword_groups:
   math: "数理・データ"
   objects: "研究対象"
   tech: "技術"
-tagline: 言語類型論・意味論・計算言語学
 btn_email: メールする
 btn_github: GitHub
 btn_cv: "CV(PDF)"
