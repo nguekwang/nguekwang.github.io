@@ -79,6 +79,21 @@ projects:
   desc: Tool voor het tekenen van syntaxisbomen in de generatieve grammatica (gepland)
 - name: Corpus Hub
   desc: Platform voor het verzamelen en doorzoeken van taalcorpora (gepland)
+ai_tools_h: "Links voor AI-assistenten"
+ai_tools_intro: "Deze diensten lezen de openbare GitHub-repository van het project: vervang github.com in de URL van de repository door het adres van de dienst. Ze worden door derden beheerd, niet door mij, en werken alleen met openbare repository's."
+ai_tools_repo: "Repository"
+ai_tools_groups:
+  read: "Lezen met AI"
+  diagram: "Diagrammen"
+  browse: "Code in de browser"
+ai_tools_desc:
+  gitingest: "Bundelt de repository tot één tekst (samenvatting, bestandsstructuur en inhoud) om in een AI-chat te plakken."
+  gitmcp: "Maakt van de repository een externe MCP-server: voeg deze URL toe als aangepaste MCP-server in een AI-assistent die MCP ondersteunt. Een account of API-sleutel is niet nodig."
+  deepwiki: "Maakt documentatie van de repository in wikistijl en beantwoordt vragen erover."
+  uithub: "Toont de bestandsstructuur en de inhoud van de bestanden als platte tekst voor een AI-assistent."
+  gitreverse: "Schrijft een prompt en een specificatie van het project in gewone taal voor een AI-programmeerassistent."
+  gitdiagram: "Tekent de structuur van de repository als interactief diagram."
+  github-dev: "Opent de repository in een code-editor (VS Code) in de browser. Beheerd door GitHub; inloggen bij GitHub is vereist."
 outlook:
 - name: "Dialect of taal"
   desc: "op basis van gelijkenismaten criteria voorstellen voor wanneer een variëteit een dialect is en wanneer een taal"

@@ -1,0 +1,43 @@
+{# Layout shared by the sub-pages under /<lang>/ (institution names, links for AI assistants).
+   `up` is the relative path back to the site root, `home` back to /<lang>/, `path` the page's path under /<lang>/. -#}
+<!doctype html>
+<html lang="{{ code }}" dir="{{ t.dir }}">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self' https://gc.zgo.at; img-src 'self' https://nguekwang.goatcounter.com; connect-src 'self' https://nguekwang.goatcounter.com; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<meta name="author" content="{{ site.name.latin_short }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site_name }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:url" content="{{ site.url }}/{{ code }}/{{ path }}/">
+<meta property="og:locale" content="{{ t.og_locale }}">
+{% for o in langs if o.code != code %}<meta property="og:locale:alternate" content="{{ o.og_locale }}">
+{% endfor %}<meta name="twitter:card" content="summary">
+<link rel="canonical" href="{{ site.url }}/{{ code }}/{{ path }}/">
+{% for o in langs %}<link rel="alternate" hreflang="{{ o.code }}" href="{{ site.url }}/{{ o.code }}/{{ path }}/">
+{% endfor %}<link rel="stylesheet" href="{{ up }}style.css">
+<script type="application/ld+json">{{ jsonld }}</script>
+<script src="{{ up }}theme.js"></script>
+</head>
+<body>
+<main>
+  <nav><button type="button" class="theme-toggle" aria-pressed="false" aria-label="{{ t.theme_dark }}" title="{{ t.theme_dark }}"><svg class="moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg><svg class="sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg></button><details class="langmenu">
+      <summary>{{ t.native }}</summary>
+      <div class="panel">
+        <ul>{% for o in langs %}{% if o.code == code %}<li><span lang="{{ o.code }}">{{ o.native }}</span></li>{% else %}<li><a href="{{ up }}{{ o.code }}/{{ path }}/" lang="{{ o.code }}" hreflang="{{ o.code }}">{{ o.native }}</a></li>{% endif %}{% endfor %}</ul>
+      </div>
+    </details></nav>
+  {% if notice %}<p class="mt">{{ notice }}</p>{% endif %}
+  <p class="back"><a href="{{ home }}">{{ t.names_back }}</a></p>
+{% block content %}{% endblock %}  <footer>{% if updated_url %}<a href="{{ updated_url }}" class="updated">{{ updated }}</a>{% else %}{{ updated }}{% endif %}<br><small><bdi dir="ltr">&copy; {{ site.copyright_from }}<span class="range-dash">–</span></bdi> {{ footer_name }}</small></footer>
+</main>
+<script src="{{ up }}lang.js"></script>
+<script src="{{ up }}cv.js"></script>
+<script data-goatcounter="{{ site.goatcounter }}" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

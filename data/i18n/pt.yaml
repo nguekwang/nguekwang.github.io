@@ -79,6 +79,21 @@ projects:
   desc: Ferramenta para desenhar árvores sintáticas da gramática gerativa (em planejamento)
 - name: Corpus Hub
   desc: Plataforma para reunir e consultar corpora linguísticos (em planejamento)
+ai_tools_h: "Links para assistentes de IA"
+ai_tools_intro: "Estes serviços leem o repositório público do projeto no GitHub: basta substituir github.com no URL do repositório pelo endereço do serviço. São mantidos por terceiros, não por mim, e só funcionam com repositórios públicos."
+ai_tools_repo: "Repositório"
+ai_tools_groups:
+  read: "Leitura com IA"
+  diagram: "Diagramas"
+  browse: "Código no navegador"
+ai_tools_desc:
+  gitingest: "Reúne o repositório num único texto (resumo, árvore de arquivos e conteúdo) para colar num chat de IA."
+  gitmcp: "Transforma o repositório num servidor MCP remoto: adicione este URL como servidor MCP personalizado num assistente de IA compatível com MCP. Não é preciso conta nem chave de API."
+  deepwiki: "Gera documentação do repositório no estilo de uma wiki e responde a perguntas sobre ele."
+  uithub: "Mostra a árvore de arquivos e o conteúdo como texto simples para um assistente de IA."
+  gitreverse: "Escreve um prompt e uma especificação do projeto em linguagem natural para um assistente de programação com IA."
+  gitdiagram: "Desenha a estrutura do repositório como um diagrama interativo."
+  github-dev: "Abre o repositório num editor de código (VS Code) no navegador. Mantido pelo GitHub; é preciso entrar no GitHub."
 outlook:
 - name: "Dialeto ou língua"
   desc: "propor, com base em medidas de similaridade, critérios para decidir quando uma variedade é um dialeto e quando é uma língua"

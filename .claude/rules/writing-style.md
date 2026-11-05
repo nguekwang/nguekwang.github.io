@@ -16,6 +16,7 @@ paths:
 - A project's name is spelled the same in every language; only its description is translated.
 - Every description states the project's status (in development, planned, ...).
 - List only projects the owner asked to list, and never link to a private repository.
+- A new project also needs an entry in `data/ai_tools.yaml` (see `data.md`).
 
 ## Institution names
 - For each language, use the name the institution itself publishes in that language if there is one (official); otherwise translate its meaning (translated).

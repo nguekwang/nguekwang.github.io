@@ -1,0 +1,15 @@
+{#- A page of links for AI assistants for one project, /<lang>/ai-tools/<repo name>/. Layout: subpage.html.j2.
+   Services and repositories: data/ai_tools.yaml; built by ai_tools_pages() in tools/build.py. -#}
+{% extends "subpage.html.j2" %}
+{% block content %}  <h1 class="page-h"><bdi>{{ project }}</bdi>{{ t.colon }}{{ t.ai_tools_h }}</h1>
+  <p>{{ t.ai_tools_intro }}</p>
+  <p class="meta">{{ t.ai_tools_repo }}{{ t.colon }}<a href="{{ p.repo }}" dir="ltr">{{ p.repo | replace("https://", "") }}</a></p>
+  {% for group, items in p.groups %}<h2>{{ t.ai_tools_groups[group] }}</h2>
+  <ul class="names">{% for s, url in items %}
+    <li><strong><a href="{{ url }}">{{ s.name }}</a></strong><br>
+      {{ t.ai_tools_desc[s.id] }}<br>
+      <span class="meta"><a href="{{ url }}" dir="ltr">{{ url | replace("https://", "") }}</a><br><bdi dir="ltr">github.com → {{ s.host }}</bdi></span>
+    </li>{% endfor %}
+  </ul>
+  {% endfor %}
+{% endblock %}

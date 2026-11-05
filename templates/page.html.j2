@@ -69,7 +69,7 @@
 
   <section lang="{{ code }}">
     <h2>{{ t.projects_h }}</h2>
-    <ul>{% for p in t.projects %}<li><strong>{{ p.name }}</strong>{{ t.colon }}{{ p.desc }}</li>{% endfor %}</ul>
+    <ul>{% for p in t.projects %}<li><strong>{{ p.name }}</strong>{{ t.colon }}{{ p.desc }}{% if p.name in ai_pages %}<br><span class="meta"><a href="{{ ai_pages[p.name].path }}/">{{ t.ai_tools_h }}</a></span>{% endif %}</li>{% endfor %}</ul>
   </section>
 
   <section lang="{{ code }}">

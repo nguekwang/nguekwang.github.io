@@ -79,6 +79,21 @@ projects:
   desc: Alat untuk menggambar pohon sintaksis tata bahasa generatif (direncanakan)
 - name: Corpus Hub
   desc: Wadah untuk mengumpulkan dan mencari korpus bahasa (direncanakan)
+ai_tools_h: "Tautan untuk asisten AI"
+ai_tools_intro: "Layanan berikut membaca repositori GitHub publik proyek ini: cukup ganti github.com pada URL repositori dengan alamat layanannya. Layanan ini dikelola pihak lain, bukan saya, dan hanya berfungsi untuk repositori publik."
+ai_tools_repo: "Repositori"
+ai_tools_groups:
+  read: "Membaca dengan AI"
+  diagram: "Diagram"
+  browse: "Kode di peramban"
+ai_tools_desc:
+  gitingest: "Menyatukan repositori menjadi satu teks (ringkasan, struktur berkas, dan isi berkas) untuk ditempelkan ke obrolan AI."
+  gitmcp: "Menjadikan repositori sebuah server MCP jarak jauh: tambahkan URL ini sebagai server MCP kustom di asisten AI yang mendukung MCP. Tidak perlu akun atau kunci API."
+  deepwiki: "Membuat dokumentasi repositori bergaya wiki dan menjawab pertanyaan tentangnya."
+  uithub: "Menampilkan struktur berkas dan isinya sebagai teks biasa untuk asisten AI."
+  gitreverse: "Menulis prompt dan spesifikasi proyek dalam bahasa alami untuk asisten pemrograman AI."
+  gitdiagram: "Menggambar struktur repositori sebagai diagram interaktif."
+  github-dev: "Membuka repositori di editor kode (VS Code) di peramban. Dikelola oleh GitHub; Anda perlu masuk ke GitHub."
 outlook:
 - name: "Dialek atau bahasa"
   desc: "mengusulkan kriteria, berdasarkan ukuran kemiripan, kapan suatu ragam disebut dialek dan kapan disebut bahasa"

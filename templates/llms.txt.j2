@@ -26,7 +26,8 @@
 
 ## {{ t.projects_h }}
 
-{% for p in t.projects %}- {{ p.name }}: {{ p.desc }}
+{% for p in t.projects %}- {{ p.name }}: {{ p.desc }}{% if p.name in ai_pages %}
+  - {{ t.ai_tools_h }}: {{ site.url }}/en/{{ ai_pages[p.name].path }}/{% endif %}
 {% endfor %}## {{ t.outlook_h }}
 
 {% for x in t.outlook %}- {{ x.name }}: {{ x.desc }}
