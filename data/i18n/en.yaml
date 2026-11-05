@@ -30,6 +30,10 @@ keywords_h: Keywords
 tagline: I study what is universal in how human languages encode meaning, using formal and computational methods on cross-linguistic data.
 btn_email: Email me
 btn_github: GitHub
+btn_cv: "CV (PDF)"
+# Title of the CV (PDF), and the label for the site's address in it.
+cv_h: "Curriculum Vitae"
+website: "Website"
 interests_h: Research topics
 current_h: Current research
 current: Quantifying cross-linguistic similarity. Using phoneme inventories (PHOIBLE) and vocabulary data, I measure how close languages and dialects are, starting with the Romance languages. The aim is a measure that works for many languages, rests on explicit statistics, and can inform where a dialect ends and a language begins.

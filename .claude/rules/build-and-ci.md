@@ -4,11 +4,13 @@ paths:
   - ".github/**"
   - "requirements*.txt"
   - "lychee.toml"
+  - "templates/cv.html.j2"
 ---
 
 # Build and CI
 
 - `pip install -r requirements.txt`, then `python3 tools/build.py --check` checks the data, and `python3 tools/build.py` checks and builds the site into `_site/`. Generated HTML is never committed: GitHub Pages publishes from GitHub Actions, not from a branch.
+- The build also makes a CV for every language at `/<lang>/<cv_file>` (`cv_file` in `data/site.yaml`): `templates/cv.html.j2` is printed to PDF with headless Chrome (set `CHROME` if it is not on `PATH`; `--no-pdf` skips it). The CV shows only what the profile page shows, so it never adds personal details of its own; when a page section changes shape, update the CV template in the same change. CI installs the Noto fonts it needs.
 - GitHub Actions (`.github/workflows/site.yml`) runs the check and build on every pull request, and on push to `main` builds and deploys to GitHub Pages.
 - The check must fail on any difference between language files (missing or extra keys, different list lengths or keyword ids). Do not weaken it.
 - The footer's "last updated" date and link come from git: the build fills `{date}` with the date of the latest commit that changed `data/`, `templates/`, `static/` or `tools/` (formatted per language with Babel) and links to that commit on GitHub. The workflow checks out full history (`fetch-depth: 0`) for this.

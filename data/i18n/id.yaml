@@ -28,6 +28,9 @@ keywords_h: Kata kunci
 tagline: Saya meneliti apa yang universal dalam cara bahasa manusia mengodekan makna, dengan metode formal dan komputasional pada data lintas bahasa.
 btn_email: Kirim email
 btn_github: GitHub
+btn_cv: "CV (PDF)"
+cv_h: "Daftar riwayat hidup"
+website: "Situs web"
 interests_h: Topik penelitian
 current_h: Penelitian saat ini
 current: Mengukur kemiripan antarbahasa secara kuantitatif. Dengan inventaris fonem (PHOIBLE) dan data kosakata, saya mengukur seberapa dekat bahasa dan dialek satu sama lain, dimulai dari bahasa-bahasa Roman. Tujuannya adalah ukuran yang berlaku untuk banyak bahasa, berdasarkan statistik yang eksplisit, dan dapat membantu menentukan di mana dialek berakhir dan bahasa dimulai.
