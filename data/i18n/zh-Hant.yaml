@@ -30,7 +30,7 @@ pub_types:
 pub_status:
   unpublished: '未公開'
 keywords_h: 關鍵詞
-tagline: 我以形式化與計算的方法，利用多種語言的資料研究語言。
+tagline: 語言類型學、語意學、計算語言學
 btn_email: 寄送電子郵件
 btn_github: GitHub
 btn_cv: "履歷 (PDF)"
@@ -38,7 +38,7 @@ cv_h: "個人履歷"
 website: "網站"
 interests_h: 研究主題
 current_h: 目前的研究
-current: 什麼是相似，以及如何客觀地描述語言的特性。我在探索將這些方法從「人類的有聲語言」擴展到書面語言、手語、智人以外的個體可能擁有的語言、人造語言與形式語言的可能性。
+current: 什麼是相似，以及如何客觀地描述語言的特性。我在探索將這些方法從「人類的有聲語言」擴展到書面語言、手語、智人以外的存在可能擁有的語言、人造語言與形式語言的可能性。
 projects_h: 專案
 outlook_h: "展望"
 langs_h: 語言

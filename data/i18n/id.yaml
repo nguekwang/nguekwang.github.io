@@ -30,7 +30,7 @@ pub_types:
 pub_status:
   unpublished: 'tidak dipublikasikan'
 keywords_h: Kata kunci
-tagline: Saya meneliti bahasa dengan metode formal dan komputasional serta data dari banyak bahasa.
+tagline: Tipologi linguistik, semantik, dan linguistik komputasional
 btn_email: Kirim email
 btn_github: GitHub
 btn_cv: "CV (PDF)"
@@ -38,7 +38,7 @@ cv_h: "Daftar riwayat hidup"
 website: "Situs web"
 interests_h: Topik penelitian
 current_h: Penelitian saat ini
-current: "Apa itu kemiripan, dan bagaimana sifat-sifat suatu bahasa dapat dideskripsikan secara objektif. Saya menjajaki kemungkinan menerapkan metode tersebut di luar bahasa lisan manusia: pada bahasa tulis, bahasa isyarat, apa yang mungkin dapat disebut bahasa pada makhluk selain Homo sapiens, bahasa buatan, dan bahasa formal."
+current: "Apa itu kemiripan, dan bagaimana sifat-sifat suatu bahasa dapat dideskripsikan secara objektif. Saya menjajaki kemungkinan menerapkan metode tersebut di luar bahasa lisan manusia: pada bahasa tulis, bahasa isyarat, apa yang mungkin dapat disebut bahasa pada entitas selain Homo sapiens, bahasa buatan, dan bahasa formal."
 projects_h: Proyek
 outlook_h: "Rencana ke depan"
 langs_h: Bahasa

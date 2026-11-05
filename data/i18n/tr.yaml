@@ -30,7 +30,7 @@ pub_types:
 pub_status:
   unpublished: 'yayımlanmamış'
 keywords_h: Anahtar sözcükler
-tagline: Dili biçimsel ve hesaplamalı yöntemlerle ve pek çok dilden verilerle inceliyorum.
+tagline: Dil tipolojisi, anlambilim ve bilişimsel dilbilim
 btn_email: E-posta gönder
 btn_github: GitHub
 btn_cv: "Özgeçmiş (PDF)"
@@ -38,7 +38,7 @@ cv_h: "Özgeçmiş"
 website: "Web sitesi"
 interests_h: Araştırma konuları
 current_h: Güncel araştırma
-current: Benzerlik nedir ve bir dilin özellikleri nesnel olarak nasıl betimlenebilir? Bu yöntemlerin insanın sözlü dilinin ötesinde, yazı diline, işaret dillerine, Homo sapiens dışındaki canlılarda dil sayılabilecek olana, yapay dillere ve biçimsel dillere de uygulanabilme olasılığını araştırıyorum.
+current: Benzerlik nedir ve bir dilin özellikleri nesnel olarak nasıl betimlenebilir? Bu yöntemlerin insanın sözlü dilinin ötesinde, yazı diline, işaret dillerine, Homo sapiens dışındaki varlıklarda dil sayılabilecek olana, yapay dillere ve biçimsel dillere de uygulanabilme olasılığını araştırıyorum.
 projects_h: Projeler
 outlook_h: "Gelecek planları"
 langs_h: Diller

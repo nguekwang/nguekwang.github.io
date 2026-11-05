@@ -30,7 +30,7 @@ pub_types:
 pub_status:
   unpublished: 'unveröffentlicht'
 keywords_h: Schlagwörter
-tagline: Ich erforsche Sprache mit formalen und computergestützten Methoden und Daten aus vielen Sprachen.
+tagline: Sprachtypologie, Semantik und Computerlinguistik
 btn_email: E-Mail schreiben
 btn_github: GitHub
 btn_cv: "Lebenslauf (PDF)"
@@ -38,7 +38,7 @@ cv_h: "Lebenslauf"
 website: "Website"
 interests_h: Forschungsthemen
 current_h: Aktuelle Forschung
-current: "Was Ähnlichkeit ist und wie sich die Eigenschaften einer Sprache objektiv beschreiben lassen. Ich untersuche, ob sich solche Methoden über die gesprochene menschliche Sprache hinaus anwenden lassen: auf geschriebene Sprache, Gebärdensprachen, das, was bei anderen Lebewesen als dem Homo sapiens als Sprache gelten könnte, Plansprachen und formale Sprachen."
+current: "Was Ähnlichkeit ist und wie sich die Eigenschaften einer Sprache objektiv beschreiben lassen. Ich untersuche, ob sich solche Methoden über die gesprochene menschliche Sprache hinaus anwenden lassen: auf geschriebene Sprache, Gebärdensprachen, das, was bei anderen Wesen als dem Homo sapiens als Sprache gelten könnte, Plansprachen und formale Sprachen."
 projects_h: Projekte
 outlook_h: "Ausblick"
 langs_h: Sprachen

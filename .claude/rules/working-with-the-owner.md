@@ -12,6 +12,7 @@ These rules cover how Claude works with the site's owner. They apply to every ta
 ## Asking questions
 
 - Put questions for the owner in the owner's Q&A table, a claude.ai artifact named "Thesis 質問箱" (find it with the Artifact tool's `list` action; write rows with ArtifactData, collection `questions`). Do not leave questions waiting in the chat.
+- Never ask what is already decided. Before adding a question, read every row of the Q&A table (answered and applied ones too), the rule files, the shared decision files and project memory; if the answer is there, follow it. If an earlier answer must be reopened, say in `context` where it is and why.
 - One decision per question, in one short sentence, with one recommended answer. Put explanations in the row's `context`, not in the question.
 - If the session cannot reach the Q&A table, ask in the chat in the same short form.
 
