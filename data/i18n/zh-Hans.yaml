@@ -34,6 +34,7 @@ keywords_h: 关键词
 keyword_groups:
   research: "研究领域"
   theory: "理论与分支学科"
+  math: "数学与数据"
   objects: "研究对象"
   tech: "技术"
 tagline: 我研究人类语言在表达意义上的普遍性，对跨语言数据运用形式化和计算方法。
@@ -118,6 +119,13 @@ keywords:
   sign-languages: "手语"
   constructed: "人造语言"
   formal-languages: "形式语言"
+  information-theory: "信息论"
+  morse: "摩尔斯电码"
+  probability: "概率论"
+  statistics: "统计学"
+  data-viz: "数据可视化"
+  vibrations-waves: "振动与波"
+  signal-processing: "信号处理"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

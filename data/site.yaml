@@ -41,8 +41,10 @@ keywords:
     items: [similarity, typology, universals, crossling-semantics, computational, phylogenetic]
   - group: theory
     items: [theoretical, phonology, morphology, syntax, formal-semantics, generative, cognitive]
+  - group: math
+    items: [information-theory, probability, statistics, vibrations-waves, signal-processing, data-viz]
   - group: objects
-    items: [romance, ibero-romance, medieval-castilian, mozarabic, ladino, writing-systems, sign-languages, constructed, formal-languages]
+    items: [romance, ibero-romance, medieval-castilian, mozarabic, ladino, writing-systems, morse, sign-languages, constructed, formal-languages]
   - group: tech
     items: [nlp, i18n, unicode, input-methods, typesetting, linux, kernels, oss]
 

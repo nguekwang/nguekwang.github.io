@@ -34,6 +34,7 @@ keywords_h: کلیدواژه‌ها
 keyword_groups:
   research: "حوزه‌های پژوهش"
   theory: "نظریه و زیرشاخه‌ها"
+  math: "ریاضیات و داده‌ها"
   objects: "موضوعات پژوهش"
   tech: "فناوری"
 tagline: من بررسی می‌کنم که شیوهٔ رمزگذاری معنا در زبان‌های بشری چه جنبه‌های همگانی دارد، با روش‌های صوری و محاسباتی بر داده‌های میان‌زبانی.
@@ -118,6 +119,13 @@ keywords:
   sign-languages: "زبان‌های اشاره"
   constructed: "زبان‌های ساختگی"
   formal-languages: "زبان‌های صوری"
+  information-theory: "نظریه اطلاعات"
+  morse: "کد مورس"
+  probability: "نظریه احتمال"
+  statistics: "آمار"
+  data-viz: "مصورسازی داده‌ها"
+  vibrations-waves: "ارتعاشات و امواج"
+  signal-processing: "پردازش سیگنال"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

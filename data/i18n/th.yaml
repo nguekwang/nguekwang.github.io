@@ -34,6 +34,7 @@ keywords_h: คำสำคัญ
 keyword_groups:
   research: "สาขาการวิจัย"
   theory: "ทฤษฎีและสาขาย่อย"
+  math: "คณิตศาสตร์และข้อมูล"
   objects: "สิ่งที่ศึกษา"
   tech: "เทคโนโลยี"
 tagline: ศึกษาความเป็นสากลในวิธีที่ภาษามนุษย์ถ่ายทอดความหมาย โดยใช้วิธีเชิงรูปนัยและเชิงคำนวณกับข้อมูลข้ามภาษา
@@ -118,6 +119,13 @@ keywords:
   sign-languages: "ภาษามือ"
   constructed: "ภาษาประดิษฐ์"
   formal-languages: "ภาษาเชิงรูปนัย"
+  information-theory: "ทฤษฎีสารสนเทศ"
+  morse: "รหัสมอร์ส"
+  probability: "ทฤษฎีความน่าจะเป็น"
+  statistics: "สถิติศาสตร์"
+  data-viz: "การแสดงข้อมูลด้วยภาพ"
+  vibrations-waves: "การสั่นและคลื่น"
+  signal-processing: "การประมวลผลสัญญาณ"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

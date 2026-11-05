@@ -34,6 +34,7 @@ keywords_h: मुख्य शब्द
 keyword_groups:
   research: "शोध क्षेत्र"
   theory: "सिद्धांत और उपक्षेत्र"
+  math: "गणित और डेटा"
   objects: "अध्ययन के विषय"
   tech: "प्रौद्योगिकी"
 tagline: मेरा शोध इस पर केंद्रित है कि मानव भाषाएँ अर्थ को व्यक्त करने में किन बातों में सार्वभौमिक हैं; इसके लिए अनेक भाषाओं के आँकड़ों पर औपचारिक और संगणनात्मक विधियों का उपयोग किया जाता है।
@@ -118,6 +119,13 @@ keywords:
   sign-languages: "सांकेतिक भाषाएँ"
   constructed: "कृत्रिम भाषाएँ"
   formal-languages: "औपचारिक भाषाएँ"
+  information-theory: "सूचना सिद्धांत"
+  morse: "मोर्स कोड"
+  probability: "प्रायिकता सिद्धांत"
+  statistics: "सांख्यिकी"
+  data-viz: "डेटा विज़ुअलाइज़ेशन"
+  vibrations-waves: "कंपन और तरंगें"
+  signal-processing: "संकेत प्रसंस्करण"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

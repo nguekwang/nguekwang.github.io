@@ -34,6 +34,7 @@ keywords_h: Schlagwörter
 keyword_groups:
   research: "Forschungsgebiete"
   theory: "Theorie und Teildisziplinen"
+  math: "Mathematik und Daten"
   objects: "Untersuchungsgegenstände"
   tech: "Technik"
 tagline: Ich untersuche, was an der Art, wie menschliche Sprachen Bedeutung kodieren, universell ist, mit formalen und computergestützten Methoden an sprachübergreifenden Daten.
@@ -118,6 +119,13 @@ keywords:
   sign-languages: "Gebärdensprachen"
   constructed: "Plansprachen"
   formal-languages: "Formale Sprachen"
+  information-theory: "Informationstheorie"
+  morse: "Morsecode"
+  probability: "Wahrscheinlichkeitstheorie"
+  statistics: "Statistik"
+  data-viz: "Datenvisualisierung"
+  vibrations-waves: "Schwingungen und Wellen"
+  signal-processing: "Signalverarbeitung"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

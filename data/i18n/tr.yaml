@@ -34,6 +34,7 @@ keywords_h: Anahtar sözcükler
 keyword_groups:
   research: "Araştırma alanları"
   theory: "Kuram ve alt alanlar"
+  math: "Matematik ve veri"
   objects: "İnceleme nesneleri"
   tech: "Teknoloji"
 tagline: İnsan dillerinin anlamı kodlama biçimindeki evrensel yönleri, diller arası veriler üzerinde biçimsel ve hesaplamalı yöntemlerle inceliyorum.
@@ -118,6 +119,13 @@ keywords:
   sign-languages: "İşaret dilleri"
   constructed: "Yapay diller"
   formal-languages: "Biçimsel diller"
+  information-theory: "Bilgi kuramı"
+  morse: "Mors alfabesi"
+  probability: "Olasılık kuramı"
+  statistics: "İstatistik"
+  data-viz: "Veri görselleştirme"
+  vibrations-waves: "Titreşimler ve dalgalar"
+  signal-processing: "Sinyal işleme"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

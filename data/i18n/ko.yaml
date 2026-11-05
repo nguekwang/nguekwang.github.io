@@ -34,6 +34,7 @@ keywords_h: 키워드
 keyword_groups:
   research: "연구 분야"
   theory: "이론·하위 분야"
+  math: "수리·데이터"
   objects: "연구 대상"
   tech: "기술"
 tagline: 인간 언어가 의미를 나타내는 방식의 보편성을, 여러 언어의 데이터에 형식적·계산적 방법을 적용하여 연구합니다.
@@ -118,6 +119,13 @@ keywords:
   sign-languages: "수어"
   constructed: "인공어"
   formal-languages: "형식 언어"
+  information-theory: "정보 이론"
+  morse: "모스 부호"
+  probability: "확률론"
+  statistics: "통계학"
+  data-viz: "데이터 시각화"
+  vibrations-waves: "진동·파동론"
+  signal-processing: "신호 처리"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

@@ -34,6 +34,7 @@ keywords_h: Kata kunci
 keyword_groups:
   research: "Bidang penelitian"
   theory: "Teori dan subbidang"
+  math: "Matematika dan data"
   objects: "Objek kajian"
   tech: "Teknologi"
 tagline: Saya meneliti apa yang universal dalam cara bahasa manusia mengodekan makna, dengan metode formal dan komputasional pada data lintas bahasa.
@@ -118,6 +119,13 @@ keywords:
   sign-languages: "Bahasa isyarat"
   constructed: "Bahasa buatan"
   formal-languages: "Bahasa formal"
+  information-theory: "Teori informasi"
+  morse: "Kode Morse"
+  probability: "Teori probabilitas"
+  statistics: "Statistika"
+  data-viz: "Visualisasi data"
+  vibrations-waves: "Getaran dan gelombang"
+  signal-processing: "Pemrosesan sinyal"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

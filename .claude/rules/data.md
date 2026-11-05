@@ -27,7 +27,7 @@ All page text lives here as YAML. HTML structure is in `templates/`.
 
 - Keywords are shown in groups. `keywords` in `data/site.yaml` lists the groups in display order, each with a `group` id and its keyword ids (`items`).
 - Every language file has a label for each group under `keyword_groups` and a translation for each keyword under `keywords`. A keyword belongs to exactly one group.
-- Keep the groups in line with the research text (`interests`, `current`): research areas first, then theory and subfields, objects of study, and technology.
+- Keep the groups in line with the research text (`interests`, `current`): research areas first, then theory and subfields, mathematics and data, objects of study, and technology.
 
 ## Values that are not page text
 

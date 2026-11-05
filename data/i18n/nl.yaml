@@ -34,6 +34,7 @@ keywords_h: Trefwoorden
 keyword_groups:
   research: "Onderzoeksgebieden"
   theory: "Theorie en deelgebieden"
+  math: "Wiskunde en data"
   objects: "Onderzoeksobjecten"
   tech: "Technologie"
 tagline: Ik onderzoek wat universeel is aan de manier waarop menselijke talen betekenis uitdrukken, met formele en computationele methoden op taaloverstijgende data.
@@ -118,6 +119,13 @@ keywords:
   sign-languages: "Gebarentalen"
   constructed: "Kunsttalen"
   formal-languages: "Formele talen"
+  information-theory: "Informatietheorie"
+  morse: "Morsecode"
+  probability: "Kansrekening"
+  statistics: "Statistiek"
+  data-viz: "Datavisualisatie"
+  vibrations-waves: "Trillingen en golven"
+  signal-processing: "Signaalverwerking"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

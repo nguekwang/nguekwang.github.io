@@ -34,6 +34,7 @@ keywords_h: Ключові слова
 keyword_groups:
   research: "Галузі досліджень"
   theory: "Теорія та розділи мовознавства"
+  math: "Математика та дані"
   objects: "Обʼєкти дослідження"
   tech: "Технології"
 tagline: Я досліджую універсальне в тому, як людські мови виражають значення, застосовуючи формальні й обчислювальні методи до міжмовних даних.
@@ -118,6 +119,13 @@ keywords:
   sign-languages: "Жестові мови"
   constructed: "Штучні мови"
   formal-languages: "Формальні мови"
+  information-theory: "Теорія інформації"
+  morse: "Абетка Морзе"
+  probability: "Теорія ймовірностей"
+  statistics: "Статистика"
+  data-viz: "Візуалізація даних"
+  vibrations-waves: "Теорія коливань і хвиль"
+  signal-processing: "Обробка сигналів"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

@@ -34,6 +34,7 @@ keywords_h: Từ khóa
 keyword_groups:
   research: "Lĩnh vực nghiên cứu"
   theory: "Lý thuyết và phân ngành"
+  math: "Toán học và dữ liệu"
   objects: "Đối tượng nghiên cứu"
   tech: "Công nghệ"
 tagline: Tôi nghiên cứu những gì mang tính phổ quát trong cách các ngôn ngữ của con người mã hóa ý nghĩa, bằng các phương pháp hình thức và tính toán trên dữ liệu liên ngôn ngữ.
@@ -118,6 +119,13 @@ keywords:
   sign-languages: "Ngôn ngữ ký hiệu"
   constructed: "Ngôn ngữ nhân tạo"
   formal-languages: "Ngôn ngữ hình thức"
+  information-theory: "Lý thuyết thông tin"
+  morse: "Mã Morse"
+  probability: "Lý thuyết xác suất"
+  statistics: "Thống kê học"
+  data-viz: "Trực quan hóa dữ liệu"
+  vibrations-waves: "Dao động và sóng"
+  signal-processing: "Xử lý tín hiệu"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.
