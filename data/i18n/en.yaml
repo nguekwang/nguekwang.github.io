@@ -5,6 +5,7 @@
 mt_notice: ''
 native: English
 dir: ltr
+og_locale: en_US
 request: Request another language
 pubs_h: Publications & Presentations
 career_h: "Background"

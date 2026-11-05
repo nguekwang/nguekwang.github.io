@@ -14,7 +14,9 @@
 <meta property="og:title" content="{{ title }}">
 <meta property="og:description" content="{{ t.desc }}">
 <meta property="og:url" content="{{ site.url }}/{{ code }}/">
-<meta property="profile:first_name" content="{{ site.name.given }}">
+<meta property="og:locale" content="{{ t.og_locale }}">
+{% for o in langs if o.code != code %}<meta property="og:locale:alternate" content="{{ o.og_locale }}">
+{% endfor %}<meta property="profile:first_name" content="{{ site.name.given }}">
 <meta property="profile:last_name" content="{{ site.name.family }}">
 <meta name="twitter:card" content="summary">
 <link rel="canonical" href="{{ site.url }}/{{ code }}/">

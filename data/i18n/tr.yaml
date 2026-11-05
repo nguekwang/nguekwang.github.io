@@ -5,6 +5,7 @@
 mt_notice: Bu sayfa makine çevirisiyle çevrilmiştir.
 native: Türkçe
 dir: ltr
+og_locale: tr_TR
 request: Başka bir dil iste
 pubs_h: Yayınlar ve sunumlar
 career_h: "Özgeçmiş"
