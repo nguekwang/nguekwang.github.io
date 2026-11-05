@@ -56,7 +56,7 @@ All page text lives in YAML under `data/`; HTML structure lives in `templates/`.
 
 ## Search engines and AI assistants
 
-- Every page carries a title, description, Open Graph tags, canonical and hreflang links, and schema.org JSON-LD (`ProfilePage`, `WebSite`, `Person`) built by `jsonld()` in `tools/build.py`. All pages share the same `Person` `@id`, so the language versions read as one person.
+- Every page carries a title, description, Open Graph tags, canonical and hreflang links, and schema.org JSON-LD built by `jsonld()` in `tools/build.py`: `ProfilePage`, `WebSite` and `Person` on each language's main page, and `WebPage` (with a `BreadcrumbList` back to the main page), `WebSite` and `Person` on sub-pages such as `/<lang>/institution-names/`. All pages share the same `Person` `@id`, so the language versions read as one person.
 - `same_as` in `data/site.yaml` lists the owner's other profiles (GitHub now; add ORCID and researchmap when they exist).
 - `verification` in `data/site.yaml` holds the Google Search Console and Bing Webmaster Tools tokens (HTML meta tag method).
 - `_site/llms.txt` is a plain-text English summary for AI assistants, generated from `data/i18n/en.yaml`.

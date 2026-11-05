@@ -35,9 +35,20 @@ projects_h: Dự án
 outlook_h: "Định hướng"
 langs_h: Ngôn ngữ
 langs:
-- Tiếng Nhật (bản ngữ)
-- Tiếng Anh (CEFR C1)
-- Tiếng Tây Ban Nha (CEFR B1, chuyên ngành cử nhân)
+- label: "Bản ngữ (L1)"
+  items:
+  - "Tiếng Nhật"
+- label: "Ngôn ngữ làm việc"
+  items:
+  - "Tiếng Anh (CEFR C1)"
+  - "Tiếng Tây Ban Nha (CEFR B1, chuyên ngành cử nhân)"
+- label: "Ngôn ngữ đang học"
+  items:
+  - "Tiếng Hàn"
+  - "Tiếng Pháp"
+  - "Tiếng Nga"
+  - "Tiếng Trung"
+  - "Tiếng Ả Rập"
 interests:
 - 'Phổ quát ngôn ngữ và loại hình học: điểm chung của mọi ngôn ngữ và sự khác biệt giữa chúng'
 - Ngữ nghĩa học liên ngôn ngữ, với ngữ nghĩa học hình thức làm lý thuyết và phương pháp tính toán làm công cụ

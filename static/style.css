@@ -132,3 +132,17 @@ nav { align-items: center; gap: 8px; }
   .btn { padding: 14px 18px; }
   .langmenu > summary, .keywords li { padding-top: 10px; padding-bottom: 10px; }
 }
+
+/* Languages section: one row per group (first language, working languages, languages
+   under study). The group label sits beside its languages, like the contact list, and
+   the languages in a group run on one line and wrap. */
+dl.langs { display: grid; grid-template-columns: max-content 1fr; gap: 10px 20px; margin: 0; }
+dl.langs dt { color: var(--sub); font-size: 14px; padding-top: 1px; }
+dl.langs dd { margin: 0; }
+dl.langs ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 2px 20px; }
+[dir=rtl] dl.langs ul { padding: 0; }
+dl.langs li { margin: 0; }
+@media (max-width: 480px) {
+  dl.langs { grid-template-columns: 1fr; gap: 2px; }
+  dl.langs dd { margin-bottom: 10px; }
+}
