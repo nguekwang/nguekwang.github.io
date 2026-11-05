@@ -27,7 +27,7 @@ All page text lives here as YAML. HTML structure is in `templates/`.
 
 - Keywords are shown in groups. `keywords` in `data/site.yaml` lists the groups in display order, each with a `group` id and its keyword ids (`items`).
 - Every language file has a label for each group under `keyword_groups` and a translation for each keyword under `keywords`. A keyword belongs to exactly one group.
-- Keep the groups in line with the research text (`interests`, `current`): language comparison first, then theoretical linguistics, objects of study, mathematics and data, and technology (the last two next to each other). Group labels name fields at the same level; do not use a label (such as "research areas") that covers the other groups.
+- Keep the groups in line with the research text (`interests`, `current`): language comparison first, then theoretical linguistics, philosophy, objects of study, mathematics and data, and technology (the last two next to each other). Group labels name fields at the same level; do not use a label (such as "research areas") that covers the other groups.
 - Do not list keywords whose fields overlap as separate items: merge them into one (for example "Probability theory and statistics"), and do not repeat a group label as a keyword.
 
 ## Values that are not page text

@@ -35,6 +35,7 @@ keywords_h: Trefwoorden
 keyword_groups:
   comparison: "Taalvergelijking"
   theory: "Theoretische taalkunde"
+  philosophy: "Filosofie"
   math: "Wiskunde en data"
   objects: "Onderzoeksobjecten"
   tech: "Technologie"
@@ -118,7 +119,7 @@ keywords:
   probability: "Kansrekening en statistiek"
   data-viz: "Datavisualisatie"
   saussurean: "Saussuriaanse taalkunde"
-  wittgenstein: "Wittgenstein"
+  wittgenstein: "Analytische filosofie en Wittgenstein"
   vibrations-waves: "Trillingen en golven"
   signal-processing: "Signaalverwerking"
 

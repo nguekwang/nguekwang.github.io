@@ -35,6 +35,7 @@ keywords_h: 키워드
 keyword_groups:
   comparison: "언어 비교"
   theory: "이론언어학"
+  philosophy: "철학"
   math: "수리·데이터"
   objects: "연구 대상"
   tech: "기술"
@@ -118,7 +119,7 @@ keywords:
   probability: "확률론·통계학"
   data-viz: "데이터 시각화"
   saussurean: "소쉬르 언어학"
-  wittgenstein: "비트겐슈타인"
+  wittgenstein: "분석철학·비트겐슈타인"
   vibrations-waves: "진동·파동론"
   signal-processing: "신호 처리"
 

@@ -35,6 +35,7 @@ keywords_h: Từ khóa
 keyword_groups:
   comparison: "So sánh ngôn ngữ"
   theory: "Ngôn ngữ học lý thuyết"
+  philosophy: "Triết học"
   math: "Toán học và dữ liệu"
   objects: "Đối tượng nghiên cứu"
   tech: "Công nghệ"
@@ -118,7 +119,7 @@ keywords:
   probability: "Lý thuyết xác suất và thống kê học"
   data-viz: "Trực quan hóa dữ liệu"
   saussurean: "Ngôn ngữ học Saussure"
-  wittgenstein: "Wittgenstein"
+  wittgenstein: "Triết học phân tích và Wittgenstein"
   vibrations-waves: "Dao động và sóng"
   signal-processing: "Xử lý tín hiệu"
 

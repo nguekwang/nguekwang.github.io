@@ -35,6 +35,7 @@ keywords_h: คำสำคัญ
 keyword_groups:
   comparison: "การเปรียบเทียบภาษา"
   theory: "ภาษาศาสตร์เชิงทฤษฎี"
+  philosophy: "ปรัชญา"
   math: "คณิตศาสตร์และข้อมูล"
   objects: "สิ่งที่ศึกษา"
   tech: "เทคโนโลยี"
@@ -118,7 +119,7 @@ keywords:
   probability: "ทฤษฎีความน่าจะเป็นและสถิติศาสตร์"
   data-viz: "การแสดงข้อมูลด้วยภาพ"
   saussurean: "ภาษาศาสตร์ของโซซูร์"
-  wittgenstein: "วิตเกนสไตน์"
+  wittgenstein: "ปรัชญาวิเคราะห์และวิตเกนสไตน์"
   vibrations-waves: "การสั่นและคลื่น"
   signal-processing: "การประมวลผลสัญญาณ"
 

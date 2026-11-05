@@ -35,6 +35,7 @@ keywords_h: 关键词
 keyword_groups:
   comparison: "语言比较"
   theory: "理论语言学"
+  philosophy: "哲学"
   math: "数学与数据"
   objects: "研究对象"
   tech: "技术"
@@ -118,7 +119,7 @@ keywords:
   probability: "概率论与统计学"
   data-viz: "数据可视化"
   saussurean: "索绪尔语言学"
-  wittgenstein: "维特根斯坦"
+  wittgenstein: "分析哲学与维特根斯坦"
   vibrations-waves: "振动与波"
   signal-processing: "信号处理"
 

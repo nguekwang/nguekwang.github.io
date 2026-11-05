@@ -35,6 +35,7 @@ keywords_h: मुख्य शब्द
 keyword_groups:
   comparison: "भाषाओं की तुलना"
   theory: "सैद्धांतिक भाषाविज्ञान"
+  philosophy: "दर्शनशास्त्र"
   math: "गणित और डेटा"
   objects: "अध्ययन के विषय"
   tech: "प्रौद्योगिकी"
@@ -118,7 +119,7 @@ keywords:
   probability: "प्रायिकता सिद्धांत और सांख्यिकी"
   data-viz: "डेटा विज़ुअलाइज़ेशन"
   saussurean: "सस्यूर का भाषाविज्ञान"
-  wittgenstein: "विट्गेन्स्टाइन"
+  wittgenstein: "विश्लेषणात्मक दर्शन और विट्गेन्स्टाइन"
   vibrations-waves: "कंपन और तरंगें"
   signal-processing: "संकेत प्रसंस्करण"
 

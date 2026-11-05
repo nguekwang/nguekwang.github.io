@@ -35,6 +35,7 @@ keywords_h: Kata kunci
 keyword_groups:
   comparison: "Perbandingan bahasa"
   theory: "Linguistik teoretis"
+  philosophy: "Filsafat"
   math: "Matematika dan data"
   objects: "Objek kajian"
   tech: "Teknologi"
@@ -118,7 +119,7 @@ keywords:
   probability: "Teori probabilitas dan statistika"
   data-viz: "Visualisasi data"
   saussurean: "Linguistik Saussure"
-  wittgenstein: "Wittgenstein"
+  wittgenstein: "Filsafat analitik dan Wittgenstein"
   vibrations-waves: "Getaran dan gelombang"
   signal-processing: "Pemrosesan sinyal"
 

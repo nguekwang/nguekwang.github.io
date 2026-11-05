@@ -35,6 +35,7 @@ keywords_h: 關鍵詞
 keyword_groups:
   comparison: "語言比較"
   theory: "理論語言學"
+  philosophy: "哲學"
   math: "數學與資料"
   objects: "研究對象"
   tech: "技術"
@@ -118,7 +119,7 @@ keywords:
   probability: "機率論與統計學"
   data-viz: "資料視覺化"
   saussurean: "索緒爾語言學"
-  wittgenstein: "維根斯坦"
+  wittgenstein: "分析哲學與維根斯坦"
   vibrations-waves: "振動與波"
   signal-processing: "訊號處理"
 

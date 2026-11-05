@@ -35,6 +35,7 @@ keywords_h: الكلمات المفتاحية
 keyword_groups:
   comparison: "مقارنة اللغات"
   theory: "اللسانيات النظرية"
+  philosophy: "الفلسفة"
   math: "الرياضيات والبيانات"
   objects: "موضوعات الدراسة"
   tech: "التقنية"
@@ -118,7 +119,7 @@ keywords:
   probability: "نظرية الاحتمالات والإحصاء"
   data-viz: "التمثيل المرئي للبيانات"
   saussurean: "لسانيات سوسير"
-  wittgenstein: "فيتغنشتاين"
+  wittgenstein: "الفلسفة التحليلية وفيتغنشتاين"
   vibrations-waves: "الاهتزازات والموجات"
   signal-processing: "معالجة الإشارات"
 

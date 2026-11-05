@@ -35,6 +35,7 @@ keywords_h: Ключевые слова
 keyword_groups:
   comparison: "Сравнение языков"
   theory: "Теоретическая лингвистика"
+  philosophy: "Философия"
   math: "Математика и данные"
   objects: "Объекты исследования"
   tech: "Технологии"
@@ -118,7 +119,7 @@ keywords:
   probability: "Теория вероятностей и статистика"
   data-viz: "Визуализация данных"
   saussurean: "Лингвистика Соссюра"
-  wittgenstein: "Витгенштейн"
+  wittgenstein: "Аналитическая философия и Витгенштейн"
   vibrations-waves: "Теория колебаний и волн"
   signal-processing: "Обработка сигналов"
 

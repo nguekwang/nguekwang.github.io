@@ -35,6 +35,7 @@ keywords_h: Anahtar sözcükler
 keyword_groups:
   comparison: "Dillerin karşılaştırılması"
   theory: "Kuramsal dilbilim"
+  philosophy: "Felsefe"
   math: "Matematik ve veri"
   objects: "İnceleme nesneleri"
   tech: "Teknoloji"
@@ -118,7 +119,7 @@ keywords:
   probability: "Olasılık kuramı ve istatistik"
   data-viz: "Veri görselleştirme"
   saussurean: "Saussure dilbilimi"
-  wittgenstein: "Wittgenstein"
+  wittgenstein: "Analitik felsefe ve Wittgenstein"
   vibrations-waves: "Titreşimler ve dalgalar"
   signal-processing: "Sinyal işleme"
 

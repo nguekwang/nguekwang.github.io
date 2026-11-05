@@ -35,6 +35,7 @@ keywords_h: Słowa kluczowe
 keyword_groups:
   comparison: "Porównywanie języków"
   theory: "Językoznawstwo teoretyczne"
+  philosophy: "Filozofia"
   math: "Matematyka i dane"
   objects: "Przedmioty badań"
   tech: "Technologia"
@@ -118,7 +119,7 @@ keywords:
   probability: "Rachunek prawdopodobieństwa i statystyka"
   data-viz: "Wizualizacja danych"
   saussurean: "Językoznawstwo Saussure’a"
-  wittgenstein: "Wittgenstein"
+  wittgenstein: "Filozofia analityczna i Wittgenstein"
   vibrations-waves: "Drgania i fale"
   signal-processing: "Przetwarzanie sygnałów"
 
