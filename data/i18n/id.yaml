@@ -1,11 +1,16 @@
 # Page text for one language (id). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: Halaman ini diterjemahkan secara otomatis.
+post_edited: 'Terjemahan mesin, ditinjau dan diperbaiki oleh {names}.'
 native: Bahasa Indonesia
 dir: ltr
+og_locale: id_ID
 request: Minta bahasa lain
+theme_dark: Tema gelap
 pubs_h: Publikasi dan presentasi
 career_h: "Riwayat"
 contact_h: Kontak
@@ -27,6 +32,7 @@ interests_h: Topik penelitian
 current_h: Penelitian saat ini
 current: Mengukur kemiripan antarbahasa secara kuantitatif. Dengan inventaris fonem (PHOIBLE) dan data kosakata, saya mengukur seberapa dekat bahasa dan dialek satu sama lain, dimulai dari bahasa-bahasa Roman. Tujuannya adalah ukuran yang berlaku untuk banyak bahasa, berdasarkan statistik yang eksplisit, dan dapat membantu menentukan di mana dialek berakhir dan bahasa dimulai.
 projects_h: Proyek
+outlook_h: "Rencana ke depan"
 langs_h: Bahasa
 langs:
 - Bahasa Jepang (bahasa ibu)
@@ -47,6 +53,15 @@ projects:
   desc: Alat untuk menggambar pohon sintaksis tata bahasa generatif (direncanakan)
 - name: Corpus Hub
   desc: Wadah untuk mengumpulkan dan mencari korpus bahasa (direncanakan)
+outlook:
+- name: "Dialek atau bahasa"
+  desc: "mengusulkan kriteria, berdasarkan ukuran kemiripan, kapan suatu ragam disebut dialek dan kapan disebut bahasa"
+- name: "Kemiripan sintaksis"
+  desc: "mengukur kedekatan sintaksis selain bunyi dan kosakata, lalu menggabungkannya menjadi satu indeks"
+- name: "Pemerolehan bahasa kedua"
+  desc: "menguji apakah bahasa yang lebih dekat dengan bahasa sendiri lebih mudah dipelajari"
+- name: "Alat berbasis GUI"
+  desc: "membuat alat yang dapat dipakai siapa saja untuk menghitung kemiripan, dan merilisnya sebagai sumber terbuka"
 keywords:
   typology: Tipologi bahasa
   universals: Kesemestaan bahasa

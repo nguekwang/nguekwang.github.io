@@ -1,11 +1,16 @@
 # Page text for one language (pt). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: Esta página foi traduzida automaticamente.
+post_edited: 'Tradução automática revista e corrigida por {names}.'
 native: Português
 dir: ltr
+og_locale: pt_BR
 request: Solicitar outro idioma
+theme_dark: Tema escuro
 pubs_h: Publicações e apresentações
 career_h: "Trajetória"
 contact_h: Contato
@@ -27,6 +32,7 @@ interests_h: Temas de pesquisa
 current_h: Pesquisa atual
 current: Quantificar a semelhança entre línguas. Com inventários de fonemas (PHOIBLE) e dados lexicais, meço a proximidade entre línguas e dialetos, começando pelas línguas românicas. O objetivo é uma medida que funcione para muitas línguas, se apoie em estatística explícita e ajude a indicar onde termina um dialeto e começa uma língua.
 projects_h: Projetos
+outlook_h: "Perspectivas"
 langs_h: Línguas
 langs:
 - Japonês (nativo)
@@ -47,6 +53,15 @@ projects:
   desc: Ferramenta para desenhar árvores sintáticas da gramática gerativa (em planejamento)
 - name: Corpus Hub
   desc: Plataforma para reunir e consultar corpora linguísticos (em planejamento)
+outlook:
+- name: "Dialeto ou língua"
+  desc: "propor, com base em medidas de similaridade, critérios para decidir quando uma variedade é um dialeto e quando é uma língua"
+- name: "Similaridade sintática"
+  desc: "medir também a proximidade sintática, além dos sons e do léxico, e reuni-las num único índice"
+- name: "Aquisição de segunda língua"
+  desc: "verificar se as línguas mais próximas da própria são mais fáceis de aprender"
+- name: "Uma ferramenta com interface gráfica"
+  desc: "criar uma ferramenta com a qual qualquer pessoa possa calcular a similaridade e publicá-la como código aberto"
 keywords:
   typology: Tipologia linguística
   universals: Universais linguísticos
