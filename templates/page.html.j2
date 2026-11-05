@@ -65,7 +65,9 @@
 
   <section lang="{{ code }}">
     <h2>{{ t.projects_h }}</h2>
-    <ul>{% for p in t.projects %}<li><strong>{{ p.name }}</strong>{{ t.colon }}{{ p.desc }}</li>{% endfor %}</ul>
+    <ul>{% for p in t.projects %}{% set meta = projects[p.name] or {} %}<li>
+      {%- if meta.repo %}<strong><a href="{{ meta.repo }}" data-cv="project">{{ p.name }}</a></strong>{% else %}<strong>{{ p.name }}</strong>{% endif %}{{ t.colon }}{{ p.desc }}
+      {%- if meta.repo %}{% set before, after = t.license.split('{name}') %}{{ before }}<a href="{{ meta.repo }}/blob/HEAD/LICENSE" data-cv="license"><bdi>{{ meta.license }}</bdi></a>{{ after }}{% endif %}</li>{% endfor %}</ul>
   </section>
 
   <section>

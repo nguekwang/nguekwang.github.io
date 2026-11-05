@@ -39,6 +39,7 @@ All page text lives in YAML under `data/`; HTML structure lives in `templates/`.
 - `data/site.yaml`: site-wide settings, names, language order, keyword order.
 - `data/i18n/<code>.yaml`: all page text for one language. Every language file must have exactly the same keys, list lengths and keyword ids as `en.yaml`, so that every language shows the same items. Only `mt_notice` may be empty.
 - `data/talks.yaml`: talks (language-independent).
+- `data/projects.yaml`: public repository and license (SPDX id) of each project, keyed by the project name, which is the same in every language. While `repo` is empty the site shows only the name and description; once it is set, the name links to the repository and the license is shown.
 - `static/`: files copied as they are (CSS, JS, robots.txt).
 - `pip install -r requirements.txt`, then `python3 tools/build.py --check` checks the data, and `python3 tools/build.py` checks and builds the site into `_site/`.
 - GitHub Actions (`.github/workflows/site.yml`) runs the check and build on every pull request, and on push to `main` builds and deploys to GitHub Pages.
@@ -56,5 +57,5 @@ All page text lives in YAML under `data/`; HTML structure lives in `templates/`.
 
 - Page views are counted by GoatCounter (`goatcounter` in `data/site.yaml`). Links we share carry a campaign tag, e.g. `?ref=card` (business card QR) or `?ref=github`.
 - Conversions are clicks on links marked with `data-cv="<name>"` in `templates/page.html.j2`. `static/cv.js` sends each one as the GoatCounter event `cv-<name>`, with the visit's `?ref=` as its referrer, and keeps `?ref=` on language menu links.
-- Current names: `email-top`, `email-contact`, `github-top`, `github-contact`, `talk`, `request-lang`. When adding a link to another profile (ORCID, researchmap), give it a `data-cv` name too.
+- Current names: `email-top`, `email-contact`, `github-top`, `github-contact`, `talk`, `request-lang`, `project` (a project's repository), `license` (a project's LICENSE file). When adding a link to another profile (ORCID, researchmap), give it a `data-cv` name too.
 - The measurement plan and the list of initiatives (施策) are kept outside this public repository.

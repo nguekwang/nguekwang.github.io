@@ -26,7 +26,7 @@
 
 ## {{ t.projects_h }}
 
-{% for p in t.projects %}- {{ p.name }}: {{ p.desc }}
+{% for p in t.projects %}{% set meta = projects[p.name] or {} %}- {{ p.name }}: {{ p.desc }}{% if meta.repo %} {{ meta.repo }}{{ t.license.replace('{name}', meta.license) }}{% endif %}
 {% endfor %}
 ## {{ t.keywords_h }}
 

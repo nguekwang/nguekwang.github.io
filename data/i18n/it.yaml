@@ -27,6 +27,7 @@ interests_h: Temi di ricerca
 current_h: Ricerca attuale
 current: Quantificare la somiglianza tra le lingue. Usando inventari fonematici (PHOIBLE) e dati lessicali, misuro quanto sono vicini lingue e dialetti, a partire dalle lingue romanze. L'obiettivo è una misura valida per molte lingue, basata su statistiche esplicite, che aiuti a capire dove finisce un dialetto e comincia una lingua.
 projects_h: Progetti
+license: ' (Licenza: {name})'
 langs_h: Lingue
 langs:
 - Giapponese (madrelingua)

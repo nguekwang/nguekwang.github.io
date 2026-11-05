@@ -27,6 +27,7 @@ interests_h: Thèmes de recherche
 current_h: Recherches en cours
 current: Quantifier la similarité entre les langues. À partir d'inventaires de phonèmes (PHOIBLE) et de données lexicales, je mesure la proximité entre langues et dialectes, en commençant par les langues romanes. L'objectif est une mesure applicable à de nombreuses langues, fondée sur des statistiques explicites, qui puisse éclairer où s'arrête un dialecte et où commence une langue.
 projects_h: Projets
+license: " (Licence\u00a0: {name})"
 langs_h: Langues
 langs:
 - Japonais (langue maternelle)
