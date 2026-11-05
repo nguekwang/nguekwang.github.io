@@ -424,6 +424,7 @@ def main():
             site=site, langs=langs, talks=talks, code=code, t=t,
             h1=h1, title=title, site_name=site_title(site, texts, code), notice=notice(code, t, post_editors.get(code)),
             updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
+            copyright_from=local_digits(site, code, str(site["copyright_from"])),
             jsonld=jsonld(site, code, t, title, website_name, post_editors.get(code)),
             alt_name=site["name"]["latin"] if ja else site["name"]["ja"],
             alt_lang="en" if ja else "ja",
@@ -452,6 +453,7 @@ def main():
             notice=notice(code, t, post_editors.get(code)),
             jsonld=jsonld(site, code, t, title, website_name, post_editors.get(code), sub=sub),
             updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
+            copyright_from=local_digits(site, code, str(site["copyright_from"])),
             footer_name=site["name"]["ja"] if code == "ja" else site["name"]["latin_short"],
         ))
 
@@ -468,6 +470,7 @@ def main():
                 notice=notice(code, t, post_editors.get(code)),
                 jsonld=jsonld(site, code, t, title, website_name, post_editors.get(code), sub=sub),
                 updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
+                copyright_from=local_digits(site, code, str(site["copyright_from"])),
                 footer_name=site["name"]["ja"] if code == "ja" else site["name"]["latin_short"],
             ))
 

@@ -12,6 +12,7 @@ This file holds only the principles. Concrete rules live in `.claude/rules/` (se
 - **Fix things once, at the source.** Text in `data/`, structure in `templates/`, style and scripts in `static/`, build logic in `tools/`. Never patch one page, one language or one link.
 - **Plain pages that work for everyone.** Each language is its own static page with ordinary links, readable without JavaScript and by search engines and AI assistants.
 - **English first.** The repository reads as English; other languages appear only as page content and names.
+- **Each language follows its own official documents.** Digits, dates, punctuation and other notation follow the conventions of that language's current official documents (government, legislature, national standards), not one style shared by all languages.
 - **Write decisions down.** When a new rule is decided, record it in the right rule file in the same pull request.
 
 ## Where the rules are

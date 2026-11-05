@@ -34,7 +34,7 @@
     </details></nav>
   {% if notice %}<p class="mt">{{ notice }}</p>{% endif %}
   <p class="back"><a href="{{ home }}">{{ t.names_back }}</a></p>
-{% block content %}{% endblock %}  <footer>{% if updated_url %}<a href="{{ updated_url }}" class="updated">{{ updated }}</a>{% else %}{{ updated }}{% endif %}<br><small><bdi dir="ltr">&copy; {{ site.copyright_from }}<span class="range-dash">–</span></bdi> {{ footer_name }}</small></footer>
+{% block content %}{% endblock %}  <footer>{% if updated_url %}<a href="{{ updated_url }}" class="updated">{{ updated }}</a>{% else %}{{ updated }}{% endif %}<br><small><bdi dir="ltr">&copy; {{ copyright_from }}<span class="range-dash">–</span></bdi> {{ footer_name }}</small></footer>
 </main>
 <script src="{{ up }}lang.js"></script>
 <script src="{{ up }}cv.js"></script>
