@@ -18,12 +18,18 @@ career:
 - "2003년 12월 일본 히로시마현 히로시마시 출생"
 - "히로시마 시립 모토마치 고등학교 보통과 보통코스 졸업 (2022년 3월)"
 - 오사카대학 외국어학부 스페인어 전공 학사 (2026년 3월)
-thesis: 졸업 논문
 colon: ': '
 email: 이메일
 updated: '최종 업데이트: {date}'
+site_title: 연구 포트폴리오
 desc: '마쓰우라 요시히로: 언어유형론과 음운론, 음소 목록에 기반한 언어 간 유사도의 정량화.'
-unpublished: (비공개)
+pub_title_en: ' ({title})'
+pub_note: ' ({year}) ({details})'
+list_sep: ', '
+pub_types:
+  bachelor_thesis: '졸업 논문'
+pub_status:
+  unpublished: '비공개'
 keywords_h: 키워드
 tagline: 인간 언어가 의미를 나타내는 방식의 보편성을, 여러 언어의 데이터에 형식적·계산적 방법을 적용하여 연구합니다.
 btn_email: 이메일 보내기

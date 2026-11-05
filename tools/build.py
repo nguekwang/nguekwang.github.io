@@ -5,6 +5,7 @@ All page text lives in YAML under data/:
   data/site.yaml          site-wide settings, names, language order, keyword order
   data/i18n/<code>.yaml   page text for one language
   data/talks.yaml         talks (language-independent)
+  data/publications.yaml  publications and theses (titles as written; labels from data/i18n)
   data/institutions.yaml  per institution and language: official name or our translation
   data/post_editors.yaml  native speakers who post-edited a machine-translated language
 HTML structure lives in templates/. This script only joins the two.
@@ -43,6 +44,8 @@ OUT = os.path.join(ROOT, "_site")
 REFERENCE = "en"
 # Keys whose value may be an empty string (an empty value means "do not show").
 MAY_BE_EMPTY = {"mt_notice"}
+# Keys that may be only a space (Thai separates list items with a space, not a comma).
+MAY_BE_SPACE = {"list_sep"}
 # Opening tag of an <a> element; group 1 holds its attributes.
 A_TAG = re.compile(r"<a\b([^>]*)>", re.IGNORECASE)
 HREF = re.compile(r"""\bhref\s*=\s*["']([^"']*)["']""", re.IGNORECASE)
@@ -88,7 +91,8 @@ def compare(ref, other, path, errors):
     elif not isinstance(other, str):
         errors.append(f"{path}: expected text")
     elif not other.strip() and path.rsplit(".", 1)[-1] not in MAY_BE_EMPTY:
-        errors.append(f"{path}: empty")
+        if not (other and path.rsplit(".", 1)[-1] in MAY_BE_SPACE):
+            errors.append(f"{path}: empty")
 
 
 def check(site, texts, institutions, post_editors):
@@ -117,6 +121,10 @@ def check(site, texts, institutions, post_editors):
             errors.append(f"{code}.og_locale: must look like ja_JP (Open Graph locale)")
         if isinstance(t.get("updated"), str) and t["updated"].count("{date}") != 1:
             errors.append(f"{code}.updated: must contain {{date}} exactly once")
+        for key, marks in (("pub_title_en", ("{title}",)), ("pub_note", ("{year}", "{details}"))):
+            for mark in marks:
+                if isinstance(t.get(key), str) and t[key].count(mark) != 1:
+                    errors.append(f"{code}.{key}: must contain {mark} exactly once")
         if isinstance(t.get("post_edited"), str) and t["post_edited"].count("{names}") != 1:
             errors.append(f"{code}.post_edited: must contain {{names}} exactly once")
     return errors
@@ -222,7 +230,7 @@ def last_change():
 
 
 def local_digits(site, code, text):
-    """Write the 0-9 in text with the language's own digits, if `digits` in site.yaml lists it."""
+    """Write 0-9 with the language's own digits when data/site.yaml `digits` lists them."""
     digits = site.get("digits", {}).get(code)
     if digits:
         text = text.translate(str.maketrans("0123456789", digits))
@@ -235,6 +243,47 @@ def updated_text(site, code, template, date):
     return template.replace("{date}", local_digits(site, code, text))
 
 
+def publications(site, code, t, pubs):
+    """Return data/publications.yaml entries with this language's text around the titles.
+
+    The template writes <title><en_space><en_open><title_en><en_after><note>, for example
+    言語間の類似度の定量的な算出（A Quantitative Analysis of Cross-Linguistic Similarity）（2026）（卒業論文、非公開）.
+    The brackets around the English title go inside one left-to-right isolate with it, so a
+    right-to-left page that wraps the title keeps them on the right sides.
+    """
+    before, after = t["pub_title_en"].split("{title}")
+    open_ = before.lstrip()
+    space = before[:len(before) - len(open_)]
+    out = []
+    for p in pubs:
+        details = [t["pub_types"][p["type"]]]
+        if p.get("status"):
+            details.append(t["pub_status"][p["status"]])
+        note = (t["pub_note"].replace("{year}", local_digits(site, code, str(p["year"])))
+                .replace("{details}", t["list_sep"].join(details)))
+        out.append({"title": p["title"], "lang": p["lang"], "title_en": p.get("title_en"),
+                    "en_space": space, "en_open": open_, "en_after": after, "note": note})
+    return out
+
+
+def check_publications(pubs, ref):
+    errors = []
+    for i, p in enumerate(pubs):
+        where = f"data/publications.yaml publications[{i}]"
+        for key in ("title", "lang", "year", "type"):
+            if not p.get(key):
+                errors.append(f"{where}: missing {key}")
+        if p.get("lang") != "en" and not p.get("title_en"):
+            errors.append(f"{where}: title_en is required when lang is not en")
+        if p.get("type") not in ref.get("pub_types", {}):
+            errors.append(f"{where}: type {p.get('type')!r} is not in pub_types of data/i18n/{REFERENCE}.yaml")
+        if p.get("status") and p["status"] not in ref.get("pub_status", {}):
+            errors.append(f"{where}: status {p['status']!r} is not in pub_status of data/i18n/{REFERENCE}.yaml")
+        if set(p) - {"title", "lang", "title_en", "year", "type", "status"}:
+            errors.append(f"{where}: unknown fields {sorted(set(p) - {'title', 'lang', 'title_en', 'year', 'type', 'status'})}")
+    return errors
+
+
 def main():
     global SITE_URL
     site = load("site.yaml")
@@ -245,7 +294,10 @@ def main():
             texts[code] = load("i18n", code + ".yaml")
     institutions = load("institutions.yaml") or {}
     post_editors = (load("post_editors.yaml") or {}).get("post_editors") or {}
+    pubs = (load("publications.yaml") or {}).get("publications") or []
     errors = check(site, texts, institutions, post_editors)
+    if REFERENCE in texts:
+        errors += check_publications(pubs, texts[REFERENCE])
     if errors:
         print(f"{len(errors)} problem(s) in data/:", file=sys.stderr)
         for e in errors:
@@ -271,22 +323,23 @@ def main():
     shutil.rmtree(OUT, ignore_errors=True)
     shutil.copytree(os.path.join(ROOT, "static"), OUT)
 
+    # The WebSite in the JSON-LD is one entity shared by every language, so it has one name.
+    website_name = site_title(site, texts, None)
     page = env.get_template("page.html.j2")
     for code in site["languages"]:
         ja = code == "ja"
         t = texts[code]
         h1 = site["name"]["ja"] if ja else site["name"]["latin"]
-        title = f"{h1} – {t['keywords']['typology']}"
+        title = site_title(site, texts, code)
         html = page.render(
             site=site, langs=langs, talks=talks, code=code, t=t,
-            h1=h1, title=title, notice=notice(code, t, post_editors.get(code)),
+            h1=h1, title=title, site_name=site_title(site, texts, code), notice=notice(code, t, post_editors.get(code)),
             updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
             copyright_from=local_digits(site, code, str(site["copyright_from"])),
-            jsonld=jsonld(site, code, t, title, post_editors.get(code)),
+            jsonld=jsonld(site, code, t, title, website_name, post_editors.get(code)),
             alt_name=site["name"]["latin"] if ja else site["name"]["ja"],
             alt_lang="en" if ja else "ja",
-            thesis_title=site["thesis"]["title_ja"] if ja else site["thesis"]["title_en"],
-            thesis_lang="ja" if ja else "en", names_slug=NAMES_SLUG,
+            pubs=publications(site, code, t, pubs), names_slug=NAMES_SLUG,
             footer_name=site["name"]["ja"] if ja else site["name"]["latin_short"],
             request_mailto=f"mailto:{site['email']}?subject={urllib.parse.quote(req['subject'])}&body={urllib.parse.quote(req['body'])}",
         )
@@ -303,11 +356,11 @@ def main():
                 row["basis_name"] = texts[n["basis"]]["institutions"][iid]
                 row["basis_lang"] = n["basis"]
             rows.append(row)
-        title = f"{t['names_h']} – {site['name']['ja'] if code == 'ja' else site['name']['latin']}"
+        title = f"{t['names_h']} – {site_title(site, texts, code)}"
         write(os.path.join(code, NAMES_SLUG, "index.html"), names_page.render(
-            site=site, langs=langs, code=code, t=t, rows=rows, slug=NAMES_SLUG, title=title,
+            site=site, langs=langs, code=code, t=t, rows=rows, slug=NAMES_SLUG, title=title, site_name=site_title(site, texts, code),
             notice=notice(code, t, post_editors.get(code)),
-            jsonld=jsonld(site, code, t, title, post_editors.get(code), slug=NAMES_SLUG),
+            jsonld=jsonld(site, code, t, title, website_name, post_editors.get(code), slug=NAMES_SLUG),
             updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
             copyright_from=local_digits(site, code, str(site["copyright_from"])),
             footer_name=site["name"]["ja"] if code == "ja" else site["name"]["latin_short"],
@@ -316,10 +369,10 @@ def main():
     codes = site["languages"]
     en = texts[REFERENCE]
     write("index.html", env.get_template("root.html.j2").render(
-        site=site, langs=langs, title=site["name"]["latin"], description=en["desc"],
-        jsonld=jsonld(site, None, en, site["name"]["latin"])))
+        site=site, langs=langs, title=website_name, site_name=website_name, description=en["desc"],
+        jsonld=jsonld(site, None, en, website_name, website_name)))
     write("llms.txt", env.get_template("llms.txt.j2").render(
-        site=site, langs=langs, t=en, keywords=[en["keywords"][k] for k in site["keywords"]]))
+        site=site, langs=langs, t=en, pubs=publications(site, REFERENCE, en, pubs), keywords=[en["keywords"][k] for k in site["keywords"]]))
     write("sitemap.xml", env.get_template("sitemap.xml.j2").render(site=site, codes=codes, slug=NAMES_SLUG))
     print(f"built {len(codes)} language pages (and their {NAMES_SLUG}/ pages) into _site/")
 
@@ -339,8 +392,7 @@ def main():
                     h1=site["name"]["ja"] if ja else site["name"]["latin"],
                     alt_name=site["name"]["latin"] if ja else site["name"]["ja"],
                     alt_lang="en" if ja else "ja",
-                    thesis_title=site["thesis"]["title_ja"] if ja else site["thesis"]["title_en"],
-                    thesis_lang="ja" if ja else "en",
+                    pubs=publications(site, code, t, pubs),
                     updated=updated_text(site, code, t["updated"], date),
                     notice=notice(code, t, post_editors.get(code)),
                 ))
@@ -374,7 +426,18 @@ def print_pdfs(chrome, jobs, tmp):
         list(pool.map(one, *zip(*enumerate(jobs))))
 
 
-def jsonld(site, code, t, title, post_editors=None, slug=None):
+
+def site_title(site, texts, code):
+    """The site's name in one language: the owner's name, a dash and `site_title`.
+
+    The Japanese pages use the Japanese name; every other page uses `latin_title`
+    (surname first). The root language chooser (code None) uses English. Page titles,
+    og:site_name and the WebSite name in the JSON-LD all use it.
+    """
+    name = site["name"]["ja"] if code == "ja" else site["name"]["latin_title"]
+    return f"{name} – {texts[code or REFERENCE]['site_title']}"
+
+def jsonld(site, code, t, title, website_name, post_editors=None, slug=None):
     """Structured data (schema.org JSON-LD) for one page.
 
     Every page describes the same Person and WebSite (same @id), so search engines and
@@ -382,7 +445,8 @@ def jsonld(site, code, t, title, post_editors=None, slug=None):
     root language chooser. With `slug`, the page is the sub-page /<code>/<slug>/ (such as
     the institution-names page): a WebPage about the Person, with a breadcrumb back to the
     language's profile page, instead of the ProfilePage itself. Post-editors of the page's
-    language are listed as `contributor` of the page.
+    language are listed as `contributor` of the page. `website_name` is the WebSite's
+    name, the same on every page.
     """
     base = site["url"]
     name = site["name"]
@@ -410,7 +474,7 @@ def jsonld(site, code, t, title, post_editors=None, slug=None):
         "@type": "WebSite",
         "@id": f"{base}/#website",
         "url": f"{base}/",
-        "name": name["latin"],
+        "name": website_name,
         "inLanguage": site["languages"],
         "about": {"@id": f"{base}/#person"},
     }

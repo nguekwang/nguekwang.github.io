@@ -18,12 +18,18 @@ career:
 - "2003年12月生于日本广岛县广岛市"
 - "广岛市立基町高等学校 普通科 普通课程 毕业(2022年3月)"
 - 大阪大学外国语学部 西班牙语专业 学士(2026年3月)
-thesis: 毕业论文
 colon: '：'
 email: 电子邮件
 updated: '最后更新：{date}'
+site_title: 研究作品集
 desc: 松浦义广：语言类型学与音系学，基于音位库存的跨语言相似度定量研究。
-unpublished: （未公开）
+pub_title_en: '（{title}）'
+pub_note: '（{year}）（{details}）'
+list_sep: '，'
+pub_types:
+  bachelor_thesis: '毕业论文'
+pub_status:
+  unpublished: '未公开'
 keywords_h: 关键词
 tagline: 我研究人类语言在表达意义上的普遍性，对跨语言数据运用形式化和计算方法。
 btn_email: 发送邮件

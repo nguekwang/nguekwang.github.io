@@ -10,7 +10,7 @@
 <meta name="author" content="{{ site.name.latin_short }}">
 {% include "verification.html.j2" %}
 <meta property="og:type" content="profile">
-<meta property="og:site_name" content="{{ site.name.latin }}">
+<meta property="og:site_name" content="{{ site_name }}">
 <meta property="og:title" content="{{ title }}">
 <meta property="og:description" content="{{ t.desc }}">
 <meta property="og:url" content="{{ site.url }}/{{ code }}/">
@@ -62,7 +62,7 @@
   <section>
     <h2>{{ t.pubs_h }}</h2>
     <ul>
-      <li>{{ t.thesis }}{{ t.colon }}<bdi dir="auto" lang="{{ thesis_lang }}">{{ thesis_title }}</bdi> {{ t.unpublished }}</li>
+      {% for p in pubs %}<li><bdi dir="auto" lang="{{ p.lang }}">{{ p.title }}</bdi>{% if p.title_en %}{{ p.en_space }}<bdi dir="ltr">{{ p.en_open }}<span lang="en">{{ p.title_en }}</span>{{ p.en_after }}</bdi>{% endif %}{{ p.note }}</li>{% endfor %}
     </ul>
   </section>
 

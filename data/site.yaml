@@ -66,6 +66,8 @@ keywords:
 name:
   latin: Yoshihiro (Yoshi) MATSUURA
   latin_short: Yoshihiro MATSUURA
+  # Surname first, used only in page titles ("MATSUURA Yoshihiro – Research Portfolio"), as the owner asked.
+  latin_title: MATSUURA Yoshihiro
   ja: 松浦 義広
   given: Yoshihiro
   family: Matsuura
@@ -77,10 +79,6 @@ alumni_of:
   name: The University of Osaka
   alternate_name: 大阪大学
   url: https://www.osaka-u.ac.jp/en
-
-thesis:
-  title_en: A Quantitative Analysis of Cross-Linguistic Similarity
-  title_ja: 言語間の類似度の定量的な算出
 
 translation_request:
   subject: "[REQUEST] Additional Language Support"

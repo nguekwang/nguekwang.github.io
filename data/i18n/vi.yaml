@@ -18,12 +18,18 @@ career:
 - "Sinh tháng 12 năm 2003 tại Hiroshima, Nhật Bản"
 - "Tốt nghiệp THPT, Trường THPT Thành phố Hiroshima Motomachi (ban phổ thông, chương trình tiêu chuẩn), tháng 3 năm 2022"
 - Cử nhân tiếng Tây Ban Nha, Khoa Ngoại ngữ, Đại học Osaka, tháng 3 năm 2026
-thesis: Khóa luận tốt nghiệp
 colon: ': '
 email: Email
 updated: 'Cập nhật lần cuối: {date}'
+site_title: Hồ sơ nghiên cứu
 desc: 'Yoshihiro Matsuura: loại hình học ngôn ngữ và âm vị học, định lượng độ tương đồng giữa các ngôn ngữ từ hệ thống âm vị.'
-unpublished: (không công bố)
+pub_title_en: ' ({title})'
+pub_note: ' ({year}) ({details})'
+list_sep: ', '
+pub_types:
+  bachelor_thesis: 'khóa luận tốt nghiệp'
+pub_status:
+  unpublished: 'không công bố'
 keywords_h: Từ khóa
 tagline: Tôi nghiên cứu những gì mang tính phổ quát trong cách các ngôn ngữ của con người mã hóa ý nghĩa, bằng các phương pháp hình thức và tính toán trên dữ liệu liên ngôn ngữ.
 btn_email: Gửi email

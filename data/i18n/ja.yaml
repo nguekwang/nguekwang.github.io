@@ -18,12 +18,18 @@ career:
 - "2003年12月 広島県広島市生まれ"
 - "2022年3月 広島市立基町高等学校 普通科 普通コース 卒業"
 - 2026年3月 大阪大学 外国語学部 スペイン語専攻 卒業
-thesis: 卒業論文
 colon: '：'
 email: メール
 updated: '最終更新：{date}'
+site_title: 研究ポートフォリオ
 desc: 松浦 義広。言語類型論・音韻論。音素目録にもとづく言語間類似度の定量化。
-unpublished: (非公開)
+pub_title_en: '（{title}）'
+pub_note: '（{year}）（{details}）'
+list_sep: '、'
+pub_types:
+  bachelor_thesis: '卒業論文'
+pub_status:
+  unpublished: '非公開'
 keywords_h: キーワード
 tagline: 人間の言語が意味を表すしくみのうち、何が普遍的なのかを、形式的・計算的な方法と多言語のデータで調べています。
 btn_email: メールする

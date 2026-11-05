@@ -18,12 +18,18 @@ career:
 - "Né en décembre 2003 à Hiroshima, Japon"
 - "Diplôme de fin d'études secondaires, lycée municipal Motomachi de Hiroshima (filière générale, parcours standard), mars 2022"
 - Licence d'espagnol, École des études étrangères, Université d'Osaka, mars 2026
-thesis: Mémoire
 colon: "\u00a0: "
 email: E-mail
 updated: 'Dernière mise à jour : {date}'
+site_title: Portfolio de recherche
 desc: 'Yoshihiro Matsuura : typologie linguistique et phonologie, quantification de la similarité interlinguistique à partir des inventaires phonémiques.'
-unpublished: (non publié)
+pub_title_en: ' ({title})'
+pub_note: ' ({year}) ({details})'
+list_sep: ', '
+pub_types:
+  bachelor_thesis: 'mémoire de fin d’études'
+pub_status:
+  unpublished: 'non publié'
 keywords_h: Mots-clés
 tagline: J'étudie ce qui est universel dans la manière dont les langues humaines encodent le sens, à l'aide de méthodes formelles et computationnelles appliquées à des données interlinguistiques.
 btn_email: M'écrire

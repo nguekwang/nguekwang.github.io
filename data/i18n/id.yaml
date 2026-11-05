@@ -18,12 +18,18 @@ career:
 - "Lahir Desember 2003 di Hiroshima, Jepang"
 - "Lulus SMA, SMA Kota Hiroshima Motomachi (jurusan umum, program standar), Maret 2022"
 - Sarjana Bahasa Spanyol, Fakultas Studi Asing, Universitas Osaka, Maret 2026
-thesis: Skripsi
 colon: ': '
 email: Email
 updated: 'Terakhir diperbarui: {date}'
+site_title: Portofolio Penelitian
 desc: 'Yoshihiro Matsuura: tipologi bahasa dan fonologi, pengukuran kemiripan antarbahasa secara kuantitatif dari inventaris fonem.'
-unpublished: (tidak dipublikasikan)
+pub_title_en: ' ({title})'
+pub_note: ' ({year}) ({details})'
+list_sep: ', '
+pub_types:
+  bachelor_thesis: 'skripsi'
+pub_status:
+  unpublished: 'tidak dipublikasikan'
 keywords_h: Kata kunci
 tagline: Saya meneliti apa yang universal dalam cara bahasa manusia mengodekan makna, dengan metode formal dan komputasional pada data lintas bahasa.
 btn_email: Kirim email

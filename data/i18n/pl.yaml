@@ -18,12 +18,18 @@ career:
 - "Urodzony w grudniu 2003 r. w Hiroszimie (Japonia)"
 - "Świadectwo ukończenia szkoły średniej, Miejskie Liceum Motomachi w Hiroszimie (kierunek ogólny, ścieżka standardowa), marzec 2022 r."
 - Licencjat (język hiszpański), Wydział Studiów Zagranicznych, Uniwersytet Osakijski, marzec 2026 r.
-thesis: Praca licencjacka
 colon: ': '
 email: E-mail
 updated: 'Ostatnia aktualizacja: {date}'
+site_title: Portfolio badawcze
 desc: 'Yoshihiro Matsuura: typologia językowa i fonologia, ilościowe mierzenie podobieństwa międzyjęzykowego na podstawie inwentarzy fonemów.'
-unpublished: (nieopublikowana)
+pub_title_en: ' ({title})'
+pub_note: ' ({year}) ({details})'
+list_sep: ', '
+pub_types:
+  bachelor_thesis: 'praca licencjacka'
+pub_status:
+  unpublished: 'nieopublikowana'
 keywords_h: Słowa kluczowe
 tagline: Badam, co jest uniwersalne w sposobie, w jaki języki ludzkie kodują znaczenie, stosując metody formalne i obliczeniowe do danych z wielu języków.
 btn_email: Napisz do mnie
