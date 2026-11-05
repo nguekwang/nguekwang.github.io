@@ -18,12 +18,17 @@ career:
 - "Nato nel dicembre 2003 a Hiroshima, Giappone"
 - "Diploma di scuola superiore, Liceo municipale Motomachi di Hiroshima (indirizzo generale, percorso standard), marzo 2022"
 - Laurea triennale in Spagnolo, Scuola di Studi Stranieri, Università di Osaka, marzo 2026
-thesis: Tesi di laurea
 colon: ': '
 email: E-mail
 updated: 'Ultimo aggiornamento: {date}'
 desc: 'Yoshihiro Matsuura: tipologia linguistica e fonologia, quantificazione della somiglianza interlinguistica a partire dagli inventari fonematici.'
-unpublished: (non pubblicato)
+pub_title_en: ' ({title})'
+pub_note: ' ({year}) ({details})'
+list_sep: ', '
+pub_types:
+  bachelor_thesis: 'tesi di laurea'
+pub_status:
+  unpublished: 'non pubblicata'
 keywords_h: Parole chiave
 tagline: Studio ciò che è universale nel modo in cui le lingue umane codificano il significato, con metodi formali e computazionali applicati a dati interlinguistici.
 btn_email: Scrivimi

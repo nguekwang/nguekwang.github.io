@@ -19,13 +19,22 @@ career:
 - "Born in December 2003 in Hiroshima, Japan"
 - "Graduated, Hiroshima Municipal Motomachi High School (general course, standard track), March 2022"
 - B.A. in Spanish, School of Foreign Studies, The University of Osaka, March 2026
-thesis: Thesis
-# Separator between a label and its text (thesis, projects), with any space it needs.
+# Separator between a label and its text (projects), with any space it needs.
 colon: ': '
 email: Email
 updated: 'Last updated: {date}'
 desc: 'Yoshihiro Matsuura: linguistic typology and phonology, quantifying cross-linguistic similarity from phoneme inventories.'
-unpublished: (unpublished)
+# Publications (data/publications.yaml). Each line is <title><pub_title_en><pub_note>.
+# pub_title_en wraps the English title ({title}) when the original is in another language.
+# pub_note holds {year} and {details} (the type, then the status, joined by list_sep).
+# Use the language's own brackets, comma and spacing.
+pub_title_en: ' ({title})'
+pub_note: ' ({year}) ({details})'
+list_sep: ', '
+pub_types:
+  bachelor_thesis: 'bachelor''s thesis'
+pub_status:
+  unpublished: 'unpublished'
 keywords_h: Keywords
 tagline: I study what is universal in how human languages encode meaning, using formal and computational methods on cross-linguistic data.
 btn_email: Email me

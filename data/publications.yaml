@@ -1,0 +1,14 @@
+# Publications and theses, newest first. Every one is shown on every language page and in the CV.
+#   title     the title in the language it was written in
+#   lang      language code of `title`
+#   title_en  English title; required when `lang` is not en, shown after the original title
+#   year      year of completion or publication
+#   type      key of `pub_types` in every data/i18n/<code>.yaml (add a new type there for all languages)
+#   status    optional key of `pub_status` in every data/i18n/<code>.yaml (e.g. unpublished)
+publications:
+- title: 言語間の類似度の定量的な算出
+  lang: ja
+  title_en: A Quantitative Analysis of Cross-Linguistic Similarity
+  year: 2026
+  type: bachelor_thesis
+  status: unpublished

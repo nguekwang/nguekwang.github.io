@@ -18,12 +18,17 @@ career:
 - "Nascido em dezembro de 2003 em Hiroshima, Japão"
 - "Ensino médio, Escola Secundária Municipal Motomachi de Hiroshima (curso geral, percurso padrão), março de 2022"
 - Bacharelado em Espanhol, Escola de Estudos Estrangeiros, Universidade de Osaka, março de 2026
-thesis: Trabalho de conclusão de curso
 colon: ': '
 email: E-mail
 updated: 'Última atualização: {date}'
 desc: 'Yoshihiro Matsuura: tipologia linguística e fonologia, quantificação da semelhança interlinguística a partir de inventários fonêmicos.'
-unpublished: (não publicado)
+pub_title_en: ' ({title})'
+pub_note: ' ({year}) ({details})'
+list_sep: ', '
+pub_types:
+  bachelor_thesis: 'trabalho de conclusão de curso'
+pub_status:
+  unpublished: 'não publicado'
 keywords_h: Palavras-chave
 tagline: Estudo o que é universal na forma como as línguas humanas codificam o significado, usando métodos formais e computacionais em dados interlinguísticos.
 btn_email: Enviar e-mail

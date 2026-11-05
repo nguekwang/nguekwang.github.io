@@ -18,12 +18,17 @@ career:
 - "Nacido en diciembre de 2003 en Hiroshima, Japón"
 - "Bachillerato, Instituto Municipal Motomachi de Hiroshima (rama general, itinerario estándar), marzo de 2022"
 - Grado en Español, Facultad de Estudios Extranjeros, Universidad de Osaka, marzo de 2026
-thesis: Trabajo de fin de grado
 colon: ': '
 email: Correo
 updated: 'Última actualización: {date}'
 desc: 'Yoshihiro Matsuura: tipología lingüística y fonología; cuantificación de la similitud interlingüística a partir de inventarios fonémicos.'
-unpublished: (no publicado)
+pub_title_en: ' ({title})'
+pub_note: ' ({year}) ({details})'
+list_sep: ', '
+pub_types:
+  bachelor_thesis: 'trabajo de fin de grado'
+pub_status:
+  unpublished: 'no publicado'
 keywords_h: Palabras clave
 tagline: Estudio qué hay de universal en la manera en que las lenguas humanas codifican el significado, con métodos formales y computacionales aplicados a datos de muchas lenguas.
 btn_email: Escríbeme
