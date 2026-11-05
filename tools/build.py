@@ -297,10 +297,11 @@ def main():
                 row["basis_name"] = texts[n["basis"]]["institutions"][iid]
                 row["basis_lang"] = n["basis"]
             rows.append(row)
+        title = f"{t['names_h']} – {site['name']['ja'] if code == 'ja' else site['name']['latin']}"
         write(os.path.join(code, NAMES_SLUG, "index.html"), names_page.render(
-            site=site, langs=langs, code=code, t=t, rows=rows, slug=NAMES_SLUG,
+            site=site, langs=langs, code=code, t=t, rows=rows, slug=NAMES_SLUG, title=title,
             notice=notice(code, t, post_editors.get(code)),
-            title=f"{t['names_h']} – {site['name']['ja'] if code == 'ja' else site['name']['latin']}",
+            jsonld=jsonld(site, code, t, title, post_editors.get(code), slug=NAMES_SLUG),
             updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
             footer_name=site["name"]["ja"] if code == "ja" else site["name"]["latin_short"],
         ))
@@ -365,12 +366,15 @@ def print_pdfs(chrome, jobs, tmp):
         list(pool.map(one, *zip(*enumerate(jobs))))
 
 
-def jsonld(site, code, t, title, post_editors=None):
+def jsonld(site, code, t, title, post_editors=None, slug=None):
     """Structured data (schema.org JSON-LD) for one page.
 
     Every page describes the same Person and WebSite (same @id), so search engines and
     AI assistants can join the language versions into one entity. `code` is None for the
-    root language chooser. Post-editors of the page's language are listed as `contributor`.
+    root language chooser. With `slug`, the page is the sub-page /<code>/<slug>/ (such as
+    the institution-names page): a WebPage about the Person, with a breadcrumb back to the
+    language's profile page, instead of the ProfilePage itself. Post-editors of the page's
+    language are listed as `contributor` of the page.
     """
     base = site["url"]
     name = site["name"]
@@ -403,7 +407,28 @@ def jsonld(site, code, t, title, post_editors=None):
         "about": {"@id": f"{base}/#person"},
     }
     graph = [website, person]
-    if code is not None:
+    if code is not None and slug is not None:
+        home = f"{base}/{code}/"
+        url = f"{home}{slug}/"
+        home_name = name["ja"] if code == "ja" else name["latin"]
+        graph.insert(0, {
+            "@type": "WebPage",
+            "@id": f"{url}#page",
+            "url": url,
+            "name": title,
+            "description": t["names_intro"],
+            "inLanguage": code,
+            "isPartOf": {"@id": f"{base}/#website"},
+            "about": {"@id": f"{base}/#person"},
+            "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": home_name, "item": home},
+                    {"@type": "ListItem", "position": 2, "name": t["names_h"], "item": url},
+                ],
+            },
+        })
+    elif code is not None:
         url = f"{base}/{code}/"
         graph.insert(0, {
             "@type": "ProfilePage",
@@ -415,10 +440,10 @@ def jsonld(site, code, t, title, post_editors=None):
             "isPartOf": {"@id": f"{base}/#website"},
             "mainEntity": {"@id": f"{base}/#person"},
         })
-        if post_editors:
-            graph[0]["contributor"] = [
-                {"@type": "Person", "name": p["name"], **({"url": p["url"]} if p.get("url") else {})}
-                for p in post_editors]
+    if code is not None and post_editors:
+        graph[0]["contributor"] = [
+            {"@type": "Person", "name": p["name"], **({"url": p["url"]} if p.get("url") else {})}
+            for p in post_editors]
     data = {"@context": "https://schema.org", "@graph": graph}
     # Escape "</" so the JSON can never close the surrounding <script> element.
     return Markup(json.dumps(data, ensure_ascii=False, indent=1).replace("</", "<\\/"))

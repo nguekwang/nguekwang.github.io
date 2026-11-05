@@ -38,9 +38,20 @@ projects_h: Projecten
 outlook_h: "Vooruitblik"
 langs_h: Talen
 langs:
-- Japans (moedertaal)
-- Engels (CEFR C1)
-- Spaans (CEFR B1, hoofdvak bachelor)
+- label: "Moedertaal (L1)"
+  items:
+  - "Japans"
+- label: "Werktalen"
+  items:
+  - "Engels (CEFR C1)"
+  - "Spaans (CEFR B1, hoofdvak bachelor)"
+- label: "Talen in verwerving"
+  items:
+  - "Koreaans"
+  - "Frans"
+  - "Russisch"
+  - "Chinees"
+  - "Arabisch"
 interests:
 - 'Taaluniversalia en typologie: wat alle menselijke talen gemeen hebben en waarin ze verschillen'
 - Taaloverstijgende semantiek, met formele semantiek als theorie en computationele methoden als gereedschap

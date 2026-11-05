@@ -38,9 +38,20 @@ projects_h: Projets
 outlook_h: "Perspectives"
 langs_h: Langues
 langs:
-- Japonais (langue maternelle)
-- Anglais (CEFR C1)
-- Espagnol (CEFR B1, spécialité de licence)
+- label: "Langue maternelle (L1)"
+  items:
+  - "Japonais"
+- label: "Langues de travail"
+  items:
+  - "Anglais (CEFR C1)"
+  - "Espagnol (CEFR B1, spécialité de licence)"
+- label: "Langues en cours d’acquisition"
+  items:
+  - "Coréen"
+  - "Français"
+  - "Russe"
+  - "Chinois"
+  - "Arabe"
 interests:
 - 'Universaux linguistiques et typologie : ce que partagent toutes les langues humaines et ce qui les distingue'
 - Sémantique interlinguistique, avec la sémantique formelle comme théorie et les méthodes computationnelles comme outils

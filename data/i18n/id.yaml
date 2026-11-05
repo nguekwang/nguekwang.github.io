@@ -38,9 +38,20 @@ projects_h: Proyek
 outlook_h: "Rencana ke depan"
 langs_h: Bahasa
 langs:
-- Bahasa Jepang (bahasa ibu)
-- Bahasa Inggris (CEFR C1)
-- Bahasa Spanyol (CEFR B1, jurusan S1)
+- label: "Bahasa ibu (L1)"
+  items:
+  - "Bahasa Jepang"
+- label: "Bahasa kerja"
+  items:
+  - "Bahasa Inggris (CEFR C1)"
+  - "Bahasa Spanyol (CEFR B1, jurusan S1)"
+- label: "Bahasa yang sedang dipelajari"
+  items:
+  - "Bahasa Korea"
+  - "Bahasa Prancis"
+  - "Bahasa Rusia"
+  - "Bahasa Mandarin"
+  - "Bahasa Arab"
 interests:
 - 'Kesemestaan bahasa dan tipologi: apa yang dimiliki bersama oleh semua bahasa manusia dan bagaimana bahasa-bahasa itu berbeda'
 - Semantik lintas bahasa, dengan semantik formal sebagai teori dan metode komputasional sebagai alat
