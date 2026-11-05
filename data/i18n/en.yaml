@@ -37,9 +37,20 @@ projects_h: Projects
 outlook_h: "Outlook"
 langs_h: Languages
 langs:
-- Japanese (native)
-- English (CEFR C1)
-- Spanish (CEFR B1, B.A. major)
+- label: "First language (L1)"
+  items:
+  - "Japanese"
+- label: "Working languages"
+  items:
+  - "English (CEFR C1)"
+  - "Spanish (CEFR B1, B.A. major)"
+- label: "Languages under study"
+  items:
+  - "Korean"
+  - "French"
+  - "Russian"
+  - "Chinese"
+  - "Arabic"
 interests:
 - 'Language universals and typology: what all human languages share, and how they differ'
 - Cross-linguistic semantics, with formal semantics as the theory and computational methods as the tools

@@ -84,7 +84,9 @@
 
   <section lang="{{ code }}">
     <h2>{{ t.langs_h }}</h2>
-    <ul>{% for x in t.langs %}<li>{{ x }}</li>{% endfor %}</ul>
+    <dl class="langs">{% for g in t.langs %}
+      <dt>{{ g.label }}</dt><dd><ul>{% for x in g['items'] %}<li>{{ x }}</li>{% endfor %}</ul></dd>{% endfor %}
+    </dl>
   </section>
 
   <section>
