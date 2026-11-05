@@ -1,0 +1,23 @@
+# Allow list for tools/privacy_check.py, which CI runs on every pull request.
+# The check scans every file tracked by git for personal information that the owner has not
+# approved for publication: email addresses, phone numbers, postal codes and street addresses,
+# and full birth dates. Anything it finds fails the build unless it is listed here.
+#
+# Add an entry only after the owner has approved publishing it.
+
+# Email addresses that may appear anywhere in the repository.
+emails:
+  - nguekwang@gmail.com
+  # Commit trailers and bots, not personal addresses.
+  - noreply@anthropic.com
+  - noreply@github.com
+
+# Domains whose addresses are always fine (documentation examples).
+email_domains:
+  - example.com
+  - example.org
+  - users.noreply.github.com
+
+# Exact strings that look like personal information but are approved or harmless.
+# The owner approved publishing the birth month and year and the home city (not the day).
+strings: []

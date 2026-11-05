@@ -1,0 +1,2 @@
+# Extra packages for tools/screenshots.py (used by .github/workflows/screenshots.yml).
+playwright==1.63.0
