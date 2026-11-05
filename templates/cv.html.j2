@@ -25,6 +25,7 @@ h1 { margin: 2pt 0 0; font-size: 20pt; line-height: 1.25; }
 .contact { margin: 6pt 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 2pt 16pt; }
 .contact span { color: #555; }
 .mt { margin: 6pt 0 0; font-size: 8.5pt; color: #555; }
+.mt a { color: inherit; }
 h2 { margin: 10pt 0 3pt; font-size: 11pt; border-bottom: .5pt solid #999; padding-bottom: 1pt; break-after: avoid; }
 p { margin: 0; }
 ul { margin: 0; padding-inline-start: 1.2em; }
@@ -44,7 +45,7 @@ footer { margin-top: 14pt; padding-top: 4pt; border-top: .5pt solid #999; font-s
     <li><span>{{ t.website }}{{ t.colon }}</span><bdi dir="ltr">{{ site.url | replace("https://", "") }}/{{ code }}/</bdi></li>
     <li><span>GitHub{{ t.colon }}</span><bdi dir="ltr">{{ site.github | replace("https://", "") }}</bdi></li>
   </ul>
-  {% if t.mt_notice %}<p class="mt">{{ t.mt_notice }}</p>{% endif %}
+  {% if notice %}<p class="mt">{{ notice }}</p>{% endif %}
 </header>
 
 <p class="tagline">{{ t.tagline }}</p>
@@ -64,11 +65,14 @@ footer { margin-top: 14pt; padding-top: 4pt; border-top: .5pt solid #999; font-s
 <h2>{{ t.projects_h }}</h2>
 <ul>{% for p in t.projects %}<li><strong>{{ p.name }}</strong>{{ t.colon }}{{ p.desc }}</li>{% endfor %}</ul>
 
+<h2>{{ t.outlook_h }}</h2>
+<ul>{% for x in t.outlook %}<li><strong>{{ x.name }}</strong>{{ t.colon }}{{ x.desc }}</li>{% endfor %}</ul>
+
 <h2>{{ t.career_h }}</h2>
 <ul>{% for x in t.career %}<li>{{ x }}</li>{% endfor %}</ul>
 
 <h2>{{ t.langs_h }}</h2>
-<ul>{% for x in t.langs %}<li>{{ x }}</li>{% endfor %}</ul>
+<ul>{% for g in t.langs %}<li><strong>{{ g.label }}</strong>{{ t.colon }}{% for x in g['items'] %}{{ x }}{% if not loop.last %} · {% endif %}{% endfor %}</li>{% endfor %}</ul>
 
 <h2>{{ t.keywords_h }}</h2>
 <p class="keywords">{% for k in site.keywords %}{{ t.keywords[k] }}{% if not loop.last %} · {% endif %}{% endfor %}</p>

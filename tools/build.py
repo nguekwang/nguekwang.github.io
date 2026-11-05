@@ -335,6 +335,7 @@ def main():
                     thesis_title=site["thesis"]["title_ja"] if ja else site["thesis"]["title_en"],
                     thesis_lang="ja" if ja else "en",
                     updated=updated_text(site, code, t["updated"], date),
+                    notice=notice(code, t, post_editors.get(code)),
                 ))
             jobs.append((src, os.path.join(OUT, code, site["cv_file"])))
         print_pdfs(find_chrome(), jobs, tmp)
