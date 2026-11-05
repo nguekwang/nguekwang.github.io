@@ -30,7 +30,7 @@ pub_types:
 pub_status:
   unpublished: 'não publicado'
 keywords_h: Palavras-chave
-tagline: Estudo o que é universal na forma como as línguas humanas codificam o significado, usando métodos formais e computacionais em dados interlinguísticos.
+tagline: Estudo a linguagem com métodos formais e computacionais e dados de muitas línguas.
 btn_email: Enviar e-mail
 btn_github: GitHub
 btn_cv: "Currículo (PDF)"
@@ -38,7 +38,7 @@ cv_h: "Curriculum vitae"
 website: "Site"
 interests_h: Temas de pesquisa
 current_h: Pesquisa atual
-current: Quantificar a semelhança entre línguas. Com inventários de fonemas (PHOIBLE) e dados lexicais, meço a proximidade entre línguas e dialetos, começando pelas línguas românicas. O objetivo é uma medida que funcione para muitas línguas, se apoie em estatística explícita e ajude a indicar onde termina um dialeto e começa uma língua.
+current: "O que é a semelhança e como descrever objetivamente as propriedades de uma língua. Exploro a possibilidade de aplicar esses métodos para além da língua oral humana: à língua escrita, às línguas de sinais, ao que poderia ser considerado linguagem em seres que não sejam o Homo sapiens, às línguas artificiais e às linguagens formais."
 projects_h: Projetos
 outlook_h: "Perspectivas"
 langs_h: Línguas

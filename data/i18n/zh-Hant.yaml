@@ -30,7 +30,7 @@ pub_types:
 pub_status:
   unpublished: '未公開'
 keywords_h: 關鍵詞
-tagline: 我研究人類語言在表達意義上的普遍性，對跨語言資料運用形式化與計算方法。
+tagline: 我以形式化與計算的方法，利用多種語言的資料研究語言。
 btn_email: 寄送電子郵件
 btn_github: GitHub
 btn_cv: "履歷 (PDF)"
@@ -38,7 +38,7 @@ cv_h: "個人履歷"
 website: "網站"
 interests_h: 研究主題
 current_h: 目前的研究
-current: 跨語言相似度的量化。我利用音位清單（PHOIBLE）與詞彙資料測量語言與方言之間的距離，首先從羅曼語族著手。目標是建立一個適用於多種語言、基於明確統計方法、並能為「方言與語言的界線在哪裡」提供依據的度量。
+current: 什麼是相似，以及如何客觀地描述語言的特性。我在探索將這些方法從「人類的有聲語言」擴展到書面語言、手語、智人以外的個體可能擁有的語言、人造語言與形式語言的可能性。
 projects_h: 專案
 outlook_h: "展望"
 langs_h: 語言

@@ -30,7 +30,7 @@ pub_types:
 pub_status:
   unpublished: 'non pubblicata'
 keywords_h: Parole chiave
-tagline: Studio ciò che è universale nel modo in cui le lingue umane codificano il significato, con metodi formali e computazionali applicati a dati interlinguistici.
+tagline: Studio il linguaggio con metodi formali e computazionali e dati di molte lingue.
 btn_email: Scrivimi
 btn_github: GitHub
 btn_cv: "CV (PDF)"
@@ -38,7 +38,7 @@ cv_h: "Curriculum vitae"
 website: "Sito web"
 interests_h: Temi di ricerca
 current_h: Ricerca attuale
-current: Quantificare la somiglianza tra le lingue. Usando inventari fonematici (PHOIBLE) e dati lessicali, misuro quanto sono vicini lingue e dialetti, a partire dalle lingue romanze. L'obiettivo è una misura valida per molte lingue, basata su statistiche esplicite, che aiuti a capire dove finisce un dialetto e comincia una lingua.
+current: "Che cosa sia la somiglianza e come descrivere in modo oggettivo le proprietà di una lingua. Esploro la possibilità di applicare questi metodi oltre la lingua parlata umana: alla lingua scritta, alle lingue dei segni, a ciò che potrebbe essere considerato linguaggio in esseri diversi dall'Homo sapiens, alle lingue artificiali e ai linguaggi formali."
 projects_h: Progetti
 outlook_h: "Prospettive"
 langs_h: Lingue
