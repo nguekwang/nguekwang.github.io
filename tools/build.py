@@ -101,6 +101,8 @@ def check(site, texts, institutions):
             errors.append(f"data/institutions.yaml order: ids differ from data/i18n/{REFERENCE}.yaml institutions")
     errors += check_institutions(site, institutions)
     for code, t in texts.items():
+        if isinstance(t.get("og_locale"), str) and not re.fullmatch(r"[a-z]{2,3}_[A-Z]{2}", t["og_locale"]):
+            errors.append(f"{code}.og_locale: must look like ja_JP (Open Graph locale)")
         if isinstance(t.get("updated"), str) and t["updated"].count("{date}") != 1:
             errors.append(f"{code}.updated: must contain {{date}} exactly once")
     return errors
@@ -185,7 +187,8 @@ def main():
         return
 
     talks = (load("talks.yaml") or {}).get("talks") or []
-    langs = [{"code": c, "native": texts[c]["native"]} for c in site["languages"]]
+    langs = [{"code": c, "native": texts[c]["native"], "og_locale": texts[c]["og_locale"]}
+             for c in site["languages"]]
     req = site["translation_request"]
     sha, date = last_change()
     updated_url = f"{site['repo']}/commit/{sha}" if sha else None

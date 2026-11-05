@@ -5,6 +5,7 @@
 mt_notice: ''
 native: 日本語
 dir: ltr
+og_locale: ja_JP
 request: 他の言語の翻訳版をリクエスト
 pubs_h: 業績・発表
 career_h: "経歴"
