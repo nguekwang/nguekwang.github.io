@@ -28,6 +28,7 @@ interests_h: Temi di ricerca
 current_h: Ricerca attuale
 current: Quantificare la somiglianza tra le lingue. Usando inventari fonematici (PHOIBLE) e dati lessicali, misuro quanto sono vicini lingue e dialetti, a partire dalle lingue romanze. L'obiettivo è una misura valida per molte lingue, basata su statistiche esplicite, che aiuti a capire dove finisce un dialetto e comincia una lingua.
 projects_h: Progetti
+outlook_h: "Prospettive"
 langs_h: Lingue
 langs:
 - Giapponese (madrelingua)
@@ -48,6 +49,15 @@ projects:
   desc: Strumento per disegnare alberi sintattici della grammatica generativa (in progetto)
 - name: Corpus Hub
   desc: Piattaforma per raccogliere e consultare corpora linguistici (in progetto)
+outlook:
+- name: "Dialetto o lingua"
+  desc: "proporre, sulla base di misure di somiglianza, criteri per stabilire quando una varietà è un dialetto e quando una lingua"
+- name: "Somiglianza sintattica"
+  desc: "misurare anche la vicinanza sintattica, oltre a suoni e lessico, e riunire tutto in un unico indice"
+- name: "Acquisizione della seconda lingua"
+  desc: "verificare se le lingue più vicine alla propria sono più facili da imparare"
+- name: "Uno strumento con interfaccia grafica"
+  desc: "creare uno strumento con cui chiunque possa calcolare la somiglianza e pubblicarlo come open source"
 keywords:
   typology: Tipologia linguistica
   universals: Universali linguistici
