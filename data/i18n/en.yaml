@@ -24,15 +24,15 @@ keywords_h: Keywords
 tagline: I study what is universal in how human languages encode meaning, using formal and computational methods on cross-linguistic data.
 btn_email: Email me
 btn_github: GitHub
-interests_h: Research interests
+interests_h: Research topics
 current_h: Current research
 current: Quantifying cross-linguistic similarity. Using phoneme inventories (PHOIBLE) and vocabulary data, I measure how close languages and dialects are, starting with the Romance languages. The aim is a measure that works for many languages, rests on explicit statistics, and can inform where a dialect ends and a language begins.
 projects_h: Projects
 langs_h: Languages
 langs:
 - Japanese (native)
-- English (fluent)
-- Spanish (B.A. major)
+- English (CEFR C1)
+- Spanish (CEFR B1, B.A. major)
 interests:
 - 'Language universals and typology: what all human languages share, and how they differ'
 - Cross-linguistic semantics, with formal semantics as the theory and computational methods as the tools
@@ -42,11 +42,11 @@ interests:
 projects:
 - name: linguasim
   desc: A Python toolkit for measuring language similarity (in development; planned open-source release)
-- name: languer-map
+- name: Languer Map
   desc: 'An interactive atlas of the world''s languages (in development)'
-- name: Syntax tree tool
+- name: phrase-marker-gen
   desc: A tool for drawing syntax trees in generative grammar (planned)
-- name: Corpora Hub
+- name: Corpus Hub
   desc: A hub for collecting and searching language corpora (planned)
 keywords:
   typology: Linguistic typology

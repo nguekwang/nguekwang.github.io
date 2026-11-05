@@ -23,15 +23,15 @@ keywords_h: 关键词
 tagline: 我研究人类语言在表达意义上的普遍性，对跨语言数据运用形式化和计算方法。
 btn_email: 发送邮件
 btn_github: GitHub
-interests_h: 研究兴趣
+interests_h: 研究主题
 current_h: 当前研究
 current: 跨语言相似度的量化。我利用音位清单（PHOIBLE）和词汇数据测量语言与方言之间的距离，首先从罗曼语族入手。目标是建立一个适用于多种语言、基于明确统计方法、并能为“方言与语言的界线在哪里”提供依据的度量。
 projects_h: 项目
 langs_h: 语言
 langs:
 - 日语（母语）
-- 英语（流利）
-- 西班牙语（本科专业）
+- 英语（CEFR C1）
+- 西班牙语（CEFR B1，本科专业）
 interests:
 - 语言共性与类型学：所有人类语言的共同点与差异
 - 跨语言语义学：以形式语义学为理论，以计算方法为工具
@@ -41,11 +41,11 @@ interests:
 projects:
 - name: linguasim
   desc: 用于测量语言相似度的 Python 工具包（开发中，计划开源）
-- name: languer-map
+- name: Languer Map
   desc: 世界语言的交互式地图（开发中）
-- name: 句法树绘制工具
+- name: phrase-marker-gen
   desc: 用于绘制生成语法句法树的工具（构想中）
-- name: Corpora Hub
+- name: Corpus Hub
   desc: 用于收集和检索语言语料库的平台（构想中）
 keywords:
   typology: 语言类型学

@@ -23,15 +23,15 @@ keywords_h: Anahtar sözcükler
 tagline: İnsan dillerinin anlamı kodlama biçimindeki evrensel yönleri, diller arası veriler üzerinde biçimsel ve hesaplamalı yöntemlerle inceliyorum.
 btn_email: E-posta gönder
 btn_github: GitHub
-interests_h: Araştırma ilgi alanları
+interests_h: Araştırma konuları
 current_h: Güncel araştırma
 current: Diller arası benzerliğin nicel olarak ölçülmesi. Sesbirim envanterleri (PHOIBLE) ve sözcük verileriyle, Roman dillerinden başlayarak dillerin ve lehçelerin birbirine ne kadar yakın olduğunu ölçüyorum. Amaç, pek çok dil için işe yarayan, açık istatistiklere dayanan ve bir lehçenin nerede bitip bir dilin nerede başladığına ışık tutabilecek bir ölçüt geliştirmek.
 projects_h: Projeler
 langs_h: Diller
 langs:
 - Japonca (anadil)
-- İngilizce (akıcı)
-- İspanyolca (lisans ana dalı)
+- İngilizce (CEFR C1)
+- İspanyolca (CEFR B1, lisans ana dalı)
 interests:
 - 'Dil evrenselleri ve dil tipolojisi: tüm insan dillerinin ortak yönleri ve farklılıkları'
 - 'Diller arası anlambilim: kuram olarak biçimsel anlambilim, araç olarak hesaplamalı yöntemler'
@@ -41,11 +41,11 @@ interests:
 projects:
 - name: linguasim
   desc: Dil benzerliğini ölçmek için Python araç takımı (geliştirme aşamasında; açık kaynak olarak yayımlanması planlanıyor)
-- name: languer-map
+- name: Languer Map
   desc: Dünya dillerinin etkileşimli atlası (geliştirme aşamasında)
-- name: Sözdizim ağacı aracı
+- name: phrase-marker-gen
   desc: Üretici dilbilgisinde sözdizim ağaçları çizmek için bir araç (planlanıyor)
-- name: Corpora Hub
+- name: Corpus Hub
   desc: Dil derlemlerini toplamak ve aramak için bir merkez (planlanıyor)
 keywords:
   typology: Dil tipolojisi

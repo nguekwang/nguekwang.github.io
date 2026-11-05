@@ -23,15 +23,15 @@ keywords_h: Schlagwörter
 tagline: Ich untersuche, was an der Art, wie menschliche Sprachen Bedeutung kodieren, universell ist, mit formalen und computergestützten Methoden an sprachübergreifenden Daten.
 btn_email: E-Mail schreiben
 btn_github: GitHub
-interests_h: Forschungsinteressen
+interests_h: Forschungsthemen
 current_h: Aktuelle Forschung
 current: Quantifizierung sprachübergreifender Ähnlichkeit. Anhand von Phoneminventaren (PHOIBLE) und Wortschatzdaten messe ich, wie nah Sprachen und Dialekte einander sind, beginnend mit den romanischen Sprachen. Ziel ist ein Maß, das für viele Sprachen funktioniert, auf expliziter Statistik beruht und Hinweise darauf geben kann, wo ein Dialekt endet und eine Sprache beginnt.
 projects_h: Projekte
 langs_h: Sprachen
 langs:
 - Japanisch (Muttersprache)
-- Englisch (fließend)
-- Spanisch (Hauptfach im Bachelor)
+- Englisch (CEFR C1)
+- Spanisch (CEFR B1, Hauptfach im Bachelor)
 interests:
 - 'Sprachuniversalien und Typologie: was alle menschlichen Sprachen gemeinsam haben und worin sie sich unterscheiden'
 - Sprachübergreifende Semantik, mit formaler Semantik als Theorie und computergestützten Methoden als Werkzeug
@@ -41,11 +41,11 @@ interests:
 projects:
 - name: linguasim
   desc: Python-Toolkit zur Messung von Sprachähnlichkeit (in Entwicklung; Open-Source-Veröffentlichung geplant)
-- name: languer-map
+- name: Languer Map
   desc: Interaktiver Atlas der Sprachen der Welt (in Entwicklung)
-- name: Syntaxbaum-Werkzeug
+- name: phrase-marker-gen
   desc: Werkzeug zum Zeichnen von Syntaxbäumen der generativen Grammatik (in Planung)
-- name: Corpora Hub
+- name: Corpus Hub
   desc: Plattform zum Sammeln und Durchsuchen sprachlicher Korpora (in Planung)
 keywords:
   typology: Sprachtypologie

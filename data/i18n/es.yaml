@@ -23,15 +23,15 @@ keywords_h: Palabras clave
 tagline: Estudio qué hay de universal en la manera en que las lenguas humanas codifican el significado, con métodos formales y computacionales aplicados a datos de muchas lenguas.
 btn_email: Escríbeme
 btn_github: GitHub
-interests_h: Intereses de investigación
+interests_h: Temas de investigación
 current_h: Investigación actual
 current: Cuantificación de la similitud interlingüística. A partir de inventarios fonémicos (PHOIBLE) y datos léxicos, mido cuán cercanas son las lenguas y los dialectos, empezando por las lenguas romances. El objetivo es una medida aplicable a muchas lenguas, con fundamentos estadísticos explícitos, que ayude a decidir dónde termina un dialecto y empieza una lengua.
 projects_h: Proyectos
 langs_h: Idiomas
 langs:
 - Japonés (lengua materna)
-- Inglés (fluido)
-- Español (especialidad de grado)
+- Inglés (CEFR C1)
+- Español (CEFR B1, especialidad de grado)
 interests:
 - 'Universales lingüísticos y tipología: qué comparten todas las lenguas humanas y en qué se diferencian'
 - Semántica interlingüística, con la semántica formal como teoría y los métodos computacionales como herramientas
@@ -41,11 +41,11 @@ interests:
 projects:
 - name: linguasim
   desc: Herramienta en Python para medir la similitud entre lenguas (en desarrollo; se publicará como código abierto)
-- name: languer-map
+- name: Languer Map
   desc: Atlas interactivo de las lenguas del mundo (en desarrollo)
-- name: Herramienta de árboles sintácticos
+- name: phrase-marker-gen
   desc: Herramienta para dibujar árboles sintácticos de la gramática generativa (en proyecto)
-- name: Corpora Hub
+- name: Corpus Hub
   desc: Plataforma para reunir y consultar corpus lingüísticos (en proyecto)
 keywords:
   typology: Tipología lingüística

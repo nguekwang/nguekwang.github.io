@@ -23,15 +23,15 @@ keywords_h: Trefwoorden
 tagline: Ik onderzoek wat universeel is aan de manier waarop menselijke talen betekenis uitdrukken, met formele en computationele methoden op taaloverstijgende data.
 btn_email: Mail mij
 btn_github: GitHub
-interests_h: Onderzoeksinteresses
+interests_h: "Onderzoeksthema's"
 current_h: Huidig onderzoek
 current: Het kwantificeren van overeenkomst tussen talen. Met foneeminventarissen (PHOIBLE) en woordenschatdata meet ik hoe dicht talen en dialecten bij elkaar liggen, te beginnen met de Romaanse talen. Het doel is een maat die voor veel talen werkt, op expliciete statistiek berust en kan helpen bepalen waar een dialect ophoudt en een taal begint.
 projects_h: Projecten
 langs_h: Talen
 langs:
 - Japans (moedertaal)
-- Engels (vloeiend)
-- Spaans (hoofdvak bachelor)
+- Engels (CEFR C1)
+- Spaans (CEFR B1, hoofdvak bachelor)
 interests:
 - 'Taaluniversalia en typologie: wat alle menselijke talen gemeen hebben en waarin ze verschillen'
 - Taaloverstijgende semantiek, met formele semantiek als theorie en computationele methoden als gereedschap
@@ -41,11 +41,11 @@ interests:
 projects:
 - name: linguasim
   desc: Python-toolkit voor het meten van taalovereenkomst (in ontwikkeling; open-sourcepublicatie gepland)
-- name: languer-map
+- name: Languer Map
   desc: Interactieve atlas van de talen van de wereld (in ontwikkeling)
-- name: Syntaxisboomtool
+- name: phrase-marker-gen
   desc: Tool voor het tekenen van syntaxisbomen in de generatieve grammatica (gepland)
-- name: Corpora Hub
+- name: Corpus Hub
   desc: Platform voor het verzamelen en doorzoeken van taalcorpora (gepland)
 keywords:
   typology: Taaltypologie

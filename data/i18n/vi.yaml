@@ -23,15 +23,15 @@ keywords_h: Từ khóa
 tagline: Tôi nghiên cứu những gì mang tính phổ quát trong cách các ngôn ngữ của con người mã hóa ý nghĩa, bằng các phương pháp hình thức và tính toán trên dữ liệu liên ngôn ngữ.
 btn_email: Gửi email
 btn_github: GitHub
-interests_h: Hướng nghiên cứu
+interests_h: Chủ đề nghiên cứu
 current_h: Nghiên cứu hiện tại
 current: Định lượng độ tương đồng giữa các ngôn ngữ. Dựa trên bảng âm vị (PHOIBLE) và dữ liệu từ vựng, tôi đo mức độ gần gũi giữa các ngôn ngữ và phương ngữ, bắt đầu từ các ngôn ngữ Rôman. Mục tiêu là một thước đo áp dụng được cho nhiều ngôn ngữ, dựa trên thống kê rõ ràng, và có thể giúp xác định đâu là ranh giới giữa phương ngữ và ngôn ngữ.
 projects_h: Dự án
 langs_h: Ngôn ngữ
 langs:
 - Tiếng Nhật (bản ngữ)
-- Tiếng Anh (thành thạo)
-- Tiếng Tây Ban Nha (chuyên ngành cử nhân)
+- Tiếng Anh (CEFR C1)
+- Tiếng Tây Ban Nha (CEFR B1, chuyên ngành cử nhân)
 interests:
 - 'Phổ quát ngôn ngữ và loại hình học: điểm chung của mọi ngôn ngữ và sự khác biệt giữa chúng'
 - Ngữ nghĩa học liên ngôn ngữ, với ngữ nghĩa học hình thức làm lý thuyết và phương pháp tính toán làm công cụ
@@ -41,11 +41,11 @@ interests:
 projects:
 - name: linguasim
   desc: Bộ công cụ Python để đo độ tương đồng giữa các ngôn ngữ (đang phát triển; dự kiến phát hành mã nguồn mở)
-- name: languer-map
+- name: Languer Map
   desc: Bản đồ tương tác về các ngôn ngữ trên thế giới (đang phát triển)
-- name: Công cụ vẽ cây cú pháp
+- name: phrase-marker-gen
   desc: Công cụ vẽ cây cú pháp theo ngữ pháp tạo sinh (đang lên ý tưởng)
-- name: Corpora Hub
+- name: Corpus Hub
   desc: Nền tảng thu thập và tra cứu kho ngữ liệu ngôn ngữ (đang lên ý tưởng)
 keywords:
   typology: Loại hình học ngôn ngữ

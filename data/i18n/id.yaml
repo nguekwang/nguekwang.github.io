@@ -23,15 +23,15 @@ keywords_h: Kata kunci
 tagline: Saya meneliti apa yang universal dalam cara bahasa manusia mengodekan makna, dengan metode formal dan komputasional pada data lintas bahasa.
 btn_email: Kirim email
 btn_github: GitHub
-interests_h: Minat penelitian
+interests_h: Topik penelitian
 current_h: Penelitian saat ini
 current: Mengukur kemiripan antarbahasa secara kuantitatif. Dengan inventaris fonem (PHOIBLE) dan data kosakata, saya mengukur seberapa dekat bahasa dan dialek satu sama lain, dimulai dari bahasa-bahasa Roman. Tujuannya adalah ukuran yang berlaku untuk banyak bahasa, berdasarkan statistik yang eksplisit, dan dapat membantu menentukan di mana dialek berakhir dan bahasa dimulai.
 projects_h: Proyek
 langs_h: Bahasa
 langs:
 - Bahasa Jepang (bahasa ibu)
-- Bahasa Inggris (fasih)
-- Bahasa Spanyol (jurusan S1)
+- Bahasa Inggris (CEFR C1)
+- Bahasa Spanyol (CEFR B1, jurusan S1)
 interests:
 - 'Kesemestaan bahasa dan tipologi: apa yang dimiliki bersama oleh semua bahasa manusia dan bagaimana bahasa-bahasa itu berbeda'
 - Semantik lintas bahasa, dengan semantik formal sebagai teori dan metode komputasional sebagai alat
@@ -41,11 +41,11 @@ interests:
 projects:
 - name: linguasim
   desc: Perangkat Python untuk mengukur kemiripan bahasa (sedang dikembangkan; direncanakan dirilis sebagai sumber terbuka)
-- name: languer-map
+- name: Languer Map
   desc: Atlas interaktif bahasa-bahasa di dunia (sedang dikembangkan)
-- name: Alat pohon sintaksis
+- name: phrase-marker-gen
   desc: Alat untuk menggambar pohon sintaksis tata bahasa generatif (direncanakan)
-- name: Corpora Hub
+- name: Corpus Hub
   desc: Wadah untuk mengumpulkan dan mencari korpus bahasa (direncanakan)
 keywords:
   typology: Tipologi bahasa
