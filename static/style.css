@@ -1,4 +1,10 @@
+/* Cross-browser: this stylesheet must look the same in Chromium (Chrome, Edge), Firefox and
+   WebKit (Safari, and every browser on iPhone and iPad), at phone and desktop width, in light
+   and dark mode. tools/browser_check.py checks every page in all three engines on each pull
+   request. Rules: .claude/rules/css-and-browsers.md. */
 :root {
+  /* Lets every engine draw its own parts (scroll bars, the menu's scroll area) in dark mode too. */
+  color-scheme: light dark;
   --accent: #1f3a5f;
   --text: #1a1a1a;
   --sub: #5a5a5a;
@@ -9,11 +15,13 @@
   :root { --accent: #8fb3e0; --text: #e6e6e6; --sub: #a8a8a8; --line: #34404f; --bg: #12161b; }
 }
 * { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body {
   margin: 0; background: var(--bg); color: var(--text);
   font-family: "Helvetica Neue", Arial, "Hiragino Sans", "Noto Sans JP", "Noto Sans CJK JP", sans-serif;
   line-height: 1.65; font-size: 16px;
+  /* Break a long word or URL (e.g. a source link) instead of letting it widen the page on a phone. */
+  overflow-wrap: break-word;
 }
 main { max-width: 880px; margin: 0 auto; padding: 32px 20px 56px; }
 nav { display: flex; justify-content: flex-end; font-size: 14px; margin-bottom: 28px; }
@@ -57,7 +65,9 @@ nav { align-items: center; }
   font-size: 13px; color: var(--sub); text-decoration: none;
 }
 .langmenu .req:hover { color: var(--accent); text-decoration: underline; }
-.langmenu .panel { max-height: 70vh; overflow-y: auto; }
+/* dvh follows the visible height when the phone browser's toolbars show or hide (Safari on
+   iPhone); browsers without dvh use the vh line. */
+.langmenu .panel { max-height: 70vh; max-height: 70dvh; overflow-y: auto; }
 [dir=rtl] .langmenu .panel { right: auto; left: 0; }
 [dir=rtl] ul { padding-left: 0; padding-right: 1.2em; }
 .mt { font-size: 13px; color: var(--sub); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; margin: 0 0 20px; }

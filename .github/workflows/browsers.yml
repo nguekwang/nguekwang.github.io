@@ -1,0 +1,44 @@
+# Check the built site in Chromium, Firefox and WebKit (the engine behind Safari) on every pull
+# request that can change what visitors see. tools/browser_check.py opens every page of every
+# language at desktop and phone width in each engine and fails on sideways scrolling, a language
+# menu that leaves the window, or a JavaScript/console error. Screenshots of the Japanese and
+# right-to-left pages in all three engines are uploaded as an artifact.
+name: browsers
+on:
+  pull_request:
+    paths: [data/**, templates/**, static/**, tools/**, "requirements*.txt", .github/workflows/browsers.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: browsers-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  browsers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt -r requirements-browsers.txt
+      - name: Install Chromium, Firefox, WebKit and fonts for every script on the site
+        run: |
+          python3 -m playwright install --with-deps chromium firefox webkit
+          sudo apt-get install -y --no-install-recommends fonts-noto-core fonts-noto-cjk
+      - name: Build
+        run: python3 tools/build.py
+      - name: Check every page in every engine
+        run: python3 tools/browser_check.py --site _site --out browser-check
+      - name: Add the result to the job summary
+        if: always()
+        run: cat browser-check/summary.md >> "$GITHUB_STEP_SUMMARY" || true
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-check-${{ github.event.pull_request.number || github.run_id }}
+          path: browser-check
+          retention-days: 30
