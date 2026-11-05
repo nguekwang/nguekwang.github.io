@@ -78,10 +78,6 @@ alumni_of:
   alternate_name: 大阪大学
   url: https://www.osaka-u.ac.jp/en
 
-thesis:
-  title_en: A Quantitative Analysis of Cross-Linguistic Similarity
-  title_ja: 言語間の類似度の定量的な算出
-
 translation_request:
   subject: "[REQUEST] Additional Language Support"
   body: "Please add the following language to your research website: "

@@ -18,12 +18,17 @@ career:
 - "2003年12月生於日本廣島縣廣島市"
 - "廣島市立基町高等學校 普通科 普通課程 畢業(2022年3月)"
 - 大阪大學外國語學部 西班牙語專業 學士(2026年3月)
-thesis: 畢業論文
 colon: '：'
 email: 電子郵件
 updated: '最後更新：{date}'
 desc: 松浦義廣：語言類型學與音韻學，基於音位庫存的跨語言相似度定量研究。
-unpublished: （未公開）
+pub_title_en: '（{title}）'
+pub_note: '（{year}）（{details}）'
+list_sep: '，'
+pub_types:
+  bachelor_thesis: '畢業論文'
+pub_status:
+  unpublished: '未公開'
 keywords_h: 關鍵詞
 tagline: 我研究人類語言在表達意義上的普遍性，對跨語言資料運用形式化與計算方法。
 btn_email: 寄送電子郵件
