@@ -17,6 +17,7 @@ This repository should read as one whose first language is English.
   - page text for the Japanese version (the values in `data/i18n/ja.yaml`, and `title_ja` in `data/site.yaml`);
   - personal names (e.g. `松浦 義広`) and language names in the language menu (e.g. `日本語`).
 - Other languages' page text lives in their own `data/i18n/<code>.yaml` files and stays in that language.
+- Write each language the way its modern official documents do: digits, dates, punctuation and other notation follow the conventions of that language's current official documents (government, legislature, national standards), not a single style shared by all languages.
 - This rule covers repository contents only. Chat with the owner (Claude replies, questions, reports) is in Japanese.
 
 ## Git workflow
