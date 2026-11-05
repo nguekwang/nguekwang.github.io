@@ -8,10 +8,19 @@
 
 ## Digits
 
-- Western digits (0-9) are the default in every language, including Arabic, Hindi and Thai. Unicode CLDR uses them for Arabic without a region (`ar`), and major Arabic sites (Al Jazeera, the UN, King Saud University) write years with 0-9. Arabic-Indic digits are only the regional default in parts of the Mashriq and the Gulf, while the Maghreb uses 0-9.
-- Persian (`fa`) is the exception: Persian text is written with Persian digits (۰-۹). Write them directly in `data/i18n/fa.yaml`, and the build converts the "last updated" date through `digits` in `data/site.yaml`.
+Digits follow the language's modern official documents, like all other notation (see `CLAUDE.md`). Current choices and their basis:
+
+- Persian (`fa`): Persian digits (۰-۹), as in Iranian government documents.
+- Hindi (`hi`): 0-9. Article 343(1) of the Constitution of India makes "the international form of Indian numerals" (0-9) the form for the Union's official purposes.
+- Arabic (`ar`): 0-9. Official documents differ by country: governments in parts of the Mashriq and the Gulf use Arabic-Indic digits (٠-٩), while the Maghreb uses 0-9. The site does not target one country, so it follows the Arabic official documents of the United Nations, which use 0-9.
+- Thai (`th`): Thai government documents use Thai digits (๐-๙). The page still uses 0-9 until the owner decides whether to switch.
+- Every other language: 0-9.
+
+How to apply a choice:
+
+- Write the digits directly in `data/i18n/<code>.yaml`, and list the language under `digits` in `data/site.yaml` so the dates the build generates (such as "last updated") match.
 - Do not convert digits in whole strings at build time: identifiers such as "i18n" must keep 0-9.
-- To change a language's digits, change its YAML text and its `digits` entry together, so the page and the footer match.
+- To change a language's digits, change its YAML text and its `digits` entry together, and update the list above.
 
 ## Layout and style
 
