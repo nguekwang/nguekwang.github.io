@@ -11,10 +11,11 @@
 <link rel="canonical" href="{{ site.url }}/{{ code }}/{{ slug }}/">
 {% for o in langs %}<link rel="alternate" hreflang="{{ o.code }}" href="{{ site.url }}/{{ o.code }}/{{ slug }}/">
 {% endfor %}<link rel="stylesheet" href="../../style.css">
+<script src="../../theme.js"></script>
 </head>
 <body>
 <main>
-  <nav><details class="langmenu">
+  <nav><button type="button" class="theme-toggle" aria-pressed="false" aria-label="{{ t.theme_dark }}" title="{{ t.theme_dark }}"><svg class="moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg><svg class="sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg></button><details class="langmenu">
       <summary>{{ t.native }}</summary>
       <div class="panel">
         <ul>{% for o in langs %}{% if o.code == code %}<li><span lang="{{ o.code }}">{{ o.native }}</span></li>{% else %}<li><a href="../../{{ o.code }}/{{ slug }}/" lang="{{ o.code }}" hreflang="{{ o.code }}">{{ o.native }}</a></li>{% endif %}{% endfor %}</ul>

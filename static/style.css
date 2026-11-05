@@ -5,9 +5,14 @@
   --line: #d6dbe2;
   --bg: #ffffff;
 }
+/* Dark colours. They apply when the system is dark and the visitor has not picked light
+   with the theme toggle, or when the visitor picked dark (data-theme is set by theme.js).
+   The two blocks must hold the same values. */
+:root { color-scheme: light; }
 @media (prefers-color-scheme: dark) {
-  :root { --accent: #8fb3e0; --text: #e6e6e6; --sub: #a8a8a8; --line: #34404f; --bg: #12161b; }
+  :root:not([data-theme="light"]) { --accent: #8fb3e0; --text: #e6e6e6; --sub: #a8a8a8; --line: #34404f; --bg: #12161b; color-scheme: dark; }
 }
+:root[data-theme="dark"] { --accent: #8fb3e0; --text: #e6e6e6; --sub: #a8a8a8; --line: #34404f; --bg: #12161b; color-scheme: dark; }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body {
@@ -34,7 +39,21 @@ dl.contact dd { margin: 0; overflow-wrap: anywhere; }
 a { color: var(--accent); }
 footer { margin-top: 48px; color: var(--sub); font-size: 13px; }
 
-nav { align-items: center; }
+nav { align-items: center; gap: 8px; }
+/* Theme toggle: a round button about as tall as the language menu pill (33px). Hidden until theme.js
+   runs, because it does nothing without JavaScript. Shows a moon in light mode and a sun
+   in dark mode. */
+.theme-toggle {
+  display: none; flex: none; width: 33px; height: 33px; padding: 0; margin: 0;
+  align-items: center; justify-content: center; cursor: pointer;
+  background: transparent; color: var(--text); border: 1px solid var(--line); border-radius: 999px;
+}
+[data-theme-js] .theme-toggle { display: inline-flex; }
+.theme-toggle:hover { background: var(--line); }
+.theme-toggle svg { fill: currentColor; stroke: currentColor; stroke-width: 0; }
+.theme-toggle .sun path { fill: none; stroke-width: 2; stroke-linecap: round; }
+.theme-toggle .sun, .theme-toggle[aria-pressed="true"] .moon { display: none; }
+.theme-toggle[aria-pressed="true"] .sun { display: block; }
 .langmenu { position: relative; }
 .langmenu > summary {
   list-style: none; cursor: pointer; font-size: 14px; color: var(--text);

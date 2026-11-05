@@ -6,6 +6,8 @@ mt_notice: ''
 native: English
 dir: ltr
 request: Request another language
+# Label (for screen readers and tooltip) of the light/dark theme toggle next to the language menu.
+theme_dark: Dark theme
 pubs_h: Publications & Presentations
 career_h: "Background"
 contact_h: Contact

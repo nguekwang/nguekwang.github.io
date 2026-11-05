@@ -6,6 +6,7 @@ mt_notice: ''
 native: Español
 dir: ltr
 request: Solicitar otro idioma
+theme_dark: Tema oscuro
 pubs_h: Publicaciones y presentaciones
 career_h: "Trayectoria"
 contact_h: Contacto
