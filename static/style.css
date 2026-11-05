@@ -40,11 +40,12 @@ a { color: var(--accent); }
 footer { margin-top: 48px; color: var(--sub); font-size: 13px; }
 
 nav { align-items: center; gap: 8px; }
-/* Theme toggle: a round button about as tall as the language menu pill (33px). Hidden until theme.js
-   runs, because it does nothing without JavaScript. Shows a moon in light mode and a sun
-   in dark mode. */
+/* Theme toggle: a round button next to the language menu. Its height stretches to the
+   menu pill, so the two always match (about 32px with text-box trim, 33px without); the
+   width is fixed. Hidden until theme.js runs, because it does nothing without JavaScript.
+   Shows a moon in light mode and a sun in dark mode. */
 .theme-toggle {
-  display: none; flex: none; width: 33px; height: 33px; padding: 0; margin: 0;
+  display: none; flex: none; align-self: stretch; width: 32px; padding: 0; margin: 0;
   align-items: center; justify-content: center; cursor: pointer;
   background: transparent; color: var(--text); border: 1px solid var(--line); border-radius: 999px;
 }
