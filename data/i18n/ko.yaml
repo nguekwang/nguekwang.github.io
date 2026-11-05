@@ -21,6 +21,7 @@ career:
 colon: ': '
 email: 이메일
 updated: '최종 업데이트: {date}'
+site_title: 연구 포트폴리오
 desc: '마쓰우라 요시히로: 언어유형론과 음운론, 음소 목록에 기반한 언어 간 유사도의 정량화.'
 pub_title_en: ' ({title})'
 pub_note: ' ({year}) ({details})'

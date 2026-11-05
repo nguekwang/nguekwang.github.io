@@ -21,6 +21,7 @@ career:
 colon: ': '
 email: E-posta
 updated: 'Son güncelleme: {date}'
+site_title: Araştırma Portfolyosu
 desc: 'Yoshihiro Matsuura: dil tipolojisi ve sesbilim, fonem envanterlerinden diller arası benzerliğin nicel ölçümü.'
 pub_title_en: ' ({title})'
 pub_note: ' ({year}) ({details})'

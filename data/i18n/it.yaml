@@ -21,6 +21,7 @@ career:
 colon: ': '
 email: E-mail
 updated: 'Ultimo aggiornamento: {date}'
+site_title: Portfolio di ricerca
 desc: 'Yoshihiro Matsuura: tipologia linguistica e fonologia, quantificazione della somiglianza interlinguistica a partire dagli inventari fonematici.'
 pub_title_en: ' ({title})'
 pub_note: ' ({year}) ({details})'

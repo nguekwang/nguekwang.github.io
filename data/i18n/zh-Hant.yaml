@@ -21,6 +21,7 @@ career:
 colon: '：'
 email: 電子郵件
 updated: '最後更新：{date}'
+site_title: 研究作品集
 desc: 松浦義廣：語言類型學與音韻學，基於音位庫存的跨語言相似度定量研究。
 pub_title_en: '（{title}）'
 pub_note: '（{year}）（{details}）'

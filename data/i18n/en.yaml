@@ -23,6 +23,7 @@ career:
 colon: ': '
 email: Email
 updated: 'Last updated: {date}'
+site_title: Research Portfolio
 desc: 'Yoshihiro Matsuura: linguistic typology and phonology, quantifying cross-linguistic similarity from phoneme inventories.'
 # Publications (data/publications.yaml). Each line is <title><pub_title_en><pub_note>.
 # pub_title_en wraps the English title ({title}) when the original is in another language.

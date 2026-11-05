@@ -21,6 +21,7 @@ career:
 colon: ': '
 email: Email
 updated: 'Cập nhật lần cuối: {date}'
+site_title: Hồ sơ nghiên cứu
 desc: 'Yoshihiro Matsuura: loại hình học ngôn ngữ và âm vị học, định lượng độ tương đồng giữa các ngôn ngữ từ hệ thống âm vị.'
 pub_title_en: ' ({title})'
 pub_note: ' ({year}) ({details})'

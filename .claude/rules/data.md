@@ -7,7 +7,7 @@ paths:
 
 All page text lives here as YAML. HTML structure is in `templates/`.
 
-- `data/site.yaml`: site-wide settings, names, language order (`languages`), keyword groups and their order (`keywords`).
+- `data/site.yaml`: site-wide settings, names, language order (`languages`), keyword groups and their order (`keywords`). Page titles are `<name> – <site_title>` (built by `site_title()` in `tools/build.py`): `site_title` is page text in each language file, and the name is `name.ja` on Japanese pages and `name.latin_title` (surname first, the owner's choice) elsewhere.
 - `data/i18n/<code>.yaml`: all page text for one language.
 - `data/talks.yaml`: talks (language-independent).
 - `data/publications.yaml`: publications and theses (see below).
