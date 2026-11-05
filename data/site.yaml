@@ -40,9 +40,7 @@ keywords:
   - group: comparison
     items: [similarity, typology, phylogenetic, contact]
   - group: theory
-    items: [saussurean, phonology, formal-semantics, generative, cognitive]
-  - group: philosophy
-    items: [wittgenstein]
+    items: [saussurean, phonology, formal-semantics, generative, cognitive, wittgenstein]
   - group: objects
     items: [romance, medieval-castilian, mozarabic, ladino, writing-systems, morse, sign-languages, constructed, formal-languages]
   - group: math
