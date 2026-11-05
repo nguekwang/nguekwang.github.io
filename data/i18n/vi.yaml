@@ -35,7 +35,6 @@ keywords_h: Từ khóa
 keyword_groups:
   comparison: "So sánh ngôn ngữ"
   theory: "Ngôn ngữ học lý thuyết"
-  philosophy: "Triết học"
   math: "Toán học và dữ liệu"
   objects: "Đối tượng nghiên cứu"
   tech: "Công nghệ"
@@ -105,11 +104,14 @@ keywords:
   ladino: Tiếng Ladino (Do Thái - Tây Ban Nha)
   medieval-castilian: Tiếng Castilla trung đại
   writing-systems: Hệ thống chữ viết
-  i18n: "Quốc tế hóa (i18n), Unicode và mã hóa ký tự"
+  i18n: "Quốc tế hóa (i18n)"
+  unicode: "Unicode và mã hóa ký tự"
   input-methods: Bộ gõ
   typesetting: Dàn trang kỹ thuật số
   linux: "Linux và nhân hệ điều hành"
   oss: Phần mềm nguồn mở
+  tech-democratization: "Dân chủ hóa công nghệ"
+  decentralized-web: "Web phi tập trung và tự lưu trữ"
   sign-languages: "Ngôn ngữ ký hiệu"
   constructed: "Ngôn ngữ nhân tạo"
   formal-languages: "Ngôn ngữ hình thức"

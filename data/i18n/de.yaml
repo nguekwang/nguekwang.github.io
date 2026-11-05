@@ -35,7 +35,6 @@ keywords_h: Schlagwörter
 keyword_groups:
   comparison: "Sprachvergleich"
   theory: "Theoretische Linguistik"
-  philosophy: "Philosophie"
   math: "Mathematik und Daten"
   objects: "Untersuchungsgegenstände"
   tech: "Technik"
@@ -105,11 +104,14 @@ keywords:
   ladino: Ladino (Judenspanisch)
   medieval-castilian: Mittelalterliches Kastilisch
   writing-systems: Schriftsysteme
-  i18n: "Internationalisierung (i18n), Unicode und Zeichenkodierung"
+  i18n: "Internationalisierung (i18n)"
+  unicode: "Unicode und Zeichenkodierung"
   input-methods: Eingabemethoden
   typesetting: Digitaler Satz
   linux: "Linux und Betriebssystemkerne"
   oss: Open-Source-Software
+  tech-democratization: "Demokratisierung der Technik"
+  decentralized-web: "Dezentrales Web und Self-Hosting"
   sign-languages: "Gebärdensprachen"
   constructed: "Plansprachen"
   formal-languages: "Formale Sprachen"

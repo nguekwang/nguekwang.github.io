@@ -35,7 +35,6 @@ keywords_h: 키워드
 keyword_groups:
   comparison: "언어 비교"
   theory: "이론언어학"
-  philosophy: "철학"
   math: "수리·데이터"
   objects: "연구 대상"
   tech: "기술"
@@ -105,11 +104,14 @@ keywords:
   ladino: 라디노어 (유대 스페인어)
   medieval-castilian: 중세 카스티야어
   writing-systems: 문자 체계
-  i18n: "국제화(i18n)·유니코드와 문자 인코딩"
+  i18n: "국제화(i18n)"
+  unicode: "유니코드와 문자 인코딩"
   input-methods: 입력기
   typesetting: 디지털 조판
   linux: "Linux·운영체제 커널"
   oss: 오픈 소스 소프트웨어
+  tech-democratization: "기술의 민주화"
+  decentralized-web: "탈중앙화 웹·셀프 호스팅"
   sign-languages: "수어"
   constructed: "인공어"
   formal-languages: "형식 언어"

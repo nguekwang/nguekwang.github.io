@@ -35,7 +35,6 @@ keywords_h: کلیدواژه‌ها
 keyword_groups:
   comparison: "مقایسه زبان‌ها"
   theory: "زبان‌شناسی نظری"
-  philosophy: "فلسفه"
   math: "ریاضیات و داده‌ها"
   objects: "موضوعات پژوهش"
   tech: "فناوری"
@@ -105,11 +104,14 @@ keywords:
   ladino: لادینو (اسپانیایی یهودی)
   medieval-castilian: کاستیلی سده‌های میانه
   writing-systems: نظام‌های نوشتاری
-  i18n: "بین‌المللی‌سازی (i18n)، یونیکد و رمزگذاری نویسه‌ها"
+  i18n: "بین‌المللی‌سازی (i18n)"
+  unicode: "یونیکد و رمزگذاری نویسه‌ها"
   input-methods: روش‌های ورودی
   typesetting: حروف‌چینی دیجیتال
   linux: "Linux و هستهٔ سیستم‌عامل"
   oss: نرم‌افزار متن‌باز
+  tech-democratization: "دموکراتیک‌سازی فناوری"
+  decentralized-web: "وب غیرمتمرکز و میزبانی شخصی"
   sign-languages: "زبان‌های اشاره"
   constructed: "زبان‌های ساختگی"
   formal-languages: "زبان‌های صوری"

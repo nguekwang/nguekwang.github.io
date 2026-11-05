@@ -35,7 +35,6 @@ keywords_h: คำสำคัญ
 keyword_groups:
   comparison: "การเปรียบเทียบภาษา"
   theory: "ภาษาศาสตร์เชิงทฤษฎี"
-  philosophy: "ปรัชญา"
   math: "คณิตศาสตร์และข้อมูล"
   objects: "สิ่งที่ศึกษา"
   tech: "เทคโนโลยี"
@@ -105,11 +104,14 @@ keywords:
   ladino: ภาษาลาดิโน (สเปนยิว)
   medieval-castilian: ภาษากัสติยาสมัยกลาง
   writing-systems: ระบบการเขียน
-  i18n: "การทำให้เป็นสากล (i18n) ยูนิโค้ดและการเข้ารหัสอักขระ"
+  i18n: "การทำให้เป็นสากล (i18n)"
+  unicode: "ยูนิโค้ดและการเข้ารหัสอักขระ"
   input-methods: วิธีป้อนข้อมูล
   typesetting: การจัดพิมพ์ดิจิทัล
   linux: "Linux และเคอร์เนลระบบปฏิบัติการ"
   oss: ซอฟต์แวร์โอเพนซอร์ส
+  tech-democratization: "การทำให้เทคโนโลยีเป็นประชาธิปไตย"
+  decentralized-web: "เว็บแบบกระจายศูนย์และการโฮสต์ด้วยตนเอง"
   sign-languages: "ภาษามือ"
   constructed: "ภาษาประดิษฐ์"
   formal-languages: "ภาษาเชิงรูปนัย"
