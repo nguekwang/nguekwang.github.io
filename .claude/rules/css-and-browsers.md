@@ -30,7 +30,7 @@ including right-to-left ones.
 - Long words and URLs must wrap, never widen the page (`overflow-wrap` on `body`).
 - Keep `color-scheme: light dark` on `:root`, so each engine draws its own scroll bars and
   controls in the right colours.
-- Follow `.claude/rules/content-and-layout.md`: fix it once in `static/style.css` or `templates/`.
+- Fix it once, in `static/style.css` or `templates/` (see `static.md` and `templates.md`); never add a rule for one browser, page or language only.
 
 ## Checking
 
