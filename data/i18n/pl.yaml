@@ -21,6 +21,7 @@ career:
 colon: ': '
 email: E-mail
 updated: 'Ostatnia aktualizacja: {date}'
+site_title: Portfolio badawcze
 desc: 'Yoshihiro Matsuura: typologia językowa i fonologia, ilościowe mierzenie podobieństwa międzyjęzykowego na podstawie inwentarzy fonemów.'
 pub_title_en: ' ({title})'
 pub_note: ' ({year}) ({details})'

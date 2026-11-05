@@ -21,6 +21,7 @@ career:
 colon: ': '
 email: E-Mail
 updated: 'Zuletzt aktualisiert: {date}'
+site_title: Forschungsportfolio
 desc: 'Yoshihiro Matsuura: Sprachtypologie und Phonologie, Quantifizierung sprachübergreifender Ähnlichkeit anhand von Phoneminventaren.'
 pub_title_en: ' ({title})'
 pub_note: ' ({year}) ({details})'

@@ -21,6 +21,7 @@ career:
 colon: '：'
 email: メール
 updated: '最終更新：{date}'
+site_title: 研究ポートフォリオ
 desc: 松浦 義広。言語類型論・音韻論。音素目録にもとづく言語間類似度の定量化。
 pub_title_en: '（{title}）'
 pub_note: '（{year}）（{details}）'

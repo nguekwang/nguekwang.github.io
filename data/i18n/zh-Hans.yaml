@@ -21,6 +21,7 @@ career:
 colon: '：'
 email: 电子邮件
 updated: '最后更新：{date}'
+site_title: 研究作品集
 desc: 松浦义广：语言类型学与音系学，基于音位库存的跨语言相似度定量研究。
 pub_title_en: '（{title}）'
 pub_note: '（{year}）（{details}）'
