@@ -35,9 +35,20 @@ projects_h: Progetti
 outlook_h: "Prospettive"
 langs_h: Lingue
 langs:
-- Giapponese (madrelingua)
-- Inglese (CEFR C1)
-- Spagnolo (CEFR B1, laurea triennale)
+- label: "Lingua madre (L1)"
+  items:
+  - "Giapponese"
+- label: "Lingue di lavoro"
+  items:
+  - "Inglese (CEFR C1)"
+  - "Spagnolo (CEFR B1, laurea triennale)"
+- label: "Lingue in fase di acquisizione"
+  items:
+  - "Coreano"
+  - "Francese"
+  - "Russo"
+  - "Cinese"
+  - "Arabo"
 interests:
 - 'Universali linguistici e tipologia: che cosa hanno in comune tutte le lingue umane e in che cosa differiscono'
 - Semantica interlinguistica, con la semantica formale come teoria e i metodi computazionali come strumenti
