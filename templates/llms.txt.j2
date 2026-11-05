@@ -6,6 +6,7 @@
 
 - Name: {{ site.name.latin }} ({{ site.name.ja }})
 - Email: {{ site.email }}
+- CV (PDF): {{ site.url }}/en/{{ site.cv_file }}
 {% for u in site.same_as %}- Profile: {{ u }}
 {% endfor %}
 ## {{ t.current_h }}
@@ -22,16 +23,24 @@
 {% endfor %}
 ## {{ t.pubs_h }}
 
-- {{ t.thesis }}: {{ site.thesis.title_en }} {{ t.unpublished }}
+{% for p in pubs %}- {{ p.title }}{% if p.title_en %}{{ p.en_space }}{{ p.en_open }}{{ p.title_en }}{{ p.en_after }}{% endif %}{{ p.note }}
+{% endfor %}
 
 ## {{ t.projects_h }}
 
 {% for p in t.projects %}- {{ p.name }}: {{ p.desc }}
+{% endfor %}## {{ t.outlook_h }}
+
+{% for x in t.outlook %}- {{ x.name }}: {{ x.desc }}
+{% endfor %}
+## {{ t.langs_h }}
+
+{% for g in t.langs %}- {{ g.label }}: {{ g['items'] | join(", ") }}
 {% endfor %}
 ## {{ t.keywords_h }}
 
-{{ keywords | join(", ") }}
-
+{% for g in site.keywords %}- {{ t.keyword_groups[g.group] }}: {% for k in g['items'] %}{{ t.keywords[k] }}{% if not loop.last %}, {% endif %}{% endfor %}
+{% endfor %}
 ## Pages
 
 {% for o in langs %}- [{{ o.native }}]({{ site.url }}/{{ o.code }}/)

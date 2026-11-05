@@ -1,11 +1,16 @@
 # Page text for one language (uk). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: Цю сторінку перекладено машинно.
+post_edited: 'Машинний переклад; перевірка й редагування: {names}.'
 native: Українська
 dir: ltr
+og_locale: uk_UA
 request: Запросити іншу мову
+theme_dark: Темна тема
 pubs_h: Публікації та доповіді
 career_h: "Біографія"
 contact_h: Контакти
@@ -13,25 +18,53 @@ career:
 - "Народився в грудні 2003 року в Хіросімі (Японія)"
 - "Повна середня освіта, муніципальна старша школа Мотоматі, Хіросіма (загальне відділення, стандартний курс), березень 2022"
 - Бакалавр (іспанська мова), Школа іноземних студій, Університет Осаки, березень 2026
-thesis: Випускна робота
 colon: ': '
 email: Ел. пошта
 updated: 'Оновлено: {date}'
+site_title: Наукове портфоліо
 desc: 'Йосіхіро Мацуура: лінгвістична типологія та фонологія, кількісне вимірювання міжмовної подібності за фонемними інвентарями.'
-unpublished: (не опубліковано)
+pub_title_en: ' ({title})'
+pub_note: ' ({year}) ({details})'
+list_sep: ', '
+pub_types:
+  bachelor_thesis: 'випускна робота'
+pub_status:
+  unpublished: 'не опублікована'
 keywords_h: Ключові слова
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "Порівняння мов"
+  theory: "Теоретична лінгвістика"
+  math: "Математика та дані"
+  objects: "Об'єкти дослідження"
+  tech: "Технології"
 tagline: Я досліджую універсальне в тому, як людські мови виражають значення, застосовуючи формальні й обчислювальні методи до міжмовних даних.
 btn_email: Написати мені
 btn_github: GitHub
+btn_cv: "Резюме (PDF)"
+cv_h: "Резюме"
+website: "Сайт"
 interests_h: Теми досліджень
 current_h: Поточні дослідження
 current: Кількісна оцінка подібності мов. На основі фонемних інвентарів (PHOIBLE) та лексичних даних я вимірюю, наскільки близькі мови й діалекти, починаючи з романських мов. Мета — міра, придатна для багатьох мов, що спирається на явну статистику й допомагає зрозуміти, де закінчується діалект і починається мова.
 projects_h: Проєкти
+outlook_h: "Перспективи"
 langs_h: Мови
 langs:
-- Японська (рідна)
-- Англійська (CEFR C1)
-- Іспанська (CEFR B1, профіль бакалаврату)
+- label: "Рідна мова (L1)"
+  items:
+  - "Японська"
+- label: "Робочі мови"
+  items:
+  - "Англійська (CEFR C1)"
+  - "Іспанська (CEFR B1, профіль бакалаврату)"
+- label: "Мови у процесі вивчення"
+  items:
+  - "Корейська"
+  - "Французька"
+  - "Російська"
+  - "Китайська"
+  - "Арабська"
 interests:
 - 'Мовні універсалії та типологія: що спільне для всіх людських мов і чим вони відрізняються'
 - 'Міжмовна семантика: формальна семантика як теорія, обчислювальні методи як інструменти'
@@ -47,34 +80,49 @@ projects:
   desc: Інструмент для побудови синтаксичних дерев генеративної граматики (у планах)
 - name: Corpus Hub
   desc: Платформа для збирання мовних корпусів і пошуку в них (у планах)
+outlook:
+- name: "Діалект чи мова"
+  desc: "на основі мір подібності запропонувати критерії, коли різновид вважати діалектом, а коли мовою"
+- name: "Синтаксична подібність"
+  desc: "вимірювати близькість синтаксису поряд зі звуками й лексикою та об'єднати все в один індекс"
+- name: "Засвоєння другої мови"
+  desc: "перевірити, чи легше вивчати мови, ближчі до рідної"
+- name: "Інструмент із графічним інтерфейсом"
+  desc: "створити інструмент, за допомогою якого будь-хто зможе обчислити подібність, і оприлюднити його з відкритим кодом"
 keywords:
-  typology: Лінгвістична типологія
-  universals: Мовні універсалії
-  crossling-semantics: Міжмовна семантика
-  formal-semantics: Формальна семантика
-  theoretical: Теоретична лінгвістика
-  syntax: Синтаксис
-  morphology: Морфологія
+  typology: "Лінгвістична типологія і мовні універсалії"
+  formal-semantics: "Формальна семантика і міжмовна семантика"
   generative: Генеративна граматика
   cognitive: Когнітивна лінгвістика
-  computational: Комп'ютерна лінгвістика
+  computational: "Комп'ютерна лінгвістика і обробка природної мови"
   phylogenetic: Філогенетична лінгвістика
-  similarity: Подібність мов
+  contact: "Мовні контакти"
+  similarity: "Подібність і відстань між мовами"
   phonology: Фонологія
-  romance: Романські мови
+  romance: "Романські мови (іберо-романські мови)"
   mozarabic: Мосарабська (андалуська романська)
   ladino: Ладино (єврейсько-іспанська)
-  ibero-romance: Іберо-романські мови
   medieval-castilian: Середньовічна кастильська
   writing-systems: Системи письма
-  nlp: Обробка природної мови
-  i18n: Інтернаціоналізація (i18n)
-  unicode: Юнікод і кодування символів
+  i18n: "Інтернаціоналізація (i18n)"
+  unicode: "Юнікод і кодування символів"
   input-methods: Методи введення
   typesetting: Цифрова верстка
-  linux: Linux
-  kernels: Ядра операційних систем
+  linux: "Linux і ядра операційних систем"
   oss: Програмне забезпечення з відкритим кодом
+  tech-democratization: "Демократизація технологій"
+  decentralized-web: "Децентралізований веб і власний хостинг"
+  sign-languages: "Жестові мови"
+  constructed: "Штучні мови"
+  formal-languages: "Формальні мови"
+  information-theory: "Теорія інформації"
+  morse: "Абетка Морзе"
+  probability: "Теорія ймовірностей і статистика"
+  data-viz: "Візуалізація даних"
+  saussurean: "Лінгвістика Соссюра"
+  wittgenstein: "Аналітична філософія і Вітгенштейн"
+  vibrations-waves: "Теорія коливань і хвиль"
+  signal-processing: "Обробка сигналів"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

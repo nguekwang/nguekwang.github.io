@@ -1,11 +1,16 @@
 # Page text for one language (id). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: Halaman ini diterjemahkan secara otomatis.
+post_edited: 'Terjemahan mesin, ditinjau dan diperbaiki oleh {names}.'
 native: Bahasa Indonesia
 dir: ltr
+og_locale: id_ID
 request: Minta bahasa lain
+theme_dark: Tema gelap
 pubs_h: Publikasi dan presentasi
 career_h: "Riwayat"
 contact_h: Kontak
@@ -13,25 +18,53 @@ career:
 - "Lahir Desember 2003 di Hiroshima, Jepang"
 - "Lulus SMA, SMA Kota Hiroshima Motomachi (jurusan umum, program standar), Maret 2022"
 - Sarjana Bahasa Spanyol, Fakultas Studi Asing, Universitas Osaka, Maret 2026
-thesis: Skripsi
 colon: ': '
 email: Email
 updated: 'Terakhir diperbarui: {date}'
+site_title: Portofolio Penelitian
 desc: 'Yoshihiro Matsuura: tipologi bahasa dan fonologi, pengukuran kemiripan antarbahasa secara kuantitatif dari inventaris fonem.'
-unpublished: (tidak dipublikasikan)
+pub_title_en: ' ({title})'
+pub_note: ' ({year}) ({details})'
+list_sep: ', '
+pub_types:
+  bachelor_thesis: 'skripsi'
+pub_status:
+  unpublished: 'tidak dipublikasikan'
 keywords_h: Kata kunci
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "Perbandingan bahasa"
+  theory: "Linguistik teoretis"
+  math: "Matematika dan data"
+  objects: "Objek kajian"
+  tech: "Teknologi"
 tagline: Saya meneliti apa yang universal dalam cara bahasa manusia mengodekan makna, dengan metode formal dan komputasional pada data lintas bahasa.
 btn_email: Kirim email
 btn_github: GitHub
+btn_cv: "CV (PDF)"
+cv_h: "Daftar riwayat hidup"
+website: "Situs web"
 interests_h: Topik penelitian
 current_h: Penelitian saat ini
 current: Mengukur kemiripan antarbahasa secara kuantitatif. Dengan inventaris fonem (PHOIBLE) dan data kosakata, saya mengukur seberapa dekat bahasa dan dialek satu sama lain, dimulai dari bahasa-bahasa Roman. Tujuannya adalah ukuran yang berlaku untuk banyak bahasa, berdasarkan statistik yang eksplisit, dan dapat membantu menentukan di mana dialek berakhir dan bahasa dimulai.
 projects_h: Proyek
+outlook_h: "Rencana ke depan"
 langs_h: Bahasa
 langs:
-- Bahasa Jepang (bahasa ibu)
-- Bahasa Inggris (CEFR C1)
-- Bahasa Spanyol (CEFR B1, jurusan S1)
+- label: "Bahasa ibu (L1)"
+  items:
+  - "Bahasa Jepang"
+- label: "Bahasa kerja"
+  items:
+  - "Bahasa Inggris (CEFR C1)"
+  - "Bahasa Spanyol (CEFR B1, jurusan S1)"
+- label: "Bahasa yang sedang dipelajari"
+  items:
+  - "Bahasa Korea"
+  - "Bahasa Prancis"
+  - "Bahasa Rusia"
+  - "Bahasa Mandarin"
+  - "Bahasa Arab"
 interests:
 - 'Kesemestaan bahasa dan tipologi: apa yang dimiliki bersama oleh semua bahasa manusia dan bagaimana bahasa-bahasa itu berbeda'
 - Semantik lintas bahasa, dengan semantik formal sebagai teori dan metode komputasional sebagai alat
@@ -47,34 +80,49 @@ projects:
   desc: Alat untuk menggambar pohon sintaksis tata bahasa generatif (direncanakan)
 - name: Corpus Hub
   desc: Wadah untuk mengumpulkan dan mencari korpus bahasa (direncanakan)
+outlook:
+- name: "Dialek atau bahasa"
+  desc: "mengusulkan kriteria, berdasarkan ukuran kemiripan, kapan suatu ragam disebut dialek dan kapan disebut bahasa"
+- name: "Kemiripan sintaksis"
+  desc: "mengukur kedekatan sintaksis selain bunyi dan kosakata, lalu menggabungkannya menjadi satu indeks"
+- name: "Pemerolehan bahasa kedua"
+  desc: "menguji apakah bahasa yang lebih dekat dengan bahasa sendiri lebih mudah dipelajari"
+- name: "Alat berbasis GUI"
+  desc: "membuat alat yang dapat dipakai siapa saja untuk menghitung kemiripan, dan merilisnya sebagai sumber terbuka"
 keywords:
-  typology: Tipologi bahasa
-  universals: Kesemestaan bahasa
-  crossling-semantics: Semantik lintas bahasa
-  formal-semantics: Semantik formal
-  theoretical: Linguistik teoretis
-  syntax: Sintaksis
-  morphology: Morfologi
+  typology: "Tipologi bahasa dan kesemestaan bahasa"
+  formal-semantics: "Semantik formal dan semantik lintas bahasa"
   generative: Tata bahasa generatif
   cognitive: Linguistik kognitif
-  computational: Linguistik komputasional
+  computational: "Linguistik komputasional dan pemrosesan bahasa alami"
   phylogenetic: Linguistik filogenetik
-  similarity: Kemiripan antarbahasa
+  contact: "Kontak bahasa"
+  similarity: "Kemiripan dan jarak antarbahasa"
   phonology: Fonologi
-  romance: Bahasa-bahasa Roman
+  romance: "Bahasa-bahasa Roman (Ibero-Roman)"
   mozarabic: Bahasa Mozarab (Roman Andalus)
   ladino: Bahasa Ladino (Yahudi-Spanyol)
-  ibero-romance: Ibero-Roman
   medieval-castilian: Bahasa Kastilia abad pertengahan
   writing-systems: Sistem tulisan
-  nlp: Pemrosesan bahasa alami
-  i18n: Internasionalisasi (i18n)
-  unicode: Unicode dan pengodean karakter
+  i18n: "Internasionalisasi (i18n)"
+  unicode: "Unicode dan pengodean karakter"
   input-methods: Metode input
   typesetting: Tata letak digital
-  linux: Linux
-  kernels: Kernel sistem operasi
+  linux: "Linux dan kernel sistem operasi"
   oss: Perangkat lunak sumber terbuka
+  tech-democratization: "Demokratisasi teknologi"
+  decentralized-web: "Web terdesentralisasi dan hosting mandiri"
+  sign-languages: "Bahasa isyarat"
+  constructed: "Bahasa buatan"
+  formal-languages: "Bahasa formal"
+  information-theory: "Teori informasi"
+  morse: "Kode Morse"
+  probability: "Teori probabilitas dan statistika"
+  data-viz: "Visualisasi data"
+  saussurean: "Linguistik Saussure"
+  wittgenstein: "Filsafat analitik dan Wittgenstein"
+  vibrations-waves: "Getaran dan gelombang"
+  signal-processing: "Pemrosesan sinyal"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

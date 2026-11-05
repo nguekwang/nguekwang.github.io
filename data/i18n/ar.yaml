@@ -1,11 +1,16 @@
 # Page text for one language (ar). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: تُرجمت هذه الصفحة آليًا.
+post_edited: 'ترجمة آلية. المراجعة والتصحيح: {names}.'
 native: العربية
 dir: rtl
+og_locale: ar_AR
 request: طلب لغة أخرى
+theme_dark: الوضع الداكن
 pubs_h: المنشورات والعروض
 career_h: "السيرة"
 contact_h: التواصل
@@ -13,25 +18,53 @@ career:
 - "وُلد في ديسمبر 2003 في هيروشيما، اليابان"
 - "شهادة الثانوية، مدرسة موتوماتشي الثانوية البلدية في هيروشيما (القسم العام، المسار العادي)، مارس 2022"
 - بكالوريوس في اللغة الإسبانية، كلية الدراسات الأجنبية، جامعة أوساكا، مارس 2026
-thesis: أطروحة التخرج
 colon: ': '
 email: البريد الإلكتروني
 updated: 'آخر تحديث: {date}'
+site_title: الملف البحثي
 desc: 'يوشيهيرو ماتسورا: علم الأنماط اللغوية وعلم الأصوات الوظيفي، وقياس التشابه بين اللغات كميًا من قوائم الفونيمات.'
-unpublished: (غير منشور)
+pub_title_en: ' ({title})'
+pub_note: ' ({year}) ({details})'
+list_sep: '، '
+pub_types:
+  bachelor_thesis: 'أطروحة التخرج'
+pub_status:
+  unpublished: 'غير منشورة'
 keywords_h: الكلمات المفتاحية
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "مقارنة اللغات"
+  theory: "اللسانيات النظرية"
+  math: "الرياضيات والبيانات"
+  objects: "موضوعات الدراسة"
+  tech: "التقنية"
 tagline: أدرس ما هو كوني في طريقة ترميز اللغات البشرية للمعنى، مستخدمًا مناهج صورية وحاسوبية على بيانات من لغات متعددة.
 btn_email: راسلني
 btn_github: GitHub
+btn_cv: "السيرة الذاتية (PDF)"
+cv_h: "السيرة الذاتية"
+website: "الموقع الإلكتروني"
 interests_h: موضوعات البحث
 current_h: البحث الحالي
 current: قياس التشابه بين اللغات كمّيًا. باستخدام قوائم الفونيمات (PHOIBLE) وبيانات المفردات، أقيس مدى التقارب بين اللغات واللهجات، بدءًا باللغات الرومانسية. الهدف مقياس يصلح لكثير من اللغات، ويستند إلى إحصاءات صريحة، ويساعد على تحديد أين تنتهي اللهجة وتبدأ اللغة.
 projects_h: المشاريع
+outlook_h: "آفاق البحث"
 langs_h: اللغات
 langs:
-- اليابانية (اللغة الأم)
-- الإنجليزية (CEFR C1)
-- الإسبانية (CEFR B1، تخصص البكالوريوس)
+- label: "اللغة الأم (L1)"
+  items:
+  - "اليابانية"
+- label: "لغات العمل"
+  items:
+  - "الإنجليزية (CEFR C1)"
+  - "الإسبانية (CEFR B1، تخصص البكالوريوس)"
+- label: "لغات قيد التعلّم"
+  items:
+  - "الكورية"
+  - "الفرنسية"
+  - "الروسية"
+  - "الصينية"
+  - "العربية"
 interests:
 - 'الكليات اللغوية والتصنيف اللغوي: ما تشترك فيه اللغات البشرية كلها وما تختلف فيه'
 - الدلالة عبر اللغات، بالدلالة الصورية نظريةً والمناهج الحاسوبية أدواتٍ
@@ -47,34 +80,49 @@ projects:
   desc: أداة لرسم الأشجار النحوية في النحو التوليدي (قيد التخطيط)
 - name: Corpus Hub
   desc: منصة لجمع المدونات اللغوية والبحث فيها (قيد التخطيط)
+outlook:
+- name: "اللهجة واللغة"
+  desc: "اقتراح معايير، استنادًا إلى مقاييس التشابه، لتحديد متى يُعدّ التنوع اللغوي لهجةً ومتى يُعدّ لغة"
+- name: "التشابه النحوي"
+  desc: "قياس التقارب في التركيب النحوي إلى جانب الأصوات والمفردات، وجمعها في مؤشر واحد"
+- name: "تعلّم اللغة الثانية"
+  desc: "اختبار ما إذا كانت اللغات الأقرب إلى لغة المتعلّم أسهل تعلّمًا"
+- name: "أداة بواجهة رسومية"
+  desc: "بناء أداة يستطيع أي شخص استخدامها لحساب التشابه، ونشرها مفتوحة المصدر"
 keywords:
-  typology: التصنيف اللغوي
-  universals: الكليات اللغوية
-  crossling-semantics: الدلالة عبر اللغات
-  formal-semantics: الدلالة الصورية
-  theoretical: اللسانيات النظرية
-  syntax: علم التراكيب
-  morphology: علم الصرف
+  typology: "التصنيف اللغوي والكليات اللغوية"
+  formal-semantics: "الدلالة الصورية والدلالة عبر اللغات"
   generative: النحو التوليدي
   cognitive: اللسانيات الإدراكية
-  computational: اللسانيات الحاسوبية
+  computational: "اللسانيات الحاسوبية ومعالجة اللغات الطبيعية"
   phylogenetic: اللسانيات التطورية
-  similarity: التشابه بين اللغات
+  contact: "الاحتكاك اللغوي"
+  similarity: "التشابه والمسافة بين اللغات"
   phonology: علم الأصوات الوظيفي
-  romance: اللغات الرومانسية
+  romance: "اللغات الرومانسية (اللغات الرومانسية الإيبيرية)"
   mozarabic: اللغة المستعربة (الرومانسية الأندلسية)
   ladino: اللادينو (اليهودية الإسبانية)
-  ibero-romance: اللغات الرومانسية الإيبيرية
   medieval-castilian: القشتالية في العصور الوسطى
   writing-systems: أنظمة الكتابة
-  nlp: معالجة اللغات الطبيعية
-  i18n: التدويل (i18n)
-  unicode: يونيكود وترميز المحارف
+  i18n: "التدويل (i18n)"
+  unicode: "يونيكود وترميز المحارف"
   input-methods: طرق الإدخال
   typesetting: التنضيد الرقمي
-  linux: Linux
-  kernels: أنوية أنظمة التشغيل
+  linux: "Linux وأنوية أنظمة التشغيل"
   oss: البرمجيات مفتوحة المصدر
+  tech-democratization: "دمقرطة التقنية"
+  decentralized-web: "الويب اللامركزي والاستضافة الذاتية"
+  sign-languages: "لغات الإشارة"
+  constructed: "اللغات المصطنعة"
+  formal-languages: "اللغات الصورية"
+  information-theory: "نظرية المعلومات"
+  morse: "شفرة مورس"
+  probability: "نظرية الاحتمالات والإحصاء"
+  data-viz: "التمثيل المرئي للبيانات"
+  saussurean: "لسانيات سوسير"
+  wittgenstein: "الفلسفة التحليلية وفيتغنشتاين"
+  vibrations-waves: "الاهتزازات والموجات"
+  signal-processing: "معالجة الإشارات"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

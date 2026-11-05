@@ -1,11 +1,16 @@
 # Page text for one language (zh-Hans). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: 本页面为机器翻译。
+post_edited: '本页为机器翻译，由{names}审校。'
 native: 简体中文
 dir: ltr
+og_locale: zh_CN
 request: 申请其他语言版本
+theme_dark: 深色主题
 pubs_h: 论文与报告
 career_h: "经历"
 contact_h: 联系方式
@@ -13,25 +18,53 @@ career:
 - "2003年12月生于日本广岛县广岛市"
 - "广岛市立基町高等学校 普通科 普通课程 毕业(2022年3月)"
 - 大阪大学外国语学部 西班牙语专业 学士(2026年3月)
-thesis: 毕业论文
 colon: '：'
 email: 电子邮件
 updated: '最后更新：{date}'
+site_title: 研究作品集
 desc: 松浦义广：语言类型学与音系学，基于音位库存的跨语言相似度定量研究。
-unpublished: （未公开）
+pub_title_en: '（{title}）'
+pub_note: '（{year}）（{details}）'
+list_sep: '，'
+pub_types:
+  bachelor_thesis: '毕业论文'
+pub_status:
+  unpublished: '未公开'
 keywords_h: 关键词
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "语言比较"
+  theory: "理论语言学"
+  math: "数学与数据"
+  objects: "研究对象"
+  tech: "技术"
 tagline: 我研究人类语言在表达意义上的普遍性，对跨语言数据运用形式化和计算方法。
 btn_email: 发送邮件
 btn_github: GitHub
+btn_cv: "简历 (PDF)"
+cv_h: "个人简历"
+website: "网站"
 interests_h: 研究主题
 current_h: 当前研究
 current: 跨语言相似度的量化。我利用音位清单（PHOIBLE）和词汇数据测量语言与方言之间的距离，首先从罗曼语族入手。目标是建立一个适用于多种语言、基于明确统计方法、并能为“方言与语言的界线在哪里”提供依据的度量。
 projects_h: 项目
+outlook_h: "展望"
 langs_h: 语言
 langs:
-- 日语（母语）
-- 英语（CEFR C1）
-- 西班牙语（CEFR B1，本科专业）
+- label: "母语（L1）"
+  items:
+  - "日语"
+- label: "工作语言"
+  items:
+  - "英语（CEFR C1）"
+  - "西班牙语（CEFR B1，本科专业）"
+- label: "正在学习的语言"
+  items:
+  - "韩语"
+  - "法语"
+  - "俄语"
+  - "中文"
+  - "阿拉伯语"
 interests:
 - 语言共性与类型学：所有人类语言的共同点与差异
 - 跨语言语义学：以形式语义学为理论，以计算方法为工具
@@ -47,34 +80,49 @@ projects:
   desc: 用于绘制生成语法句法树的工具（构想中）
 - name: Corpus Hub
   desc: 用于收集和检索语言语料库的平台（构想中）
+outlook:
+- name: "方言与语言的界线"
+  desc: "依据相似度指标，提出把某一语言变体称为方言还是语言的标准"
+- name: "句法相似度"
+  desc: "在语音和词汇之外也测量句法的接近程度，并合成为一个综合指标"
+- name: "第二语言习得的应用"
+  desc: "检验与母语越接近的语言是否越容易学习"
+- name: "图形界面工具"
+  desc: "开发人人都能计算相似度的工具，并以开源形式发布"
 keywords:
-  typology: 语言类型学
-  universals: 语言共性
-  crossling-semantics: 跨语言语义学
-  formal-semantics: 形式语义学
-  theoretical: 理论语言学
-  syntax: 句法学
-  morphology: 形态学
+  typology: "语言类型学与语言共性"
+  formal-semantics: "形式语义学与跨语言语义学"
   generative: 生成语法
   cognitive: 认知语言学
-  computational: 计算语言学
+  computational: "计算语言学与自然语言处理"
   phylogenetic: 系统发生语言学
-  similarity: 语言相似度
+  contact: "语言接触"
+  similarity: "语言间的相似度与距离"
   phonology: 音系学
-  romance: 罗曼语族
+  romance: "罗曼语族（伊比利亚-罗曼语支）"
   mozarabic: 莫扎拉布语（安达卢斯罗曼语）
   ladino: 拉迪诺语（犹太西班牙语）
-  ibero-romance: 伊比利亚-罗曼语支
   medieval-castilian: 中世纪卡斯蒂利亚语
   writing-systems: 文字系统
-  nlp: 自然语言处理
-  i18n: 国际化（i18n）
-  unicode: Unicode 与字符编码
+  i18n: "国际化（i18n）"
+  unicode: "Unicode 与字符编码"
   input-methods: 输入法
   typesetting: 数字排版
-  linux: Linux
-  kernels: 操作系统内核
+  linux: "Linux 与操作系统内核"
   oss: 开源软件
+  tech-democratization: "技术民主化"
+  decentralized-web: "去中心化网络与自托管"
+  sign-languages: "手语"
+  constructed: "人造语言"
+  formal-languages: "形式语言"
+  information-theory: "信息论"
+  morse: "摩尔斯电码"
+  probability: "概率论与统计学"
+  data-viz: "数据可视化"
+  saussurean: "索绪尔语言学"
+  wittgenstein: "分析哲学与维特根斯坦"
+  vibrations-waves: "振动与波"
+  signal-processing: "信号处理"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

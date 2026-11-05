@@ -1,11 +1,16 @@
 # Page text for one language (tr). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: Bu sayfa makine çevirisiyle çevrilmiştir.
+post_edited: 'Makine çevirisidir; {names} tarafından gözden geçirilip düzeltildi.'
 native: Türkçe
 dir: ltr
+og_locale: tr_TR
 request: Başka bir dil iste
+theme_dark: Koyu tema
 pubs_h: Yayınlar ve sunumlar
 career_h: "Özgeçmiş"
 contact_h: İletişim
@@ -13,25 +18,53 @@ career:
 - "Aralık 2003, Hiroşima (Japonya) doğumlu"
 - "Lise, Hiroşima Belediyesi Motomachi Lisesi (genel bölüm, standart program), Mart 2022"
 - İspanyolca Lisans, Yabancı Diller Fakültesi, Osaka Üniversitesi, Mart 2026
-thesis: Bitirme tezi
 colon: ': '
 email: E-posta
 updated: 'Son güncelleme: {date}'
+site_title: Araştırma Portfolyosu
 desc: 'Yoshihiro Matsuura: dil tipolojisi ve sesbilim, fonem envanterlerinden diller arası benzerliğin nicel ölçümü.'
-unpublished: (yayımlanmamış)
+pub_title_en: ' ({title})'
+pub_note: ' ({year}) ({details})'
+list_sep: ', '
+pub_types:
+  bachelor_thesis: 'bitirme tezi'
+pub_status:
+  unpublished: 'yayımlanmamış'
 keywords_h: Anahtar sözcükler
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "Dillerin karşılaştırılması"
+  theory: "Kuramsal dilbilim"
+  math: "Matematik ve veri"
+  objects: "İnceleme nesneleri"
+  tech: "Teknoloji"
 tagline: İnsan dillerinin anlamı kodlama biçimindeki evrensel yönleri, diller arası veriler üzerinde biçimsel ve hesaplamalı yöntemlerle inceliyorum.
 btn_email: E-posta gönder
 btn_github: GitHub
+btn_cv: "Özgeçmiş (PDF)"
+cv_h: "Özgeçmiş"
+website: "Web sitesi"
 interests_h: Araştırma konuları
 current_h: Güncel araştırma
 current: Diller arası benzerliğin nicel olarak ölçülmesi. Sesbirim envanterleri (PHOIBLE) ve sözcük verileriyle, Roman dillerinden başlayarak dillerin ve lehçelerin birbirine ne kadar yakın olduğunu ölçüyorum. Amaç, pek çok dil için işe yarayan, açık istatistiklere dayanan ve bir lehçenin nerede bitip bir dilin nerede başladığına ışık tutabilecek bir ölçüt geliştirmek.
 projects_h: Projeler
+outlook_h: "Gelecek planları"
 langs_h: Diller
 langs:
-- Japonca (anadil)
-- İngilizce (CEFR C1)
-- İspanyolca (CEFR B1, lisans ana dalı)
+- label: "Ana dil (L1)"
+  items:
+  - "Japonca"
+- label: "Çalışma dilleri"
+  items:
+  - "İngilizce (CEFR C1)"
+  - "İspanyolca (CEFR B1, lisans ana dalı)"
+- label: "Öğrenilmekte olan diller"
+  items:
+  - "Korece"
+  - "Fransızca"
+  - "Rusça"
+  - "Çince"
+  - "Arapça"
 interests:
 - 'Dil evrenselleri ve dil tipolojisi: tüm insan dillerinin ortak yönleri ve farklılıkları'
 - 'Diller arası anlambilim: kuram olarak biçimsel anlambilim, araç olarak hesaplamalı yöntemler'
@@ -47,34 +80,49 @@ projects:
   desc: Üretici dilbilgisinde sözdizim ağaçları çizmek için bir araç (planlanıyor)
 - name: Corpus Hub
   desc: Dil derlemlerini toplamak ve aramak için bir merkez (planlanıyor)
+outlook:
+- name: "Lehçe mi dil mi"
+  desc: "benzerlik ölçülerine dayanarak bir dil çeşidinin ne zaman lehçe, ne zaman dil sayılacağına dair ölçütler önermek"
+- name: "Sözdizimsel benzerlik"
+  desc: "sesler ve sözcük dağarcığının yanında sözdizimindeki yakınlığı da ölçmek ve hepsini tek bir endekste birleştirmek"
+- name: "İkinci dil edinimi"
+  desc: "kişinin kendi diline daha yakın dillerin daha kolay öğrenilip öğrenilmediğini sınamak"
+- name: "Grafik arayüzlü bir araç"
+  desc: "herkesin benzerlik hesaplayabileceği bir araç geliştirmek ve açık kaynak olarak yayımlamak"
 keywords:
-  typology: Dil tipolojisi
-  universals: Dil evrenselleri
-  crossling-semantics: Diller arası anlambilim
-  formal-semantics: Biçimsel anlambilim
-  theoretical: Kuramsal dilbilim
-  syntax: Sözdizim
-  morphology: Biçimbilim
+  typology: "Dil tipolojisi ve dil evrenselleri"
+  formal-semantics: "Biçimsel anlambilim ve diller arası anlambilim"
   generative: Üretici dilbilgisi
   cognitive: Bilişsel dilbilim
-  computational: Hesaplamalı dilbilim
+  computational: "Hesaplamalı dilbilim ve doğal dil işleme"
   phylogenetic: Filogenetik dilbilim
-  similarity: Diller arası benzerlik
+  contact: "Dil teması"
+  similarity: "Diller arası benzerlik ve uzaklık"
   phonology: Sesbilim
-  romance: Roman dilleri
+  romance: "Roman dilleri (İber-Roman dilleri)"
   mozarabic: Mozarapça (Endülüs Romans dili)
   ladino: Ladino (Yahudi İspanyolcası)
-  ibero-romance: İber-Roman dilleri
   medieval-castilian: Orta Çağ Kastilyacası
   writing-systems: Yazı sistemleri
-  nlp: Doğal dil işleme
-  i18n: Uluslararasılaştırma (i18n)
-  unicode: Unicode ve karakter kodlama
+  i18n: "Uluslararasılaştırma (i18n)"
+  unicode: "Unicode ve karakter kodlama"
   input-methods: Giriş yöntemleri
   typesetting: Dijital dizgi
-  linux: Linux
-  kernels: İşletim sistemi çekirdekleri
+  linux: "Linux ve işletim sistemi çekirdekleri"
   oss: Açık kaynak yazılım
+  tech-democratization: "Teknolojinin demokratikleşmesi"
+  decentralized-web: "Merkeziyetsiz web ve kendi sunucunda barındırma"
+  sign-languages: "İşaret dilleri"
+  constructed: "Yapay diller"
+  formal-languages: "Biçimsel diller"
+  information-theory: "Bilgi kuramı"
+  morse: "Mors alfabesi"
+  probability: "Olasılık kuramı ve istatistik"
+  data-viz: "Veri görselleştirme"
+  saussurean: "Saussure dilbilimi"
+  wittgenstein: "Analitik felsefe ve Wittgenstein"
+  vibrations-waves: "Titreşimler ve dalgalar"
+  signal-processing: "Sinyal işleme"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

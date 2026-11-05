@@ -9,10 +9,11 @@
 <meta name="author" content="{{ site.name.latin_short }}">
 {% include "verification.html.j2" %}
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="{{ site.name.latin }}">
+<meta property="og:site_name" content="{{ site_name }}">
 <meta property="og:title" content="{{ title }}">
 <meta property="og:description" content="{{ description }}">
 <meta property="og:url" content="{{ site.url }}/">
+<meta property="og:locale" content="{{ (langs | selectattr("code", "equalto", "en") | first).og_locale }}">
 <meta name="twitter:card" content="summary">
 <link rel="canonical" href="{{ site.url }}/">
 {% for o in langs %}<link rel="alternate" hreflang="{{ o.code }}" href="{{ site.url }}/{{ o.code }}/">

@@ -1,11 +1,16 @@
 # Page text for one language (it). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: Questa pagina è stata tradotta automaticamente.
+post_edited: 'Traduzione automatica rivista e corretta da {names}.'
 native: Italiano
 dir: ltr
+og_locale: it_IT
 request: Richiedi un'altra lingua
+theme_dark: Tema scuro
 pubs_h: Pubblicazioni e presentazioni
 career_h: "Percorso"
 contact_h: Contatti
@@ -13,25 +18,53 @@ career:
 - "Nato nel dicembre 2003 a Hiroshima, Giappone"
 - "Diploma di scuola superiore, Liceo municipale Motomachi di Hiroshima (indirizzo generale, percorso standard), marzo 2022"
 - Laurea triennale in Spagnolo, Scuola di Studi Stranieri, Università di Osaka, marzo 2026
-thesis: Tesi di laurea
 colon: ': '
 email: E-mail
 updated: 'Ultimo aggiornamento: {date}'
+site_title: Portfolio di ricerca
 desc: 'Yoshihiro Matsuura: tipologia linguistica e fonologia, quantificazione della somiglianza interlinguistica a partire dagli inventari fonematici.'
-unpublished: (non pubblicato)
+pub_title_en: ' ({title})'
+pub_note: ' ({year}) ({details})'
+list_sep: ', '
+pub_types:
+  bachelor_thesis: 'tesi di laurea'
+pub_status:
+  unpublished: 'non pubblicata'
 keywords_h: Parole chiave
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "Confronto tra lingue"
+  theory: "Linguistica teorica"
+  math: "Matematica e dati"
+  objects: "Oggetti di studio"
+  tech: "Tecnologia"
 tagline: Studio ciò che è universale nel modo in cui le lingue umane codificano il significato, con metodi formali e computazionali applicati a dati interlinguistici.
 btn_email: Scrivimi
 btn_github: GitHub
+btn_cv: "CV (PDF)"
+cv_h: "Curriculum vitae"
+website: "Sito web"
 interests_h: Temi di ricerca
 current_h: Ricerca attuale
 current: Quantificare la somiglianza tra le lingue. Usando inventari fonematici (PHOIBLE) e dati lessicali, misuro quanto sono vicini lingue e dialetti, a partire dalle lingue romanze. L'obiettivo è una misura valida per molte lingue, basata su statistiche esplicite, che aiuti a capire dove finisce un dialetto e comincia una lingua.
 projects_h: Progetti
+outlook_h: "Prospettive"
 langs_h: Lingue
 langs:
-- Giapponese (madrelingua)
-- Inglese (CEFR C1)
-- Spagnolo (CEFR B1, laurea triennale)
+- label: "Lingua madre (L1)"
+  items:
+  - "Giapponese"
+- label: "Lingue di lavoro"
+  items:
+  - "Inglese (CEFR C1)"
+  - "Spagnolo (CEFR B1, laurea triennale)"
+- label: "Lingue in fase di acquisizione"
+  items:
+  - "Coreano"
+  - "Francese"
+  - "Russo"
+  - "Cinese"
+  - "Arabo"
 interests:
 - 'Universali linguistici e tipologia: che cosa hanno in comune tutte le lingue umane e in che cosa differiscono'
 - Semantica interlinguistica, con la semantica formale come teoria e i metodi computazionali come strumenti
@@ -47,34 +80,49 @@ projects:
   desc: Strumento per disegnare alberi sintattici della grammatica generativa (in progetto)
 - name: Corpus Hub
   desc: Piattaforma per raccogliere e consultare corpora linguistici (in progetto)
+outlook:
+- name: "Dialetto o lingua"
+  desc: "proporre, sulla base di misure di somiglianza, criteri per stabilire quando una varietà è un dialetto e quando una lingua"
+- name: "Somiglianza sintattica"
+  desc: "misurare anche la vicinanza sintattica, oltre a suoni e lessico, e riunire tutto in un unico indice"
+- name: "Acquisizione della seconda lingua"
+  desc: "verificare se le lingue più vicine alla propria sono più facili da imparare"
+- name: "Uno strumento con interfaccia grafica"
+  desc: "creare uno strumento con cui chiunque possa calcolare la somiglianza e pubblicarlo come open source"
 keywords:
-  typology: Tipologia linguistica
-  universals: Universali linguistici
-  crossling-semantics: Semantica interlinguistica
-  formal-semantics: Semantica formale
-  theoretical: Linguistica teorica
-  syntax: Sintassi
-  morphology: Morfologia
+  typology: "Tipologia linguistica e universali linguistici"
+  formal-semantics: "Semantica formale e semantica interlinguistica"
   generative: Grammatica generativa
   cognitive: Linguistica cognitiva
-  computational: Linguistica computazionale
+  computational: "Linguistica computazionale ed elaborazione del linguaggio naturale"
   phylogenetic: Linguistica filogenetica
-  similarity: Somiglianza tra lingue
+  contact: "Contatto linguistico"
+  similarity: "Somiglianza e distanza tra le lingue"
   phonology: Fonologia
-  romance: Lingue romanze
+  romance: "Lingue romanze (ibero-romanzo)"
   mozarabic: Mozarabico (romanzo andaluso)
   ladino: Giudeo-spagnolo (ladino)
-  ibero-romance: Ibero-romanzo
   medieval-castilian: Castigliano medievale
   writing-systems: Sistemi di scrittura
-  nlp: Elaborazione del linguaggio naturale
-  i18n: Internazionalizzazione (i18n)
-  unicode: Unicode e codifica dei caratteri
+  i18n: "Internazionalizzazione (i18n)"
+  unicode: "Unicode e codifica dei caratteri"
   input-methods: Metodi di input
   typesetting: Composizione tipografica digitale
-  linux: Linux
-  kernels: Kernel dei sistemi operativi
+  linux: "Linux e kernel dei sistemi operativi"
   oss: Software open source
+  tech-democratization: "Democratizzazione della tecnologia"
+  decentralized-web: "Web decentralizzato e self-hosting"
+  sign-languages: "Lingue dei segni"
+  constructed: "Lingue artificiali"
+  formal-languages: "Linguaggi formali"
+  information-theory: "Teoria dell’informazione"
+  morse: "Codice Morse"
+  probability: "Teoria della probabilità e statistica"
+  data-viz: "Visualizzazione dei dati"
+  saussurean: "Linguistica saussuriana"
+  wittgenstein: "Filosofia analitica e Wittgenstein"
+  vibrations-waves: "Vibrazioni e onde"
+  signal-processing: "Elaborazione dei segnali"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.
