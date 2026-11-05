@@ -1,5 +1,7 @@
 # Check the data, build the static site from data/ + templates/, and deploy it to GitHub Pages.
-# - Pull requests: check and build only (fails if any language differs in structure from en.yaml).
+# - Pull requests: check and build only. Fails if any language differs in structure from en.yaml,
+#   if unapproved personal information is found (tools/privacy_check.py), or if a link between
+#   the site's own pages is broken (tools/check_links.py).
 # - Push to main: check, build, and deploy.
 # Requires Settings > Pages > Build and deployment > Source = "GitHub Actions".
 name: site
@@ -31,8 +33,12 @@ jobs:
         run: sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends fonts-noto-core fonts-noto-cjk
       - name: Check that every language has the same items
         run: python3 tools/build.py --check
+      - name: Check for personal information the owner has not approved
+        run: python3 tools/privacy_check.py
       - name: Build (pages and CV PDFs)
         run: python3 tools/build.py
+      - name: Check links between the site's own pages
+        run: python3 tools/check_links.py
       - if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:

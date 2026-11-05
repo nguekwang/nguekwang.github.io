@@ -1,11 +1,16 @@
 # Page text for one language (pl). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: Ta strona została przetłumaczona maszynowo.
+post_edited: 'Tłumaczenie maszynowe; korekta: {names}.'
 native: Polski
 dir: ltr
+og_locale: pl_PL
 request: Poproś o inny język
+theme_dark: Ciemny motyw
 pubs_h: Publikacje i wystąpienia
 career_h: "Życiorys"
 contact_h: Kontakt
@@ -30,6 +35,7 @@ interests_h: Tematy badawcze
 current_h: Obecne badania
 current: Ilościowy pomiar podobieństwa między językami. Na podstawie inwentarzy fonemów (PHOIBLE) i danych leksykalnych mierzę, jak bliskie są sobie języki i dialekty, zaczynając od języków romańskich. Celem jest miara, która działa dla wielu języków, opiera się na jawnej statystyce i może pomóc ustalić, gdzie kończy się dialekt, a zaczyna język.
 projects_h: Projekty
+outlook_h: "Perspektywy"
 langs_h: Języki
 langs:
 - Japoński (ojczysty)
@@ -50,6 +56,15 @@ projects:
   desc: Narzędzie do rysowania drzew składniowych gramatyki generatywnej (w planach)
 - name: Corpus Hub
   desc: Platforma do gromadzenia i przeszukiwania korpusów językowych (w planach)
+outlook:
+- name: "Dialekt czy język"
+  desc: "zaproponować, na podstawie miar podobieństwa, kryteria, kiedy odmianę uznać za dialekt, a kiedy za język"
+- name: "Podobieństwo składniowe"
+  desc: "mierzyć bliskość składni obok dźwięków i słownictwa i połączyć je w jeden wskaźnik"
+- name: "Przyswajanie języka drugiego"
+  desc: "sprawdzić, czy języki bliższe własnemu łatwiej się przyswaja"
+- name: "Narzędzie z interfejsem graficznym"
+  desc: "stworzyć narzędzie, za pomocą którego każdy obliczy podobieństwo, i udostępnić je jako open source"
 keywords:
   typology: Typologia językowa
   universals: Uniwersalia językowe

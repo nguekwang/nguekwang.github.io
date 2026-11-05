@@ -1,11 +1,16 @@
 # Page text for one language (fr). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: Cette page a été traduite automatiquement.
+post_edited: 'Traduction automatique relue et corrigée par {names}.'
 native: Français
 dir: ltr
+og_locale: fr_FR
 request: Demander une autre langue
+theme_dark: Thème sombre
 pubs_h: Publications et communications
 career_h: "Parcours"
 contact_h: Contact
@@ -30,6 +35,7 @@ interests_h: Thèmes de recherche
 current_h: Recherches en cours
 current: Quantifier la similarité entre les langues. À partir d'inventaires de phonèmes (PHOIBLE) et de données lexicales, je mesure la proximité entre langues et dialectes, en commençant par les langues romanes. L'objectif est une mesure applicable à de nombreuses langues, fondée sur des statistiques explicites, qui puisse éclairer où s'arrête un dialecte et où commence une langue.
 projects_h: Projets
+outlook_h: "Perspectives"
 langs_h: Langues
 langs:
 - Japonais (langue maternelle)
@@ -50,6 +56,15 @@ projects:
   desc: Outil pour dessiner des arbres syntaxiques en grammaire générative (en projet)
 - name: Corpus Hub
   desc: Plateforme pour rassembler et interroger des corpus linguistiques (en projet)
+outlook:
+- name: "Dialecte ou langue"
+  desc: "proposer, à partir de mesures de similarité, des critères pour décider quand une variété est un dialecte et quand c'est une langue"
+- name: "Similarité syntaxique"
+  desc: "mesurer aussi la proximité syntaxique, en plus des sons et du lexique, et réunir le tout en un seul indice"
+- name: "Acquisition des langues secondes"
+  desc: "vérifier si les langues plus proches de la sienne sont plus faciles à apprendre"
+- name: "Un outil graphique"
+  desc: "créer un outil permettant à chacun de calculer la similarité, et le publier en open source"
 keywords:
   typology: Typologie linguistique
   universals: Universaux linguistiques

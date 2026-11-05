@@ -1,0 +1,9 @@
+# Settings for the weekly link checker lychee (.github/workflows/links.yml).
+# Only links to other sites are checked here; links between the site's own pages are
+# checked on every pull request by tools/check_links.py.
+scheme = ["https", "http"]
+exclude = ["^https://nguekwang\\.github\\.io", "^https://nguekwang\\.goatcounter\\.com", "^https://gc\\.zgo\\.at"]
+# Some university and city sites answer automated requests slowly or rate-limit them.
+max_retries = 3
+timeout = 30
+accept = ["200..=299", "429"]
