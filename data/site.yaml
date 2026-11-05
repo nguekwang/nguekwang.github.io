@@ -38,7 +38,7 @@ digits:
 # data/i18n/<code>.yaml.
 keywords:
   - group: comparison
-    items: [similarity, typology, phylogenetic, contact]
+    items: [similarity, typology, phylogenetic, contact, nationalism]
   - group: theory
     items: [saussurean, phonology, formal-semantics, generative, cognitive, wittgenstein]
   - group: objects
