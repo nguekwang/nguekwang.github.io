@@ -27,6 +27,7 @@ interests_h: "Onderzoeksthema's"
 current_h: Huidig onderzoek
 current: Het kwantificeren van overeenkomst tussen talen. Met foneeminventarissen (PHOIBLE) en woordenschatdata meet ik hoe dicht talen en dialecten bij elkaar liggen, te beginnen met de Romaanse talen. Het doel is een maat die voor veel talen werkt, op expliciete statistiek berust en kan helpen bepalen waar een dialect ophoudt en een taal begint.
 projects_h: Projecten
+outlook_h: "Vooruitblik"
 langs_h: Talen
 langs:
 - Japans (moedertaal)
@@ -47,6 +48,15 @@ projects:
   desc: Tool voor het tekenen van syntaxisbomen in de generatieve grammatica (gepland)
 - name: Corpus Hub
   desc: Platform voor het verzamelen en doorzoeken van taalcorpora (gepland)
+outlook:
+- name: "Dialect of taal"
+  desc: "op basis van gelijkenismaten criteria voorstellen voor wanneer een variëteit een dialect is en wanneer een taal"
+- name: "Syntactische gelijkenis"
+  desc: "naast klanken en woordenschat ook de nabijheid van de syntaxis meten en alles samenvoegen tot één index"
+- name: "Tweedetaalverwerving"
+  desc: "nagaan of talen die dichter bij de eigen taal liggen makkelijker te leren zijn"
+- name: "Een GUI-tool"
+  desc: "een tool bouwen waarmee iedereen gelijkenis kan berekenen, en die als open source uitbrengen"
 keywords:
   typology: Taaltypologie
   universals: Taaluniversalia

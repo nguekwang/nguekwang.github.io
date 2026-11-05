@@ -27,6 +27,7 @@ interests_h: Forschungsthemen
 current_h: Aktuelle Forschung
 current: Quantifizierung sprachübergreifender Ähnlichkeit. Anhand von Phoneminventaren (PHOIBLE) und Wortschatzdaten messe ich, wie nah Sprachen und Dialekte einander sind, beginnend mit den romanischen Sprachen. Ziel ist ein Maß, das für viele Sprachen funktioniert, auf expliziter Statistik beruht und Hinweise darauf geben kann, wo ein Dialekt endet und eine Sprache beginnt.
 projects_h: Projekte
+outlook_h: "Ausblick"
 langs_h: Sprachen
 langs:
 - Japanisch (Muttersprache)
@@ -47,6 +48,15 @@ projects:
   desc: Werkzeug zum Zeichnen von Syntaxbäumen der generativen Grammatik (in Planung)
 - name: Corpus Hub
   desc: Plattform zum Sammeln und Durchsuchen sprachlicher Korpora (in Planung)
+outlook:
+- name: "Dialekt oder Sprache"
+  desc: "auf Grundlage von Ähnlichkeitsmaßen Kriterien vorschlagen, wann eine Varietät als Dialekt und wann als Sprache gilt"
+- name: "Syntaktische Ähnlichkeit"
+  desc: "neben Lauten und Wortschatz auch die Nähe der Syntax messen und alles zu einem Index zusammenführen"
+- name: "Zweitspracherwerb"
+  desc: "prüfen, ob Sprachen, die der eigenen näher sind, leichter zu lernen sind"
+- name: "Ein GUI-Werkzeug"
+  desc: "ein Werkzeug bauen, mit dem jede und jeder Ähnlichkeit berechnen kann, und es als Open Source veröffentlichen"
 keywords:
   typology: Sprachtypologie
   universals: Sprachuniversalien

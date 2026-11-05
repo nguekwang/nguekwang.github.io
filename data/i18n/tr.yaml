@@ -27,6 +27,7 @@ interests_h: Araştırma konuları
 current_h: Güncel araştırma
 current: Diller arası benzerliğin nicel olarak ölçülmesi. Sesbirim envanterleri (PHOIBLE) ve sözcük verileriyle, Roman dillerinden başlayarak dillerin ve lehçelerin birbirine ne kadar yakın olduğunu ölçüyorum. Amaç, pek çok dil için işe yarayan, açık istatistiklere dayanan ve bir lehçenin nerede bitip bir dilin nerede başladığına ışık tutabilecek bir ölçüt geliştirmek.
 projects_h: Projeler
+outlook_h: "Gelecek planları"
 langs_h: Diller
 langs:
 - Japonca (anadil)
@@ -47,6 +48,15 @@ projects:
   desc: Üretici dilbilgisinde sözdizim ağaçları çizmek için bir araç (planlanıyor)
 - name: Corpus Hub
   desc: Dil derlemlerini toplamak ve aramak için bir merkez (planlanıyor)
+outlook:
+- name: "Lehçe mi dil mi"
+  desc: "benzerlik ölçülerine dayanarak bir dil çeşidinin ne zaman lehçe, ne zaman dil sayılacağına dair ölçütler önermek"
+- name: "Sözdizimsel benzerlik"
+  desc: "sesler ve sözcük dağarcığının yanında sözdizimindeki yakınlığı da ölçmek ve hepsini tek bir endekste birleştirmek"
+- name: "İkinci dil edinimi"
+  desc: "kişinin kendi diline daha yakın dillerin daha kolay öğrenilip öğrenilmediğini sınamak"
+- name: "Grafik arayüzlü bir araç"
+  desc: "herkesin benzerlik hesaplayabileceği bir araç geliştirmek ve açık kaynak olarak yayımlamak"
 keywords:
   typology: Dil tipolojisi
   universals: Dil evrenselleri
