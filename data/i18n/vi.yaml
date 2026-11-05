@@ -30,6 +30,12 @@ pub_types:
 pub_status:
   unpublished: 'không công bố'
 keywords_h: Từ khóa
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  research: "Lĩnh vực nghiên cứu"
+  theory: "Lý thuyết và phân ngành"
+  objects: "Đối tượng nghiên cứu"
+  tech: "Công nghệ"
 tagline: Tôi nghiên cứu những gì mang tính phổ quát trong cách các ngôn ngữ của con người mã hóa ý nghĩa, bằng các phương pháp hình thức và tính toán trên dữ liệu liên ngôn ngữ.
 btn_email: Gửi email
 btn_github: GitHub
@@ -109,6 +115,9 @@ keywords:
   linux: Linux
   kernels: Nhân hệ điều hành
   oss: Phần mềm nguồn mở
+  sign-languages: "Ngôn ngữ ký hiệu"
+  constructed: "Ngôn ngữ nhân tạo"
+  formal-languages: "Ngôn ngữ hình thức"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

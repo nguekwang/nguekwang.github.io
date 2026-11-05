@@ -30,6 +30,12 @@ pub_types:
 pub_status:
   unpublished: 'unveröffentlicht'
 keywords_h: Schlagwörter
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  research: "Forschungsgebiete"
+  theory: "Theorie und Teildisziplinen"
+  objects: "Untersuchungsgegenstände"
+  tech: "Technik"
 tagline: Ich untersuche, was an der Art, wie menschliche Sprachen Bedeutung kodieren, universell ist, mit formalen und computergestützten Methoden an sprachübergreifenden Daten.
 btn_email: E-Mail schreiben
 btn_github: GitHub
@@ -109,6 +115,9 @@ keywords:
   linux: Linux
   kernels: Betriebssystemkerne
   oss: Open-Source-Software
+  sign-languages: "Gebärdensprachen"
+  constructed: "Plansprachen"
+  formal-languages: "Formale Sprachen"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

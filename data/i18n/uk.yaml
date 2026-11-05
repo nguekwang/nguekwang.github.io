@@ -30,6 +30,12 @@ pub_types:
 pub_status:
   unpublished: 'не опублікована'
 keywords_h: Ключові слова
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  research: "Галузі досліджень"
+  theory: "Теорія та розділи мовознавства"
+  objects: "Обʼєкти дослідження"
+  tech: "Технології"
 tagline: Я досліджую універсальне в тому, як людські мови виражають значення, застосовуючи формальні й обчислювальні методи до міжмовних даних.
 btn_email: Написати мені
 btn_github: GitHub
@@ -109,6 +115,9 @@ keywords:
   linux: Linux
   kernels: Ядра операційних систем
   oss: Програмне забезпечення з відкритим кодом
+  sign-languages: "Жестові мови"
+  constructed: "Штучні мови"
+  formal-languages: "Формальні мови"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

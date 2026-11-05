@@ -30,6 +30,12 @@ pub_types:
 pub_status:
   unpublished: 'अप्रकाशित'
 keywords_h: मुख्य शब्द
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  research: "शोध क्षेत्र"
+  theory: "सिद्धांत और उपक्षेत्र"
+  objects: "अध्ययन के विषय"
+  tech: "प्रौद्योगिकी"
 tagline: मेरा शोध इस पर केंद्रित है कि मानव भाषाएँ अर्थ को व्यक्त करने में किन बातों में सार्वभौमिक हैं; इसके लिए अनेक भाषाओं के आँकड़ों पर औपचारिक और संगणनात्मक विधियों का उपयोग किया जाता है।
 btn_email: ईमेल भेजें
 btn_github: GitHub
@@ -109,6 +115,9 @@ keywords:
   linux: Linux
   kernels: ऑपरेटिंग सिस्टम कर्नेल
   oss: ओपन सोर्स सॉफ़्टवेयर
+  sign-languages: "सांकेतिक भाषाएँ"
+  constructed: "कृत्रिम भाषाएँ"
+  formal-languages: "औपचारिक भाषाएँ"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

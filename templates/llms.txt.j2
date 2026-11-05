@@ -39,8 +39,8 @@
 {% endfor %}
 ## {{ t.keywords_h }}
 
-{{ keywords | join(", ") }}
-
+{% for g in site.keywords %}- {{ t.keyword_groups[g.group] }}: {% for k in g['items'] %}{{ t.keywords[k] }}{% if not loop.last %}, {% endif %}{% endfor %}
+{% endfor %}
 ## Pages
 
 {% for o in langs %}- [{{ o.native }}]({{ site.url }}/{{ o.code }}/)

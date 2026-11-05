@@ -30,6 +30,12 @@ pub_types:
 pub_status:
   unpublished: '비공개'
 keywords_h: 키워드
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  research: "연구 분야"
+  theory: "이론·하위 분야"
+  objects: "연구 대상"
+  tech: "기술"
 tagline: 인간 언어가 의미를 나타내는 방식의 보편성을, 여러 언어의 데이터에 형식적·계산적 방법을 적용하여 연구합니다.
 btn_email: 이메일 보내기
 btn_github: GitHub
@@ -109,6 +115,9 @@ keywords:
   linux: Linux
   kernels: 운영체제 커널
   oss: 오픈 소스 소프트웨어
+  sign-languages: "수어"
+  constructed: "인공어"
+  formal-languages: "형식 언어"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

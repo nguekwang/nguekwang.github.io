@@ -95,6 +95,11 @@ def compare(ref, other, path, errors):
             errors.append(f"{path}: empty")
 
 
+def keyword_ids(site):
+    """All keyword ids in display order, across the groups in data/site.yaml."""
+    return [k for g in site.get("keywords", []) for k in g.get("items", [])]
+
+
 def check(site, texts, institutions, post_editors):
     errors = []
     i18n_dir = os.path.join(DATA, "i18n")
@@ -105,7 +110,15 @@ def check(site, texts, institutions, post_editors):
         errors.append(f"data/i18n/{code}.yaml: listed in data/site.yaml but the file is missing")
     ref = texts.get(REFERENCE)
     if ref is not None:
-        order = site.get("keywords", [])
+        groups = site.get("keywords", [])
+        group_ids = [g.get("group") for g in groups]
+        order = keyword_ids(site)
+        if len(set(group_ids)) != len(group_ids):
+            errors.append("data/site.yaml keywords: duplicate group ids")
+        if set(group_ids) != set(ref.get("keyword_groups", {})):
+            errors.append(f"data/site.yaml keywords: group ids differ from data/i18n/{REFERENCE}.yaml keyword_groups")
+        if any(not g.get("items") for g in groups):
+            errors.append("data/site.yaml keywords: every group needs at least one keyword")
         if len(set(order)) != len(order):
             errors.append("data/site.yaml keywords: duplicate ids")
         if set(order) != set(ref.get("keywords", {})):
@@ -368,7 +381,7 @@ def main():
         site=site, langs=langs, title=site["name"]["latin"], description=en["desc"],
         jsonld=jsonld(site, None, en, site["name"]["latin"])))
     write("llms.txt", env.get_template("llms.txt.j2").render(
-        site=site, langs=langs, t=en, pubs=publications(site, REFERENCE, en, pubs), keywords=[en["keywords"][k] for k in site["keywords"]]))
+        site=site, langs=langs, t=en, pubs=publications(site, REFERENCE, en, pubs)))
     write("sitemap.xml", env.get_template("sitemap.xml.j2").render(site=site, codes=codes, slug=NAMES_SLUG))
     print(f"built {len(codes)} language pages (and their {NAMES_SLUG}/ pages) into _site/")
 
@@ -444,7 +457,7 @@ def jsonld(site, code, t, title, post_editors=None, slug=None):
         "url": f"{base}/",
         "email": f"mailto:{site['email']}",
         "description": t["desc"],
-        "knowsAbout": [t["keywords"][k] for k in site["keywords"]],
+        "knowsAbout": [t["keywords"][k] for k in keyword_ids(site)],
         "knowsLanguage": site["knows_language"],
         "alumniOf": {
             "@type": "CollegeOrUniversity",

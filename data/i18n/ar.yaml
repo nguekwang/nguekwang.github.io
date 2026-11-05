@@ -30,6 +30,12 @@ pub_types:
 pub_status:
   unpublished: 'غير منشورة'
 keywords_h: الكلمات المفتاحية
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  research: "مجالات البحث"
+  theory: "النظرية والفروع"
+  objects: "موضوعات الدراسة"
+  tech: "التقنية"
 tagline: أدرس ما هو كوني في طريقة ترميز اللغات البشرية للمعنى، مستخدمًا مناهج صورية وحاسوبية على بيانات من لغات متعددة.
 btn_email: راسلني
 btn_github: GitHub
@@ -109,6 +115,9 @@ keywords:
   linux: Linux
   kernels: أنوية أنظمة التشغيل
   oss: البرمجيات مفتوحة المصدر
+  sign-languages: "لغات الإشارة"
+  constructed: "اللغات المصطنعة"
+  formal-languages: "اللغات الصورية"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

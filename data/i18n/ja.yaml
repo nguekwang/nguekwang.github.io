@@ -30,6 +30,12 @@ pub_types:
 pub_status:
   unpublished: '非公開'
 keywords_h: キーワード
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  research: "研究分野"
+  theory: "理論・下位分野"
+  objects: "研究対象"
+  tech: "技術"
 tagline: 人間の言語が意味を表すしくみのうち、何が普遍的なのかを、形式的・計算的な方法と多言語のデータで調べています。
 btn_email: メールする
 btn_github: GitHub
@@ -109,6 +115,9 @@ keywords:
   linux: Linux
   kernels: OSカーネル
   oss: オープンソースソフトウェア(OSS)
+  sign-languages: "手話言語"
+  constructed: "人工言語"
+  formal-languages: "形式言語"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

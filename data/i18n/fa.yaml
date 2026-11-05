@@ -30,6 +30,12 @@ pub_types:
 pub_status:
   unpublished: 'منتشرنشده'
 keywords_h: کلیدواژه‌ها
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  research: "حوزه‌های پژوهش"
+  theory: "نظریه و زیرشاخه‌ها"
+  objects: "موضوعات پژوهش"
+  tech: "فناوری"
 tagline: من بررسی می‌کنم که شیوهٔ رمزگذاری معنا در زبان‌های بشری چه جنبه‌های همگانی دارد، با روش‌های صوری و محاسباتی بر داده‌های میان‌زبانی.
 btn_email: ایمیل بزنید
 btn_github: GitHub
@@ -109,6 +115,9 @@ keywords:
   linux: Linux
   kernels: هستهٔ سیستم‌عامل
   oss: نرم‌افزار متن‌باز
+  sign-languages: "زبان‌های اشاره"
+  constructed: "زبان‌های ساختگی"
+  formal-languages: "زبان‌های صوری"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

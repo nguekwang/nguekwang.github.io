@@ -30,6 +30,12 @@ pub_types:
 pub_status:
   unpublished: '未公開'
 keywords_h: 關鍵詞
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  research: "研究領域"
+  theory: "理論與分支學科"
+  objects: "研究對象"
+  tech: "技術"
 tagline: 我研究人類語言在表達意義上的普遍性，對跨語言資料運用形式化與計算方法。
 btn_email: 寄送電子郵件
 btn_github: GitHub
@@ -109,6 +115,9 @@ keywords:
   linux: Linux
   kernels: 作業系統核心
   oss: 開源軟體
+  sign-languages: "手語"
+  constructed: "人造語言"
+  formal-languages: "形式語言"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

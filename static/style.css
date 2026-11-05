@@ -110,6 +110,12 @@ nav { align-items: center; gap: 8px; }
 .chooser { list-style: none; padding: 0; columns: 2; margin-top: 24px; } .chooser li { margin-bottom: 8px; }
 .keywords { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .keywords li { margin: 0; padding: 4px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; }
+/* Keyword groups: a small gray label above each group's pills. */
+dl.kw-groups { margin: 0; }
+dl.kw-groups dt { color: var(--sub); font-size: 14px; margin: 0 0 6px; }
+dl.kw-groups dd { margin: 0 0 14px; }
+dl.kw-groups dd:last-child { margin-bottom: 0; }
+dl.kw-groups ul { margin: 0; }
 
 /* Keep the en dash in "© 2023–" off the digit before it. In Arial (Windows) the dash
    has almost no side bearing, so at footer size it touches the "3". The year and dash sit

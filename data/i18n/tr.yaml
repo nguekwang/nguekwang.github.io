@@ -30,6 +30,12 @@ pub_types:
 pub_status:
   unpublished: 'yayımlanmamış'
 keywords_h: Anahtar sözcükler
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  research: "Araştırma alanları"
+  theory: "Kuram ve alt alanlar"
+  objects: "İnceleme nesneleri"
+  tech: "Teknoloji"
 tagline: İnsan dillerinin anlamı kodlama biçimindeki evrensel yönleri, diller arası veriler üzerinde biçimsel ve hesaplamalı yöntemlerle inceliyorum.
 btn_email: E-posta gönder
 btn_github: GitHub
@@ -109,6 +115,9 @@ keywords:
   linux: Linux
   kernels: İşletim sistemi çekirdekleri
   oss: Açık kaynak yazılım
+  sign-languages: "İşaret dilleri"
+  constructed: "Yapay diller"
+  formal-languages: "Biçimsel diller"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

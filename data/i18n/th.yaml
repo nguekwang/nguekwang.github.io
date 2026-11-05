@@ -30,6 +30,12 @@ pub_types:
 pub_status:
   unpublished: 'ไม่เผยแพร่'
 keywords_h: คำสำคัญ
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  research: "สาขาการวิจัย"
+  theory: "ทฤษฎีและสาขาย่อย"
+  objects: "สิ่งที่ศึกษา"
+  tech: "เทคโนโลยี"
 tagline: ศึกษาความเป็นสากลในวิธีที่ภาษามนุษย์ถ่ายทอดความหมาย โดยใช้วิธีเชิงรูปนัยและเชิงคำนวณกับข้อมูลข้ามภาษา
 btn_email: ส่งอีเมล
 btn_github: GitHub
@@ -109,6 +115,9 @@ keywords:
   linux: Linux
   kernels: เคอร์เนลระบบปฏิบัติการ
   oss: ซอฟต์แวร์โอเพนซอร์ส
+  sign-languages: "ภาษามือ"
+  constructed: "ภาษาประดิษฐ์"
+  formal-languages: "ภาษาเชิงรูปนัย"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

@@ -30,6 +30,12 @@ pub_types:
 pub_status:
   unpublished: 'tidak dipublikasikan'
 keywords_h: Kata kunci
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  research: "Bidang penelitian"
+  theory: "Teori dan subbidang"
+  objects: "Objek kajian"
+  tech: "Teknologi"
 tagline: Saya meneliti apa yang universal dalam cara bahasa manusia mengodekan makna, dengan metode formal dan komputasional pada data lintas bahasa.
 btn_email: Kirim email
 btn_github: GitHub
@@ -109,6 +115,9 @@ keywords:
   linux: Linux
   kernels: Kernel sistem operasi
   oss: Perangkat lunak sumber terbuka
+  sign-languages: "Bahasa isyarat"
+  constructed: "Bahasa buatan"
+  formal-languages: "Bahasa formal"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.
