@@ -80,6 +80,21 @@ projects:
   desc: 用于绘制生成语法句法树的工具（构想中）
 - name: Corpus Hub
   desc: 用于收集和检索语言语料库的平台（构想中）
+ai_tools_h: "面向 AI 助手的链接"
+ai_tools_intro: "以下服务可读取本项目的公开 GitHub 仓库：只需将仓库网址中的 github.com 替换为相应服务的地址。这些服务由第三方而非本人运营，且仅适用于公开仓库。"
+ai_tools_repo: "仓库"
+ai_tools_groups:
+  read: "用 AI 阅读"
+  diagram: "图示"
+  browse: "在浏览器中查看代码"
+ai_tools_desc:
+  gitingest: "将仓库汇总为一份文本（概要、文件结构和文件内容），便于粘贴到 AI 对话中。"
+  gitmcp: "将仓库变为远程 MCP 服务器：在支持 MCP 的 AI 助手中将此网址添加为自定义 MCP 服务器即可。无需账号或 API 密钥。"
+  deepwiki: "为仓库生成维基式文档，并回答有关仓库的问题。"
+  uithub: "以纯文本形式向 AI 助手展示文件结构和文件内容。"
+  gitreverse: "为 AI 编程助手撰写项目的提示词和自然语言规格说明。"
+  gitdiagram: "将仓库的结构绘制成可交互的图示。"
+  github-dev: "在浏览器中的代码编辑器（VS Code）中打开仓库。由 GitHub 运营，需要登录 GitHub。"
 outlook:
 - name: "方言与语言的界线"
   desc: "依据相似度指标，提出把某一语言变体称为方言还是语言的标准"

@@ -87,6 +87,23 @@ projects:
   desc: A tool for drawing syntax trees in generative grammar (planned)
 - name: Corpus Hub
   desc: A hub for collecting and searching language corpora (planned)
+# Page of links for AI assistants, one per project with a public repository (/<lang>/ai-tools/<repo>/).
+# ai_tools_h is also the small link under the project. Services and repositories: data/ai_tools.yaml.
+ai_tools_h: "Links for AI assistants"
+ai_tools_intro: "These services read the project's public GitHub repository: replace github.com in the repository's URL with the service's address. They are run by others, not by me, and work only with public repositories."
+ai_tools_repo: "Repository"
+ai_tools_groups:
+  read: "Reading with AI"
+  diagram: "Diagrams"
+  browse: "Code in the browser"
+ai_tools_desc:
+  gitingest: "Turns the repository into one text digest (summary, file tree and file contents) to paste into an AI chat."
+  gitmcp: "Turns the repository into a remote MCP server: add this URL as a custom MCP server in an AI assistant that supports MCP. No account or API key is needed."
+  deepwiki: "Generates wiki-style documentation of the repository and answers questions about it."
+  uithub: "Shows the file tree and file contents as plain text for an AI assistant."
+  gitreverse: "Writes a prompt and a plain-language specification of the project for an AI coding assistant."
+  gitdiagram: "Draws the structure of the repository as an interactive diagram."
+  github-dev: "Opens the repository in a code editor (VS Code) in the browser. Run by GitHub; you need to sign in to GitHub."
 outlook:
 - name: "Dialect or language"
   desc: "use similarity measures to propose criteria for when a variety counts as a dialect and when as a language"

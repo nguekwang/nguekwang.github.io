@@ -14,7 +14,7 @@ paths:
 - GitHub Actions (`.github/workflows/site.yml`) runs the check and build on every pull request, and on push to `main` builds and deploys to GitHub Pages.
 - The check must fail on any difference between language files (missing or extra keys, different list lengths or keyword ids). Do not weaken it.
 - The footer's "last updated" date and link come from git: the build fills `{date}` with the date of the latest commit that changed `data/`, `templates/`, `static/` or `tools/` (formatted per language with Babel) and links to that commit on GitHub. The workflow checks out full history (`fetch-depth: 0`) for this.
-- Every page carries a title, description, Open Graph tags, canonical and hreflang links, and schema.org JSON-LD built by `jsonld()` in `tools/build.py`: `ProfilePage`, `WebSite` and `Person` on each language's main page, and `WebPage` (with a `BreadcrumbList` back to the main page), `WebSite` and `Person` on sub-pages such as `/<lang>/institution-names/`. All pages share the same `Person` `@id`, so the language versions read as one person.
+- Every page carries a title, description, Open Graph tags, canonical and hreflang links, and schema.org JSON-LD built by `jsonld()` in `tools/build.py`: `ProfilePage`, `WebSite` and `Person` on each language's main page, and `WebPage` (with a `BreadcrumbList` back to the main page), `WebSite` and `Person` on sub-pages such as `/<lang>/institution-names/` and `/<lang>/ai-tools/<repo name>/`. Every sub-page is listed in `sitemap.xml`. All pages share the same `Person` `@id`, so the language versions read as one person.
 
 ## Automated checks
 

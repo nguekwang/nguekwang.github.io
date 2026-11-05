@@ -4,9 +4,9 @@
     <loc>{{ site.url }}/{{ c }}/</loc>{% for a in codes %}
     <xhtml:link rel="alternate" hreflang="{{ a }}" href="{{ site.url }}/{{ a }}/"/>{% endfor %}
     <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}/"/>
-  </url>{% endfor %}{% for c in codes %}
+  </url>{% endfor %}{% for path in subpages %}{% for c in codes %}
   <url>
-    <loc>{{ site.url }}/{{ c }}/{{ slug }}/</loc>{% for a in codes %}
-    <xhtml:link rel="alternate" hreflang="{{ a }}" href="{{ site.url }}/{{ a }}/{{ slug }}/"/>{% endfor %}
-  </url>{% endfor %}
+    <loc>{{ site.url }}/{{ c }}/{{ path }}/</loc>{% for a in codes %}
+    <xhtml:link rel="alternate" hreflang="{{ a }}" href="{{ site.url }}/{{ a }}/{{ path }}/"/>{% endfor %}
+  </url>{% endfor %}{% endfor %}
 </urlset>
