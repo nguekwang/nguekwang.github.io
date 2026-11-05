@@ -109,12 +109,21 @@ def check_page(context, base, path, shot=None):
     page.route("**/*", lambda route: route.continue_()
                if route.request.url.startswith(base) else route.fulfill(status=200, body=""))
     page.on("pageerror", lambda e: problems.append(f"JavaScript error: {e}"))
-    page.on("console", lambda m: m.type == "error" and problems.append(f"console error: {m.text}"))
+    def on_console(m):
+        if m.type == "error":
+            problems.append(f"console error: {m.text}")
+    page.on("console", on_console)
     page.goto(base + path, wait_until="load")
     page.wait_for_timeout(200)
-    if shot:
-        page.screenshot(path=shot)
     problems += page.evaluate(MEASURE, page.viewport_size["width"])
+    page.wait_for_timeout(100)
+    if shot:
+        # Taken after the checks, with the page's console no longer watched: to hide the text
+        # caret, Playwright injects its own <style>, which WebKit (correctly) blocks under the
+        # site's Content-Security-Policy and reports as a console error. That is the tool, not
+        # the site. caret="initial" avoids the injection where it can.
+        page.remove_listener("console", on_console)
+        page.screenshot(path=shot, caret="initial")
     page.close()
     return problems
 
