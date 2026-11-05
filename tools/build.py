@@ -230,9 +230,10 @@ def main():
                 row["basis_name"] = texts[n["basis"]]["institutions"][iid]
                 row["basis_lang"] = n["basis"]
             rows.append(row)
+        title = f"{t['names_h']} – {site['name']['ja'] if code == 'ja' else site['name']['latin']}"
         write(os.path.join(code, NAMES_SLUG, "index.html"), names_page.render(
-            site=site, langs=langs, code=code, t=t, rows=rows, slug=NAMES_SLUG,
-            title=f"{t['names_h']} – {site['name']['ja'] if code == 'ja' else site['name']['latin']}",
+            site=site, langs=langs, code=code, t=t, rows=rows, slug=NAMES_SLUG, title=title,
+            jsonld=jsonld(site, code, t, title, slug=NAMES_SLUG),
             updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
             footer_name=site["name"]["ja"] if code == "ja" else site["name"]["latin_short"],
         ))
@@ -248,12 +249,14 @@ def main():
     print(f"built {len(codes)} language pages (and their {NAMES_SLUG}/ pages) into _site/")
 
 
-def jsonld(site, code, t, title):
+def jsonld(site, code, t, title, slug=None):
     """Structured data (schema.org JSON-LD) for one page.
 
     Every page describes the same Person and WebSite (same @id), so search engines and
     AI assistants can join the language versions into one entity. `code` is None for the
-    root language chooser.
+    root language chooser. With `slug`, the page is the sub-page /<code>/<slug>/ (such as
+    the institution-names page): a WebPage about the Person, with a breadcrumb back to the
+    language's profile page, instead of the ProfilePage itself.
     """
     base = site["url"]
     name = site["name"]
@@ -286,7 +289,28 @@ def jsonld(site, code, t, title):
         "about": {"@id": f"{base}/#person"},
     }
     graph = [website, person]
-    if code is not None:
+    if code is not None and slug is not None:
+        home = f"{base}/{code}/"
+        url = f"{home}{slug}/"
+        home_name = name["ja"] if code == "ja" else name["latin"]
+        graph.insert(0, {
+            "@type": "WebPage",
+            "@id": f"{url}#page",
+            "url": url,
+            "name": title,
+            "description": t["names_intro"],
+            "inLanguage": code,
+            "isPartOf": {"@id": f"{base}/#website"},
+            "about": {"@id": f"{base}/#person"},
+            "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": home_name, "item": home},
+                    {"@type": "ListItem", "position": 2, "name": t["names_h"], "item": url},
+                ],
+            },
+        })
+    elif code is not None:
         url = f"{base}/{code}/"
         graph.insert(0, {
             "@type": "ProfilePage",
