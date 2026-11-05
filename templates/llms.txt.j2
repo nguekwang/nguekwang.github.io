@@ -23,7 +23,7 @@
 {% endfor %}
 ## {{ t.pubs_h }}
 
-{% for p in pubs %}- {{ p.title }}{% if p.title_en %}{{ p.en_before }}{{ p.title_en }}{{ p.en_after }}{% endif %}{{ p.note }}
+{% for p in pubs %}- {{ p.title }}{% if p.title_en %}{{ p.en_space }}{{ p.en_open }}{{ p.title_en }}{{ p.en_after }}{% endif %}{{ p.note }}
 {% endfor %}
 
 ## {{ t.projects_h }}

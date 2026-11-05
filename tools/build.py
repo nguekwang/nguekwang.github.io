@@ -246,10 +246,14 @@ def updated_text(site, code, template, date):
 def publications(site, code, t, pubs):
     """Return data/publications.yaml entries with this language's text around the titles.
 
-    The template writes <title><en_before><title_en><en_after><note>, for example
+    The template writes <title><en_space><en_open><title_en><en_after><note>, for example
     言語間の類似度の定量的な算出（A Quantitative Analysis of Cross-Linguistic Similarity）（2026）（卒業論文、非公開）.
+    The brackets around the English title go inside one left-to-right isolate with it, so a
+    right-to-left page that wraps the title keeps them on the right sides.
     """
     before, after = t["pub_title_en"].split("{title}")
+    open_ = before.lstrip()
+    space = before[:len(before) - len(open_)]
     out = []
     for p in pubs:
         details = [t["pub_types"][p["type"]]]
@@ -258,7 +262,7 @@ def publications(site, code, t, pubs):
         note = (t["pub_note"].replace("{year}", local_digits(site, code, str(p["year"])))
                 .replace("{details}", t["list_sep"].join(details)))
         out.append({"title": p["title"], "lang": p["lang"], "title_en": p.get("title_en"),
-                    "en_before": before, "en_after": after, "note": note})
+                    "en_space": space, "en_open": open_, "en_after": after, "note": note})
     return out
 
 
