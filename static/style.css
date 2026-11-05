@@ -66,15 +66,13 @@ nav { align-items: center; }
    row does not stretch the filled one (which used to push its text up). Where text-box is
    supported, the line box is trimmed to the cap height and the baseline, so equal top and
    bottom padding put the letters in the optical middle whatever the font's ascent and
-   descent; other browsers keep a plain line box with smaller padding. */
+   descent; other browsers keep a plain line box with smaller padding. The same trim is
+   used for the other pills (language menu, keywords) at the end of this file. */
 .buttons { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 18px 0 0; }
 .btn {
   display: inline-block; padding: 10px 18px; border: 1px solid var(--accent); border-radius: 999px;
   background: var(--accent); color: var(--bg); text-decoration: none; text-align: center;
   font-size: 15px; font-weight: 600; line-height: 1.2;
-}
-@supports (text-box: trim-both cap alphabetic) {
-  .btn { padding: 14px 18px; text-box: trim-both cap alphabetic; }
 }
 .btn.ghost { background: transparent; color: var(--accent); }
 .carousel { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
@@ -95,3 +93,13 @@ nav { align-items: center; }
 .page-h { font-size: 24px; margin: 0 0 16px; }
 .names { margin-top: 20px; }
 .names li { margin-bottom: 18px; }
+
+/* Optical centring for every pill (buttons, language menu, keywords). Where text-box is
+   supported, trim the line box to cap height and baseline and use equal top and bottom
+   padding sized to keep each pill about as tall as before. Without support the rules above
+   apply unchanged. */
+@supports (text-box: trim-both cap alphabetic) {
+  .btn, .langmenu > summary, .keywords li { text-box: trim-both cap alphabetic; }
+  .btn { padding: 14px 18px; }
+  .langmenu > summary, .keywords li { padding-top: 10px; padding-bottom: 10px; }
+}
