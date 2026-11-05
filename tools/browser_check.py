@@ -78,7 +78,7 @@ def serve(directory):
 def context_options(engine, view):
     opts = dict(VIEWS[view], device_scale_factor=1)
     if engine == "firefox":
-        opts.pop("is_mobile")
+        opts.pop("is_mobile", None)
     return opts
 
 
