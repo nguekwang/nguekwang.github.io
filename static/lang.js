@@ -15,7 +15,7 @@
 
   // Head elements that are the same on every page and must not be touched.
   function keep(el) {
-    return el.matches('meta[charset], meta[http-equiv], meta[name="viewport"], meta[name="referrer"], link[rel="stylesheet"]');
+    return el.matches('meta[charset], meta[http-equiv], meta[name="viewport"], meta[name="referrer"], link[rel="stylesheet"], script[src$="theme.js"]');
   }
 
   function swap(html, url) {

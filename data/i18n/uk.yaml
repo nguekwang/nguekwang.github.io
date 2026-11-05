@@ -10,6 +10,7 @@ native: Українська
 dir: ltr
 og_locale: uk_UA
 request: Запросити іншу мову
+theme_dark: Темна тема
 pubs_h: Публікації та доповіді
 career_h: "Біографія"
 contact_h: Контакти

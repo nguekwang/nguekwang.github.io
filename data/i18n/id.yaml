@@ -10,6 +10,7 @@ native: Bahasa Indonesia
 dir: ltr
 og_locale: id_ID
 request: Minta bahasa lain
+theme_dark: Tema gelap
 pubs_h: Publikasi dan presentasi
 career_h: "Riwayat"
 contact_h: Kontak

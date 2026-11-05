@@ -10,6 +10,7 @@ native: Polski
 dir: ltr
 og_locale: pl_PL
 request: Poproś o inny język
+theme_dark: Ciemny motyw
 pubs_h: Publikacje i wystąpienia
 career_h: "Życiorys"
 contact_h: Kontakt

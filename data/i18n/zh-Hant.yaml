@@ -10,6 +10,7 @@ native: 繁體中文
 dir: ltr
 og_locale: zh_TW
 request: 申請其他語言版本
+theme_dark: 深色主題
 pubs_h: 論文與發表
 career_h: "經歷"
 contact_h: 聯絡方式

@@ -10,6 +10,7 @@ native: Русский
 dir: ltr
 og_locale: ru_RU
 request: Запросить другой язык
+theme_dark: Тёмная тема
 pubs_h: Публикации и доклады
 career_h: "Биография"
 contact_h: Контакты

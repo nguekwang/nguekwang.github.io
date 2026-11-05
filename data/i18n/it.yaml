@@ -10,6 +10,7 @@ native: Italiano
 dir: ltr
 og_locale: it_IT
 request: Richiedi un'altra lingua
+theme_dark: Tema scuro
 pubs_h: Pubblicazioni e presentazioni
 career_h: "Percorso"
 contact_h: Contatti

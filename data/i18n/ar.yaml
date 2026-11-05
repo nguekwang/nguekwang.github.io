@@ -10,6 +10,7 @@ native: العربية
 dir: rtl
 og_locale: ar_AR
 request: طلب لغة أخرى
+theme_dark: الوضع الداكن
 pubs_h: المنشورات والعروض
 career_h: "السيرة"
 contact_h: التواصل

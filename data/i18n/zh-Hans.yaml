@@ -10,6 +10,7 @@ native: 简体中文
 dir: ltr
 og_locale: zh_CN
 request: 申请其他语言版本
+theme_dark: 深色主题
 pubs_h: 论文与报告
 career_h: "经历"
 contact_h: 联系方式

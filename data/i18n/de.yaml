@@ -10,6 +10,7 @@ native: Deutsch
 dir: ltr
 og_locale: de_DE
 request: Weitere Sprache anfragen
+theme_dark: Dunkles Design
 pubs_h: Publikationen und Vorträge
 career_h: "Werdegang"
 contact_h: Kontakt

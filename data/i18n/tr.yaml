@@ -10,6 +10,7 @@ native: Türkçe
 dir: ltr
 og_locale: tr_TR
 request: Başka bir dil iste
+theme_dark: Koyu tema
 pubs_h: Yayınlar ve sunumlar
 career_h: "Özgeçmiş"
 contact_h: İletişim

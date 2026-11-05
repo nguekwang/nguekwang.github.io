@@ -10,6 +10,7 @@ native: Nederlands
 dir: ltr
 og_locale: nl_NL
 request: Andere taal aanvragen
+theme_dark: Donker thema
 pubs_h: Publicaties en presentaties
 career_h: "Achtergrond"
 contact_h: Contact
