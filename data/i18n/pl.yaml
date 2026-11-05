@@ -38,7 +38,6 @@ keyword_groups:
   math: "Matematyka i dane"
   objects: "Przedmioty badań"
   tech: "Technologia"
-tagline: Badam, co jest uniwersalne w sposobie, w jaki języki ludzkie kodują znaczenie, stosując metody formalne i obliczeniowe do danych z wielu języków.
 btn_email: Napisz do mnie
 btn_github: GitHub
 btn_cv: "CV (PDF)"
@@ -46,7 +45,7 @@ cv_h: "Curriculum vitae"
 website: "Strona internetowa"
 interests_h: Tematy badawcze
 current_h: Obecne badania
-current: Ilościowy pomiar podobieństwa między językami. Na podstawie inwentarzy fonemów (PHOIBLE) i danych leksykalnych mierzę, jak bliskie są sobie języki i dialekty, zaczynając od języków romańskich. Celem jest miara, która działa dla wielu języków, opiera się na jawnej statystyce i może pomóc ustalić, gdzie kończy się dialekt, a zaczyna język.
+current: "Czym jest podobieństwo i jak obiektywnie opisywać właściwości języka. Badam możliwość zastosowania tych metod poza mówionym językiem ludzkim: do języka pisanego, języków migowych, tego, co u istot innych niż Homo sapiens mogłoby uchodzić za język, języków sztucznych i języków formalnych."
 projects_h: Projekty
 outlook_h: "Perspektywy"
 langs_h: Języki

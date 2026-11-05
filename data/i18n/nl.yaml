@@ -38,7 +38,6 @@ keyword_groups:
   math: "Wiskunde en data"
   objects: "Onderzoeksobjecten"
   tech: "Technologie"
-tagline: Ik onderzoek wat universeel is aan de manier waarop menselijke talen betekenis uitdrukken, met formele en computationele methoden op taaloverstijgende data.
 btn_email: Mail mij
 btn_github: GitHub
 btn_cv: "CV (PDF)"
@@ -46,7 +45,7 @@ cv_h: "Curriculum vitae"
 website: "Website"
 interests_h: "Onderzoeksthema's"
 current_h: Huidig onderzoek
-current: Het kwantificeren van overeenkomst tussen talen. Met foneeminventarissen (PHOIBLE) en woordenschatdata meet ik hoe dicht talen en dialecten bij elkaar liggen, te beginnen met de Romaanse talen. Het doel is een maat die voor veel talen werkt, op expliciete statistiek berust en kan helpen bepalen waar een dialect ophoudt en een taal begint.
+current: "Wat overeenkomst is en hoe de eigenschappen van een taal objectief beschreven kunnen worden. Ik onderzoek of zulke methoden verder reiken dan gesproken menselijke taal: tot geschreven taal, gebarentalen, wat bij andere wezens dan Homo sapiens als taal zou kunnen gelden, kunsttalen en formele talen."
 projects_h: Projecten
 outlook_h: "Vooruitblik"
 langs_h: Talen

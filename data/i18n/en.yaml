@@ -44,7 +44,6 @@ keyword_groups:
   math: "Mathematics and data"
   objects: "Objects of study"
   tech: "Technology"
-tagline: I study what is universal in how human languages encode meaning, using formal and computational methods on cross-linguistic data.
 btn_email: Email me
 btn_github: GitHub
 btn_cv: "CV (PDF)"
@@ -53,7 +52,7 @@ cv_h: "Curriculum Vitae"
 website: "Website"
 interests_h: Research topics
 current_h: Current research
-current: Quantifying cross-linguistic similarity. Using phoneme inventories (PHOIBLE) and vocabulary data, I measure how close languages and dialects are, starting with the Romance languages. The aim is a measure that works for many languages, rests on explicit statistics, and can inform where a dialect ends and a language begins.
+current: What similarity is, and how the properties of a language can be described objectively. I explore whether such methods can reach beyond spoken human language to written language, sign languages, what may count as language in beings other than Homo sapiens, constructed languages and formal languages.
 projects_h: Projects
 outlook_h: "Outlook"
 langs_h: Languages
