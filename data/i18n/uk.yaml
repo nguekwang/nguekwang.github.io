@@ -31,6 +31,14 @@ pub_types:
 pub_status:
   unpublished: 'не опублікована'
 keywords_h: Ключові слова
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "Порівняння мов"
+  theory: "Теоретична лінгвістика"
+  philosophy: "Філософія"
+  math: "Математика та дані"
+  objects: "Об'єкти дослідження"
+  tech: "Технології"
 tagline: Я досліджую універсальне в тому, як людські мови виражають значення, застосовуючи формальні й обчислювальні методи до міжмовних даних.
 btn_email: Написати мені
 btn_github: GitHub
@@ -83,33 +91,36 @@ outlook:
 - name: "Інструмент із графічним інтерфейсом"
   desc: "створити інструмент, за допомогою якого будь-хто зможе обчислити подібність, і оприлюднити його з відкритим кодом"
 keywords:
-  typology: Лінгвістична типологія
-  universals: Мовні універсалії
-  crossling-semantics: Міжмовна семантика
-  formal-semantics: Формальна семантика
-  theoretical: Теоретична лінгвістика
-  syntax: Синтаксис
-  morphology: Морфологія
+  typology: "Лінгвістична типологія і мовні універсалії"
+  formal-semantics: "Формальна семантика і міжмовна семантика"
   generative: Генеративна граматика
   cognitive: Когнітивна лінгвістика
-  computational: Комп'ютерна лінгвістика
+  computational: "Комп'ютерна лінгвістика і обробка природної мови"
   phylogenetic: Філогенетична лінгвістика
-  similarity: Подібність мов
+  contact: "Мовні контакти"
+  similarity: "Подібність і відстань між мовами"
   phonology: Фонологія
-  romance: Романські мови
+  romance: "Романські мови (іберо-романські мови)"
   mozarabic: Мосарабська (андалуська романська)
   ladino: Ладино (єврейсько-іспанська)
-  ibero-romance: Іберо-романські мови
   medieval-castilian: Середньовічна кастильська
   writing-systems: Системи письма
-  nlp: Обробка природної мови
-  i18n: Інтернаціоналізація (i18n)
-  unicode: Юнікод і кодування символів
+  i18n: "Інтернаціоналізація (i18n), Юнікод і кодування символів"
   input-methods: Методи введення
   typesetting: Цифрова верстка
-  linux: Linux
-  kernels: Ядра операційних систем
+  linux: "Linux і ядра операційних систем"
   oss: Програмне забезпечення з відкритим кодом
+  sign-languages: "Жестові мови"
+  constructed: "Штучні мови"
+  formal-languages: "Формальні мови"
+  information-theory: "Теорія інформації"
+  morse: "Абетка Морзе"
+  probability: "Теорія ймовірностей і статистика"
+  data-viz: "Візуалізація даних"
+  saussurean: "Лінгвістика Соссюра"
+  wittgenstein: "Аналітична філософія і Вітгенштейн"
+  vibrations-waves: "Теорія коливань і хвиль"
+  signal-processing: "Обробка сигналів"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

@@ -31,6 +31,14 @@ pub_types:
 pub_status:
   unpublished: 'unveröffentlicht'
 keywords_h: Schlagwörter
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "Sprachvergleich"
+  theory: "Theoretische Linguistik"
+  philosophy: "Philosophie"
+  math: "Mathematik und Daten"
+  objects: "Untersuchungsgegenstände"
+  tech: "Technik"
 tagline: Ich untersuche, was an der Art, wie menschliche Sprachen Bedeutung kodieren, universell ist, mit formalen und computergestützten Methoden an sprachübergreifenden Daten.
 btn_email: E-Mail schreiben
 btn_github: GitHub
@@ -83,33 +91,36 @@ outlook:
 - name: "Ein GUI-Werkzeug"
   desc: "ein Werkzeug bauen, mit dem jede und jeder Ähnlichkeit berechnen kann, und es als Open Source veröffentlichen"
 keywords:
-  typology: Sprachtypologie
-  universals: Sprachuniversalien
-  crossling-semantics: Sprachübergreifende Semantik
-  formal-semantics: Formale Semantik
-  theoretical: Theoretische Linguistik
-  syntax: Syntax
-  morphology: Morphologie
+  typology: "Sprachtypologie und Sprachuniversalien"
+  formal-semantics: "Formale Semantik und sprachübergreifende Semantik"
   generative: Generative Grammatik
   cognitive: Kognitive Linguistik
-  computational: Computerlinguistik
+  computational: "Computerlinguistik und Verarbeitung natürlicher Sprache"
   phylogenetic: Phylogenetische Linguistik
-  similarity: Sprachähnlichkeit
+  contact: "Sprachkontakt"
+  similarity: "Ähnlichkeit und Distanz zwischen Sprachen"
   phonology: Phonologie
-  romance: Romanische Sprachen
+  romance: "Romanische Sprachen (Iberoromanisch)"
   mozarabic: Mozarabisch (andalusisches Romanisch)
   ladino: Ladino (Judenspanisch)
-  ibero-romance: Iberoromanisch
   medieval-castilian: Mittelalterliches Kastilisch
   writing-systems: Schriftsysteme
-  nlp: Verarbeitung natürlicher Sprache
-  i18n: Internationalisierung (i18n)
-  unicode: Unicode und Zeichenkodierung
+  i18n: "Internationalisierung (i18n), Unicode und Zeichenkodierung"
   input-methods: Eingabemethoden
   typesetting: Digitaler Satz
-  linux: Linux
-  kernels: Betriebssystemkerne
+  linux: "Linux und Betriebssystemkerne"
   oss: Open-Source-Software
+  sign-languages: "Gebärdensprachen"
+  constructed: "Plansprachen"
+  formal-languages: "Formale Sprachen"
+  information-theory: "Informationstheorie"
+  morse: "Morsecode"
+  probability: "Wahrscheinlichkeitstheorie und Statistik"
+  data-viz: "Datenvisualisierung"
+  saussurean: "Saussuresche Linguistik"
+  wittgenstein: "Analytische Philosophie und Wittgenstein"
+  vibrations-waves: "Schwingungen und Wellen"
+  signal-processing: "Signalverarbeitung"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

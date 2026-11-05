@@ -31,6 +31,14 @@ pub_types:
 pub_status:
   unpublished: 'non publié'
 keywords_h: Mots-clés
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "Comparaison des langues"
+  theory: "Linguistique théorique"
+  philosophy: "Philosophie"
+  math: "Mathématiques et données"
+  objects: "Objets d’étude"
+  tech: "Technologie"
 tagline: J'étudie ce qui est universel dans la manière dont les langues humaines encodent le sens, à l'aide de méthodes formelles et computationnelles appliquées à des données interlinguistiques.
 btn_email: M'écrire
 btn_github: GitHub
@@ -83,33 +91,36 @@ outlook:
 - name: "Un outil graphique"
   desc: "créer un outil permettant à chacun de calculer la similarité, et le publier en open source"
 keywords:
-  typology: Typologie linguistique
-  universals: Universaux linguistiques
-  crossling-semantics: Sémantique interlinguistique
-  formal-semantics: Sémantique formelle
-  theoretical: Linguistique théorique
-  syntax: Syntaxe
-  morphology: Morphologie
+  typology: "Typologie linguistique et universaux linguistiques"
+  formal-semantics: "Sémantique formelle et sémantique interlinguistique"
   generative: Grammaire générative
   cognitive: Linguistique cognitive
-  computational: Linguistique computationnelle
+  computational: "Linguistique computationnelle et traitement automatique des langues"
   phylogenetic: Linguistique phylogénétique
-  similarity: Similarité entre langues
+  contact: "Contact de langues"
+  similarity: "Similarité et distance entre les langues"
   phonology: Phonologie
-  romance: Langues romanes
+  romance: "Langues romanes (ibéro-roman)"
   mozarabic: Mozarabe (roman andalou)
   ladino: Ladino (judéo-espagnol)
-  ibero-romance: Ibéro-roman
   medieval-castilian: Castillan médiéval
   writing-systems: Systèmes d'écriture
-  nlp: Traitement automatique des langues
-  i18n: Internationalisation (i18n)
-  unicode: Unicode et codage des caractères
+  i18n: "Internationalisation (i18n), Unicode et codage des caractères"
   input-methods: Méthodes de saisie
   typesetting: Composition typographique numérique
-  linux: Linux
-  kernels: Noyaux de systèmes d'exploitation
+  linux: "Linux et noyaux de systèmes d'exploitation"
   oss: Logiciels libres et open source
+  sign-languages: "Langues des signes"
+  constructed: "Langues construites"
+  formal-languages: "Langages formels"
+  information-theory: "Théorie de l’information"
+  morse: "Code Morse"
+  probability: "Théorie des probabilités et statistique"
+  data-viz: "Visualisation de données"
+  saussurean: "Linguistique saussurienne"
+  wittgenstein: "Philosophie analytique et Wittgenstein"
+  vibrations-waves: "Vibrations et ondes"
+  signal-processing: "Traitement du signal"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

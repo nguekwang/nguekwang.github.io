@@ -31,6 +31,14 @@ pub_types:
 pub_status:
   unpublished: 'не опубликована'
 keywords_h: Ключевые слова
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "Сравнение языков"
+  theory: "Теоретическая лингвистика"
+  philosophy: "Философия"
+  math: "Математика и данные"
+  objects: "Объекты исследования"
+  tech: "Технологии"
 tagline: Я изучаю универсальное в том, как человеческие языки выражают значение, применяя формальные и вычислительные методы к межъязыковым данным.
 btn_email: Написать мне
 btn_github: GitHub
@@ -83,33 +91,36 @@ outlook:
 - name: "Инструмент с графическим интерфейсом"
   desc: "создать инструмент, с помощью которого любой сможет вычислить сходство, и опубликовать его с открытым исходным кодом"
 keywords:
-  typology: Лингвистическая типология
-  universals: Языковые универсалии
-  crossling-semantics: Межъязыковая семантика
-  formal-semantics: Формальная семантика
-  theoretical: Теоретическая лингвистика
-  syntax: Синтаксис
-  morphology: Морфология
+  typology: "Лингвистическая типология и языковые универсалии"
+  formal-semantics: "Формальная семантика и межъязыковая семантика"
   generative: Генеративная грамматика
   cognitive: Когнитивная лингвистика
-  computational: Компьютерная лингвистика
+  computational: "Компьютерная лингвистика и обработка естественного языка"
   phylogenetic: Филогенетическая лингвистика
-  similarity: Сходство языков
+  contact: "Языковые контакты"
+  similarity: "Сходство и расстояние между языками"
   phonology: Фонология
-  romance: Романские языки
+  romance: "Романские языки (иберо-романские языки)"
   mozarabic: Мосарабский (андалусский романский)
   ladino: Ладино (еврейско-испанский)
-  ibero-romance: Иберо-романские языки
   medieval-castilian: Средневековый кастильский
   writing-systems: Системы письма
-  nlp: Обработка естественного языка
-  i18n: Интернационализация (i18n)
-  unicode: Юникод и кодировки символов
+  i18n: "Интернационализация (i18n), Юникод и кодировки символов"
   input-methods: Методы ввода
   typesetting: Цифровая вёрстка
-  linux: Linux
-  kernels: Ядра операционных систем
+  linux: "Linux и ядра операционных систем"
   oss: Программное обеспечение с открытым исходным кодом
+  sign-languages: "Жестовые языки"
+  constructed: "Искусственные языки"
+  formal-languages: "Формальные языки"
+  information-theory: "Теория информации"
+  morse: "Азбука Морзе"
+  probability: "Теория вероятностей и статистика"
+  data-viz: "Визуализация данных"
+  saussurean: "Лингвистика Соссюра"
+  wittgenstein: "Аналитическая философия и Витгенштейн"
+  vibrations-waves: "Теория колебаний и волн"
+  signal-processing: "Обработка сигналов"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

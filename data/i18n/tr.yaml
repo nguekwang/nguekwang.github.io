@@ -31,6 +31,14 @@ pub_types:
 pub_status:
   unpublished: 'yayımlanmamış'
 keywords_h: Anahtar sözcükler
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "Dillerin karşılaştırılması"
+  theory: "Kuramsal dilbilim"
+  philosophy: "Felsefe"
+  math: "Matematik ve veri"
+  objects: "İnceleme nesneleri"
+  tech: "Teknoloji"
 tagline: İnsan dillerinin anlamı kodlama biçimindeki evrensel yönleri, diller arası veriler üzerinde biçimsel ve hesaplamalı yöntemlerle inceliyorum.
 btn_email: E-posta gönder
 btn_github: GitHub
@@ -83,33 +91,36 @@ outlook:
 - name: "Grafik arayüzlü bir araç"
   desc: "herkesin benzerlik hesaplayabileceği bir araç geliştirmek ve açık kaynak olarak yayımlamak"
 keywords:
-  typology: Dil tipolojisi
-  universals: Dil evrenselleri
-  crossling-semantics: Diller arası anlambilim
-  formal-semantics: Biçimsel anlambilim
-  theoretical: Kuramsal dilbilim
-  syntax: Sözdizim
-  morphology: Biçimbilim
+  typology: "Dil tipolojisi ve dil evrenselleri"
+  formal-semantics: "Biçimsel anlambilim ve diller arası anlambilim"
   generative: Üretici dilbilgisi
   cognitive: Bilişsel dilbilim
-  computational: Hesaplamalı dilbilim
+  computational: "Hesaplamalı dilbilim ve doğal dil işleme"
   phylogenetic: Filogenetik dilbilim
-  similarity: Diller arası benzerlik
+  contact: "Dil teması"
+  similarity: "Diller arası benzerlik ve uzaklık"
   phonology: Sesbilim
-  romance: Roman dilleri
+  romance: "Roman dilleri (İber-Roman dilleri)"
   mozarabic: Mozarapça (Endülüs Romans dili)
   ladino: Ladino (Yahudi İspanyolcası)
-  ibero-romance: İber-Roman dilleri
   medieval-castilian: Orta Çağ Kastilyacası
   writing-systems: Yazı sistemleri
-  nlp: Doğal dil işleme
-  i18n: Uluslararasılaştırma (i18n)
-  unicode: Unicode ve karakter kodlama
+  i18n: "Uluslararasılaştırma (i18n), Unicode ve karakter kodlama"
   input-methods: Giriş yöntemleri
   typesetting: Dijital dizgi
-  linux: Linux
-  kernels: İşletim sistemi çekirdekleri
+  linux: "Linux ve işletim sistemi çekirdekleri"
   oss: Açık kaynak yazılım
+  sign-languages: "İşaret dilleri"
+  constructed: "Yapay diller"
+  formal-languages: "Biçimsel diller"
+  information-theory: "Bilgi kuramı"
+  morse: "Mors alfabesi"
+  probability: "Olasılık kuramı ve istatistik"
+  data-viz: "Veri görselleştirme"
+  saussurean: "Saussure dilbilimi"
+  wittgenstein: "Analitik felsefe ve Wittgenstein"
+  vibrations-waves: "Titreşimler ve dalgalar"
+  signal-processing: "Sinyal işleme"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

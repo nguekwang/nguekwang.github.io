@@ -31,6 +31,14 @@ pub_types:
 pub_status:
   unpublished: '未公開'
 keywords_h: 關鍵詞
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "語言比較"
+  theory: "理論語言學"
+  philosophy: "哲學"
+  math: "數學與資料"
+  objects: "研究對象"
+  tech: "技術"
 tagline: 我研究人類語言在表達意義上的普遍性，對跨語言資料運用形式化與計算方法。
 btn_email: 寄送電子郵件
 btn_github: GitHub
@@ -83,33 +91,36 @@ outlook:
 - name: "圖形介面工具"
   desc: "開發人人都能計算相似度的工具，並以開源形式發布"
 keywords:
-  typology: 語言類型學
-  universals: 語言共性
-  crossling-semantics: 跨語言語意學
-  formal-semantics: 形式語意學
-  theoretical: 理論語言學
-  syntax: 句法學
-  morphology: 構詞學
+  typology: "語言類型學與語言共性"
+  formal-semantics: "形式語意學與跨語言語意學"
   generative: 生成語法
   cognitive: 認知語言學
-  computational: 計算語言學
+  computational: "計算語言學與自然語言處理"
   phylogenetic: 親緣語言學
-  similarity: 語言相似度
+  contact: "語言接觸"
+  similarity: "語言間的相似度與距離"
   phonology: 音韻學
-  romance: 羅曼語族
+  romance: "羅曼語族（伊比利亞-羅曼語支）"
   mozarabic: 莫札拉布語（安達盧斯羅曼語）
   ladino: 拉迪諾語（猶太西班牙語）
-  ibero-romance: 伊比利亞-羅曼語支
   medieval-castilian: 中世紀卡斯提亞語
   writing-systems: 文字系統
-  nlp: 自然語言處理
-  i18n: 國際化（i18n）
-  unicode: Unicode 與字元編碼
+  i18n: "國際化（i18n）、Unicode 與字元編碼"
   input-methods: 輸入法
   typesetting: 數位排版
-  linux: Linux
-  kernels: 作業系統核心
+  linux: "Linux 與作業系統核心"
   oss: 開源軟體
+  sign-languages: "手語"
+  constructed: "人造語言"
+  formal-languages: "形式語言"
+  information-theory: "資訊理論"
+  morse: "摩斯電碼"
+  probability: "機率論與統計學"
+  data-viz: "資料視覺化"
+  saussurean: "索緒爾語言學"
+  wittgenstein: "分析哲學與維根斯坦"
+  vibrations-waves: "振動與波"
+  signal-processing: "訊號處理"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

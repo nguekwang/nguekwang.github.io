@@ -75,7 +75,7 @@ footer { margin-top: 14pt; padding-top: 4pt; border-top: .5pt solid #999; font-s
 <ul>{% for g in t.langs %}<li><strong>{{ g.label }}</strong>{{ t.colon }}{% for x in g['items'] %}{{ x }}{% if not loop.last %} · {% endif %}{% endfor %}</li>{% endfor %}</ul>
 
 <h2>{{ t.keywords_h }}</h2>
-<p class="keywords">{% for k in site.keywords %}{{ t.keywords[k] }}{% if not loop.last %} · {% endif %}{% endfor %}</p>
+<ul class="keywords">{% for g in site.keywords %}<li><strong>{{ t.keyword_groups[g.group] }}</strong>{{ t.colon }}{% for k in g['items'] %}{{ t.keywords[k] }}{% if not loop.last %} · {% endif %}{% endfor %}</li>{% endfor %}</ul>
 
 <footer>{{ updated }} · <bdi dir="ltr">{{ site.url | replace("https://", "") }}/{{ code }}/</bdi></footer>
 </body>
