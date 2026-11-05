@@ -35,7 +35,6 @@ keywords_h: Kata kunci
 keyword_groups:
   comparison: "Perbandingan bahasa"
   theory: "Linguistik teoretis"
-  philosophy: "Filsafat"
   math: "Matematika dan data"
   objects: "Objek kajian"
   tech: "Teknologi"
@@ -106,11 +105,14 @@ keywords:
   ladino: Bahasa Ladino (Yahudi-Spanyol)
   medieval-castilian: Bahasa Kastilia abad pertengahan
   writing-systems: Sistem tulisan
-  i18n: "Internasionalisasi (i18n), Unicode dan pengodean karakter"
+  i18n: "Internasionalisasi (i18n)"
+  unicode: "Unicode dan pengodean karakter"
   input-methods: Metode input
   typesetting: Tata letak digital
   linux: "Linux dan kernel sistem operasi"
   oss: Perangkat lunak sumber terbuka
+  tech-democratization: "Demokratisasi teknologi"
+  decentralized-web: "Web terdesentralisasi dan hosting mandiri"
   sign-languages: "Bahasa isyarat"
   constructed: "Bahasa buatan"
   formal-languages: "Bahasa formal"

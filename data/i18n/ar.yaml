@@ -35,7 +35,6 @@ keywords_h: الكلمات المفتاحية
 keyword_groups:
   comparison: "مقارنة اللغات"
   theory: "اللسانيات النظرية"
-  philosophy: "الفلسفة"
   math: "الرياضيات والبيانات"
   objects: "موضوعات الدراسة"
   tech: "التقنية"
@@ -106,11 +105,14 @@ keywords:
   ladino: اللادينو (اليهودية الإسبانية)
   medieval-castilian: القشتالية في العصور الوسطى
   writing-systems: أنظمة الكتابة
-  i18n: "التدويل (i18n)، يونيكود وترميز المحارف"
+  i18n: "التدويل (i18n)"
+  unicode: "يونيكود وترميز المحارف"
   input-methods: طرق الإدخال
   typesetting: التنضيد الرقمي
   linux: "Linux وأنوية أنظمة التشغيل"
   oss: البرمجيات مفتوحة المصدر
+  tech-democratization: "دمقرطة التقنية"
+  decentralized-web: "الويب اللامركزي والاستضافة الذاتية"
   sign-languages: "لغات الإشارة"
   constructed: "اللغات المصطنعة"
   formal-languages: "اللغات الصورية"

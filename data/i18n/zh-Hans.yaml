@@ -35,7 +35,6 @@ keywords_h: 关键词
 keyword_groups:
   comparison: "语言比较"
   theory: "理论语言学"
-  philosophy: "哲学"
   math: "数学与数据"
   objects: "研究对象"
   tech: "技术"
@@ -106,11 +105,14 @@ keywords:
   ladino: 拉迪诺语（犹太西班牙语）
   medieval-castilian: 中世纪卡斯蒂利亚语
   writing-systems: 文字系统
-  i18n: "国际化（i18n）、Unicode 与字符编码"
+  i18n: "国际化（i18n）"
+  unicode: "Unicode 与字符编码"
   input-methods: 输入法
   typesetting: 数字排版
   linux: "Linux 与操作系统内核"
   oss: 开源软件
+  tech-democratization: "技术民主化"
+  decentralized-web: "去中心化网络与自托管"
   sign-languages: "手语"
   constructed: "人造语言"
   formal-languages: "形式语言"
