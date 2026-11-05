@@ -63,6 +63,11 @@ keywords:
   - kernels
   - oss
 
+# The site's name after the owner's name in page titles, og:site_name and the JSON-LD
+# WebSite name ("Yoshihiro MATSUURA – Idiolect"). An idiolect is one person's own
+# language. It is a proper name, so it is the same in every language.
+site_title: Idiolect
+
 name:
   latin: Yoshihiro (Yoshi) MATSUURA
   latin_short: Yoshihiro MATSUURA

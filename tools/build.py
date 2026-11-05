@@ -328,10 +328,10 @@ def main():
         ja = code == "ja"
         t = texts[code]
         h1 = site["name"]["ja"] if ja else site["name"]["latin"]
-        title = f"{h1} – {t['keywords']['typology']}"
+        title = site_title(site, code)
         html = page.render(
             site=site, langs=langs, talks=talks, code=code, t=t,
-            h1=h1, title=title, notice=notice(code, t, post_editors.get(code)),
+            h1=h1, title=title, site_name=site_title(site, code), notice=notice(code, t, post_editors.get(code)),
             updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
             jsonld=jsonld(site, code, t, title, post_editors.get(code)),
             alt_name=site["name"]["latin"] if ja else site["name"]["ja"],
@@ -353,9 +353,9 @@ def main():
                 row["basis_name"] = texts[n["basis"]]["institutions"][iid]
                 row["basis_lang"] = n["basis"]
             rows.append(row)
-        title = f"{t['names_h']} – {site['name']['ja'] if code == 'ja' else site['name']['latin']}"
+        title = f"{t['names_h']} – {site_title(site, code)}"
         write(os.path.join(code, NAMES_SLUG, "index.html"), names_page.render(
-            site=site, langs=langs, code=code, t=t, rows=rows, slug=NAMES_SLUG, title=title,
+            site=site, langs=langs, code=code, t=t, rows=rows, slug=NAMES_SLUG, title=title, site_name=site_title(site, code),
             notice=notice(code, t, post_editors.get(code)),
             jsonld=jsonld(site, code, t, title, post_editors.get(code), slug=NAMES_SLUG),
             updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
@@ -365,8 +365,8 @@ def main():
     codes = site["languages"]
     en = texts[REFERENCE]
     write("index.html", env.get_template("root.html.j2").render(
-        site=site, langs=langs, title=site["name"]["latin"], description=en["desc"],
-        jsonld=jsonld(site, None, en, site["name"]["latin"])))
+        site=site, langs=langs, title=site_title(site, None), site_name=site_title(site, None), description=en["desc"],
+        jsonld=jsonld(site, None, en, site_title(site, None))))
     write("llms.txt", env.get_template("llms.txt.j2").render(
         site=site, langs=langs, t=en, pubs=publications(site, REFERENCE, en, pubs), keywords=[en["keywords"][k] for k in site["keywords"]]))
     write("sitemap.xml", env.get_template("sitemap.xml.j2").render(site=site, codes=codes, slug=NAMES_SLUG))
@@ -422,6 +422,17 @@ def print_pdfs(chrome, jobs, tmp):
         list(pool.map(one, *zip(*enumerate(jobs))))
 
 
+
+def site_title(site, code):
+    """The site's name for one language: the owner's name, a dash and `site_title`.
+
+    The Japanese pages use the Japanese name; every other page (and the root language
+    chooser, code None) uses the short Latin name. Page titles, og:site_name and the
+    WebSite name in the JSON-LD all use it.
+    """
+    name = site["name"]["ja"] if code == "ja" else site["name"]["latin_short"]
+    return f"{name} – {site['site_title']}"
+
 def jsonld(site, code, t, title, post_editors=None, slug=None):
     """Structured data (schema.org JSON-LD) for one page.
 
@@ -458,7 +469,7 @@ def jsonld(site, code, t, title, post_editors=None, slug=None):
         "@type": "WebSite",
         "@id": f"{base}/#website",
         "url": f"{base}/",
-        "name": name["latin"],
+        "name": site_title(site, None),
         "inLanguage": site["languages"],
         "about": {"@id": f"{base}/#person"},
     }
