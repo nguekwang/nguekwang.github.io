@@ -27,7 +27,7 @@ verification:
 # To add a language, copy data/i18n/en.yaml to data/i18n/<code>.yaml, translate every value, and add the code here.
 languages: [en, ja, es, fr, ru, zh-Hans, zh-Hant, ar, ko, vi, de, pt, it, nl, tr, id, th, hi, fa, pl, uk]
 
-# Digits used in the "last updated" date for languages that do not write it with 0-9.
+# Digits used in the "last updated" date and the copyright year for languages that do not write them with 0-9.
 digits:
   fa: "۰۱۲۳۴۵۶۷۸۹"
 

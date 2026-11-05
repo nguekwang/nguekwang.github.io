@@ -156,13 +156,18 @@ def last_change():
     return None, datetime.date.today()
 
 
-def updated_text(site, code, template, date):
-    """Fill {date} with the month and year in the language's own format (e.g. 2026年11月)."""
-    text = format_skeleton("yMMMM", date, locale=Locale.parse(code, sep="-"))
+def local_digits(site, code, text):
+    """Write the 0-9 in text with the language's own digits, if `digits` in site.yaml lists it."""
     digits = site.get("digits", {}).get(code)
     if digits:
         text = text.translate(str.maketrans("0123456789", digits))
-    return template.replace("{date}", text)
+    return text
+
+
+def updated_text(site, code, template, date):
+    """Fill {date} with the month and year in the language's own format (e.g. 2026年11月)."""
+    text = format_skeleton("yMMMM", date, locale=Locale.parse(code, sep="-"))
+    return template.replace("{date}", local_digits(site, code, text))
 
 
 def main():
@@ -209,6 +214,7 @@ def main():
             site=site, langs=langs, talks=talks, code=code, t=t,
             h1=h1, title=title,
             updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
+            copyright_from=local_digits(site, code, str(site["copyright_from"])),
             jsonld=jsonld(site, code, t, title),
             alt_name=site["name"]["latin"] if ja else site["name"]["ja"],
             alt_lang="en" if ja else "ja",
@@ -234,6 +240,7 @@ def main():
             site=site, langs=langs, code=code, t=t, rows=rows, slug=NAMES_SLUG,
             title=f"{t['names_h']} – {site['name']['ja'] if code == 'ja' else site['name']['latin']}",
             updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
+            copyright_from=local_digits(site, code, str(site["copyright_from"])),
             footer_name=site["name"]["ja"] if code == "ja" else site["name"]["latin_short"],
         ))
 

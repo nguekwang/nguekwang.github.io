@@ -30,7 +30,7 @@
       {% else %}{{ t.names_translated }}<br><span class="meta">{{ t.names_basis }}{{ t.colon }}<bdi lang="{{ r.basis_lang }}">{{ r.basis_name }}</bdi></span>{% endif %}
     </li>{% endfor %}
   </ul>
-  <footer>{% if updated_url %}<a href="{{ updated_url }}" class="updated">{{ updated }}</a>{% else %}{{ updated }}{% endif %}<br><small><bdi dir="ltr">&copy; {{ site.copyright_from }}<span class="range-dash">–</span></bdi> {{ footer_name }}</small></footer>
+  <footer>{% if updated_url %}<a href="{{ updated_url }}" class="updated">{{ updated }}</a>{% else %}{{ updated }}{% endif %}<br><small><bdi dir="ltr">&copy; {{ copyright_from }}<span class="range-dash">–</span></bdi> {{ footer_name }}</small></footer>
 </main>
 <script src="../../lang.js"></script>
 <script src="../../cv.js"></script>
