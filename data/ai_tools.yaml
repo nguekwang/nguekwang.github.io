@@ -16,11 +16,11 @@ services:
 
 # Every project under `projects:` in data/i18n/<code>.yaml needs an entry here, keyed by its
 # name (the same in every language); `python3 tools/build.py --check` fails otherwise.
-# `repo` is the project's public GitHub repository as owner/name. Leave it empty while the
-# project has no public repository, or while the repository has no code yet: the site then
-# shows no link and builds no page for it. Never set it to a private repository.
+# `repo` is the project's public GitHub repository as owner/name, set as soon as it is public
+# (even before it has code). Leave it empty while the project has no public repository: the
+# site then shows no link and builds no page for it. Never set it to a private repository.
 projects:
-  linguasim: {repo: ""}
+  linguasim: {repo: nguekwang/linguasim}
   Languer Map: {repo: ""}
-  phrase-marker-gen: {repo: ""}
+  phrase-marker-gen: {repo: nguekwang/phrase-marker-gen}
   Corpus Hub: {repo: ""}

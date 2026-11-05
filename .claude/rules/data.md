@@ -34,7 +34,7 @@ All page text lives here as YAML. HTML structure is in `templates/`.
 ## Projects and their links for AI assistants
 
 - Each project with a public repository gets a page of links for AI assistants at `/<lang>/ai-tools/<repo name>/`, linked under the project in the Projects section. It lists services that read the repository when `github.com` in its URL is replaced (`services` in `data/ai_tools.yaml`), each with its URL and a description (`ai_tools_desc` in every language file).
-- Every time a project is added to `projects` in the language files, add it under `projects` in `data/ai_tools.yaml` in the same change; `python3 tools/build.py --check` fails otherwise. Set `repo` (owner/name) once its public repository has code; until then leave it empty, which shows no link and builds no page. Never set a private repository.
+- Every time a project is added to `projects` in the language files, add it under `projects` in `data/ai_tools.yaml` in the same change; `python3 tools/build.py --check` fails otherwise. Set `repo` (owner/name) as soon as the repository is public, even before it has code (the owner's choice); while it is private or missing, leave it empty, which shows no link and builds no page. Never set a private repository.
 - Before adding a service, check that it is running and that it works by replacing `github.com`; record the date checked in `data/ai_tools.yaml`. Remove a service that has shut down. A new service needs a description in every language file in the same change.
 
 ## Values that are not page text
