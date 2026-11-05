@@ -23,6 +23,9 @@ keywords_h: Anahtar sözcükler
 tagline: İnsan dillerinin anlamı kodlama biçimindeki evrensel yönleri, diller arası veriler üzerinde biçimsel ve hesaplamalı yöntemlerle inceliyorum.
 btn_email: E-posta gönder
 btn_github: GitHub
+btn_cv: "Özgeçmiş (PDF)"
+cv_h: "Özgeçmiş"
+website: "Web sitesi"
 interests_h: Araştırma konuları
 current_h: Güncel araştırma
 current: Diller arası benzerliğin nicel olarak ölçülmesi. Sesbirim envanterleri (PHOIBLE) ve sözcük verileriyle, Roman dillerinden başlayarak dillerin ve lehçelerin birbirine ne kadar yakın olduğunu ölçüyorum. Amaç, pek çok dil için işe yarayan, açık istatistiklere dayanan ve bir lehçenin nerede bitip bir dilin nerede başladığına ışık tutabilecek bir ölçüt geliştirmek.

@@ -23,6 +23,9 @@ keywords_h: Từ khóa
 tagline: Tôi nghiên cứu những gì mang tính phổ quát trong cách các ngôn ngữ của con người mã hóa ý nghĩa, bằng các phương pháp hình thức và tính toán trên dữ liệu liên ngôn ngữ.
 btn_email: Gửi email
 btn_github: GitHub
+btn_cv: "CV (PDF)"
+cv_h: "Sơ yếu lý lịch"
+website: "Trang web"
 interests_h: Chủ đề nghiên cứu
 current_h: Nghiên cứu hiện tại
 current: Định lượng độ tương đồng giữa các ngôn ngữ. Dựa trên bảng âm vị (PHOIBLE) và dữ liệu từ vựng, tôi đo mức độ gần gũi giữa các ngôn ngữ và phương ngữ, bắt đầu từ các ngôn ngữ Rôman. Mục tiêu là một thước đo áp dụng được cho nhiều ngôn ngữ, dựa trên thống kê rõ ràng, và có thể giúp xác định đâu là ranh giới giữa phương ngữ và ngôn ngữ.

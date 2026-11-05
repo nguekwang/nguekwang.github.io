@@ -41,6 +41,7 @@ All page text lives in YAML under `data/`; HTML structure lives in `templates/`.
 - `data/talks.yaml`: talks (language-independent).
 - `static/`: files copied as they are (CSS, JS, robots.txt).
 - `pip install -r requirements.txt`, then `python3 tools/build.py --check` checks the data, and `python3 tools/build.py` checks and builds the site into `_site/`.
+- The build also makes a CV for every language at `/<lang>/<cv_file>` (`cv_file` in `data/site.yaml`): `templates/cv.html.j2` is printed to PDF with headless Chrome (set `CHROME` if it is not on `PATH`; `--no-pdf` skips it). The CV shows only what the profile page shows, so it never adds personal details of its own. CI installs the Noto fonts it needs.
 - GitHub Actions (`.github/workflows/site.yml`) runs the check and build on every pull request, and on push to `main` builds and deploys to GitHub Pages.
 - The footer's "last updated" date and link come from git, not from the YAML: `updated` in each language file is a label with one `{date}` placeholder, which the build fills with the date of the latest commit that changed `data/`, `templates/`, `static/` or `tools/` (formatted per language with Babel) and links to that commit on GitHub. The workflow checks out full history (`fetch-depth: 0`) for this.
 - When adding a key or a list item, add it to every language file in the same change, or the check fails.
@@ -56,5 +57,5 @@ All page text lives in YAML under `data/`; HTML structure lives in `templates/`.
 
 - Page views are counted by GoatCounter (`goatcounter` in `data/site.yaml`). Links we share carry a campaign tag, e.g. `?ref=card` (business card QR) or `?ref=github`.
 - Conversions are clicks on links marked with `data-cv="<name>"` in `templates/page.html.j2`. `static/cv.js` sends each one as the GoatCounter event `cv-<name>`, with the visit's `?ref=` as its referrer, and keeps `?ref=` on language menu links.
-- Current names: `email-top`, `email-contact`, `github-top`, `github-contact`, `talk`, `request-lang`. When adding a link to another profile (ORCID, researchmap), give it a `data-cv` name too.
+- Current names: `email-top`, `email-contact`, `github-top`, `github-contact`, `cv-top` (the CV PDF button, event `cv-cv-top`), `talk`, `request-lang`. When adding a link to another profile (ORCID, researchmap), give it a `data-cv` name too.
 - The measurement plan and the list of initiatives (施策) are kept outside this public repository.

@@ -23,6 +23,9 @@ keywords_h: Mots-clés
 tagline: J'étudie ce qui est universel dans la manière dont les langues humaines encodent le sens, à l'aide de méthodes formelles et computationnelles appliquées à des données interlinguistiques.
 btn_email: M'écrire
 btn_github: GitHub
+btn_cv: "CV (PDF)"
+cv_h: "Curriculum vitæ"
+website: "Site web"
 interests_h: Thèmes de recherche
 current_h: Recherches en cours
 current: Quantifier la similarité entre les langues. À partir d'inventaires de phonèmes (PHOIBLE) et de données lexicales, je mesure la proximité entre langues et dialectes, en commençant par les langues romanes. L'objectif est une mesure applicable à de nombreuses langues, fondée sur des statistiques explicites, qui puisse éclairer où s'arrête un dialecte et où commence une langue.

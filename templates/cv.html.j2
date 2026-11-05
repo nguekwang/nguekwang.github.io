@@ -1,0 +1,78 @@
+<!doctype html>
+{#- Printable CV for one language. tools/build.py renders it and prints it to PDF with headless Chrome.
+    It shows only what the profile page already shows; never add details that are not on the page. -#}
+<html lang="{{ code }}" dir="{{ t.dir }}">
+<head>
+<meta charset="utf-8">
+<title>{{ t.cv_h }} – {{ h1 }}</title>
+<meta name="author" content="{{ site.name.latin_short }}">
+<style>
+@page { size: A4; margin: 15mm 16mm 14mm; }
+* { box-sizing: border-box; }
+html { font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif; font-size: 9.5pt; line-height: 1.45; color: #1a1a1a; }
+:lang(ja) { font-family: "Noto Sans CJK JP", sans-serif; }
+:lang(zh-Hans) { font-family: "Noto Sans CJK SC", sans-serif; }
+:lang(zh-Hant) { font-family: "Noto Sans CJK TC", sans-serif; }
+:lang(ko) { font-family: "Noto Sans CJK KR", sans-serif; }
+:lang(ar), :lang(fa) { font-family: "Noto Sans", "Noto Sans Arabic", sans-serif; }
+:lang(hi) { font-family: "Noto Sans", "Noto Sans Devanagari", sans-serif; }
+:lang(th) { font-family: "Noto Sans", "Noto Sans Thai", sans-serif; }
+body { margin: 0; }
+header { border-bottom: 1.5pt solid #1a1a1a; padding-bottom: 8pt; margin-bottom: 4pt; }
+.doc { margin: 0; font-size: 9pt; letter-spacing: .08em; text-transform: uppercase; color: #555; }
+h1 { margin: 2pt 0 0; font-size: 20pt; line-height: 1.25; }
+.alt { margin: 0; color: #444; }
+.contact { margin: 6pt 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 2pt 16pt; }
+.contact span { color: #555; }
+.mt { margin: 6pt 0 0; font-size: 8.5pt; color: #555; }
+h2 { margin: 10pt 0 3pt; font-size: 11pt; border-bottom: .5pt solid #999; padding-bottom: 1pt; break-after: avoid; }
+p { margin: 0; }
+ul { margin: 0; padding-inline-start: 1.2em; }
+li { margin: 1pt 0; break-inside: avoid; }
+.tagline { margin-top: 8pt; }
+.keywords { color: #333; }
+footer { margin-top: 14pt; padding-top: 4pt; border-top: .5pt solid #999; font-size: 8.5pt; color: #555; }
+</style>
+</head>
+<body>
+<header>
+  <p class="doc">{{ t.cv_h }}</p>
+  <h1>{{ h1 }}</h1>
+  <p class="alt" lang="{{ alt_lang }}">{{ alt_name }}</p>
+  <ul class="contact">
+    <li><span>{{ t.email }}{{ t.colon }}</span><bdi dir="ltr">{{ site.email }}</bdi></li>
+    <li><span>{{ t.website }}{{ t.colon }}</span><bdi dir="ltr">{{ site.url | replace("https://", "") }}/{{ code }}/</bdi></li>
+    <li><span>GitHub{{ t.colon }}</span><bdi dir="ltr">{{ site.github | replace("https://", "") }}</bdi></li>
+  </ul>
+  {% if t.mt_notice %}<p class="mt">{{ t.mt_notice }}</p>{% endif %}
+</header>
+
+<p class="tagline">{{ t.tagline }}</p>
+
+<h2>{{ t.interests_h }}</h2>
+<ul>{% for x in t.interests %}<li>{{ x }}</li>{% endfor %}</ul>
+
+<h2>{{ t.current_h }}</h2>
+<p>{{ t.current }}</p>
+
+<h2>{{ t.pubs_h }}</h2>
+<ul>
+  {% for x in talks %}<li><bdi dir="ltr">{{ x.date }}</bdi> {{ x.title }}, {{ x.venue }}</li>{% endfor %}
+  <li>{{ t.thesis }}{{ t.colon }}<bdi dir="auto" lang="{{ thesis_lang }}">{{ thesis_title }}</bdi> {{ t.unpublished }}</li>
+</ul>
+
+<h2>{{ t.projects_h }}</h2>
+<ul>{% for p in t.projects %}<li><strong>{{ p.name }}</strong>{{ t.colon }}{{ p.desc }}</li>{% endfor %}</ul>
+
+<h2>{{ t.career_h }}</h2>
+<ul>{% for x in t.career %}<li>{{ x }}</li>{% endfor %}</ul>
+
+<h2>{{ t.langs_h }}</h2>
+<ul>{% for x in t.langs %}<li>{{ x }}</li>{% endfor %}</ul>
+
+<h2>{{ t.keywords_h }}</h2>
+<p class="keywords">{% for k in site.keywords %}{{ t.keywords[k] }}{% if not loop.last %} · {% endif %}{% endfor %}</p>
+
+<footer>{{ updated }} · <bdi dir="ltr">{{ site.url | replace("https://", "") }}/{{ code }}/</bdi></footer>
+</body>
+</html>

@@ -11,6 +11,7 @@ HTML structure lives in templates/. This script only joins the two.
 Usage:
   python3 tools/build.py            check the data, then build the site into _site/
   python3 tools/build.py --check    check the data only
+  python3 tools/build.py --no-pdf   build the site without the CV PDFs (no Chrome needed)
 
 The check fails when any language file differs in structure from data/i18n/en.yaml
 (missing or extra keys, different list lengths, empty text), so every language shows the same items.
@@ -21,8 +22,12 @@ site (SITE_PATHS), formatted for each language with Babel, linked to that commit
 Links that leave the site (http/https URLs outside site.url) open in a new tab: write() adds
 target="_blank" rel="noopener noreferrer" to them in every generated HTML file, so templates
 never need to set it per link. mailto: links and links between the site's own pages are left as they are.
+
+Each language also gets a CV as a PDF at /<lang>/<site.cv_file>, made from the same data as the page:
+templates/cv.html.j2 is rendered to a temporary HTML file and printed to PDF with headless Chrome
+(set CHROME to its path if it is not found on PATH). The CV shows only what the page already shows.
 """
-import datetime, json, os, re, shutil, subprocess, sys, urllib.parse
+import concurrent.futures, datetime, json, os, re, shutil, subprocess, sys, tempfile, urllib.parse
 
 import yaml
 from babel import Locale
@@ -47,6 +52,8 @@ SITE_PATHS = ["data", "templates", "static", "tools"]
 # Page that explains how institution names are written, at /<lang>/<NAMES_SLUG>/.
 NAMES_SLUG = "institution-names"
 NAME_STATUSES = {"official", "translated"}
+# Browsers tried, in order, for printing the CV to PDF when CHROME is not set.
+CHROME_NAMES = ["chrome-headless-shell", "google-chrome", "google-chrome-stable", "chromium", "chromium-browser"]
 
 
 def load(*parts):
@@ -246,6 +253,55 @@ def main():
         site=site, langs=langs, t=en, keywords=[en["keywords"][k] for k in site["keywords"]]))
     write("sitemap.xml", env.get_template("sitemap.xml.j2").render(site=site, codes=codes, slug=NAMES_SLUG))
     print(f"built {len(codes)} language pages (and their {NAMES_SLUG}/ pages) into _site/")
+
+    if "--no-pdf" in sys.argv[1:]:
+        print("skipped the CV PDFs (--no-pdf); the CV links on the pages point to missing files")
+        return
+    cv = env.get_template("cv.html.j2")
+    with tempfile.TemporaryDirectory() as tmp:
+        jobs = []
+        for code in codes:
+            ja = code == "ja"
+            t = texts[code]
+            src = os.path.join(tmp, code + ".html")
+            with open(src, "w", encoding="utf-8") as f:
+                f.write(cv.render(
+                    site=site, talks=talks, code=code, t=t,
+                    h1=site["name"]["ja"] if ja else site["name"]["latin"],
+                    alt_name=site["name"]["latin"] if ja else site["name"]["ja"],
+                    alt_lang="en" if ja else "ja",
+                    thesis_title=site["thesis"]["title_ja"] if ja else site["thesis"]["title_en"],
+                    thesis_lang="ja" if ja else "en",
+                    updated=updated_text(site, code, t["updated"], date),
+                ))
+            jobs.append((src, os.path.join(OUT, code, site["cv_file"])))
+        print_pdfs(find_chrome(), jobs, tmp)
+    print(f"built {len(codes)} CV PDFs (/<lang>/{site['cv_file']})")
+
+
+def find_chrome():
+    chrome = os.environ.get("CHROME") or next(filter(None, map(shutil.which, CHROME_NAMES)), None)
+    if not chrome:
+        raise SystemExit("no Chrome found for the CV PDFs: set CHROME=/path/to/chrome, "
+                         "or build without them with --no-pdf")
+    return chrome
+
+
+def print_pdfs(chrome, jobs, tmp):
+    """Print each (html, pdf) pair with headless Chrome; fail if any PDF is not written."""
+    def one(i, job):
+        src, dst = job
+        if os.path.exists(dst):
+            os.remove(dst)
+        cmd = [chrome, "--headless", "--no-sandbox", "--disable-gpu", "--no-first-run", "--disable-background-networking",
+               f"--user-data-dir={os.path.join(tmp, f'profile-{i}')}",
+               "--no-pdf-header-footer", "--print-to-pdf-no-header",
+               f"--print-to-pdf={dst}", "file://" + src]
+        r = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+        if not os.path.exists(dst) or os.path.getsize(dst) == 0:
+            raise SystemExit(f"Chrome did not write {dst}:\n{r.stderr}")
+    with concurrent.futures.ThreadPoolExecutor(4) as pool:
+        list(pool.map(one, *zip(*enumerate(jobs))))
 
 
 def jsonld(site, code, t, title):

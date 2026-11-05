@@ -26,9 +26,12 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements.txt
+      # Fonts for the CV PDFs (Latin, Cyrillic, Arabic, Devanagari, Thai, CJK); Chrome itself is preinstalled on the runner.
+      - name: Install fonts for the CV PDFs
+        run: sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends fonts-noto-core fonts-noto-cjk
       - name: Check that every language has the same items
         run: python3 tools/build.py --check
-      - name: Build
+      - name: Build (pages and CV PDFs)
         run: python3 tools/build.py
       - if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3

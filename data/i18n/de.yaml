@@ -23,6 +23,9 @@ keywords_h: Schlagwörter
 tagline: Ich untersuche, was an der Art, wie menschliche Sprachen Bedeutung kodieren, universell ist, mit formalen und computergestützten Methoden an sprachübergreifenden Daten.
 btn_email: E-Mail schreiben
 btn_github: GitHub
+btn_cv: "Lebenslauf (PDF)"
+cv_h: "Lebenslauf"
+website: "Website"
 interests_h: Forschungsthemen
 current_h: Aktuelle Forschung
 current: Quantifizierung sprachübergreifender Ähnlichkeit. Anhand von Phoneminventaren (PHOIBLE) und Wortschatzdaten messe ich, wie nah Sprachen und Dialekte einander sind, beginnend mit den romanischen Sprachen. Ziel ist ein Maß, das für viele Sprachen funktioniert, auf expliziter Statistik beruht und Hinweise darauf geben kann, wo ein Dialekt endet und eine Sprache beginnt.
