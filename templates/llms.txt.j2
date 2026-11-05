@@ -28,6 +28,10 @@
 
 {% for p in t.projects %}- {{ p.name }}: {{ p.desc }}
 {% endfor %}
+## {{ t.langs_h }}
+
+{% for g in t.langs %}- {{ g.label }}: {{ g['items'] | join(", ") }}
+{% endfor %}
 ## {{ t.keywords_h }}
 
 {{ keywords | join(", ") }}

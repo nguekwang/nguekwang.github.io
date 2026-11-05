@@ -29,9 +29,20 @@ current: Quantificar a semelhança entre línguas. Com inventários de fonemas (
 projects_h: Projetos
 langs_h: Línguas
 langs:
-- Japonês (nativo)
-- Inglês (CEFR C1)
-- Espanhol (CEFR B1, graduação)
+- label: "Língua materna (L1)"
+  items:
+  - "Japonês"
+- label: "Línguas de trabalho"
+  items:
+  - "Inglês (CEFR C1)"
+  - "Espanhol (CEFR B1, graduação)"
+- label: "Línguas em aquisição"
+  items:
+  - "Coreano"
+  - "Francês"
+  - "Russo"
+  - "Chinês"
+  - "Árabe"
 interests:
 - 'Universais linguísticos e tipologia: o que todas as línguas humanas compartilham e como diferem'
 - Semântica interlinguística, com a semântica formal como teoria e os métodos computacionais como ferramentas

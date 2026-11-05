@@ -29,9 +29,20 @@ current: Quantifizierung sprachübergreifender Ähnlichkeit. Anhand von Phonemin
 projects_h: Projekte
 langs_h: Sprachen
 langs:
-- Japanisch (Muttersprache)
-- Englisch (CEFR C1)
-- Spanisch (CEFR B1, Hauptfach im Bachelor)
+- label: "Erstsprache (L1)"
+  items:
+  - "Japanisch"
+- label: "Arbeitssprachen"
+  items:
+  - "Englisch (CEFR C1)"
+  - "Spanisch (CEFR B1, Hauptfach im Bachelor)"
+- label: "Sprachen im Erwerb"
+  items:
+  - "Koreanisch"
+  - "Französisch"
+  - "Russisch"
+  - "Chinesisch"
+  - "Arabisch"
 interests:
 - 'Sprachuniversalien und Typologie: was alle menschlichen Sprachen gemeinsam haben und worin sie sich unterscheiden'
 - Sprachübergreifende Semantik, mit formaler Semantik als Theorie und computergestützten Methoden als Werkzeug
