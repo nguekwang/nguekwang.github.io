@@ -13,7 +13,9 @@
 <meta property="og:title" content="{{ title }}">
 <meta property="og:description" content="{{ t.names_intro }}">
 <meta property="og:url" content="{{ site.url }}/{{ code }}/{{ slug }}/">
-<meta name="twitter:card" content="summary">
+<meta property="og:locale" content="{{ t.og_locale }}">
+{% for o in langs if o.code != code %}<meta property="og:locale:alternate" content="{{ o.og_locale }}">
+{% endfor %}<meta name="twitter:card" content="summary">
 <link rel="canonical" href="{{ site.url }}/{{ code }}/{{ slug }}/">
 {% for o in langs %}<link rel="alternate" hreflang="{{ o.code }}" href="{{ site.url }}/{{ o.code }}/{{ slug }}/">
 {% endfor %}<link rel="stylesheet" href="../../style.css">
