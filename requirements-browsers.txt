@@ -1,0 +1,3 @@
+# Extra packages for tools/browser_check.py (used by .github/workflows/browsers.yml).
+playwright==1.63.0
+Pillow==12.3.0

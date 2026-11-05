@@ -14,30 +14,33 @@
 <meta property="og:title" content="{{ title }}">
 <meta property="og:description" content="{{ t.desc }}">
 <meta property="og:url" content="{{ site.url }}/{{ code }}/">
-<meta property="profile:first_name" content="{{ site.name.given }}">
+<meta property="og:locale" content="{{ t.og_locale }}">
+{% for o in langs if o.code != code %}<meta property="og:locale:alternate" content="{{ o.og_locale }}">
+{% endfor %}<meta property="profile:first_name" content="{{ site.name.given }}">
 <meta property="profile:last_name" content="{{ site.name.family }}">
 <meta name="twitter:card" content="summary">
 <link rel="canonical" href="{{ site.url }}/{{ code }}/">
 {% for o in langs %}<link rel="alternate" hreflang="{{ o.code }}" href="{{ site.url }}/{{ o.code }}/">
 {% endfor %}<link rel="alternate" hreflang="x-default" href="{{ site.url }}/">
 <link rel="stylesheet" href="../style.css">
+<script src="../theme.js"></script>
 <script type="application/ld+json">{{ jsonld }}</script>
 </head>
 <body>
 <main>
-  <nav><details class="langmenu">
+  <nav><button type="button" class="theme-toggle" aria-pressed="false" aria-label="{{ t.theme_dark }}" title="{{ t.theme_dark }}"><svg class="moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg><svg class="sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg></button><details class="langmenu">
       <summary>{{ t.native }}</summary>
       <div class="panel">
         <ul>{% for o in langs %}{% if o.code == code %}<li><span lang="{{ o.code }}">{{ o.native }}</span></li>{% else %}<li><a href="../{{ o.code }}/" lang="{{ o.code }}" hreflang="{{ o.code }}">{{ o.native }}</a></li>{% endif %}{% endfor %}</ul>
         <a class="req" href="{{ request_mailto }}" data-cv="request-lang">{{ t.request }}</a>
       </div>
     </details></nav>
-  {% if t.mt_notice %}<p class="mt">{{ t.mt_notice }}</p>{% endif %}
+  {% if notice %}<p class="mt">{{ notice }}</p>{% endif %}
   <header>
     <h1>{{ h1 }}</h1>
     <p class="alt" lang="{{ alt_lang }}">{{ alt_name }}</p>
     <p class="tagline" lang="{{ code }}">{{ t.tagline }}</p>
-    <p class="buttons"><a class="btn" href="mailto:{{ site.email }}" data-cv="email-top">{{ t.btn_email }}</a><a class="btn ghost" href="{{ site.github }}" data-cv="github-top">{{ t.btn_github }}</a></p>
+    <p class="buttons"><a class="btn" href="mailto:{{ site.email }}" data-cv="email-top">{{ t.btn_email }}</a><a class="btn ghost" href="{{ site.github }}" data-cv="github-top">{{ t.btn_github }}</a><a class="btn ghost" href="{{ site.cv_file }}" type="application/pdf" data-cv="cv-top">{{ t.btn_cv }}</a></p>
   </header>
   <section lang="{{ code }}">
     <h2>{{ t.interests_h }}</h2>
@@ -68,6 +71,11 @@
     <ul>{% for p in t.projects %}<li><strong>{{ p.name }}</strong>{{ t.colon }}{{ p.desc }}</li>{% endfor %}</ul>
   </section>
 
+  <section lang="{{ code }}">
+    <h2>{{ t.outlook_h }}</h2>
+    <ul>{% for x in t.outlook %}<li><strong>{{ x.name }}</strong>{{ t.colon }}{{ x.desc }}</li>{% endfor %}</ul>
+  </section>
+
   <section>
     <h2>{{ t.career_h }}</h2>
     <ul>{% for x in t.career %}<li>{{ x }}</li>{% endfor %}</ul>
@@ -76,7 +84,9 @@
 
   <section lang="{{ code }}">
     <h2>{{ t.langs_h }}</h2>
-    <ul>{% for x in t.langs %}<li>{{ x }}</li>{% endfor %}</ul>
+    <dl class="langs">{% for g in t.langs %}
+      <dt>{{ g.label }}</dt><dd><ul>{% for x in g['items'] %}<li>{{ x }}</li>{% endfor %}</ul></dd>{% endfor %}
+    </dl>
   </section>
 
   <section>

@@ -1,11 +1,17 @@
 # Page text for one language (en). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: ''
+post_edited: 'Machine-translated, then reviewed and corrected by {names}.'
 native: English
 dir: ltr
+og_locale: en_US
 request: Request another language
+# Label (for screen readers and tooltip) of the light/dark theme toggle next to the language menu.
+theme_dark: Dark theme
 pubs_h: Publications & Presentations
 career_h: "Background"
 contact_h: Contact
@@ -24,15 +30,31 @@ keywords_h: Keywords
 tagline: I study what is universal in how human languages encode meaning, using formal and computational methods on cross-linguistic data.
 btn_email: Email me
 btn_github: GitHub
+btn_cv: "CV (PDF)"
+# Title of the CV (PDF), and the label for the site's address in it.
+cv_h: "Curriculum Vitae"
+website: "Website"
 interests_h: Research topics
 current_h: Current research
 current: Quantifying cross-linguistic similarity. Using phoneme inventories (PHOIBLE) and vocabulary data, I measure how close languages and dialects are, starting with the Romance languages. The aim is a measure that works for many languages, rests on explicit statistics, and can inform where a dialect ends and a language begins.
 projects_h: Projects
+outlook_h: "Outlook"
 langs_h: Languages
 langs:
-- Japanese (native)
-- English (CEFR C1)
-- Spanish (CEFR B1, B.A. major)
+- label: "First language (L1)"
+  items:
+  - "Japanese"
+- label: "Working languages"
+  items:
+  - "English (CEFR C1)"
+  - "Spanish (CEFR B1, B.A. major)"
+- label: "Languages under study"
+  items:
+  - "Korean"
+  - "French"
+  - "Russian"
+  - "Chinese"
+  - "Arabic"
 interests:
 - 'Language universals and typology: what all human languages share, and how they differ'
 - Cross-linguistic semantics, with formal semantics as the theory and computational methods as the tools
@@ -48,6 +70,15 @@ projects:
   desc: A tool for drawing syntax trees in generative grammar (planned)
 - name: Corpus Hub
   desc: A hub for collecting and searching language corpora (planned)
+outlook:
+- name: "Dialect or language"
+  desc: "use similarity measures to propose criteria for when a variety counts as a dialect and when as a language"
+- name: "Syntactic similarity"
+  desc: "measure how close syntax is, alongside sounds and vocabulary, and combine them into one index"
+- name: "Second-language learning"
+  desc: "test whether languages closer to one's own are easier to learn"
+- name: "A GUI tool"
+  desc: "build a tool anyone can use to compute similarity, and release it as open source"
 keywords:
   typology: Linguistic typology
   universals: Language universals

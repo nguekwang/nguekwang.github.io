@@ -6,6 +6,7 @@
 
 - Name: {{ site.name.latin }} ({{ site.name.ja }})
 - Email: {{ site.email }}
+- CV (PDF): {{ site.url }}/en/{{ site.cv_file }}
 {% for u in site.same_as %}- Profile: {{ u }}
 {% endfor %}
 ## {{ t.current_h }}
@@ -27,6 +28,13 @@
 ## {{ t.projects_h }}
 
 {% for p in t.projects %}- {{ p.name }}: {{ p.desc }}
+{% endfor %}## {{ t.outlook_h }}
+
+{% for x in t.outlook %}- {{ x.name }}: {{ x.desc }}
+{% endfor %}
+## {{ t.langs_h }}
+
+{% for g in t.langs %}- {{ g.label }}: {{ g['items'] | join(", ") }}
 {% endfor %}
 ## {{ t.keywords_h }}
 

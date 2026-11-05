@@ -1,11 +1,16 @@
 # Page text for one language (fa). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: این صفحه با ترجمهٔ ماشینی ترجمه شده است.
+post_edited: 'ترجمهٔ ماشینی؛ بازبینی و ویرایش: {names}.'
 native: فارسی
 dir: rtl
+og_locale: fa_IR
 request: درخواست زبان دیگر
+theme_dark: حالت تیره
 pubs_h: انتشارات و ارائه‌ها
 career_h: "پیشینه"
 contact_h: تماس
@@ -23,15 +28,30 @@ keywords_h: کلیدواژه‌ها
 tagline: من بررسی می‌کنم که شیوهٔ رمزگذاری معنا در زبان‌های بشری چه جنبه‌های همگانی دارد، با روش‌های صوری و محاسباتی بر داده‌های میان‌زبانی.
 btn_email: ایمیل بزنید
 btn_github: GitHub
+btn_cv: "رزومه (PDF)"
+cv_h: "رزومه"
+website: "وب‌سایت"
 interests_h: موضوعات پژوهشی
 current_h: پژوهش کنونی
 current: سنجش کمّی شباهت میان زبان‌ها. با استفاده از سیاههٔ واج‌ها (PHOIBLE) و داده‌های واژگانی، میزان نزدیکی زبان‌ها و گویش‌ها را می‌سنجم و از زبان‌های رومیایی آغاز می‌کنم. هدف، معیاری است که برای زبان‌های بسیاری کار کند، بر آمار صریح استوار باشد و نشان دهد گویش کجا پایان می‌یابد و زبان کجا آغاز می‌شود.
 projects_h: پروژه‌ها
+outlook_h: "چشم‌انداز"
 langs_h: زبان‌ها
 langs:
-- ژاپنی (زبان مادری)
-- انگلیسی (CEFR C1)
-- اسپانیایی (CEFR B1، رشتهٔ کارشناسی)
+- label: "زبان مادری (L1)"
+  items:
+  - "ژاپنی"
+- label: "زبان‌های کاری"
+  items:
+  - "انگلیسی (CEFR C1)"
+  - "اسپانیایی (CEFR B1، رشتهٔ کارشناسی)"
+- label: "زبان‌های در حال یادگیری"
+  items:
+  - "کره‌ای"
+  - "فرانسوی"
+  - "روسی"
+  - "چینی"
+  - "عربی"
 interests:
 - 'همگانی‌های زبان و رده‌شناسی: آنچه همهٔ زبان‌های بشری در آن مشترک‌اند و تفاوت‌هایشان'
 - معناشناسی میان‌زبانی، با معناشناسی صوری به‌عنوان نظریه و روش‌های محاسباتی به‌عنوان ابزار
@@ -47,6 +67,15 @@ projects:
   desc: ابزاری برای رسم درخت‌های نحوی در دستور زایشی (در مرحلهٔ طرح)
 - name: Corpus Hub
   desc: مرکزی برای گردآوری و جست‌وجوی پیکره‌های زبانی (در مرحلهٔ طرح)
+outlook:
+- name: "گویش یا زبان"
+  desc: "پیشنهاد معیارهایی بر پایهٔ سنجه‌های شباهت برای اینکه یک گونهٔ زبانی کی گویش و کی زبان شمرده شود"
+- name: "شباهت نحوی"
+  desc: "سنجش نزدیکی نحو در کنار آواها و واژگان، و ترکیب آن‌ها در یک شاخص"
+- name: "یادگیری زبان دوم"
+  desc: "بررسی اینکه آیا زبان‌های نزدیک‌تر به زبان مادری آسان‌تر یاد گرفته می‌شوند"
+- name: "ابزار با رابط گرافیکی"
+  desc: "ساخت ابزاری که هر کسی بتواند با آن شباهت را محاسبه کند، و انتشار آن به‌صورت متن‌باز"
 keywords:
   typology: رده‌شناسی زبان
   universals: همگانی‌های زبان

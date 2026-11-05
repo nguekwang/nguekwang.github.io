@@ -1,19 +1,32 @@
+/* Cross-browser: this stylesheet must look the same in Chromium (Chrome, Edge), Firefox and
+   WebKit (Safari, and every browser on iPhone and iPad), at phone and desktop width, in light
+   and dark mode. tools/browser_check.py checks every page in all three engines on each pull
+   request. Rules: .claude/rules/css-and-browsers.md. */
 :root {
+  /* Lets every engine draw its own parts (scroll bars, the menu's scroll area) in dark mode too. */
+  color-scheme: light dark;
   --accent: #1f3a5f;
   --text: #1a1a1a;
   --sub: #5a5a5a;
   --line: #d6dbe2;
   --bg: #ffffff;
 }
+/* Dark colours. They apply when the system is dark and the visitor has not picked light
+   with the theme toggle, or when the visitor picked dark (data-theme is set by theme.js).
+   The two blocks must hold the same values. */
+:root { color-scheme: light; }
 @media (prefers-color-scheme: dark) {
-  :root { --accent: #8fb3e0; --text: #e6e6e6; --sub: #a8a8a8; --line: #34404f; --bg: #12161b; }
+  :root:not([data-theme="light"]) { --accent: #8fb3e0; --text: #e6e6e6; --sub: #a8a8a8; --line: #34404f; --bg: #12161b; color-scheme: dark; }
 }
+:root[data-theme="dark"] { --accent: #8fb3e0; --text: #e6e6e6; --sub: #a8a8a8; --line: #34404f; --bg: #12161b; color-scheme: dark; }
 * { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body {
   margin: 0; background: var(--bg); color: var(--text);
   font-family: "Helvetica Neue", Arial, "Hiragino Sans", "Noto Sans JP", "Noto Sans CJK JP", sans-serif;
   line-height: 1.65; font-size: 16px;
+  /* Break a long word or URL (e.g. a source link) instead of letting it widen the page on a phone. */
+  overflow-wrap: break-word;
 }
 main { max-width: 880px; margin: 0 auto; padding: 32px 20px 56px; }
 nav { display: flex; justify-content: flex-end; font-size: 14px; margin-bottom: 28px; }
@@ -34,7 +47,22 @@ dl.contact dd { margin: 0; overflow-wrap: anywhere; }
 a { color: var(--accent); }
 footer { margin-top: 48px; color: var(--sub); font-size: 13px; }
 
-nav { align-items: center; }
+nav { align-items: center; gap: 8px; }
+/* Theme toggle: a round button next to the language menu. Its height stretches to the
+   menu pill, so the two always match (about 32px with text-box trim, 33px without); the
+   width is fixed. Hidden until theme.js runs, because it does nothing without JavaScript.
+   Shows a moon in light mode and a sun in dark mode. */
+.theme-toggle {
+  display: none; flex: none; align-self: stretch; width: 32px; padding: 0; margin: 0;
+  align-items: center; justify-content: center; cursor: pointer;
+  background: transparent; color: var(--text); border: 1px solid var(--line); border-radius: 999px;
+}
+[data-theme-js] .theme-toggle { display: inline-flex; }
+.theme-toggle:hover { background: var(--line); }
+.theme-toggle svg { fill: currentColor; stroke: currentColor; stroke-width: 0; }
+.theme-toggle .sun path { fill: none; stroke-width: 2; stroke-linecap: round; }
+.theme-toggle .sun, .theme-toggle[aria-pressed="true"] .moon { display: none; }
+.theme-toggle[aria-pressed="true"] .sun { display: block; }
 .langmenu { position: relative; }
 .langmenu > summary {
   list-style: none; cursor: pointer; font-size: 14px; color: var(--text);
@@ -57,14 +85,26 @@ nav { align-items: center; }
   font-size: 13px; color: var(--sub); text-decoration: none;
 }
 .langmenu .req:hover { color: var(--accent); text-decoration: underline; }
-.langmenu .panel { max-height: 70vh; overflow-y: auto; }
+/* dvh follows the visible height when the phone browser's toolbars show or hide (Safari on
+   iPhone); browsers without dvh use the vh line. */
+.langmenu .panel { max-height: 70vh; max-height: 70dvh; overflow-y: auto; }
 [dir=rtl] .langmenu .panel { right: auto; left: 0; }
 [dir=rtl] ul { padding-left: 0; padding-right: 1.2em; }
 .mt { font-size: 13px; color: var(--sub); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; margin: 0 0 20px; }
 .tagline { margin: 14px 0 0; font-size: 17px; }
-.buttons { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0 0; }
-.btn { display: inline-block; padding: 8px 16px; border-radius: 999px; background: var(--accent); color: var(--bg); text-decoration: none; font-size: 15px; font-weight: 600; }
-.btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+/* Pill buttons. Both kinds have the same 1px border, so they are the same height and the
+   row does not stretch the filled one (which used to push its text up). Where text-box is
+   supported, the line box is trimmed to the cap height and the baseline, so equal top and
+   bottom padding put the letters in the optical middle whatever the font's ascent and
+   descent; other browsers keep a plain line box with smaller padding. The same trim is
+   used for the other pills (language menu, keywords) at the end of this file. */
+.buttons { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 18px 0 0; }
+.btn {
+  display: inline-block; padding: 10px 18px; border: 1px solid var(--accent); border-radius: 999px;
+  background: var(--accent); color: var(--bg); text-decoration: none; text-align: center;
+  font-size: 15px; font-weight: 600; line-height: 1.2;
+}
+.btn.ghost { background: transparent; color: var(--accent); }
 .carousel { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
 .talk { flex: 0 0 85%; scroll-snap-align: start; border: 1px solid var(--line); border-radius: 10px; padding: 14px; text-decoration: none; color: var(--text); display: flex; flex-direction: column; gap: 6px; }
 .chooser { list-style: none; padding: 0; columns: 2; margin-top: 24px; } .chooser li { margin-bottom: 8px; }
@@ -83,3 +123,27 @@ nav { align-items: center; }
 .page-h { font-size: 24px; margin: 0 0 16px; }
 .names { margin-top: 20px; }
 .names li { margin-bottom: 18px; }
+
+/* Optical centring for every pill (buttons, language menu, keywords). Where text-box is
+   supported, trim the line box to cap height and baseline and use equal top and bottom
+   padding sized to keep each pill about as tall as before. Without support the rules above
+   apply unchanged. */
+@supports (text-box: trim-both cap alphabetic) {
+  .btn, .langmenu > summary, .keywords li { text-box: trim-both cap alphabetic; }
+  .btn { padding: 14px 18px; }
+  .langmenu > summary, .keywords li { padding-top: 10px; padding-bottom: 10px; }
+}
+
+/* Languages section: one row per group (first language, working languages, languages
+   under study). The group label sits beside its languages, like the contact list, and
+   the languages in a group run on one line and wrap. */
+dl.langs { display: grid; grid-template-columns: max-content 1fr; gap: 10px 20px; margin: 0; }
+dl.langs dt { color: var(--sub); font-size: 14px; padding-top: 1px; }
+dl.langs dd { margin: 0; }
+dl.langs ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 2px 20px; }
+[dir=rtl] dl.langs ul { padding: 0; }
+dl.langs li { margin: 0; }
+@media (max-width: 480px) {
+  dl.langs { grid-template-columns: 1fr; gap: 2px; }
+  dl.langs dd { margin-bottom: 10px; }
+}

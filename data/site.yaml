@@ -9,6 +9,8 @@ github: https://github.com/nguekwang
 repo: https://github.com/nguekwang/nguekwang.github.io
 goatcounter: https://nguekwang.goatcounter.com/count
 copyright_from: 2023
+# File name of the CV (PDF) built for each language at /<lang>/<cv_file>.
+cv_file: yoshihiro-matsuura-cv.pdf
 
 # Other profiles of the same person, listed as `sameAs` in the structured data (JSON-LD)
 # so that search engines and AI assistants can tell these accounts belong to one person.

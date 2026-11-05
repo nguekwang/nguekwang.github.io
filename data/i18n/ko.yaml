@@ -1,11 +1,16 @@
 # Page text for one language (ko). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: 이 페이지는 기계 번역되었습니다.
+post_edited: '기계 번역 후 검수: {names}'
 native: 한국어
 dir: ltr
+og_locale: ko_KR
 request: 다른 언어 요청
+theme_dark: 다크 테마
 pubs_h: 논문 및 발표
 career_h: "약력"
 contact_h: 연락처
@@ -23,15 +28,30 @@ keywords_h: 키워드
 tagline: 인간 언어가 의미를 나타내는 방식의 보편성을, 여러 언어의 데이터에 형식적·계산적 방법을 적용하여 연구합니다.
 btn_email: 이메일 보내기
 btn_github: GitHub
+btn_cv: "이력서 (PDF)"
+cv_h: "이력서"
+website: "웹사이트"
 interests_h: 연구 주제
 current_h: 현재 연구
 current: 언어 간 유사도의 정량화. 음소 목록(PHOIBLE)과 어휘 데이터를 이용하여 언어와 방언이 얼마나 가까운지를 측정하며, 로망스어부터 시작합니다. 많은 언어에 적용할 수 있고, 명시적인 통계에 기반하며, 방언과 언어의 경계를 판단하는 데 도움이 되는 척도를 만드는 것이 목표입니다.
 projects_h: 프로젝트
+outlook_h: "전망"
 langs_h: 언어
 langs:
-- 일본어(모어)
-- 영어(CEFR C1)
-- 스페인어(CEFR B1, 학부 전공)
+- label: "모어(L1)"
+  items:
+  - "일본어"
+- label: "운용 언어"
+  items:
+  - "영어(CEFR C1)"
+  - "스페인어(CEFR B1, 학부 전공)"
+- label: "습득 중인 언어"
+  items:
+  - "한국어"
+  - "프랑스어"
+  - "러시아어"
+  - "중국어"
+  - "아랍어"
 interests:
 - '언어 보편성과 유형론: 모든 인간 언어가 공유하는 것과 서로 다른 점'
 - '범언어적 의미론: 이론으로서의 형식의미론, 도구로서의 계산적 방법'
@@ -47,6 +67,15 @@ projects:
   desc: 생성문법의 통사 트리를 그리는 도구 (구상 중)
 - name: Corpus Hub
   desc: 언어 코퍼스를 모으고 검색하는 허브 (구상 중)
+outlook:
+- name: "방언과 언어의 경계"
+  desc: "유사도 척도를 바탕으로 어떤 언어 변종을 방언으로 볼지 언어로 볼지의 기준을 제시"
+- name: "통사의 유사도"
+  desc: "음운과 어휘에 더해 통사의 가까움도 측정하고, 이를 하나의 지표로 통합"
+- name: "제2언어 습득에의 응용"
+  desc: "모어와 가까운 언어일수록 배우기 쉬운지 검증"
+- name: "GUI 도구"
+  desc: "누구나 유사도를 계산할 수 있는 도구를 만들어 오픈 소스로 공개"
 keywords:
   typology: 언어 유형론
   universals: 언어 보편성

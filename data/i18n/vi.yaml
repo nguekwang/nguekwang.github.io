@@ -1,11 +1,16 @@
 # Page text for one language (vi). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: Trang này được dịch máy.
+post_edited: 'Bản dịch máy, được hiệu đính bởi {names}.'
 native: Tiếng Việt
 dir: ltr
+og_locale: vi_VN
 request: Yêu cầu ngôn ngữ khác
+theme_dark: Giao diện tối
 pubs_h: Công bố và báo cáo
 career_h: "Tiểu sử"
 contact_h: Liên hệ
@@ -23,15 +28,30 @@ keywords_h: Từ khóa
 tagline: Tôi nghiên cứu những gì mang tính phổ quát trong cách các ngôn ngữ của con người mã hóa ý nghĩa, bằng các phương pháp hình thức và tính toán trên dữ liệu liên ngôn ngữ.
 btn_email: Gửi email
 btn_github: GitHub
+btn_cv: "CV (PDF)"
+cv_h: "Sơ yếu lý lịch"
+website: "Trang web"
 interests_h: Chủ đề nghiên cứu
 current_h: Nghiên cứu hiện tại
 current: Định lượng độ tương đồng giữa các ngôn ngữ. Dựa trên bảng âm vị (PHOIBLE) và dữ liệu từ vựng, tôi đo mức độ gần gũi giữa các ngôn ngữ và phương ngữ, bắt đầu từ các ngôn ngữ Rôman. Mục tiêu là một thước đo áp dụng được cho nhiều ngôn ngữ, dựa trên thống kê rõ ràng, và có thể giúp xác định đâu là ranh giới giữa phương ngữ và ngôn ngữ.
 projects_h: Dự án
+outlook_h: "Định hướng"
 langs_h: Ngôn ngữ
 langs:
-- Tiếng Nhật (bản ngữ)
-- Tiếng Anh (CEFR C1)
-- Tiếng Tây Ban Nha (CEFR B1, chuyên ngành cử nhân)
+- label: "Bản ngữ (L1)"
+  items:
+  - "Tiếng Nhật"
+- label: "Ngôn ngữ làm việc"
+  items:
+  - "Tiếng Anh (CEFR C1)"
+  - "Tiếng Tây Ban Nha (CEFR B1, chuyên ngành cử nhân)"
+- label: "Ngôn ngữ đang học"
+  items:
+  - "Tiếng Hàn"
+  - "Tiếng Pháp"
+  - "Tiếng Nga"
+  - "Tiếng Trung"
+  - "Tiếng Ả Rập"
 interests:
 - 'Phổ quát ngôn ngữ và loại hình học: điểm chung của mọi ngôn ngữ và sự khác biệt giữa chúng'
 - Ngữ nghĩa học liên ngôn ngữ, với ngữ nghĩa học hình thức làm lý thuyết và phương pháp tính toán làm công cụ
@@ -47,6 +67,15 @@ projects:
   desc: Công cụ vẽ cây cú pháp theo ngữ pháp tạo sinh (đang lên ý tưởng)
 - name: Corpus Hub
   desc: Nền tảng thu thập và tra cứu kho ngữ liệu ngôn ngữ (đang lên ý tưởng)
+outlook:
+- name: "Phương ngữ hay ngôn ngữ"
+  desc: "dựa trên các thước đo tương đồng, đề xuất tiêu chí khi nào một biến thể được coi là phương ngữ và khi nào là ngôn ngữ"
+- name: "Tương đồng cú pháp"
+  desc: "đo cả mức gần gũi về cú pháp bên cạnh ngữ âm và từ vựng, rồi gộp lại thành một chỉ số"
+- name: "Thụ đắc ngôn ngữ thứ hai"
+  desc: "kiểm chứng xem ngôn ngữ càng gần tiếng mẹ đẻ thì có càng dễ học hay không"
+- name: "Công cụ có giao diện đồ họa"
+  desc: "xây dựng công cụ để ai cũng tính được độ tương đồng và phát hành dưới dạng mã nguồn mở"
 keywords:
   typology: Loại hình học ngôn ngữ
   universals: Phổ quát ngôn ngữ

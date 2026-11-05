@@ -1,11 +1,16 @@
 # Page text for one language (zh-Hant). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: 本頁面為機器翻譯。
+post_edited: '本頁為機器翻譯，由{names}審校。'
 native: 繁體中文
 dir: ltr
+og_locale: zh_TW
 request: 申請其他語言版本
+theme_dark: 深色主題
 pubs_h: 論文與發表
 career_h: "經歷"
 contact_h: 聯絡方式
@@ -23,15 +28,30 @@ keywords_h: 關鍵詞
 tagline: 我研究人類語言在表達意義上的普遍性，對跨語言資料運用形式化與計算方法。
 btn_email: 寄送電子郵件
 btn_github: GitHub
+btn_cv: "履歷 (PDF)"
+cv_h: "個人履歷"
+website: "網站"
 interests_h: 研究主題
 current_h: 目前的研究
 current: 跨語言相似度的量化。我利用音位清單（PHOIBLE）與詞彙資料測量語言與方言之間的距離，首先從羅曼語族著手。目標是建立一個適用於多種語言、基於明確統計方法、並能為「方言與語言的界線在哪裡」提供依據的度量。
 projects_h: 專案
+outlook_h: "展望"
 langs_h: 語言
 langs:
-- 日語（母語）
-- 英語（CEFR C1）
-- 西班牙語（CEFR B1，大學主修）
+- label: "母語（L1）"
+  items:
+  - "日語"
+- label: "工作語言"
+  items:
+  - "英語（CEFR C1）"
+  - "西班牙語（CEFR B1，大學主修）"
+- label: "正在學習的語言"
+  items:
+  - "韓語"
+  - "法語"
+  - "俄語"
+  - "中文"
+  - "阿拉伯語"
 interests:
 - 語言共性與類型學：所有人類語言的共同點與差異
 - 跨語言語意學：以形式語意學為理論，以計算方法為工具
@@ -47,6 +67,15 @@ projects:
   desc: 用於繪製生成語法句法樹的工具（構想中）
 - name: Corpus Hub
   desc: 用於收集與檢索語言語料庫的平台（構想中）
+outlook:
+- name: "方言與語言的界線"
+  desc: "依據相似度指標，提出把某一語言變體稱為方言還是語言的標準"
+- name: "句法相似度"
+  desc: "在語音和詞彙之外也測量句法的接近程度，並合成為一個綜合指標"
+- name: "第二語言習得的應用"
+  desc: "檢驗與母語越接近的語言是否越容易學習"
+- name: "圖形介面工具"
+  desc: "開發人人都能計算相似度的工具，並以開源形式發布"
 keywords:
   typology: 語言類型學
   universals: 語言共性

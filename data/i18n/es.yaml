@@ -1,11 +1,16 @@
 # Page text for one language (es). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: ''
+post_edited: 'Traducción automática revisada y corregida por {names}.'
 native: Español
 dir: ltr
+og_locale: es_ES
 request: Solicitar otro idioma
+theme_dark: Tema oscuro
 pubs_h: Publicaciones y presentaciones
 career_h: "Trayectoria"
 contact_h: Contacto
@@ -23,15 +28,30 @@ keywords_h: Palabras clave
 tagline: Estudio qué hay de universal en la manera en que las lenguas humanas codifican el significado, con métodos formales y computacionales aplicados a datos de muchas lenguas.
 btn_email: Escríbeme
 btn_github: GitHub
+btn_cv: "CV (PDF)"
+cv_h: "Currículum vítae"
+website: "Sitio web"
 interests_h: Temas de investigación
 current_h: Investigación actual
 current: Cuantificación de la similitud interlingüística. A partir de inventarios fonémicos (PHOIBLE) y datos léxicos, mido cuán cercanas son las lenguas y los dialectos, empezando por las lenguas romances. El objetivo es una medida aplicable a muchas lenguas, con fundamentos estadísticos explícitos, que ayude a decidir dónde termina un dialecto y empieza una lengua.
 projects_h: Proyectos
+outlook_h: "Perspectivas"
 langs_h: Idiomas
 langs:
-- Japonés (lengua materna)
-- Inglés (CEFR C1)
-- Español (CEFR B1, especialidad de grado)
+- label: "Lengua materna (L1)"
+  items:
+  - "Japonés"
+- label: "Lenguas de trabajo"
+  items:
+  - "Inglés (CEFR C1)"
+  - "Español (CEFR B1, especialidad de grado)"
+- label: "Lenguas en adquisición"
+  items:
+  - "Coreano"
+  - "Francés"
+  - "Ruso"
+  - "Chino"
+  - "Árabe"
 interests:
 - 'Universales lingüísticos y tipología: qué comparten todas las lenguas humanas y en qué se diferencian'
 - Semántica interlingüística, con la semántica formal como teoría y los métodos computacionales como herramientas
@@ -47,6 +67,15 @@ projects:
   desc: Herramienta para dibujar árboles sintácticos de la gramática generativa (en proyecto)
 - name: Corpus Hub
   desc: Plataforma para reunir y consultar corpus lingüísticos (en proyecto)
+outlook:
+- name: "Dialecto o lengua"
+  desc: "proponer, a partir de medidas de similitud, criterios para decidir cuándo una variedad es un dialecto y cuándo una lengua"
+- name: "Similitud sintáctica"
+  desc: "medir también la cercanía sintáctica, además de la fonológica y la léxica, y combinarlas en un solo índice"
+- name: "Adquisición de segundas lenguas"
+  desc: "comprobar si las lenguas más cercanas a la propia son más fáciles de aprender"
+- name: "Una herramienta con interfaz gráfica"
+  desc: "crear una herramienta con la que cualquiera pueda calcular la similitud y publicarla como código abierto"
 keywords:
   typology: Tipología lingüística
   universals: Universales lingüísticos
