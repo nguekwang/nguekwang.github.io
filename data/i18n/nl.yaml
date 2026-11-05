@@ -31,7 +31,13 @@ pub_types:
 pub_status:
   unpublished: 'niet gepubliceerd'
 keywords_h: Trefwoorden
-tagline: Ik onderzoek wat universeel is aan de manier waarop menselijke talen betekenis uitdrukken, met formele en computationele methoden op taaloverstijgende data.
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "Taalvergelijking"
+  theory: "Theoretische taalkunde"
+  math: "Wiskunde en data"
+  objects: "Onderzoeksobjecten"
+  tech: "Technologie"
 btn_email: Mail mij
 btn_github: GitHub
 btn_cv: "CV (PDF)"
@@ -39,7 +45,7 @@ cv_h: "Curriculum vitae"
 website: "Website"
 interests_h: "Onderzoeksthema's"
 current_h: Huidig onderzoek
-current: Het kwantificeren van overeenkomst tussen talen. Met foneeminventarissen (PHOIBLE) en woordenschatdata meet ik hoe dicht talen en dialecten bij elkaar liggen, te beginnen met de Romaanse talen. Het doel is een maat die voor veel talen werkt, op expliciete statistiek berust en kan helpen bepalen waar een dialect ophoudt en een taal begint.
+current: "Wat overeenkomst is en hoe de eigenschappen van een taal objectief beschreven kunnen worden. Ik onderzoek of zulke methoden verder reiken dan gesproken menselijke taal: tot geschreven taal, gebarentalen, wat bij andere wezens dan Homo sapiens als taal zou kunnen gelden, kunsttalen en formele talen."
 projects_h: Projecten
 outlook_h: "Vooruitblik"
 langs_h: Talen
@@ -73,6 +79,21 @@ projects:
   desc: Tool voor het tekenen van syntaxisbomen in de generatieve grammatica (gepland)
 - name: Corpus Hub
   desc: Platform voor het verzamelen en doorzoeken van taalcorpora (gepland)
+ai_tools_h: "Links voor AI-assistenten"
+ai_tools_intro: "Deze diensten lezen de openbare GitHub-repository van het project: vervang github.com in de URL van de repository door het adres van de dienst. Ze worden door derden beheerd, niet door mij, en werken alleen met openbare repository's."
+ai_tools_repo: "Repository"
+ai_tools_groups:
+  read: "Lezen met AI"
+  diagram: "Diagrammen"
+  browse: "Code in de browser"
+ai_tools_desc:
+  gitingest: "Bundelt de repository tot één tekst (samenvatting, bestandsstructuur en inhoud) om in een AI-chat te plakken."
+  gitmcp: "Maakt van de repository een externe MCP-server: voeg deze URL toe als aangepaste MCP-server in een AI-assistent die MCP ondersteunt. Een account of API-sleutel is niet nodig."
+  deepwiki: "Maakt documentatie van de repository in wikistijl en beantwoordt vragen erover."
+  uithub: "Toont de bestandsstructuur en de inhoud van de bestanden als platte tekst voor een AI-assistent."
+  gitreverse: "Schrijft een prompt en een specificatie van het project in gewone taal voor een AI-programmeerassistent."
+  gitdiagram: "Tekent de structuur van de repository als interactief diagram."
+  github-dev: "Opent de repository in een code-editor (VS Code) in de browser. Beheerd door GitHub; inloggen bij GitHub is vereist."
 outlook:
 - name: "Dialect of taal"
   desc: "op basis van gelijkenismaten criteria voorstellen voor wanneer een variëteit een dialect is en wanneer een taal"
@@ -83,33 +104,40 @@ outlook:
 - name: "Een GUI-tool"
   desc: "een tool bouwen waarmee iedereen gelijkenis kan berekenen, en die als open source uitbrengen"
 keywords:
-  typology: Taaltypologie
-  universals: Taaluniversalia
-  crossling-semantics: Taaloverstijgende semantiek
-  formal-semantics: Formele semantiek
-  theoretical: Theoretische taalkunde
-  syntax: Syntaxis
-  morphology: Morfologie
+  typology: "Taaltypologie en taaluniversalia"
+  formal-semantics: "Formele semantiek en taaloverstijgende semantiek"
   generative: Generatieve grammatica
   cognitive: Cognitieve taalkunde
-  computational: Computationele taalkunde
+  computational: "Computationele taalkunde en natuurlijke taalverwerking"
   phylogenetic: Fylogenetische taalkunde
-  similarity: Taalovereenkomst
+  contact: "Taalcontact"
+  nationalism: "Taal en nationalisme"
+  similarity: "Gelijkenis en afstand tussen talen"
   phonology: Fonologie
-  romance: Romaanse talen
+  romance: "Romaanse talen (Ibero-Romaans)"
   mozarabic: Mozarabisch (Andalusisch Romaans)
   ladino: Ladino (Joods-Spaans)
-  ibero-romance: Ibero-Romaans
   medieval-castilian: Middeleeuws Castiliaans
   writing-systems: Schriftsystemen
-  nlp: Natuurlijke taalverwerking
-  i18n: Internationalisering (i18n)
-  unicode: Unicode en tekencodering
+  i18n: "Internationalisering (i18n)"
+  unicode: "Unicode en tekencodering"
   input-methods: Invoermethoden
   typesetting: Digitale typografie
-  linux: Linux
-  kernels: Besturingssysteemkernels
+  linux: "Linux en besturingssysteemkernels"
   oss: Opensourcesoftware
+  tech-democratization: "Democratisering van technologie"
+  decentralized-web: "Gedecentraliseerd web en self-hosting"
+  sign-languages: "Gebarentalen"
+  constructed: "Kunsttalen"
+  formal-languages: "Formele talen"
+  information-theory: "Informatietheorie"
+  morse: "Morsecode"
+  probability: "Kansrekening en statistiek"
+  data-viz: "Datavisualisatie"
+  saussurean: "Saussuriaanse taalkunde"
+  wittgenstein: "Analytische filosofie en Wittgenstein"
+  vibrations-waves: "Trillingen en golven"
+  signal-processing: "Signaalverwerking"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

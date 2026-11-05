@@ -31,7 +31,13 @@ pub_types:
 pub_status:
   unpublished: 'tidak dipublikasikan'
 keywords_h: Kata kunci
-tagline: Saya meneliti apa yang universal dalam cara bahasa manusia mengodekan makna, dengan metode formal dan komputasional pada data lintas bahasa.
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "Perbandingan bahasa"
+  theory: "Linguistik teoretis"
+  math: "Matematika dan data"
+  objects: "Objek kajian"
+  tech: "Teknologi"
 btn_email: Kirim email
 btn_github: GitHub
 btn_cv: "CV (PDF)"
@@ -39,7 +45,7 @@ cv_h: "Daftar riwayat hidup"
 website: "Situs web"
 interests_h: Topik penelitian
 current_h: Penelitian saat ini
-current: Mengukur kemiripan antarbahasa secara kuantitatif. Dengan inventaris fonem (PHOIBLE) dan data kosakata, saya mengukur seberapa dekat bahasa dan dialek satu sama lain, dimulai dari bahasa-bahasa Roman. Tujuannya adalah ukuran yang berlaku untuk banyak bahasa, berdasarkan statistik yang eksplisit, dan dapat membantu menentukan di mana dialek berakhir dan bahasa dimulai.
+current: "Apa itu kemiripan, dan bagaimana sifat-sifat suatu bahasa dapat dideskripsikan secara objektif. Saya menjajaki kemungkinan menerapkan metode tersebut di luar bahasa lisan manusia: pada bahasa tulis, bahasa isyarat, apa yang mungkin dapat disebut bahasa pada entitas selain Homo sapiens, bahasa buatan, dan bahasa formal."
 projects_h: Proyek
 outlook_h: "Rencana ke depan"
 langs_h: Bahasa
@@ -73,6 +79,21 @@ projects:
   desc: Alat untuk menggambar pohon sintaksis tata bahasa generatif (direncanakan)
 - name: Corpus Hub
   desc: Wadah untuk mengumpulkan dan mencari korpus bahasa (direncanakan)
+ai_tools_h: "Tautan untuk asisten AI"
+ai_tools_intro: "Layanan berikut membaca repositori GitHub publik proyek ini: cukup ganti github.com pada URL repositori dengan alamat layanannya. Layanan ini dikelola pihak lain, bukan saya, dan hanya berfungsi untuk repositori publik."
+ai_tools_repo: "Repositori"
+ai_tools_groups:
+  read: "Membaca dengan AI"
+  diagram: "Diagram"
+  browse: "Kode di peramban"
+ai_tools_desc:
+  gitingest: "Menyatukan repositori menjadi satu teks (ringkasan, struktur berkas, dan isi berkas) untuk ditempelkan ke obrolan AI."
+  gitmcp: "Menjadikan repositori sebuah server MCP jarak jauh: tambahkan URL ini sebagai server MCP kustom di asisten AI yang mendukung MCP. Tidak perlu akun atau kunci API."
+  deepwiki: "Membuat dokumentasi repositori bergaya wiki dan menjawab pertanyaan tentangnya."
+  uithub: "Menampilkan struktur berkas dan isinya sebagai teks biasa untuk asisten AI."
+  gitreverse: "Menulis prompt dan spesifikasi proyek dalam bahasa alami untuk asisten pemrograman AI."
+  gitdiagram: "Menggambar struktur repositori sebagai diagram interaktif."
+  github-dev: "Membuka repositori di editor kode (VS Code) di peramban. Dikelola oleh GitHub; Anda perlu masuk ke GitHub."
 outlook:
 - name: "Dialek atau bahasa"
   desc: "mengusulkan kriteria, berdasarkan ukuran kemiripan, kapan suatu ragam disebut dialek dan kapan disebut bahasa"
@@ -83,33 +104,40 @@ outlook:
 - name: "Alat berbasis GUI"
   desc: "membuat alat yang dapat dipakai siapa saja untuk menghitung kemiripan, dan merilisnya sebagai sumber terbuka"
 keywords:
-  typology: Tipologi bahasa
-  universals: Kesemestaan bahasa
-  crossling-semantics: Semantik lintas bahasa
-  formal-semantics: Semantik formal
-  theoretical: Linguistik teoretis
-  syntax: Sintaksis
-  morphology: Morfologi
+  typology: "Tipologi bahasa dan kesemestaan bahasa"
+  formal-semantics: "Semantik formal dan semantik lintas bahasa"
   generative: Tata bahasa generatif
   cognitive: Linguistik kognitif
-  computational: Linguistik komputasional
+  computational: "Linguistik komputasional dan pemrosesan bahasa alami"
   phylogenetic: Linguistik filogenetik
-  similarity: Kemiripan antarbahasa
+  contact: "Kontak bahasa"
+  nationalism: "Bahasa dan nasionalisme"
+  similarity: "Kemiripan dan jarak antarbahasa"
   phonology: Fonologi
-  romance: Bahasa-bahasa Roman
+  romance: "Bahasa-bahasa Roman (Ibero-Roman)"
   mozarabic: Bahasa Mozarab (Roman Andalus)
   ladino: Bahasa Ladino (Yahudi-Spanyol)
-  ibero-romance: Ibero-Roman
   medieval-castilian: Bahasa Kastilia abad pertengahan
   writing-systems: Sistem tulisan
-  nlp: Pemrosesan bahasa alami
-  i18n: Internasionalisasi (i18n)
-  unicode: Unicode dan pengodean karakter
+  i18n: "Internasionalisasi (i18n)"
+  unicode: "Unicode dan pengodean karakter"
   input-methods: Metode input
   typesetting: Tata letak digital
-  linux: Linux
-  kernels: Kernel sistem operasi
+  linux: "Linux dan kernel sistem operasi"
   oss: Perangkat lunak sumber terbuka
+  tech-democratization: "Demokratisasi teknologi"
+  decentralized-web: "Web terdesentralisasi dan hosting mandiri"
+  sign-languages: "Bahasa isyarat"
+  constructed: "Bahasa buatan"
+  formal-languages: "Bahasa formal"
+  information-theory: "Teori informasi"
+  morse: "Kode Morse"
+  probability: "Teori probabilitas dan statistika"
+  data-viz: "Visualisasi data"
+  saussurean: "Linguistik Saussure"
+  wittgenstein: "Filsafat analitik dan Wittgenstein"
+  vibrations-waves: "Getaran dan gelombang"
+  signal-processing: "Pemrosesan sinyal"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

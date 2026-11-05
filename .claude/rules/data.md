@@ -7,13 +7,14 @@ paths:
 
 All page text lives here as YAML. HTML structure is in `templates/`.
 
-- `data/site.yaml`: site-wide settings, names, language order (`languages`), keyword order. Page titles are `<name> – <site_title>` (built by `site_title()` in `tools/build.py`): `site_title` is page text in each language file, and the name is `name.ja` on Japanese pages and `name.latin_title` (surname first, the owner's choice) elsewhere.
+- `data/site.yaml`: site-wide settings, names, language order (`languages`), keyword groups and their order (`keywords`). Page titles are `<name> – <site_title>` (built by `site_title()` in `tools/build.py`): `site_title` is page text in each language file, and the name is `name.ja` on Japanese pages and `name.latin_title` (surname first, the owner's choice) elsewhere.
 - `data/i18n/<code>.yaml`: all page text for one language.
 - `data/talks.yaml`: talks (language-independent).
 - `data/publications.yaml`: publications and theses (see below).
 - `data/institutions.yaml`: institution names per language (official or translated).
 - `data/post_editors.yaml`: native speakers who post-edited a machine-translated language (see `writing-style.md`).
 - `data/privacy.yaml`: allow list for `tools/privacy_check.py` (see `build-and-ci.md`).
+- `data/ai_tools.yaml`: services that read a project's GitHub repository, and each project's public repository (see below).
 
 ## Every language has the same items
 
@@ -22,6 +23,19 @@ All page text lives here as YAML. HTML structure is in `templates/`.
 - When adding a key or a list item, add it to every language file in the same change. `python3 tools/build.py --check` (and CI) fails otherwise. Fix the data; never add a fallback.
 - Do not hard-code the number of languages anywhere; it grows when someone requests a new translation.
 - To add a language: copy `data/i18n/en.yaml` to `data/i18n/<code>.yaml`, translate every value, and add the code to `languages`.
+
+## Keywords
+
+- Keywords are shown in groups. `keywords` in `data/site.yaml` lists the groups in display order, each with a `group` id and its keyword ids (`items`).
+- Every language file has a label for each group under `keyword_groups` and a translation for each keyword under `keywords`. A keyword belongs to exactly one group.
+- Keep the groups in line with the research text (`interests`, `current`): language comparison first, then theoretical linguistics (including analytic philosophy, at the owner's request), objects of study, mathematics and data, and technology (the last two next to each other). Group labels name fields at the same level; do not use a label (such as "research areas") that covers the other groups.
+- Do not list keywords whose fields overlap as separate items: merge them into one (for example "Probability theory and statistics"), and do not repeat a group label as a keyword.
+
+## Projects and their links for AI assistants
+
+- Each project with a public repository gets a page of links for AI assistants at `/<lang>/ai-tools/<repo name>/`, linked under the project in the Projects section. It lists services that read the repository when `github.com` in its URL is replaced (`services` in `data/ai_tools.yaml`), each with its URL and a description (`ai_tools_desc` in every language file).
+- Every time a project is added to `projects` in the language files, add it under `projects` in `data/ai_tools.yaml` in the same change; `python3 tools/build.py --check` fails otherwise. Set `repo` (owner/name) as soon as the repository is public, even before it has code (the owner's choice); while it is private or missing, leave it empty, which shows no link and builds no page. Never set a private repository.
+- Before adding a service, check that it is running and that it works by replacing `github.com`; record the date checked in `data/ai_tools.yaml`. Remove a service that has shut down. A new service needs a description in every language file in the same change.
 
 ## Values that are not page text
 

@@ -30,7 +30,6 @@ h2 { margin: 10pt 0 3pt; font-size: 11pt; border-bottom: .5pt solid #999; paddin
 p { margin: 0; }
 ul { margin: 0; padding-inline-start: 1.2em; }
 li { margin: 1pt 0; break-inside: avoid; }
-.tagline { margin-top: 8pt; }
 .keywords { color: #333; }
 footer { margin-top: 14pt; padding-top: 4pt; border-top: .5pt solid #999; font-size: 8.5pt; color: #555; }
 </style>
@@ -47,8 +46,6 @@ footer { margin-top: 14pt; padding-top: 4pt; border-top: .5pt solid #999; font-s
   </ul>
   {% if notice %}<p class="mt">{{ notice }}</p>{% endif %}
 </header>
-
-<p class="tagline">{{ t.tagline }}</p>
 
 <h2>{{ t.interests_h }}</h2>
 <ul>{% for x in t.interests %}<li>{{ x }}</li>{% endfor %}</ul>
@@ -75,7 +72,7 @@ footer { margin-top: 14pt; padding-top: 4pt; border-top: .5pt solid #999; font-s
 <ul>{% for g in t.langs %}<li><strong>{{ g.label }}</strong>{{ t.colon }}{% for x in g['items'] %}{{ x }}{% if not loop.last %} · {% endif %}{% endfor %}</li>{% endfor %}</ul>
 
 <h2>{{ t.keywords_h }}</h2>
-<p class="keywords">{% for k in site.keywords %}{{ t.keywords[k] }}{% if not loop.last %} · {% endif %}{% endfor %}</p>
+<ul class="keywords">{% for g in site.keywords %}<li><strong>{{ t.keyword_groups[g.group] }}</strong>{{ t.colon }}{% for k in g['items'] %}{{ t.keywords[k] }}{% if not loop.last %} · {% endif %}{% endfor %}</li>{% endfor %}</ul>
 
 <footer>{{ updated }} · <bdi dir="ltr">{{ site.url | replace("https://", "") }}/{{ code }}/</bdi></footer>
 </body>

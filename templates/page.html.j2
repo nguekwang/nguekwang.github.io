@@ -39,7 +39,6 @@
   <header>
     <h1>{{ h1 }}</h1>
     <p class="alt" lang="{{ alt_lang }}">{{ alt_name }}</p>
-    <p class="tagline" lang="{{ code }}">{{ t.tagline }}</p>
     <p class="buttons"><a class="btn" href="mailto:{{ site.email }}" data-cv="email-top">{{ t.btn_email }}</a><a class="btn ghost" href="{{ site.github }}" data-cv="github-top">{{ t.btn_github }}</a><a class="btn ghost" href="{{ site.cv_file }}" type="application/pdf" data-cv="cv-top">{{ t.btn_cv }}</a></p>
   </header>
   <section lang="{{ code }}">
@@ -49,7 +48,9 @@
 
   <section class="kw">
     <h2>{{ t.keywords_h }}</h2>
-    <ul class="keywords">{% for k in site.keywords %}<li>{{ t.keywords[k] }}</li>{% endfor %}</ul>
+    <dl class="kw-groups">{% for g in site.keywords %}
+      <dt>{{ t.keyword_groups[g.group] }}</dt><dd><ul class="keywords">{% for k in g['items'] %}<li>{{ t.keywords[k] }}</li>{% endfor %}</ul></dd>{% endfor %}
+    </dl>
   </section>
 {% if talks %}  <section class="talks"><div class="carousel">{% for x in talks %}<a class="talk"{% if x.url %} href="{{ x.url }}" data-cv="talk"{% endif %}><span class="meta">{{ x.date }} / {{ x.venue }}</span><strong>{{ x.title }}</strong></a>{% endfor %}</div></section>
 {% endif %}
@@ -68,7 +69,7 @@
 
   <section lang="{{ code }}">
     <h2>{{ t.projects_h }}</h2>
-    <ul>{% for p in t.projects %}<li><strong>{{ p.name }}</strong>{{ t.colon }}{{ p.desc }}</li>{% endfor %}</ul>
+    <ul>{% for p in t.projects %}<li><strong>{{ p.name }}</strong>{{ t.colon }}{{ p.desc }}{% if p.name in ai_pages %}<br><span class="meta"><a href="{{ ai_pages[p.name].path }}/">{{ t.ai_tools_h }}</a></span>{% endif %}</li>{% endfor %}</ul>
   </section>
 
   <section lang="{{ code }}">

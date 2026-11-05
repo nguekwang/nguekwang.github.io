@@ -2,8 +2,6 @@
 
 > {{ t.desc }}
 
-{{ t.tagline }}
-
 - Name: {{ site.name.latin }} ({{ site.name.ja }})
 - Email: {{ site.email }}
 - CV (PDF): {{ site.url }}/en/{{ site.cv_file }}
@@ -28,7 +26,8 @@
 
 ## {{ t.projects_h }}
 
-{% for p in t.projects %}- {{ p.name }}: {{ p.desc }}
+{% for p in t.projects %}- {{ p.name }}: {{ p.desc }}{% if p.name in ai_pages %}
+  - {{ t.ai_tools_h }}: {{ site.url }}/en/{{ ai_pages[p.name].path }}/{% endif %}
 {% endfor %}## {{ t.outlook_h }}
 
 {% for x in t.outlook %}- {{ x.name }}: {{ x.desc }}
@@ -39,8 +38,8 @@
 {% endfor %}
 ## {{ t.keywords_h }}
 
-{{ keywords | join(", ") }}
-
+{% for g in site.keywords %}- {{ t.keyword_groups[g.group] }}: {% for k in g['items'] %}{{ t.keywords[k] }}{% if not loop.last %}, {% endif %}{% endfor %}
+{% endfor %}
 ## Pages
 
 {% for o in langs %}- [{{ o.native }}]({{ site.url }}/{{ o.code }}/)

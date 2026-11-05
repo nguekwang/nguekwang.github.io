@@ -31,7 +31,13 @@ pub_types:
 pub_status:
   unpublished: '비공개'
 keywords_h: 키워드
-tagline: 인간 언어가 의미를 나타내는 방식의 보편성을, 여러 언어의 데이터에 형식적·계산적 방법을 적용하여 연구합니다.
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "언어 비교"
+  theory: "이론언어학"
+  math: "수리·데이터"
+  objects: "연구 대상"
+  tech: "기술"
 btn_email: 이메일 보내기
 btn_github: GitHub
 btn_cv: "이력서 (PDF)"
@@ -39,7 +45,7 @@ cv_h: "이력서"
 website: "웹사이트"
 interests_h: 연구 주제
 current_h: 현재 연구
-current: 언어 간 유사도의 정량화. 음소 목록(PHOIBLE)과 어휘 데이터를 이용하여 언어와 방언이 얼마나 가까운지를 측정하며, 로망스어부터 시작합니다. 많은 언어에 적용할 수 있고, 명시적인 통계에 기반하며, 방언과 언어의 경계를 판단하는 데 도움이 되는 척도를 만드는 것이 목표입니다.
+current: 유사란 무엇인가, 언어의 특성을 객관적으로 기술하는 방법은 무엇인가. 이러한 방법을 인간의 음성 언어에 그치지 않고 문자 언어와 수어, 호모 사피엔스 이외의 존재가 가진 언어(라고 부를 수 있을지도 모르는 것), 인공어, 형식 언어에도 적용할 가능성을 탐구하고 있습니다.
 projects_h: 프로젝트
 outlook_h: "전망"
 langs_h: 언어
@@ -73,6 +79,21 @@ projects:
   desc: 생성문법의 통사 트리를 그리는 도구 (구상 중)
 - name: Corpus Hub
   desc: 언어 코퍼스를 모으고 검색하는 허브 (구상 중)
+ai_tools_h: "AI 어시스턴트용 링크"
+ai_tools_intro: "프로젝트의 공개 GitHub 저장소를 읽는 서비스입니다. 저장소 URL의 github.com을 각 서비스의 주소로 바꾸면 사용할 수 있습니다. 모두 제가 아닌 제3자가 운영하며, 공개 저장소에서만 작동합니다."
+ai_tools_repo: "저장소"
+ai_tools_groups:
+  read: "AI로 읽기"
+  diagram: "다이어그램"
+  browse: "브라우저에서 코드 보기"
+ai_tools_desc:
+  gitingest: "저장소를 AI 채팅에 붙여 넣기 좋은 하나의 텍스트(개요, 파일 구조, 파일 내용)로 묶습니다."
+  gitmcp: "저장소를 원격 MCP 서버로 만듭니다. MCP를 지원하는 AI 어시스턴트에 이 URL을 사용자 지정 MCP 서버로 추가해 사용합니다. 계정이나 API 키는 필요 없습니다."
+  deepwiki: "저장소에 대한 위키 형식의 문서를 만들고, 저장소에 관한 질문에 답합니다."
+  uithub: "파일 구조와 파일 내용을 AI 어시스턴트용 일반 텍스트로 보여 줍니다."
+  gitreverse: "AI 코딩 어시스턴트를 위해 프로젝트의 프롬프트와 자연어 사양서를 작성합니다."
+  gitdiagram: "저장소의 구조를 상호작용할 수 있는 다이어그램으로 그립니다."
+  github-dev: "저장소를 브라우저의 코드 편집기(VS Code)에서 엽니다. GitHub가 운영하며 GitHub 로그인이 필요합니다."
 outlook:
 - name: "방언과 언어의 경계"
   desc: "유사도 척도를 바탕으로 어떤 언어 변종을 방언으로 볼지 언어로 볼지의 기준을 제시"
@@ -83,33 +104,40 @@ outlook:
 - name: "GUI 도구"
   desc: "누구나 유사도를 계산할 수 있는 도구를 만들어 오픈 소스로 공개"
 keywords:
-  typology: 언어 유형론
-  universals: 언어 보편성
-  crossling-semantics: 범언어적 의미론
-  formal-semantics: 형식의미론
-  theoretical: 이론언어학
-  syntax: 통사론
-  morphology: 형태론
+  typology: "언어 유형론·언어 보편성"
+  formal-semantics: "형식의미론·범언어적 의미론"
   generative: 생성문법
   cognitive: 인지언어학
-  computational: 전산언어학
+  computational: "전산언어학·자연어 처리"
   phylogenetic: 계통언어학
-  similarity: 언어 간 유사도
+  contact: "언어 접촉"
+  nationalism: "언어와 민족주의"
+  similarity: "언어 간 유사도·거리"
   phonology: 음운론
-  romance: 로망스어
+  romance: "로망스어(이베로로망스어)"
   mozarabic: 모사라베어 (안달루스 로망스어)
   ladino: 라디노어 (유대 스페인어)
-  ibero-romance: 이베로로망스어
   medieval-castilian: 중세 카스티야어
   writing-systems: 문자 체계
-  nlp: 자연어 처리
-  i18n: 국제화(i18n)
-  unicode: 유니코드와 문자 인코딩
+  i18n: "국제화(i18n)"
+  unicode: "유니코드와 문자 인코딩"
   input-methods: 입력기
   typesetting: 디지털 조판
-  linux: Linux
-  kernels: 운영체제 커널
+  linux: "Linux·운영체제 커널"
   oss: 오픈 소스 소프트웨어
+  tech-democratization: "기술의 민주화"
+  decentralized-web: "탈중앙화 웹·셀프 호스팅"
+  sign-languages: "수어"
+  constructed: "인공어"
+  formal-languages: "형식 언어"
+  information-theory: "정보 이론"
+  morse: "모스 부호"
+  probability: "확률론·통계학"
+  data-viz: "데이터 시각화"
+  saussurean: "소쉬르 언어학"
+  wittgenstein: "분석철학·비트겐슈타인"
+  vibrations-waves: "진동·파동론"
+  signal-processing: "신호 처리"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

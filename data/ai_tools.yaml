@@ -1,0 +1,26 @@
+# Pages of links for AI assistants, one per project, at /<lang>/ai-tools/<repository name>/.
+# Each service reads a public GitHub repository when "github.com" in the repository's URL is
+# replaced by its `host`. The descriptions are page text: `ai_tools_desc` in data/i18n/<code>.yaml.
+# `group` is one of the ids under `ai_tools_groups` in data/i18n/<code>.yaml; groups are shown in
+# the order they first appear here.
+# Checked on 2026-11-05 that each service is running and uses this URL form. Left out:
+# TalkToGitHub (talktogithub.com), whose hosted app is no longer available.
+services:
+  - {id: gitingest, name: Gitingest, host: gitingest.com, group: read}
+  - {id: gitmcp, name: GitMCP, host: gitmcp.io, group: read}
+  - {id: deepwiki, name: DeepWiki, host: deepwiki.com, group: read}
+  - {id: uithub, name: uithub, host: uithub.com, group: read}
+  - {id: gitreverse, name: GitReverse, host: gitreverse.com, group: read}
+  - {id: gitdiagram, name: GitDiagram, host: gitdiagram.com, group: diagram}
+  - {id: github-dev, name: github.dev, host: github.dev, group: browse}
+
+# Every project under `projects:` in data/i18n/<code>.yaml needs an entry here, keyed by its
+# name (the same in every language); `python3 tools/build.py --check` fails otherwise.
+# `repo` is the project's public GitHub repository as owner/name, set as soon as it is public
+# (even before it has code). Leave it empty while the project has no public repository: the
+# site then shows no link and builds no page for it. Never set it to a private repository.
+projects:
+  linguasim: {repo: nguekwang/linguasim}
+  Languer Map: {repo: ""}
+  phrase-marker-gen: {repo: nguekwang/phrase-marker-gen}
+  Corpus Hub: {repo: ""}

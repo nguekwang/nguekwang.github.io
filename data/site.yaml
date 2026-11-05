@@ -33,35 +33,20 @@ languages: [en, ja, es, fr, ru, zh-Hans, zh-Hant, ar, ko, vi, de, pt, it, nl, tr
 digits:
   fa: "۰۱۲۳۴۵۶۷۸۹"
 
-# Keyword order (display order). Each id needs a translation under `keywords:` in every data/i18n/<code>.yaml.
+# Keywords, shown in groups (display order). Each group id needs a label under
+# `keyword_groups:` and each keyword id a translation under `keywords:` in every
+# data/i18n/<code>.yaml.
 keywords:
-  - typology
-  - universals
-  - crossling-semantics
-  - formal-semantics
-  - theoretical
-  - syntax
-  - morphology
-  - generative
-  - cognitive
-  - computational
-  - phylogenetic
-  - similarity
-  - phonology
-  - romance
-  - mozarabic
-  - ladino
-  - ibero-romance
-  - medieval-castilian
-  - writing-systems
-  - nlp
-  - i18n
-  - unicode
-  - input-methods
-  - typesetting
-  - linux
-  - kernels
-  - oss
+  - group: comparison
+    items: [similarity, typology, phylogenetic, contact, nationalism]
+  - group: theory
+    items: [saussurean, phonology, formal-semantics, generative, cognitive, wittgenstein]
+  - group: objects
+    items: [romance, medieval-castilian, mozarabic, ladino, writing-systems, morse, sign-languages, constructed, formal-languages]
+  - group: math
+    items: [computational, information-theory, probability, vibrations-waves, signal-processing, data-viz]
+  - group: tech
+    items: [i18n, unicode, input-methods, typesetting, linux, oss, decentralized-web, tech-democratization]
 
 name:
   latin: Yoshihiro (Yoshi) MATSUURA

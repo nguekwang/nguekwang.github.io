@@ -31,7 +31,13 @@ pub_types:
 pub_status:
   unpublished: 'non pubblicata'
 keywords_h: Parole chiave
-tagline: Studio ciò che è universale nel modo in cui le lingue umane codificano il significato, con metodi formali e computazionali applicati a dati interlinguistici.
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "Confronto tra lingue"
+  theory: "Linguistica teorica"
+  math: "Matematica e dati"
+  objects: "Oggetti di studio"
+  tech: "Tecnologia"
 btn_email: Scrivimi
 btn_github: GitHub
 btn_cv: "CV (PDF)"
@@ -39,7 +45,7 @@ cv_h: "Curriculum vitae"
 website: "Sito web"
 interests_h: Temi di ricerca
 current_h: Ricerca attuale
-current: Quantificare la somiglianza tra le lingue. Usando inventari fonematici (PHOIBLE) e dati lessicali, misuro quanto sono vicini lingue e dialetti, a partire dalle lingue romanze. L'obiettivo è una misura valida per molte lingue, basata su statistiche esplicite, che aiuti a capire dove finisce un dialetto e comincia una lingua.
+current: "Che cosa sia la somiglianza e come descrivere in modo oggettivo le proprietà di una lingua. Esploro la possibilità di applicare questi metodi oltre la lingua parlata umana: alla lingua scritta, alle lingue dei segni, a ciò che potrebbe essere considerato linguaggio in esseri diversi dall'Homo sapiens, alle lingue artificiali e ai linguaggi formali."
 projects_h: Progetti
 outlook_h: "Prospettive"
 langs_h: Lingue
@@ -73,6 +79,21 @@ projects:
   desc: Strumento per disegnare alberi sintattici della grammatica generativa (in progetto)
 - name: Corpus Hub
   desc: Piattaforma per raccogliere e consultare corpora linguistici (in progetto)
+ai_tools_h: "Link per assistenti di IA"
+ai_tools_intro: "Questi servizi leggono il repository pubblico del progetto su GitHub: basta sostituire github.com nell'URL del repository con l'indirizzo del servizio. Sono gestiti da terzi, non da me, e funzionano solo con repository pubblici."
+ai_tools_repo: "Repository"
+ai_tools_groups:
+  read: "Lettura con l'IA"
+  diagram: "Diagrammi"
+  browse: "Codice nel browser"
+ai_tools_desc:
+  gitingest: "Raccoglie il repository in un unico testo (riepilogo, struttura dei file e contenuti) da incollare in una chat con un'IA."
+  gitmcp: "Trasforma il repository in un server MCP remoto: aggiungi questo URL come server MCP personalizzato in un assistente di IA che supporta MCP. Non servono account né chiavi API."
+  deepwiki: "Genera una documentazione del repository in stile wiki e risponde a domande su di esso."
+  uithub: "Mostra la struttura dei file e i loro contenuti come testo semplice per un assistente di IA."
+  gitreverse: "Scrive un prompt e una specifica del progetto in linguaggio naturale per un assistente di programmazione con IA."
+  gitdiagram: "Disegna la struttura del repository come diagramma interattivo."
+  github-dev: "Apre il repository in un editor di codice (VS Code) nel browser. Gestito da GitHub; è necessario accedere a GitHub."
 outlook:
 - name: "Dialetto o lingua"
   desc: "proporre, sulla base di misure di somiglianza, criteri per stabilire quando una varietà è un dialetto e quando una lingua"
@@ -83,33 +104,40 @@ outlook:
 - name: "Uno strumento con interfaccia grafica"
   desc: "creare uno strumento con cui chiunque possa calcolare la somiglianza e pubblicarlo come open source"
 keywords:
-  typology: Tipologia linguistica
-  universals: Universali linguistici
-  crossling-semantics: Semantica interlinguistica
-  formal-semantics: Semantica formale
-  theoretical: Linguistica teorica
-  syntax: Sintassi
-  morphology: Morfologia
+  typology: "Tipologia linguistica e universali linguistici"
+  formal-semantics: "Semantica formale e semantica interlinguistica"
   generative: Grammatica generativa
   cognitive: Linguistica cognitiva
-  computational: Linguistica computazionale
+  computational: "Linguistica computazionale ed elaborazione del linguaggio naturale"
   phylogenetic: Linguistica filogenetica
-  similarity: Somiglianza tra lingue
+  contact: "Contatto linguistico"
+  nationalism: "Lingua e nazionalismo"
+  similarity: "Somiglianza e distanza tra le lingue"
   phonology: Fonologia
-  romance: Lingue romanze
+  romance: "Lingue romanze (ibero-romanzo)"
   mozarabic: Mozarabico (romanzo andaluso)
   ladino: Giudeo-spagnolo (ladino)
-  ibero-romance: Ibero-romanzo
   medieval-castilian: Castigliano medievale
   writing-systems: Sistemi di scrittura
-  nlp: Elaborazione del linguaggio naturale
-  i18n: Internazionalizzazione (i18n)
-  unicode: Unicode e codifica dei caratteri
+  i18n: "Internazionalizzazione (i18n)"
+  unicode: "Unicode e codifica dei caratteri"
   input-methods: Metodi di input
   typesetting: Composizione tipografica digitale
-  linux: Linux
-  kernels: Kernel dei sistemi operativi
+  linux: "Linux e kernel dei sistemi operativi"
   oss: Software open source
+  tech-democratization: "Democratizzazione della tecnologia"
+  decentralized-web: "Web decentralizzato e self-hosting"
+  sign-languages: "Lingue dei segni"
+  constructed: "Lingue artificiali"
+  formal-languages: "Linguaggi formali"
+  information-theory: "Teoria dell’informazione"
+  morse: "Codice Morse"
+  probability: "Teoria della probabilità e statistica"
+  data-viz: "Visualizzazione dei dati"
+  saussurean: "Linguistica saussuriana"
+  wittgenstein: "Filosofia analitica e Wittgenstein"
+  vibrations-waves: "Vibrazioni e onde"
+  signal-processing: "Elaborazione dei segnali"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.
