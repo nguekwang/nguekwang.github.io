@@ -10,7 +10,7 @@
 <meta name="author" content="{{ site.name.latin_short }}">
 {% include "verification.html.j2" %}
 <meta property="og:type" content="profile">
-<meta property="og:site_name" content="{{ site.name.latin }}">
+<meta property="og:site_name" content="{{ site_name }}">
 <meta property="og:title" content="{{ title }}">
 <meta property="og:description" content="{{ t.desc }}">
 <meta property="og:url" content="{{ site.url }}/{{ code }}/">
@@ -49,7 +49,9 @@
 
   <section class="kw">
     <h2>{{ t.keywords_h }}</h2>
-    <ul class="keywords">{% for k in site.keywords %}<li>{{ t.keywords[k] }}</li>{% endfor %}</ul>
+    <dl class="kw-groups">{% for g in site.keywords %}
+      <dt>{{ t.keyword_groups[g.group] }}</dt><dd><ul class="keywords">{% for k in g['items'] %}<li>{{ t.keywords[k] }}</li>{% endfor %}</ul></dd>{% endfor %}
+    </dl>
   </section>
 {% if talks %}  <section class="talks"><div class="carousel">{% for x in talks %}<a class="talk"{% if x.url %} href="{{ x.url }}" data-cv="talk"{% endif %}><span class="meta">{{ x.date }} / {{ x.venue }}</span><strong>{{ x.title }}</strong></a>{% endfor %}</div></section>
 {% endif %}

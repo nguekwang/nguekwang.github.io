@@ -21,6 +21,7 @@ career:
 colon: ': '
 email: E-mail
 updated: 'Última atualização: {date}'
+site_title: Portfólio de pesquisa
 desc: 'Yoshihiro Matsuura: tipologia linguística e fonologia, quantificação da semelhança interlinguística a partir de inventários fonêmicos.'
 pub_title_en: ' ({title})'
 pub_note: ' ({year}) ({details})'
@@ -30,6 +31,13 @@ pub_types:
 pub_status:
   unpublished: 'não publicado'
 keywords_h: Palavras-chave
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "Comparação de línguas"
+  theory: "Linguística teórica"
+  math: "Matemática e dados"
+  objects: "Objetos de estudo"
+  tech: "Tecnologia"
 tagline: Tipologia linguística, semântica e linguística computacional
 btn_email: Enviar e-mail
 btn_github: GitHub
@@ -82,33 +90,39 @@ outlook:
 - name: "Uma ferramenta com interface gráfica"
   desc: "criar uma ferramenta com a qual qualquer pessoa possa calcular a similaridade e publicá-la como código aberto"
 keywords:
-  typology: Tipologia linguística
-  universals: Universais linguísticos
-  crossling-semantics: Semântica interlinguística
-  formal-semantics: Semântica formal
-  theoretical: Linguística teórica
-  syntax: Sintaxe
-  morphology: Morfologia
+  typology: "Tipologia linguística e universais linguísticos"
+  formal-semantics: "Semântica formal e semântica interlinguística"
   generative: Gramática gerativa
   cognitive: Linguística cognitiva
-  computational: Linguística computacional
+  computational: "Linguística computacional e processamento de linguagem natural"
   phylogenetic: Linguística filogenética
-  similarity: Semelhança entre línguas
+  contact: "Contato linguístico"
+  similarity: "Similaridade e distância entre línguas"
   phonology: Fonologia
-  romance: Línguas românicas
+  romance: "Línguas românicas (ibero-romance)"
   mozarabic: Moçárabe (romance andalusino)
   ladino: Ladino (judeu-espanhol)
-  ibero-romance: Ibero-romance
   medieval-castilian: Castelhano medieval
   writing-systems: Sistemas de escrita
-  nlp: Processamento de linguagem natural
-  i18n: Internacionalização (i18n)
-  unicode: Unicode e codificação de caracteres
+  i18n: "Internacionalização (i18n)"
+  unicode: "Unicode e codificação de caracteres"
   input-methods: Métodos de entrada
   typesetting: Composição tipográfica digital
-  linux: Linux
-  kernels: Núcleos de sistemas operacionais
+  linux: "Linux e núcleos de sistemas operacionais"
   oss: Software de código aberto
+  tech-democratization: "Democratização da tecnologia"
+  decentralized-web: "Web descentralizada e auto-hospedagem"
+  sign-languages: "Línguas de sinais"
+  constructed: "Línguas construídas"
+  formal-languages: "Linguagens formais"
+  information-theory: "Teoria da informação"
+  morse: "Código Morse"
+  probability: "Teoria das probabilidades e estatística"
+  data-viz: "Visualização de dados"
+  saussurean: "Linguística saussuriana"
+  wittgenstein: "Filosofia analítica e Wittgenstein"
+  vibrations-waves: "Vibrações e ondas"
+  signal-processing: "Processamento de sinais"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

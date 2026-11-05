@@ -2,7 +2,7 @@
 """Static site generator for this site.
 
 All page text lives in YAML under data/:
-  data/site.yaml          site-wide settings, names, language order, keyword order
+  data/site.yaml          site-wide settings, names, language order, keyword groups
   data/i18n/<code>.yaml   page text for one language
   data/talks.yaml         talks (language-independent)
   data/publications.yaml  publications and theses (titles as written; labels from data/i18n)
@@ -95,6 +95,11 @@ def compare(ref, other, path, errors):
             errors.append(f"{path}: empty")
 
 
+def keyword_ids(site):
+    """All keyword ids in display order, across the groups in data/site.yaml."""
+    return [k for g in site.get("keywords", []) for k in g.get("items", [])]
+
+
 def check(site, texts, institutions, post_editors):
     errors = []
     i18n_dir = os.path.join(DATA, "i18n")
@@ -105,7 +110,15 @@ def check(site, texts, institutions, post_editors):
         errors.append(f"data/i18n/{code}.yaml: listed in data/site.yaml but the file is missing")
     ref = texts.get(REFERENCE)
     if ref is not None:
-        order = site.get("keywords", [])
+        groups = site.get("keywords", [])
+        group_ids = [g.get("group") for g in groups]
+        order = keyword_ids(site)
+        if len(set(group_ids)) != len(group_ids):
+            errors.append("data/site.yaml keywords: duplicate group ids")
+        if set(group_ids) != set(ref.get("keyword_groups", {})):
+            errors.append(f"data/site.yaml keywords: group ids differ from data/i18n/{REFERENCE}.yaml keyword_groups")
+        if any(not g.get("items") for g in groups):
+            errors.append("data/site.yaml keywords: every group needs at least one keyword")
         if len(set(order)) != len(order):
             errors.append("data/site.yaml keywords: duplicate ids")
         if set(order) != set(ref.get("keywords", {})):
@@ -323,17 +336,19 @@ def main():
     shutil.rmtree(OUT, ignore_errors=True)
     shutil.copytree(os.path.join(ROOT, "static"), OUT)
 
+    # The WebSite in the JSON-LD is one entity shared by every language, so it has one name.
+    website_name = site_title(site, texts, None)
     page = env.get_template("page.html.j2")
     for code in site["languages"]:
         ja = code == "ja"
         t = texts[code]
         h1 = site["name"]["ja"] if ja else site["name"]["latin"]
-        title = f"{h1} – {t['keywords']['typology']}"
+        title = site_title(site, texts, code)
         html = page.render(
             site=site, langs=langs, talks=talks, code=code, t=t,
-            h1=h1, title=title, notice=notice(code, t, post_editors.get(code)),
+            h1=h1, title=title, site_name=site_title(site, texts, code), notice=notice(code, t, post_editors.get(code)),
             updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
-            jsonld=jsonld(site, code, t, title, post_editors.get(code)),
+            jsonld=jsonld(site, code, t, title, website_name, post_editors.get(code)),
             alt_name=site["name"]["latin"] if ja else site["name"]["ja"],
             alt_lang="en" if ja else "ja",
             pubs=publications(site, code, t, pubs), names_slug=NAMES_SLUG,
@@ -353,11 +368,11 @@ def main():
                 row["basis_name"] = texts[n["basis"]]["institutions"][iid]
                 row["basis_lang"] = n["basis"]
             rows.append(row)
-        title = f"{t['names_h']} – {site['name']['ja'] if code == 'ja' else site['name']['latin']}"
+        title = f"{t['names_h']} – {site_title(site, texts, code)}"
         write(os.path.join(code, NAMES_SLUG, "index.html"), names_page.render(
-            site=site, langs=langs, code=code, t=t, rows=rows, slug=NAMES_SLUG, title=title,
+            site=site, langs=langs, code=code, t=t, rows=rows, slug=NAMES_SLUG, title=title, site_name=site_title(site, texts, code),
             notice=notice(code, t, post_editors.get(code)),
-            jsonld=jsonld(site, code, t, title, post_editors.get(code), slug=NAMES_SLUG),
+            jsonld=jsonld(site, code, t, title, website_name, post_editors.get(code), slug=NAMES_SLUG),
             updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
             footer_name=site["name"]["ja"] if code == "ja" else site["name"]["latin_short"],
         ))
@@ -365,10 +380,10 @@ def main():
     codes = site["languages"]
     en = texts[REFERENCE]
     write("index.html", env.get_template("root.html.j2").render(
-        site=site, langs=langs, title=site["name"]["latin"], description=en["desc"],
-        jsonld=jsonld(site, None, en, site["name"]["latin"])))
+        site=site, langs=langs, title=website_name, site_name=website_name, description=en["desc"],
+        jsonld=jsonld(site, None, en, website_name, website_name)))
     write("llms.txt", env.get_template("llms.txt.j2").render(
-        site=site, langs=langs, t=en, pubs=publications(site, REFERENCE, en, pubs), keywords=[en["keywords"][k] for k in site["keywords"]]))
+        site=site, langs=langs, t=en, pubs=publications(site, REFERENCE, en, pubs)))
     write("sitemap.xml", env.get_template("sitemap.xml.j2").render(site=site, codes=codes, slug=NAMES_SLUG))
     print(f"built {len(codes)} language pages (and their {NAMES_SLUG}/ pages) into _site/")
 
@@ -422,7 +437,18 @@ def print_pdfs(chrome, jobs, tmp):
         list(pool.map(one, *zip(*enumerate(jobs))))
 
 
-def jsonld(site, code, t, title, post_editors=None, slug=None):
+
+def site_title(site, texts, code):
+    """The site's name in one language: the owner's name, a dash and `site_title`.
+
+    The Japanese pages use the Japanese name; every other page uses `latin_title`
+    (surname first). The root language chooser (code None) uses English. Page titles,
+    og:site_name and the WebSite name in the JSON-LD all use it.
+    """
+    name = site["name"]["ja"] if code == "ja" else site["name"]["latin_title"]
+    return f"{name} – {texts[code or REFERENCE]['site_title']}"
+
+def jsonld(site, code, t, title, website_name, post_editors=None, slug=None):
     """Structured data (schema.org JSON-LD) for one page.
 
     Every page describes the same Person and WebSite (same @id), so search engines and
@@ -430,7 +456,8 @@ def jsonld(site, code, t, title, post_editors=None, slug=None):
     root language chooser. With `slug`, the page is the sub-page /<code>/<slug>/ (such as
     the institution-names page): a WebPage about the Person, with a breadcrumb back to the
     language's profile page, instead of the ProfilePage itself. Post-editors of the page's
-    language are listed as `contributor` of the page.
+    language are listed as `contributor` of the page. `website_name` is the WebSite's
+    name, the same on every page.
     """
     base = site["url"]
     name = site["name"]
@@ -444,7 +471,7 @@ def jsonld(site, code, t, title, post_editors=None, slug=None):
         "url": f"{base}/",
         "email": f"mailto:{site['email']}",
         "description": t["desc"],
-        "knowsAbout": [t["keywords"][k] for k in site["keywords"]],
+        "knowsAbout": [t["keywords"][k] for k in keyword_ids(site)],
         "knowsLanguage": site["knows_language"],
         "alumniOf": {
             "@type": "CollegeOrUniversity",
@@ -458,7 +485,7 @@ def jsonld(site, code, t, title, post_editors=None, slug=None):
         "@type": "WebSite",
         "@id": f"{base}/#website",
         "url": f"{base}/",
-        "name": name["latin"],
+        "name": website_name,
         "inLanguage": site["languages"],
         "about": {"@id": f"{base}/#person"},
     }

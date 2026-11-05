@@ -21,6 +21,7 @@ career:
 colon: ': '
 email: البريد الإلكتروني
 updated: 'آخر تحديث: {date}'
+site_title: الملف البحثي
 desc: 'يوشيهيرو ماتسورا: علم الأنماط اللغوية وعلم الأصوات الوظيفي، وقياس التشابه بين اللغات كميًا من قوائم الفونيمات.'
 pub_title_en: ' ({title})'
 pub_note: ' ({year}) ({details})'
@@ -30,6 +31,13 @@ pub_types:
 pub_status:
   unpublished: 'غير منشورة'
 keywords_h: الكلمات المفتاحية
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "مقارنة اللغات"
+  theory: "اللسانيات النظرية"
+  math: "الرياضيات والبيانات"
+  objects: "موضوعات الدراسة"
+  tech: "التقنية"
 tagline: علم تصنيف اللغات، وعلم الدلالة، واللسانيات الحاسوبية
 btn_email: راسلني
 btn_github: GitHub
@@ -82,33 +90,39 @@ outlook:
 - name: "أداة بواجهة رسومية"
   desc: "بناء أداة يستطيع أي شخص استخدامها لحساب التشابه، ونشرها مفتوحة المصدر"
 keywords:
-  typology: التصنيف اللغوي
-  universals: الكليات اللغوية
-  crossling-semantics: الدلالة عبر اللغات
-  formal-semantics: الدلالة الصورية
-  theoretical: اللسانيات النظرية
-  syntax: علم التراكيب
-  morphology: علم الصرف
+  typology: "التصنيف اللغوي والكليات اللغوية"
+  formal-semantics: "الدلالة الصورية والدلالة عبر اللغات"
   generative: النحو التوليدي
   cognitive: اللسانيات الإدراكية
-  computational: اللسانيات الحاسوبية
+  computational: "اللسانيات الحاسوبية ومعالجة اللغات الطبيعية"
   phylogenetic: اللسانيات التطورية
-  similarity: التشابه بين اللغات
+  contact: "الاحتكاك اللغوي"
+  similarity: "التشابه والمسافة بين اللغات"
   phonology: علم الأصوات الوظيفي
-  romance: اللغات الرومانسية
+  romance: "اللغات الرومانسية (اللغات الرومانسية الإيبيرية)"
   mozarabic: اللغة المستعربة (الرومانسية الأندلسية)
   ladino: اللادينو (اليهودية الإسبانية)
-  ibero-romance: اللغات الرومانسية الإيبيرية
   medieval-castilian: القشتالية في العصور الوسطى
   writing-systems: أنظمة الكتابة
-  nlp: معالجة اللغات الطبيعية
-  i18n: التدويل (i18n)
-  unicode: يونيكود وترميز المحارف
+  i18n: "التدويل (i18n)"
+  unicode: "يونيكود وترميز المحارف"
   input-methods: طرق الإدخال
   typesetting: التنضيد الرقمي
-  linux: Linux
-  kernels: أنوية أنظمة التشغيل
+  linux: "Linux وأنوية أنظمة التشغيل"
   oss: البرمجيات مفتوحة المصدر
+  tech-democratization: "دمقرطة التقنية"
+  decentralized-web: "الويب اللامركزي والاستضافة الذاتية"
+  sign-languages: "لغات الإشارة"
+  constructed: "اللغات المصطنعة"
+  formal-languages: "اللغات الصورية"
+  information-theory: "نظرية المعلومات"
+  morse: "شفرة مورس"
+  probability: "نظرية الاحتمالات والإحصاء"
+  data-viz: "التمثيل المرئي للبيانات"
+  saussurean: "لسانيات سوسير"
+  wittgenstein: "الفلسفة التحليلية وفيتغنشتاين"
+  vibrations-waves: "الاهتزازات والموجات"
+  signal-processing: "معالجة الإشارات"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

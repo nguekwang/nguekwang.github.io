@@ -21,6 +21,7 @@ career:
 colon: ': '
 email: E-mail
 updated: 'Laatst bijgewerkt: {date}'
+site_title: Onderzoeksportfolio
 desc: 'Yoshihiro Matsuura: taaltypologie en fonologie, het kwantificeren van gelijkenis tussen talen op basis van foneeminventarissen.'
 pub_title_en: ' ({title})'
 pub_note: ' ({year}) ({details})'
@@ -30,6 +31,13 @@ pub_types:
 pub_status:
   unpublished: 'niet gepubliceerd'
 keywords_h: Trefwoorden
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "Taalvergelijking"
+  theory: "Theoretische taalkunde"
+  math: "Wiskunde en data"
+  objects: "Onderzoeksobjecten"
+  tech: "Technologie"
 tagline: Taaltypologie, semantiek en computationele taalkunde
 btn_email: Mail mij
 btn_github: GitHub
@@ -82,33 +90,39 @@ outlook:
 - name: "Een GUI-tool"
   desc: "een tool bouwen waarmee iedereen gelijkenis kan berekenen, en die als open source uitbrengen"
 keywords:
-  typology: Taaltypologie
-  universals: Taaluniversalia
-  crossling-semantics: Taaloverstijgende semantiek
-  formal-semantics: Formele semantiek
-  theoretical: Theoretische taalkunde
-  syntax: Syntaxis
-  morphology: Morfologie
+  typology: "Taaltypologie en taaluniversalia"
+  formal-semantics: "Formele semantiek en taaloverstijgende semantiek"
   generative: Generatieve grammatica
   cognitive: Cognitieve taalkunde
-  computational: Computationele taalkunde
+  computational: "Computationele taalkunde en natuurlijke taalverwerking"
   phylogenetic: Fylogenetische taalkunde
-  similarity: Taalovereenkomst
+  contact: "Taalcontact"
+  similarity: "Gelijkenis en afstand tussen talen"
   phonology: Fonologie
-  romance: Romaanse talen
+  romance: "Romaanse talen (Ibero-Romaans)"
   mozarabic: Mozarabisch (Andalusisch Romaans)
   ladino: Ladino (Joods-Spaans)
-  ibero-romance: Ibero-Romaans
   medieval-castilian: Middeleeuws Castiliaans
   writing-systems: Schriftsystemen
-  nlp: Natuurlijke taalverwerking
-  i18n: Internationalisering (i18n)
-  unicode: Unicode en tekencodering
+  i18n: "Internationalisering (i18n)"
+  unicode: "Unicode en tekencodering"
   input-methods: Invoermethoden
   typesetting: Digitale typografie
-  linux: Linux
-  kernels: Besturingssysteemkernels
+  linux: "Linux en besturingssysteemkernels"
   oss: Opensourcesoftware
+  tech-democratization: "Democratisering van technologie"
+  decentralized-web: "Gedecentraliseerd web en self-hosting"
+  sign-languages: "Gebarentalen"
+  constructed: "Kunsttalen"
+  formal-languages: "Formele talen"
+  information-theory: "Informatietheorie"
+  morse: "Morsecode"
+  probability: "Kansrekening en statistiek"
+  data-viz: "Datavisualisatie"
+  saussurean: "Saussuriaanse taalkunde"
+  wittgenstein: "Analytische filosofie en Wittgenstein"
+  vibrations-waves: "Trillingen en golven"
+  signal-processing: "Signaalverwerking"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

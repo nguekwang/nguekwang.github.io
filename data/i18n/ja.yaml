@@ -21,6 +21,7 @@ career:
 colon: '：'
 email: メール
 updated: '最終更新：{date}'
+site_title: 研究ポートフォリオ
 desc: 松浦 義広。言語類型論・音韻論。音素目録にもとづく言語間類似度の定量化。
 pub_title_en: '（{title}）'
 pub_note: '（{year}）（{details}）'
@@ -30,6 +31,13 @@ pub_types:
 pub_status:
   unpublished: '非公開'
 keywords_h: キーワード
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "言語の比較"
+  theory: "理論言語学"
+  math: "数理・データ"
+  objects: "研究対象"
+  tech: "技術"
 tagline: 言語類型論・意味論・計算言語学
 btn_email: メールする
 btn_github: GitHub
@@ -82,33 +90,39 @@ outlook:
 - name: "GUI ツール"
   desc: "誰でも類似度を計算できるツールを作り、オープンソースで公開する"
 keywords:
-  typology: 言語類型論
-  universals: 言語普遍性
-  crossling-semantics: 通言語的意味論
-  formal-semantics: 形式意味論
-  theoretical: 理論言語学
-  syntax: 統語論
-  morphology: 形態論
+  typology: "言語類型論・言語普遍性"
+  formal-semantics: "形式意味論・通言語的意味論"
   generative: 生成文法
   cognitive: 認知言語学
-  computational: 計算言語学
+  computational: "計算言語学・自然言語処理"
   phylogenetic: 系統言語学
-  similarity: 言語間の類似度
+  contact: "言語接触"
+  similarity: "言語間の類似度・距離"
   phonology: 音韻論
-  romance: ロマンス諸語
+  romance: "ロマンス諸語(イベロ=ロマンス語)"
   mozarabic: モサラベ語(アンダルシア=ロマンス語)
   ladino: ラディノ語(ユダヤ=スペイン語)
-  ibero-romance: イベロ=ロマンス語
   medieval-castilian: 中世カスティーリャ語
   writing-systems: 文字体系
-  nlp: 自然言語処理
-  i18n: 国際化(i18n)
-  unicode: Unicode・文字コード
+  i18n: "国際化(i18n)"
+  unicode: "Unicode・文字コード"
   input-methods: 入力メソッド
   typesetting: デジタル組版
-  linux: Linux
-  kernels: OSカーネル
+  linux: "Linux・OSカーネル"
   oss: オープンソースソフトウェア(OSS)
+  tech-democratization: "技術の民主化"
+  decentralized-web: "分散型ウェブ・セルフホスティング"
+  sign-languages: "手話言語"
+  constructed: "人工言語"
+  formal-languages: "形式言語"
+  information-theory: "情報理論"
+  morse: "モールス信号"
+  probability: "確率論・統計学"
+  data-viz: "データの可視化"
+  saussurean: "ソシュール言語学"
+  wittgenstein: "分析哲学・ウィトゲンシュタイン"
+  vibrations-waves: "振動波動論"
+  signal-processing: "信号処理"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

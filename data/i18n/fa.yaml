@@ -21,6 +21,7 @@ career:
 colon: ': '
 email: ایمیل
 updated: 'آخرین به‌روزرسانی: {date}'
+site_title: کارنامهٔ پژوهشی
 desc: 'یوشی‌هیرو ماتسوئورا: رده‌شناسی زبان و واج‌شناسی، سنجش کمّی شباهت میان‌زبانی بر پایهٔ سیاههٔ واج‌ها.'
 pub_title_en: ' ({title})'
 pub_note: ' ({year}) ({details})'
@@ -30,6 +31,13 @@ pub_types:
 pub_status:
   unpublished: 'منتشرنشده'
 keywords_h: کلیدواژه‌ها
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "مقایسه زبان‌ها"
+  theory: "زبان‌شناسی نظری"
+  math: "ریاضیات و داده‌ها"
+  objects: "موضوعات پژوهش"
+  tech: "فناوری"
 tagline: رده‌شناسی زبان، معناشناسی و زبان‌شناسی رایانشی
 btn_email: ایمیل بزنید
 btn_github: GitHub
@@ -82,33 +90,39 @@ outlook:
 - name: "ابزار با رابط گرافیکی"
   desc: "ساخت ابزاری که هر کسی بتواند با آن شباهت را محاسبه کند، و انتشار آن به‌صورت متن‌باز"
 keywords:
-  typology: رده‌شناسی زبان
-  universals: همگانی‌های زبان
-  crossling-semantics: معناشناسی میان‌زبانی
-  formal-semantics: معناشناسی صوری
-  theoretical: زبان‌شناسی نظری
-  syntax: نحو
-  morphology: صرف
+  typology: "رده‌شناسی زبان و همگانی‌های زبان"
+  formal-semantics: "معناشناسی صوری و معناشناسی میان‌زبانی"
   generative: دستور زایشی
   cognitive: زبان‌شناسی شناختی
-  computational: زبان‌شناسی محاسباتی
+  computational: "زبان‌شناسی محاسباتی و پردازش زبان طبیعی"
   phylogenetic: زبان‌شناسی تبارشناختی
-  similarity: شباهت میان زبان‌ها
+  contact: "تماس زبانی"
+  similarity: "شباهت و فاصله میان زبان‌ها"
   phonology: واج‌شناسی
-  romance: زبان‌های رومیایی
+  romance: "زبان‌های رومیایی (زبان‌های رومیایی ایبری)"
   mozarabic: موزارابی (رومیایی اندلسی)
   ladino: لادینو (اسپانیایی یهودی)
-  ibero-romance: زبان‌های رومیایی ایبری
   medieval-castilian: کاستیلی سده‌های میانه
   writing-systems: نظام‌های نوشتاری
-  nlp: پردازش زبان طبیعی
-  i18n: بین‌المللی‌سازی (i18n)
-  unicode: یونیکد و رمزگذاری نویسه‌ها
+  i18n: "بین‌المللی‌سازی (i18n)"
+  unicode: "یونیکد و رمزگذاری نویسه‌ها"
   input-methods: روش‌های ورودی
   typesetting: حروف‌چینی دیجیتال
-  linux: Linux
-  kernels: هستهٔ سیستم‌عامل
+  linux: "Linux و هستهٔ سیستم‌عامل"
   oss: نرم‌افزار متن‌باز
+  tech-democratization: "دموکراتیک‌سازی فناوری"
+  decentralized-web: "وب غیرمتمرکز و میزبانی شخصی"
+  sign-languages: "زبان‌های اشاره"
+  constructed: "زبان‌های ساختگی"
+  formal-languages: "زبان‌های صوری"
+  information-theory: "نظریه اطلاعات"
+  morse: "کد مورس"
+  probability: "نظریه احتمال و آمار"
+  data-viz: "مصورسازی داده‌ها"
+  saussurean: "زبان‌شناسی سوسور"
+  wittgenstein: "فلسفه تحلیلی و ویتگنشتاین"
+  vibrations-waves: "ارتعاشات و امواج"
+  signal-processing: "پردازش سیگنال"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.
