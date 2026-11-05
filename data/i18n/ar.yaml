@@ -105,7 +105,8 @@ keywords:
   ladino: اللادينو (اليهودية الإسبانية)
   medieval-castilian: القشتالية في العصور الوسطى
   writing-systems: أنظمة الكتابة
-  i18n: "التدويل (i18n)، يونيكود وترميز المحارف"
+  i18n: "التدويل (i18n)"
+  unicode: "يونيكود وترميز المحارف"
   input-methods: طرق الإدخال
   typesetting: التنضيد الرقمي
   linux: "Linux وأنوية أنظمة التشغيل"

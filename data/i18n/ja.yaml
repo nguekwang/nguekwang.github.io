@@ -105,7 +105,8 @@ keywords:
   ladino: ラディノ語(ユダヤ=スペイン語)
   medieval-castilian: 中世カスティーリャ語
   writing-systems: 文字体系
-  i18n: "国際化(i18n)・Unicode・文字コード"
+  i18n: "国際化(i18n)"
+  unicode: "Unicode・文字コード"
   input-methods: 入力メソッド
   typesetting: デジタル組版
   linux: "Linux・OSカーネル"

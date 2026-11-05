@@ -105,7 +105,8 @@ keywords:
   ladino: 拉迪諾語（猶太西班牙語）
   medieval-castilian: 中世紀卡斯提亞語
   writing-systems: 文字系統
-  i18n: "國際化（i18n）、Unicode 與字元編碼"
+  i18n: "國際化（i18n）"
+  unicode: "Unicode 與字元編碼"
   input-methods: 輸入法
   typesetting: 數位排版
   linux: "Linux 與作業系統核心"

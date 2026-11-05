@@ -105,7 +105,8 @@ keywords:
   ladino: Bahasa Ladino (Yahudi-Spanyol)
   medieval-castilian: Bahasa Kastilia abad pertengahan
   writing-systems: Sistem tulisan
-  i18n: "Internasionalisasi (i18n), Unicode dan pengodean karakter"
+  i18n: "Internasionalisasi (i18n)"
+  unicode: "Unicode dan pengodean karakter"
   input-methods: Metode input
   typesetting: Tata letak digital
   linux: "Linux dan kernel sistem operasi"

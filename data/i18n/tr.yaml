@@ -105,7 +105,8 @@ keywords:
   ladino: Ladino (Yahudi İspanyolcası)
   medieval-castilian: Orta Çağ Kastilyacası
   writing-systems: Yazı sistemleri
-  i18n: "Uluslararasılaştırma (i18n), Unicode ve karakter kodlama"
+  i18n: "Uluslararasılaştırma (i18n)"
+  unicode: "Unicode ve karakter kodlama"
   input-methods: Giriş yöntemleri
   typesetting: Dijital dizgi
   linux: "Linux ve işletim sistemi çekirdekleri"

@@ -105,7 +105,8 @@ keywords:
   ladino: Ladino (Joods-Spaans)
   medieval-castilian: Middeleeuws Castiliaans
   writing-systems: Schriftsystemen
-  i18n: "Internationalisering (i18n), Unicode en tekencodering"
+  i18n: "Internationalisering (i18n)"
+  unicode: "Unicode en tekencodering"
   input-methods: Invoermethoden
   typesetting: Digitale typografie
   linux: "Linux en besturingssysteemkernels"
