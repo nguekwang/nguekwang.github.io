@@ -28,8 +28,8 @@ Loaded in every session:
 Loaded when Claude works on matching files:
 
 - `.claude/rules/data.md`: `data/**`
-- `.claude/rules/writing-style.md`: `data/**` (wording, project names, institution names, machine translation notice)
+- `.claude/rules/writing-style.md`: `data/**` (wording, project names, institution names, machine translation and post-editors)
 - `.claude/rules/templates.md`: `templates/**`
 - `.claude/rules/static.md`: `static/**`
-- `.claude/rules/build-and-ci.md`: `tools/**`, `.github/**`, `requirements.txt`
+- `.claude/rules/build-and-ci.md`: `tools/**`, `.github/**`, `requirements*.txt`, `lychee.toml` (build, CI and automated checks)
 - `.claude/rules/measurement.md`: `data/site.yaml`, `templates/page.html.j2`, `static/cv.js`
