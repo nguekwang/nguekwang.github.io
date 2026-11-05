@@ -38,7 +38,8 @@ including right-to-left ones.
   every page in Chromium, Firefox and WebKit at desktop and phone width. It fails on sideways
   scrolling, a language menu outside the window, or a JavaScript or console error (including
   Content-Security-Policy errors). Fix the CSS or template; do not loosen the check.
-- For a visible change, look at the `compare-*.png` images in the workflow's artifact (the three
-  engines side by side) and attach the relevant ones to the pull request.
+- For a visible change, also look at the `compare-*.png` images in the `browsers` workflow's
+  artifact (the three engines side by side) and mention any difference between engines in the
+  pull request description.
 - Locally: `pip install -r requirements-browsers.txt`, `python3 -m playwright install chromium
   firefox webkit`, build, then `python3 tools/browser_check.py`.

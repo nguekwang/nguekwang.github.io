@@ -22,4 +22,5 @@ paths:
 - `tools/check_links.py` (CI, every pull request): fails when a link between the site's own pages, or an entry in `sitemap.xml`, points at a file that is not built.
 - `.github/workflows/links.yml` (weekly): checks links to other sites with lychee (`lychee.toml`) and opens or updates the issue "Broken links on the site". Links listed in `data/post_editors.yaml` are skipped, so they never appear in a public issue.
 - `.github/workflows/screenshots.yml` (pull requests that touch `data/`, `templates/`, `static/`, `tools/` or requirements): before/after screenshots by `tools/screenshots.py`, uploaded as an artifact and summarised in a pull request comment.
+- `.github/workflows/browsers.yml` (same pull requests): `tools/browser_check.py` opens every page of every language at desktop and phone width in Chromium, Firefox and WebKit, and fails on sideways scrolling, a language menu outside the window, or a JavaScript or console error. Rules: `css-and-browsers.md`.
 - `.github/dependabot.yml`: weekly pull requests for new versions of GitHub Actions and Python packages. The owner reviews and merges them like any other pull request.

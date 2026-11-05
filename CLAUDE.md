@@ -31,5 +31,6 @@ Loaded when Claude works on matching files:
 - `.claude/rules/writing-style.md`: `data/**` (wording, project names, institution names, machine translation and post-editors)
 - `.claude/rules/templates.md`: `templates/**`
 - `.claude/rules/static.md`: `static/**`
+- `.claude/rules/css-and-browsers.md`: `static/**`, `templates/**` (CSS that works in Chromium, Firefox and WebKit/Safari)
 - `.claude/rules/build-and-ci.md`: `tools/**`, `.github/**`, `requirements*.txt`, `lychee.toml` (build, CI and automated checks)
 - `.claude/rules/measurement.md`: `data/site.yaml`, `templates/page.html.j2`, `static/cv.js`
