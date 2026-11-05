@@ -32,8 +32,8 @@ pub_status:
 keywords_h: 키워드
 # Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
 keyword_groups:
-  research: "연구 분야"
-  theory: "이론·하위 분야"
+  comparison: "언어 비교"
+  theory: "이론언어학"
   math: "수리·데이터"
   objects: "연구 대상"
   tech: "기술"
@@ -89,41 +89,35 @@ outlook:
 - name: "GUI 도구"
   desc: "누구나 유사도를 계산할 수 있는 도구를 만들어 오픈 소스로 공개"
 keywords:
-  typology: 언어 유형론
-  universals: 언어 보편성
-  crossling-semantics: 범언어적 의미론
-  formal-semantics: 형식의미론
-  theoretical: 이론언어학
+  typology: "언어 유형론·언어 보편성"
+  formal-semantics: "형식의미론·범언어적 의미론"
   syntax: 통사론
   morphology: 형태론
   generative: 생성문법
   cognitive: 인지언어학
-  computational: 전산언어학
+  computational: "전산언어학·자연어 처리"
   phylogenetic: 계통언어학
-  similarity: 언어 간 유사도
+  similarity: "언어 간 유사도·거리"
   phonology: 음운론
-  romance: 로망스어
+  romance: "로망스어(이베로로망스어)"
   mozarabic: 모사라베어 (안달루스 로망스어)
   ladino: 라디노어 (유대 스페인어)
-  ibero-romance: 이베로로망스어
   medieval-castilian: 중세 카스티야어
   writing-systems: 문자 체계
-  nlp: 자연어 처리
-  i18n: 국제화(i18n)
-  unicode: 유니코드와 문자 인코딩
+  i18n: "국제화(i18n)·유니코드와 문자 인코딩"
   input-methods: 입력기
   typesetting: 디지털 조판
-  linux: Linux
-  kernels: 운영체제 커널
+  linux: "Linux·운영체제 커널"
   oss: 오픈 소스 소프트웨어
   sign-languages: "수어"
   constructed: "인공어"
   formal-languages: "형식 언어"
   information-theory: "정보 이론"
   morse: "모스 부호"
-  probability: "확률론"
-  statistics: "통계학"
+  probability: "확률론·통계학"
   data-viz: "데이터 시각화"
+  saussurean: "소쉬르 언어학"
+  wittgenstein: "비트겐슈타인"
   vibrations-waves: "진동·파동론"
   signal-processing: "신호 처리"
 

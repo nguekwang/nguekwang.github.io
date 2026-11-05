@@ -32,8 +32,8 @@ pub_status:
 keywords_h: Mots-clés
 # Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
 keyword_groups:
-  research: "Domaines de recherche"
-  theory: "Théorie et sous-disciplines"
+  comparison: "Comparaison des langues"
+  theory: "Linguistique théorique"
   math: "Mathématiques et données"
   objects: "Objets d’étude"
   tech: "Technologie"
@@ -89,41 +89,35 @@ outlook:
 - name: "Un outil graphique"
   desc: "créer un outil permettant à chacun de calculer la similarité, et le publier en open source"
 keywords:
-  typology: Typologie linguistique
-  universals: Universaux linguistiques
-  crossling-semantics: Sémantique interlinguistique
-  formal-semantics: Sémantique formelle
-  theoretical: Linguistique théorique
+  typology: "Typologie linguistique et universaux linguistiques"
+  formal-semantics: "Sémantique formelle et sémantique interlinguistique"
   syntax: Syntaxe
   morphology: Morphologie
   generative: Grammaire générative
   cognitive: Linguistique cognitive
-  computational: Linguistique computationnelle
+  computational: "Linguistique computationnelle et traitement automatique des langues"
   phylogenetic: Linguistique phylogénétique
-  similarity: Similarité entre langues
+  similarity: "Similarité et distance entre les langues"
   phonology: Phonologie
-  romance: Langues romanes
+  romance: "Langues romanes (ibéro-roman)"
   mozarabic: Mozarabe (roman andalou)
   ladino: Ladino (judéo-espagnol)
-  ibero-romance: Ibéro-roman
   medieval-castilian: Castillan médiéval
   writing-systems: Systèmes d'écriture
-  nlp: Traitement automatique des langues
-  i18n: Internationalisation (i18n)
-  unicode: Unicode et codage des caractères
+  i18n: "Internationalisation (i18n), Unicode et codage des caractères"
   input-methods: Méthodes de saisie
   typesetting: Composition typographique numérique
-  linux: Linux
-  kernels: Noyaux de systèmes d'exploitation
+  linux: "Linux et noyaux de systèmes d'exploitation"
   oss: Logiciels libres et open source
   sign-languages: "Langues des signes"
   constructed: "Langues construites"
   formal-languages: "Langages formels"
   information-theory: "Théorie de l’information"
   morse: "Code Morse"
-  probability: "Théorie des probabilités"
-  statistics: "Statistique"
+  probability: "Théorie des probabilités et statistique"
   data-viz: "Visualisation de données"
+  saussurean: "Linguistique saussurienne"
+  wittgenstein: "Wittgenstein"
   vibrations-waves: "Vibrations et ondes"
   signal-processing: "Traitement du signal"
 

@@ -32,8 +32,8 @@ pub_status:
 keywords_h: الكلمات المفتاحية
 # Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
 keyword_groups:
-  research: "مجالات البحث"
-  theory: "النظرية والفروع"
+  comparison: "مقارنة اللغات"
+  theory: "اللسانيات النظرية"
   math: "الرياضيات والبيانات"
   objects: "موضوعات الدراسة"
   tech: "التقنية"
@@ -89,41 +89,35 @@ outlook:
 - name: "أداة بواجهة رسومية"
   desc: "بناء أداة يستطيع أي شخص استخدامها لحساب التشابه، ونشرها مفتوحة المصدر"
 keywords:
-  typology: التصنيف اللغوي
-  universals: الكليات اللغوية
-  crossling-semantics: الدلالة عبر اللغات
-  formal-semantics: الدلالة الصورية
-  theoretical: اللسانيات النظرية
+  typology: "التصنيف اللغوي والكليات اللغوية"
+  formal-semantics: "الدلالة الصورية والدلالة عبر اللغات"
   syntax: علم التراكيب
   morphology: علم الصرف
   generative: النحو التوليدي
   cognitive: اللسانيات الإدراكية
-  computational: اللسانيات الحاسوبية
+  computational: "اللسانيات الحاسوبية ومعالجة اللغات الطبيعية"
   phylogenetic: اللسانيات التطورية
-  similarity: التشابه بين اللغات
+  similarity: "التشابه والمسافة بين اللغات"
   phonology: علم الأصوات الوظيفي
-  romance: اللغات الرومانسية
+  romance: "اللغات الرومانسية (اللغات الرومانسية الإيبيرية)"
   mozarabic: اللغة المستعربة (الرومانسية الأندلسية)
   ladino: اللادينو (اليهودية الإسبانية)
-  ibero-romance: اللغات الرومانسية الإيبيرية
   medieval-castilian: القشتالية في العصور الوسطى
   writing-systems: أنظمة الكتابة
-  nlp: معالجة اللغات الطبيعية
-  i18n: التدويل (i18n)
-  unicode: يونيكود وترميز المحارف
+  i18n: "التدويل (i18n)، يونيكود وترميز المحارف"
   input-methods: طرق الإدخال
   typesetting: التنضيد الرقمي
-  linux: Linux
-  kernels: أنوية أنظمة التشغيل
+  linux: "Linux وأنوية أنظمة التشغيل"
   oss: البرمجيات مفتوحة المصدر
   sign-languages: "لغات الإشارة"
   constructed: "اللغات المصطنعة"
   formal-languages: "اللغات الصورية"
   information-theory: "نظرية المعلومات"
   morse: "شفرة مورس"
-  probability: "نظرية الاحتمالات"
-  statistics: "الإحصاء"
+  probability: "نظرية الاحتمالات والإحصاء"
   data-viz: "التمثيل المرئي للبيانات"
+  saussurean: "لسانيات سوسير"
+  wittgenstein: "فيتغنشتاين"
   vibrations-waves: "الاهتزازات والموجات"
   signal-processing: "معالجة الإشارات"
 

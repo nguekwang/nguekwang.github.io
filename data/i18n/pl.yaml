@@ -32,8 +32,8 @@ pub_status:
 keywords_h: Słowa kluczowe
 # Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
 keyword_groups:
-  research: "Obszary badań"
-  theory: "Teoria i subdyscypliny"
+  comparison: "Porównywanie języków"
+  theory: "Językoznawstwo teoretyczne"
   math: "Matematyka i dane"
   objects: "Przedmioty badań"
   tech: "Technologia"
@@ -89,41 +89,35 @@ outlook:
 - name: "Narzędzie z interfejsem graficznym"
   desc: "stworzyć narzędzie, za pomocą którego każdy obliczy podobieństwo, i udostępnić je jako open source"
 keywords:
-  typology: Typologia językowa
-  universals: Uniwersalia językowe
-  crossling-semantics: Semantyka międzyjęzykowa
-  formal-semantics: Semantyka formalna
-  theoretical: Językoznawstwo teoretyczne
+  typology: "Typologia językowa i uniwersalia językowe"
+  formal-semantics: "Semantyka formalna i semantyka międzyjęzykowa"
   syntax: Składnia
   morphology: Morfologia
   generative: Gramatyka generatywna
   cognitive: Językoznawstwo kognitywne
-  computational: Lingwistyka komputerowa
+  computational: "Lingwistyka komputerowa i przetwarzanie języka naturalnego"
   phylogenetic: Lingwistyka filogenetyczna
-  similarity: Podobieństwo języków
+  similarity: "Podobieństwo i odległość między językami"
   phonology: Fonologia
-  romance: Języki romańskie
+  romance: "Języki romańskie (języki iberoromańskie)"
   mozarabic: Mozarabski (romański andaluzyjski)
   ladino: Ladino (judeo-hiszpański)
-  ibero-romance: Języki iberoromańskie
   medieval-castilian: Średniowieczny kastylijski
   writing-systems: Systemy pisma
-  nlp: Przetwarzanie języka naturalnego
-  i18n: Internacjonalizacja (i18n)
-  unicode: Unicode i kodowanie znaków
+  i18n: "Internacjonalizacja (i18n), Unicode i kodowanie znaków"
   input-methods: Metody wprowadzania tekstu
   typesetting: Skład cyfrowy
-  linux: Linux
-  kernels: Jądra systemów operacyjnych
+  linux: "Linux i jądra systemów operacyjnych"
   oss: Oprogramowanie open source
   sign-languages: "Języki migowe"
   constructed: "Języki sztuczne"
   formal-languages: "Języki formalne"
   information-theory: "Teoria informacji"
   morse: "Alfabet Morse’a"
-  probability: "Rachunek prawdopodobieństwa"
-  statistics: "Statystyka"
+  probability: "Rachunek prawdopodobieństwa i statystyka"
   data-viz: "Wizualizacja danych"
+  saussurean: "Językoznawstwo Saussure’a"
+  wittgenstein: "Wittgenstein"
   vibrations-waves: "Drgania i fale"
   signal-processing: "Przetwarzanie sygnałów"
 

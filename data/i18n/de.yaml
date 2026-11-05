@@ -32,8 +32,8 @@ pub_status:
 keywords_h: Schlagwörter
 # Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
 keyword_groups:
-  research: "Forschungsgebiete"
-  theory: "Theorie und Teildisziplinen"
+  comparison: "Sprachvergleich"
+  theory: "Theoretische Linguistik"
   math: "Mathematik und Daten"
   objects: "Untersuchungsgegenstände"
   tech: "Technik"
@@ -89,41 +89,35 @@ outlook:
 - name: "Ein GUI-Werkzeug"
   desc: "ein Werkzeug bauen, mit dem jede und jeder Ähnlichkeit berechnen kann, und es als Open Source veröffentlichen"
 keywords:
-  typology: Sprachtypologie
-  universals: Sprachuniversalien
-  crossling-semantics: Sprachübergreifende Semantik
-  formal-semantics: Formale Semantik
-  theoretical: Theoretische Linguistik
+  typology: "Sprachtypologie und Sprachuniversalien"
+  formal-semantics: "Formale Semantik und sprachübergreifende Semantik"
   syntax: Syntax
   morphology: Morphologie
   generative: Generative Grammatik
   cognitive: Kognitive Linguistik
-  computational: Computerlinguistik
+  computational: "Computerlinguistik und Verarbeitung natürlicher Sprache"
   phylogenetic: Phylogenetische Linguistik
-  similarity: Sprachähnlichkeit
+  similarity: "Ähnlichkeit und Distanz zwischen Sprachen"
   phonology: Phonologie
-  romance: Romanische Sprachen
+  romance: "Romanische Sprachen (Iberoromanisch)"
   mozarabic: Mozarabisch (andalusisches Romanisch)
   ladino: Ladino (Judenspanisch)
-  ibero-romance: Iberoromanisch
   medieval-castilian: Mittelalterliches Kastilisch
   writing-systems: Schriftsysteme
-  nlp: Verarbeitung natürlicher Sprache
-  i18n: Internationalisierung (i18n)
-  unicode: Unicode und Zeichenkodierung
+  i18n: "Internationalisierung (i18n), Unicode und Zeichenkodierung"
   input-methods: Eingabemethoden
   typesetting: Digitaler Satz
-  linux: Linux
-  kernels: Betriebssystemkerne
+  linux: "Linux und Betriebssystemkerne"
   oss: Open-Source-Software
   sign-languages: "Gebärdensprachen"
   constructed: "Plansprachen"
   formal-languages: "Formale Sprachen"
   information-theory: "Informationstheorie"
   morse: "Morsecode"
-  probability: "Wahrscheinlichkeitstheorie"
-  statistics: "Statistik"
+  probability: "Wahrscheinlichkeitstheorie und Statistik"
   data-viz: "Datenvisualisierung"
+  saussurean: "Saussuresche Linguistik"
+  wittgenstein: "Wittgenstein"
   vibrations-waves: "Schwingungen und Wellen"
   signal-processing: "Signalverarbeitung"
 

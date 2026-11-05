@@ -32,8 +32,8 @@ pub_status:
 keywords_h: Trefwoorden
 # Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
 keyword_groups:
-  research: "Onderzoeksgebieden"
-  theory: "Theorie en deelgebieden"
+  comparison: "Taalvergelijking"
+  theory: "Theoretische taalkunde"
   math: "Wiskunde en data"
   objects: "Onderzoeksobjecten"
   tech: "Technologie"
@@ -89,41 +89,35 @@ outlook:
 - name: "Een GUI-tool"
   desc: "een tool bouwen waarmee iedereen gelijkenis kan berekenen, en die als open source uitbrengen"
 keywords:
-  typology: Taaltypologie
-  universals: Taaluniversalia
-  crossling-semantics: Taaloverstijgende semantiek
-  formal-semantics: Formele semantiek
-  theoretical: Theoretische taalkunde
+  typology: "Taaltypologie en taaluniversalia"
+  formal-semantics: "Formele semantiek en taaloverstijgende semantiek"
   syntax: Syntaxis
   morphology: Morfologie
   generative: Generatieve grammatica
   cognitive: Cognitieve taalkunde
-  computational: Computationele taalkunde
+  computational: "Computationele taalkunde en natuurlijke taalverwerking"
   phylogenetic: Fylogenetische taalkunde
-  similarity: Taalovereenkomst
+  similarity: "Gelijkenis en afstand tussen talen"
   phonology: Fonologie
-  romance: Romaanse talen
+  romance: "Romaanse talen (Ibero-Romaans)"
   mozarabic: Mozarabisch (Andalusisch Romaans)
   ladino: Ladino (Joods-Spaans)
-  ibero-romance: Ibero-Romaans
   medieval-castilian: Middeleeuws Castiliaans
   writing-systems: Schriftsystemen
-  nlp: Natuurlijke taalverwerking
-  i18n: Internationalisering (i18n)
-  unicode: Unicode en tekencodering
+  i18n: "Internationalisering (i18n), Unicode en tekencodering"
   input-methods: Invoermethoden
   typesetting: Digitale typografie
-  linux: Linux
-  kernels: Besturingssysteemkernels
+  linux: "Linux en besturingssysteemkernels"
   oss: Opensourcesoftware
   sign-languages: "Gebarentalen"
   constructed: "Kunsttalen"
   formal-languages: "Formele talen"
   information-theory: "Informatietheorie"
   morse: "Morsecode"
-  probability: "Kansrekening"
-  statistics: "Statistiek"
+  probability: "Kansrekening en statistiek"
   data-viz: "Datavisualisatie"
+  saussurean: "Saussuriaanse taalkunde"
+  wittgenstein: "Wittgenstein"
   vibrations-waves: "Trillingen en golven"
   signal-processing: "Signaalverwerking"
 

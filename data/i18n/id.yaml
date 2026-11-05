@@ -32,8 +32,8 @@ pub_status:
 keywords_h: Kata kunci
 # Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
 keyword_groups:
-  research: "Bidang penelitian"
-  theory: "Teori dan subbidang"
+  comparison: "Perbandingan bahasa"
+  theory: "Linguistik teoretis"
   math: "Matematika dan data"
   objects: "Objek kajian"
   tech: "Teknologi"
@@ -89,41 +89,35 @@ outlook:
 - name: "Alat berbasis GUI"
   desc: "membuat alat yang dapat dipakai siapa saja untuk menghitung kemiripan, dan merilisnya sebagai sumber terbuka"
 keywords:
-  typology: Tipologi bahasa
-  universals: Kesemestaan bahasa
-  crossling-semantics: Semantik lintas bahasa
-  formal-semantics: Semantik formal
-  theoretical: Linguistik teoretis
+  typology: "Tipologi bahasa dan kesemestaan bahasa"
+  formal-semantics: "Semantik formal dan semantik lintas bahasa"
   syntax: Sintaksis
   morphology: Morfologi
   generative: Tata bahasa generatif
   cognitive: Linguistik kognitif
-  computational: Linguistik komputasional
+  computational: "Linguistik komputasional dan pemrosesan bahasa alami"
   phylogenetic: Linguistik filogenetik
-  similarity: Kemiripan antarbahasa
+  similarity: "Kemiripan dan jarak antarbahasa"
   phonology: Fonologi
-  romance: Bahasa-bahasa Roman
+  romance: "Bahasa-bahasa Roman (Ibero-Roman)"
   mozarabic: Bahasa Mozarab (Roman Andalus)
   ladino: Bahasa Ladino (Yahudi-Spanyol)
-  ibero-romance: Ibero-Roman
   medieval-castilian: Bahasa Kastilia abad pertengahan
   writing-systems: Sistem tulisan
-  nlp: Pemrosesan bahasa alami
-  i18n: Internasionalisasi (i18n)
-  unicode: Unicode dan pengodean karakter
+  i18n: "Internasionalisasi (i18n), Unicode dan pengodean karakter"
   input-methods: Metode input
   typesetting: Tata letak digital
-  linux: Linux
-  kernels: Kernel sistem operasi
+  linux: "Linux dan kernel sistem operasi"
   oss: Perangkat lunak sumber terbuka
   sign-languages: "Bahasa isyarat"
   constructed: "Bahasa buatan"
   formal-languages: "Bahasa formal"
   information-theory: "Teori informasi"
   morse: "Kode Morse"
-  probability: "Teori probabilitas"
-  statistics: "Statistika"
+  probability: "Teori probabilitas dan statistika"
   data-viz: "Visualisasi data"
+  saussurean: "Linguistik Saussure"
+  wittgenstein: "Wittgenstein"
   vibrations-waves: "Getaran dan gelombang"
   signal-processing: "Pemrosesan sinyal"
 

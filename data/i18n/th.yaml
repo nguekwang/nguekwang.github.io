@@ -32,8 +32,8 @@ pub_status:
 keywords_h: คำสำคัญ
 # Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
 keyword_groups:
-  research: "สาขาการวิจัย"
-  theory: "ทฤษฎีและสาขาย่อย"
+  comparison: "การเปรียบเทียบภาษา"
+  theory: "ภาษาศาสตร์เชิงทฤษฎี"
   math: "คณิตศาสตร์และข้อมูล"
   objects: "สิ่งที่ศึกษา"
   tech: "เทคโนโลยี"
@@ -89,41 +89,35 @@ outlook:
 - name: "เครื่องมือแบบ GUI"
   desc: "สร้างเครื่องมือที่ทุกคนใช้คำนวณความคล้ายคลึงได้ และเผยแพร่เป็นโอเพนซอร์ส"
 keywords:
-  typology: แบบลักษณ์ภาษา
-  universals: สากลลักษณ์ของภาษา
-  crossling-semantics: อรรถศาสตร์ข้ามภาษา
-  formal-semantics: อรรถศาสตร์เชิงรูปนัย
-  theoretical: ภาษาศาสตร์เชิงทฤษฎี
+  typology: "แบบลักษณ์ภาษาและสากลลักษณ์ของภาษา"
+  formal-semantics: "อรรถศาสตร์เชิงรูปนัยและอรรถศาสตร์ข้ามภาษา"
   syntax: วากยสัมพันธ์
   morphology: สัณฐานวิทยา
   generative: ไวยากรณ์เพิ่มพูน
   cognitive: ภาษาศาสตร์ปริชาน
-  computational: ภาษาศาสตร์เชิงคำนวณ
+  computational: "ภาษาศาสตร์เชิงคำนวณและการประมวลผลภาษาธรรมชาติ"
   phylogenetic: ภาษาศาสตร์เชิงวิวัฒนาการ
-  similarity: ความคล้ายคลึงระหว่างภาษา
+  similarity: "ความคล้ายคลึงและระยะห่างระหว่างภาษา"
   phonology: สัทวิทยา
-  romance: ภาษากลุ่มโรมานซ์
+  romance: "ภาษากลุ่มโรมานซ์ (ภาษากลุ่มไอบีโร-โรมานซ์)"
   mozarabic: ภาษาโมซาราบิก (โรมานซ์อันดาลุส)
   ladino: ภาษาลาดิโน (สเปนยิว)
-  ibero-romance: ภาษากลุ่มไอบีโร-โรมานซ์
   medieval-castilian: ภาษากัสติยาสมัยกลาง
   writing-systems: ระบบการเขียน
-  nlp: การประมวลผลภาษาธรรมชาติ
-  i18n: การทำให้เป็นสากล (i18n)
-  unicode: ยูนิโค้ดและการเข้ารหัสอักขระ
+  i18n: "การทำให้เป็นสากล (i18n) ยูนิโค้ดและการเข้ารหัสอักขระ"
   input-methods: วิธีป้อนข้อมูล
   typesetting: การจัดพิมพ์ดิจิทัล
-  linux: Linux
-  kernels: เคอร์เนลระบบปฏิบัติการ
+  linux: "Linux และเคอร์เนลระบบปฏิบัติการ"
   oss: ซอฟต์แวร์โอเพนซอร์ส
   sign-languages: "ภาษามือ"
   constructed: "ภาษาประดิษฐ์"
   formal-languages: "ภาษาเชิงรูปนัย"
   information-theory: "ทฤษฎีสารสนเทศ"
   morse: "รหัสมอร์ส"
-  probability: "ทฤษฎีความน่าจะเป็น"
-  statistics: "สถิติศาสตร์"
+  probability: "ทฤษฎีความน่าจะเป็นและสถิติศาสตร์"
   data-viz: "การแสดงข้อมูลด้วยภาพ"
+  saussurean: "ภาษาศาสตร์ของโซซูร์"
+  wittgenstein: "วิตเกนสไตน์"
   vibrations-waves: "การสั่นและคลื่น"
   signal-processing: "การประมวลผลสัญญาณ"
 

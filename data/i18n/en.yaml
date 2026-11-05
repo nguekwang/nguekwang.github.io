@@ -38,8 +38,8 @@ pub_status:
 keywords_h: Keywords
 # Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
 keyword_groups:
-  research: "Research areas"
-  theory: "Theory and subfields"
+  comparison: "Language comparison"
+  theory: "Theoretical linguistics"
   math: "Mathematics and data"
   objects: "Objects of study"
   tech: "Technology"
@@ -96,41 +96,35 @@ outlook:
 - name: "A GUI tool"
   desc: "build a tool anyone can use to compute similarity, and release it as open source"
 keywords:
-  typology: Linguistic typology
-  universals: Language universals
-  crossling-semantics: Cross-linguistic semantics
-  formal-semantics: Formal semantics
-  theoretical: Theoretical linguistics
+  typology: "Linguistic typology and language universals"
+  formal-semantics: "Formal semantics and cross-linguistic semantics"
   syntax: Syntax
   morphology: Morphology
   generative: Generative grammar
   cognitive: Cognitive linguistics
-  computational: Computational linguistics
+  computational: "Computational linguistics and natural language processing"
   phylogenetic: Phylogenetic linguistics
-  similarity: Language similarity
+  similarity: "Language similarity and distance"
   phonology: Phonology
-  romance: Romance languages
+  romance: "Romance languages (Ibero-Romance)"
   mozarabic: Mozarabic (Andalusi Romance)
   ladino: Ladino (Judaeo-Spanish)
-  ibero-romance: Ibero-Romance
   medieval-castilian: Medieval Castilian
   writing-systems: Writing systems
-  nlp: Natural language processing
-  i18n: Internationalization (i18n)
-  unicode: Unicode and character encoding
+  i18n: "Internationalization (i18n), Unicode and character encoding"
   input-methods: Input methods
   typesetting: Digital typesetting
-  linux: Linux
-  kernels: Operating system kernels
+  linux: "Linux and operating system kernels"
   oss: Open-source software
   sign-languages: "Sign languages"
   constructed: "Constructed languages"
   formal-languages: "Formal languages"
   information-theory: "Information theory"
   morse: "Morse code"
-  probability: "Probability theory"
-  statistics: "Statistics"
+  probability: "Probability theory and statistics"
   data-viz: "Data visualization"
+  saussurean: "Saussurean linguistics"
+  wittgenstein: "Wittgenstein"
   vibrations-waves: "Vibrations and waves"
   signal-processing: "Signal processing"
 

@@ -32,8 +32,8 @@ pub_status:
 keywords_h: 关键词
 # Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
 keyword_groups:
-  research: "研究领域"
-  theory: "理论与分支学科"
+  comparison: "语言比较"
+  theory: "理论语言学"
   math: "数学与数据"
   objects: "研究对象"
   tech: "技术"
@@ -89,41 +89,35 @@ outlook:
 - name: "图形界面工具"
   desc: "开发人人都能计算相似度的工具，并以开源形式发布"
 keywords:
-  typology: 语言类型学
-  universals: 语言共性
-  crossling-semantics: 跨语言语义学
-  formal-semantics: 形式语义学
-  theoretical: 理论语言学
+  typology: "语言类型学与语言共性"
+  formal-semantics: "形式语义学与跨语言语义学"
   syntax: 句法学
   morphology: 形态学
   generative: 生成语法
   cognitive: 认知语言学
-  computational: 计算语言学
+  computational: "计算语言学与自然语言处理"
   phylogenetic: 系统发生语言学
-  similarity: 语言相似度
+  similarity: "语言间的相似度与距离"
   phonology: 音系学
-  romance: 罗曼语族
+  romance: "罗曼语族（伊比利亚-罗曼语支）"
   mozarabic: 莫扎拉布语（安达卢斯罗曼语）
   ladino: 拉迪诺语（犹太西班牙语）
-  ibero-romance: 伊比利亚-罗曼语支
   medieval-castilian: 中世纪卡斯蒂利亚语
   writing-systems: 文字系统
-  nlp: 自然语言处理
-  i18n: 国际化（i18n）
-  unicode: Unicode 与字符编码
+  i18n: "国际化（i18n）、Unicode 与字符编码"
   input-methods: 输入法
   typesetting: 数字排版
-  linux: Linux
-  kernels: 操作系统内核
+  linux: "Linux 与操作系统内核"
   oss: 开源软件
   sign-languages: "手语"
   constructed: "人造语言"
   formal-languages: "形式语言"
   information-theory: "信息论"
   morse: "摩尔斯电码"
-  probability: "概率论"
-  statistics: "统计学"
+  probability: "概率论与统计学"
   data-viz: "数据可视化"
+  saussurean: "索绪尔语言学"
+  wittgenstein: "维特根斯坦"
   vibrations-waves: "振动与波"
   signal-processing: "信号处理"
 
