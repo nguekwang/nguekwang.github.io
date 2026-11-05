@@ -1,8 +1,11 @@
 # Page text for one language (hi). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: यह पृष्ठ मशीन द्वारा अनूदित है।
+post_edited: 'मशीनी अनुवाद, जिसकी समीक्षा और सुधार {names} ने किया।'
 native: हिन्दी
 dir: ltr
 og_locale: hi_IN

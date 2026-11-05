@@ -39,6 +39,7 @@ All page text lives in YAML under `data/`; HTML structure lives in `templates/`.
 - `data/site.yaml`: site-wide settings, names, language order, keyword order.
 - `data/i18n/<code>.yaml`: all page text for one language. Every language file must have exactly the same keys, list lengths and keyword ids as `en.yaml`, so that every language shows the same items. Only `mt_notice` may be empty.
 - `data/talks.yaml`: talks (language-independent).
+- `data/post_editors.yaml`: native speakers who post-edited a machine-translated language. Rules: `.claude/rules/content-and-layout.md`.
 - `static/`: files copied as they are (CSS, JS, robots.txt).
 - `pip install -r requirements.txt`, then `python3 tools/build.py --check` checks the data, and `python3 tools/build.py` checks and builds the site into `_site/`.
 - GitHub Actions (`.github/workflows/site.yml`) runs the check and build on every pull request, and on push to `main` builds and deploys to GitHub Pages.

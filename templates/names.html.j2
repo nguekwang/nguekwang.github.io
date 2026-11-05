@@ -20,7 +20,7 @@
         <ul>{% for o in langs %}{% if o.code == code %}<li><span lang="{{ o.code }}">{{ o.native }}</span></li>{% else %}<li><a href="../../{{ o.code }}/{{ slug }}/" lang="{{ o.code }}" hreflang="{{ o.code }}">{{ o.native }}</a></li>{% endif %}{% endfor %}</ul>
       </div>
     </details></nav>
-  {% if t.mt_notice %}<p class="mt">{{ t.mt_notice }}</p>{% endif %}
+  {% if notice %}<p class="mt">{{ notice }}</p>{% endif %}
   <p class="back"><a href="../">{{ t.names_back }}</a></p>
   <h1 class="page-h">{{ t.names_h }}</h1>
   <p>{{ t.names_intro }}</p>

@@ -1,8 +1,11 @@
 # Page text for one language (ar). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: تُرجمت هذه الصفحة آليًا.
+post_edited: 'ترجمة آلية. المراجعة والتصحيح: {names}.'
 native: العربية
 dir: rtl
 og_locale: ar_AR

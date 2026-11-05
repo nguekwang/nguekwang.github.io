@@ -6,6 +6,7 @@ All page text lives in YAML under data/:
   data/i18n/<code>.yaml   page text for one language
   data/talks.yaml         talks (language-independent)
   data/institutions.yaml  per institution and language: official name or our translation
+  data/post_editors.yaml  native speakers who post-edited a machine-translated language
 HTML structure lives in templates/. This script only joins the two.
 
 Usage:
@@ -27,8 +28,9 @@ import datetime, json, os, re, shutil, subprocess, sys, urllib.parse
 import yaml
 from babel import Locale
 from babel.dates import format_skeleton
+from babel.lists import format_list
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
-from markupsafe import Markup
+from markupsafe import Markup, escape
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
@@ -47,6 +49,8 @@ SITE_PATHS = ["data", "templates", "static", "tools"]
 # Page that explains how institution names are written, at /<lang>/<NAMES_SLUG>/.
 NAMES_SLUG = "institution-names"
 NAME_STATUSES = {"official", "translated"}
+# Fields allowed for one post-editor. Anything else (such as an email address) is rejected.
+POST_EDITOR_FIELDS = {"name", "url"}
 
 
 def load(*parts):
@@ -80,7 +84,7 @@ def compare(ref, other, path, errors):
         errors.append(f"{path}: empty")
 
 
-def check(site, texts, institutions):
+def check(site, texts, institutions, post_editors):
     errors = []
     i18n_dir = os.path.join(DATA, "i18n")
     on_disk = {f[:-5] for f in os.listdir(i18n_dir) if f.endswith(".yaml")}
@@ -100,12 +104,64 @@ def check(site, texts, institutions):
         if set(ref.get("institutions", {})) != set(institutions.get("order", [])):
             errors.append(f"data/institutions.yaml order: ids differ from data/i18n/{REFERENCE}.yaml institutions")
     errors += check_institutions(site, institutions)
+    errors += check_post_editors(site, texts, post_editors)
     for code, t in texts.items():
         if isinstance(t.get("og_locale"), str) and not re.fullmatch(r"[a-z]{2,3}_[A-Z]{2}", t["og_locale"]):
             errors.append(f"{code}.og_locale: must look like ja_JP (Open Graph locale)")
         if isinstance(t.get("updated"), str) and t["updated"].count("{date}") != 1:
             errors.append(f"{code}.updated: must contain {{date}} exactly once")
+        if isinstance(t.get("post_edited"), str) and t["post_edited"].count("{names}") != 1:
+            errors.append(f"{code}.post_edited: must contain {{names}} exactly once")
     return errors
+
+
+def check_post_editors(site, texts, post_editors):
+    """Post-editors are listed only for machine-translated languages, with a name and an optional https URL."""
+    errors = []
+    if not isinstance(post_editors, dict):
+        return ["data/post_editors.yaml post_editors: expected a mapping of language codes"]
+    for code, people in post_editors.items():
+        where = f"data/post_editors.yaml {code}"
+        if code not in site["languages"]:
+            errors.append(f"{where}: not a language in data/site.yaml")
+            continue
+        if not str((texts.get(code) or {}).get("mt_notice", "")).strip():
+            errors.append(f"{where}: this language is not machine-translated (its mt_notice is empty)")
+        if not isinstance(people, list) or not people:
+            errors.append(f"{where}: expected a list of people")
+            continue
+        for i, p in enumerate(people):
+            if not isinstance(p, dict):
+                errors.append(f"{where}[{i}]: expected name (and url)")
+                continue
+            for k in p.keys() - POST_EDITOR_FIELDS:
+                errors.append(f"{where}[{i}].{k}: not allowed (only {sorted(POST_EDITOR_FIELDS)}; "
+                              "no contact details in this public repository)")
+            if not isinstance(p.get("name"), str) or not p["name"].strip():
+                errors.append(f"{where}[{i}].name: missing")
+            if "url" in p and not (isinstance(p["url"], str) and p["url"].startswith("https://")):
+                errors.append(f"{where}[{i}].url: must start with https://")
+    return errors
+
+
+def notice(code, t, people):
+    """The notice at the top of a page: mt_notice, or post_edited with the post-editors' names.
+
+    Names are joined with the language's own list separators ("A, B, and C", "A、B、C") and
+    linked to the URL each person chose. Returns "" (no notice) for languages the owner wrote.
+    """
+    if not people:
+        return t["mt_notice"]
+    parts = []
+    for p in people:
+        name = Markup("<bdi>{}</bdi>").format(p["name"])
+        parts.append(Markup('<a href="{}">{}</a>').format(p["url"], name) if p.get("url") else name)
+    marks = [f"\x00{i}\x00" for i in range(len(parts))]
+    joined = str(escape(format_list(marks, locale=Locale.parse(code, sep="-"))))
+    for mark, part in zip(marks, parts):
+        joined = joined.replace(mark, str(part))
+    before, after = t["post_edited"].split("{names}")
+    return escape(before) + Markup(joined) + escape(after)
 
 
 def check_institutions(site, institutions):
@@ -176,7 +232,8 @@ def main():
         if os.path.exists(os.path.join(DATA, "i18n", code + ".yaml")):
             texts[code] = load("i18n", code + ".yaml")
     institutions = load("institutions.yaml") or {}
-    errors = check(site, texts, institutions)
+    post_editors = (load("post_editors.yaml") or {}).get("post_editors") or {}
+    errors = check(site, texts, institutions, post_editors)
     if errors:
         print(f"{len(errors)} problem(s) in data/:", file=sys.stderr)
         for e in errors:
@@ -210,9 +267,9 @@ def main():
         title = f"{h1} – {t['keywords']['typology']}"
         html = page.render(
             site=site, langs=langs, talks=talks, code=code, t=t,
-            h1=h1, title=title,
+            h1=h1, title=title, notice=notice(code, t, post_editors.get(code)),
             updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
-            jsonld=jsonld(site, code, t, title),
+            jsonld=jsonld(site, code, t, title, post_editors.get(code)),
             alt_name=site["name"]["latin"] if ja else site["name"]["ja"],
             alt_lang="en" if ja else "ja",
             thesis_title=site["thesis"]["title_ja"] if ja else site["thesis"]["title_en"],
@@ -235,6 +292,7 @@ def main():
             rows.append(row)
         write(os.path.join(code, NAMES_SLUG, "index.html"), names_page.render(
             site=site, langs=langs, code=code, t=t, rows=rows, slug=NAMES_SLUG,
+            notice=notice(code, t, post_editors.get(code)),
             title=f"{t['names_h']} – {site['name']['ja'] if code == 'ja' else site['name']['latin']}",
             updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
             footer_name=site["name"]["ja"] if code == "ja" else site["name"]["latin_short"],
@@ -251,12 +309,12 @@ def main():
     print(f"built {len(codes)} language pages (and their {NAMES_SLUG}/ pages) into _site/")
 
 
-def jsonld(site, code, t, title):
+def jsonld(site, code, t, title, post_editors=None):
     """Structured data (schema.org JSON-LD) for one page.
 
     Every page describes the same Person and WebSite (same @id), so search engines and
     AI assistants can join the language versions into one entity. `code` is None for the
-    root language chooser.
+    root language chooser. Post-editors of the page's language are listed as `contributor`.
     """
     base = site["url"]
     name = site["name"]
@@ -301,6 +359,10 @@ def jsonld(site, code, t, title):
             "isPartOf": {"@id": f"{base}/#website"},
             "mainEntity": {"@id": f"{base}/#person"},
         })
+        if post_editors:
+            graph[0]["contributor"] = [
+                {"@type": "Person", "name": p["name"], **({"url": p["url"]} if p.get("url") else {})}
+                for p in post_editors]
     data = {"@context": "https://schema.org", "@graph": graph}
     # Escape "</" so the JSON can never close the surrounding <script> element.
     return Markup(json.dumps(data, ensure_ascii=False, indent=1).replace("</", "<\\/"))
