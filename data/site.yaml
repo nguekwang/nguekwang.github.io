@@ -66,6 +66,8 @@ keywords:
 name:
   latin: Yoshihiro (Yoshi) MATSUURA
   latin_short: Yoshihiro MATSUURA
+  # Surname first, used only in page titles ("MATSUURA Yoshihiro – Research Portfolio"), as the owner asked.
+  latin_title: MATSUURA Yoshihiro
   ja: 松浦 義広
   given: Yoshihiro
   family: Matsuura

@@ -21,6 +21,7 @@ career:
 colon: ': '
 email: E-mail
 updated: 'Laatst bijgewerkt: {date}'
+site_title: Onderzoeksportfolio
 desc: 'Yoshihiro Matsuura: taaltypologie en fonologie, het kwantificeren van gelijkenis tussen talen op basis van foneeminventarissen.'
 pub_title_en: ' ({title})'
 pub_note: ' ({year}) ({details})'
