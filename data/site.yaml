@@ -41,10 +41,10 @@ keywords:
     items: [similarity, typology, phylogenetic]
   - group: theory
     items: [saussurean, phonology, morphology, syntax, formal-semantics, generative, cognitive, wittgenstein]
-  - group: math
-    items: [computational, information-theory, probability, vibrations-waves, signal-processing, data-viz]
   - group: objects
     items: [romance, medieval-castilian, mozarabic, ladino, writing-systems, morse, sign-languages, constructed, formal-languages]
+  - group: math
+    items: [computational, information-theory, probability, vibrations-waves, signal-processing, data-viz]
   - group: tech
     items: [i18n, input-methods, typesetting, linux, oss]
 
