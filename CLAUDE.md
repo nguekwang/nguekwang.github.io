@@ -39,11 +39,20 @@ All page text lives in YAML under `data/`; HTML structure lives in `templates/`.
 - `data/site.yaml`: site-wide settings, names, language order, keyword order.
 - `data/i18n/<code>.yaml`: all page text for one language. Every language file must have exactly the same keys, list lengths and keyword ids as `en.yaml`, so that every language shows the same items. Only `mt_notice` may be empty.
 - `data/talks.yaml`: talks (language-independent).
+- `data/post_editors.yaml`: native speakers who post-edited a machine-translated language. Rules: `.claude/rules/content-and-layout.md`.
 - `static/`: files copied as they are (CSS, JS, robots.txt).
 - `pip install -r requirements.txt`, then `python3 tools/build.py --check` checks the data, and `python3 tools/build.py` checks and builds the site into `_site/`.
 - GitHub Actions (`.github/workflows/site.yml`) runs the check and build on every pull request, and on push to `main` builds and deploys to GitHub Pages.
 - The footer's "last updated" date and link come from git, not from the YAML: `updated` in each language file is a label with one `{date}` placeholder, which the build fills with the date of the latest commit that changed `data/`, `templates/`, `static/` or `tools/` (formatted per language with Babel) and links to that commit on GitHub. The workflow checks out full history (`fetch-depth: 0`) for this.
 - When adding a key or a list item, add it to every language file in the same change, or the check fails.
+
+## Automated checks
+
+- `tools/privacy_check.py` (CI, every pull request): fails on email addresses, phone numbers, postal codes or street addresses, and full birth dates that are not in the allow list `data/privacy.yaml`. Add to the allow list only what the owner has approved.
+- `tools/check_links.py` (CI, every pull request): fails when a link between the site's own pages, or an entry in `sitemap.xml`, points at a file that is not built.
+- `.github/workflows/links.yml` (weekly): checks links to other sites with lychee (`lychee.toml`) and opens or updates the issue "Broken links on the site". Links listed in `data/post_editors.yaml` are skipped, so they never appear in a public issue.
+- `.github/workflows/screenshots.yml` (pull requests that touch `data/`, `templates/`, `static/`, `tools/` or requirements): before/after screenshots by `tools/screenshots.py`, uploaded as an artifact and summarised in a pull request comment.
+- `.github/dependabot.yml`: weekly pull requests for new versions of GitHub Actions and Python packages. The owner reviews and merges them like any other pull request.
 
 ## Search engines and AI assistants
 

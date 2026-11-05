@@ -1,0 +1,27 @@
+# Once a week, check the links of the post-editors listed in data/post_editors.yaml.
+# Broken links are emailed to the owner through Gmail (see tools/check_post_editor_links.py),
+# never reported in an issue, and the public log shows counts only.
+# Needs the repository secrets GMAIL_ADDRESS and GMAIL_APP_PASSWORD.
+name: post-editor links
+on:
+  schedule:
+    - cron: "23 0 * * 1"  # Mondays 00:23 UTC (09:23 in Japan)
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Check post-editor links and email the owner about broken ones
+        run: python3 tools/check_post_editor_links.py
+        env:
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          GITHUB_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

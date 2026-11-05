@@ -1,11 +1,16 @@
 # Page text for one language (uk). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: Цю сторінку перекладено машинно.
+post_edited: 'Машинний переклад; перевірка й редагування: {names}.'
 native: Українська
 dir: ltr
+og_locale: uk_UA
 request: Запросити іншу мову
+theme_dark: Темна тема
 pubs_h: Публікації та доповіді
 career_h: "Біографія"
 contact_h: Контакти
@@ -27,6 +32,7 @@ interests_h: Теми досліджень
 current_h: Поточні дослідження
 current: Кількісна оцінка подібності мов. На основі фонемних інвентарів (PHOIBLE) та лексичних даних я вимірюю, наскільки близькі мови й діалекти, починаючи з романських мов. Мета — міра, придатна для багатьох мов, що спирається на явну статистику й допомагає зрозуміти, де закінчується діалект і починається мова.
 projects_h: Проєкти
+outlook_h: "Перспективи"
 langs_h: Мови
 langs:
 - label: "Рідна мова (L1)"
@@ -58,6 +64,15 @@ projects:
   desc: Інструмент для побудови синтаксичних дерев генеративної граматики (у планах)
 - name: Corpus Hub
   desc: Платформа для збирання мовних корпусів і пошуку в них (у планах)
+outlook:
+- name: "Діалект чи мова"
+  desc: "на основі мір подібності запропонувати критерії, коли різновид вважати діалектом, а коли мовою"
+- name: "Синтаксична подібність"
+  desc: "вимірювати близькість синтаксису поряд зі звуками й лексикою та об'єднати все в один індекс"
+- name: "Засвоєння другої мови"
+  desc: "перевірити, чи легше вивчати мови, ближчі до рідної"
+- name: "Інструмент із графічним інтерфейсом"
+  desc: "створити інструмент, за допомогою якого будь-хто зможе обчислити подібність, і оприлюднити його з відкритим кодом"
 keywords:
   typology: Лінгвістична типологія
   universals: Мовні універсалії
