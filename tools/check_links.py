@@ -4,7 +4,7 @@
 Reads the built site (_site/ by default) and checks every href and src in every HTML file:
 relative links, root-relative links (/style.css) and absolute links under site.url
 (canonical, hreflang alternates). Project sites under site.url (`site` in data/ai_tools.yaml,
-such as /languer/) are published from their own repositories, so they count as other
+such as /<repository name>/) are published from their own repositories, so they count as other
 sites. Links to other sites are not checked here; the weekly
 workflow .github/workflows/links.yml checks those with lychee. Also checks that every
 <loc> and alternate in sitemap.xml exists.
