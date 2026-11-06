@@ -144,6 +144,8 @@ def check(site, texts, institutions, post_editors, ai_tools):
             for mark in marks:
                 if isinstance(t.get(key), str) and t[key].count(mark) != 1:
                     errors.append(f"{code}.{key}: must contain {mark} exactly once")
+        if isinstance(t.get("ai_tools_h"), str) and t["ai_tools_h"].count("{project}") != 1:
+            errors.append(f"{code}.ai_tools_h: must contain {{project}} exactly once")
         if isinstance(t.get("post_edited"), str) and t["post_edited"].count("{names}") != 1:
             errors.append(f"{code}.post_edited: must contain {{names}} exactly once")
     return errors
@@ -461,7 +463,7 @@ def main():
     for name, p in ai_pages.items():
         for code in site["languages"]:
             t = texts[code]
-            heading = f"{name}{t['colon']}{t['ai_tools_h']}"
+            heading = t["ai_tools_h"].replace("{project}", name)
             title = f"{heading} – {site_title(site, texts, code)}"
             sub = {"path": p["path"], "name": heading, "description": t["ai_tools_intro"]}
             write(os.path.join(code, *p["path"].split("/"), "index.html"), ai_page.render(

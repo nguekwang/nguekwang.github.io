@@ -79,7 +79,7 @@ projects:
   desc: Narzędzie do rysowania drzew składniowych gramatyki generatywnej (w planach)
 - name: Corpus Hub
   desc: Platforma do gromadzenia i przeszukiwania korpusów językowych (w planach)
-ai_tools_h: "Linki dla asystentów AI"
+ai_tools_h: "Czytanie repozytorium {project} za pomocą zewnętrznych usług AI"
 ai_tools_intro: "Te usługi odczytują publiczne repozytorium projektu na GitHubie: wystarczy zastąpić github.com w adresie repozytorium adresem usługi. Prowadzą je inne podmioty, nie ja, i działają tylko z repozytoriami publicznymi."
 ai_tools_repo: "Repozytorium"
 ai_tools_groups:
