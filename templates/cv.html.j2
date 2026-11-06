@@ -60,7 +60,7 @@ footer { margin-top: 14pt; padding-top: 4pt; border-top: .5pt solid #999; font-s
 </ul>
 
 <h2>{{ t.projects_h }}</h2>
-<ul>{% for p in t.projects %}<li><strong>{{ p.name }}</strong>{{ t.colon }}{{ p.desc }}</li>{% endfor %}</ul>
+<ul>{% for p in t.projects %}<li><strong>{% if p.name in project_sites %}<a href="{{ project_sites[p.name] }}">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %}</strong>{{ t.colon }}{{ p.desc }}</li>{% endfor %}</ul>
 
 <h2>{{ t.outlook_h }}</h2>
 <ul>{% for x in t.outlook %}<li><strong>{{ x.name }}</strong>{{ t.colon }}{{ x.desc }}</li>{% endfor %}</ul>

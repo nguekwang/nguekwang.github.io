@@ -19,7 +19,9 @@ services:
 # `repo` is the project's public GitHub repository as owner/name, set as soon as it is public
 # (even before it has code). Leave it empty while the project has no public repository: the
 # site then shows no link and builds no page for it. Never set it to a private repository.
+# `site` (optional) is the address where the project itself runs, such as its GitHub Pages
+# site; the project name in the Projects section and the CV links there.
 projects:
   linguasim: {repo: nguekwang/linguasim}
-  Lang Log: {repo: ""}
+  Lang Log: {repo: lang-log/lang-log.github.io, site: "https://lang-log.github.io/"}
   phrase-marker-gen: {repo: nguekwang/phrase-marker-gen}
