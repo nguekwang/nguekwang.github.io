@@ -21,6 +21,5 @@ services:
 # site then shows no link and builds no page for it. Never set it to a private repository.
 projects:
   linguasim: {repo: nguekwang/linguasim}
-  Languer Map: {repo: ""}
+  Lang Log: {repo: ""}
   phrase-marker-gen: {repo: nguekwang/phrase-marker-gen}
-  Corpus Hub: {repo: ""}

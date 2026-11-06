@@ -12,7 +12,7 @@ paths:
 - Keep the owner's names as they are in `name` in `data/site.yaml` (`Yoshihiro (Yoshi) MATSUURA`, `松浦 義広`, and `MATSUURA Yoshihiro` in page titles). The only nickname is `Yoshi`. Do not change them without the owner's request.
 
 ## Projects
-- Services and apps get display names in title case with spaces (`Corpus Hub`, `Languer Map`). Command-line tools and libraries keep lowercase kebab-case names (`linguasim`, `syntax-tree`). A kebab-case service name is used only for its repository and URL.
+- Services and apps get display names in title case with spaces (`Lang Log`). Command-line tools and libraries keep lowercase kebab-case names (`linguasim`, `syntax-tree`). A kebab-case service name is used only for its repository and URL.
 - A project's name is spelled the same in every language; only its description is translated.
 - Every description states the project's status (in development, planned, ...).
 - List only projects the owner asked to list, and never link to a private repository.
