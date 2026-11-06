@@ -77,7 +77,7 @@ projects:
   desc: Atlas interativo das línguas do mundo (em desenvolvimento)
 - name: phrase-marker-gen
   desc: Ferramenta para desenhar árvores sintáticas da gramática gerativa (em planejamento)
-- name: Corpus Hub
+- name: Corpus Centre
   desc: Plataforma para reunir e consultar corpora linguísticos (em planejamento)
 ai_tools_h: "Leitura do repositório de {project} com serviços de IA externos"
 ai_tools_intro: "Estes serviços leem o repositório público do projeto no GitHub: basta substituir github.com no URL do repositório pelo endereço do serviço. São mantidos por terceiros, não por mim, e só funcionam com repositórios públicos."

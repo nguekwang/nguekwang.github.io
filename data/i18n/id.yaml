@@ -77,7 +77,7 @@ projects:
   desc: Atlas interaktif bahasa-bahasa di dunia (sedang dikembangkan)
 - name: phrase-marker-gen
   desc: Alat untuk menggambar pohon sintaksis tata bahasa generatif (direncanakan)
-- name: Corpus Hub
+- name: Corpus Centre
   desc: Wadah untuk mengumpulkan dan mencari korpus bahasa (direncanakan)
 ai_tools_h: "Membaca repositori {project} dengan layanan AI eksternal"
 ai_tools_intro: "Layanan berikut membaca repositori GitHub publik proyek ini: cukup ganti github.com pada URL repositori dengan alamat layanannya. Layanan ini dikelola pihak lain, bukan saya, dan hanya berfungsi untuk repositori publik."

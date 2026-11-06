@@ -77,7 +77,7 @@ projects:
   desc: 世界語言的互動式地圖（開發中）
 - name: phrase-marker-gen
   desc: 用於繪製生成語法句法樹的工具（構想中）
-- name: Corpus Hub
+- name: Corpus Centre
   desc: 用於收集與檢索語言語料庫的平台（構想中）
 ai_tools_h: "用外部 AI 服務閱讀 {project} 的儲存庫"
 ai_tools_intro: "以下服務可讀取本專案的公開 GitHub 儲存庫：只要將儲存庫網址中的 github.com 換成該服務的網址即可。這些服務由第三方而非本人經營，且僅適用於公開儲存庫。"

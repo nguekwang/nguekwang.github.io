@@ -77,7 +77,7 @@ projects:
   desc: Dünya dillerinin etkileşimli atlası (geliştirme aşamasında)
 - name: phrase-marker-gen
   desc: Üretici dilbilgisinde sözdizim ağaçları çizmek için bir araç (planlanıyor)
-- name: Corpus Hub
+- name: Corpus Centre
   desc: Dil derlemlerini toplamak ve aramak için bir merkez (planlanıyor)
 ai_tools_h: "{project} deposunu harici yapay zekâ hizmetleriyle okuma"
 ai_tools_intro: "Bu hizmetler projenin herkese açık GitHub deposunu okur: deponun adresindeki github.com yerine hizmetin adresini yazmanız yeterlidir. Bu hizmetleri ben değil, başkaları işletir ve yalnızca herkese açık depolarla çalışırlar."

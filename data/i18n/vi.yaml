@@ -77,7 +77,7 @@ projects:
   desc: Bản đồ tương tác về các ngôn ngữ trên thế giới (đang phát triển)
 - name: phrase-marker-gen
   desc: Công cụ vẽ cây cú pháp theo ngữ pháp tạo sinh (đang lên ý tưởng)
-- name: Corpus Hub
+- name: Corpus Centre
   desc: Nền tảng thu thập và tra cứu kho ngữ liệu ngôn ngữ (đang lên ý tưởng)
 ai_tools_h: "Đọc kho mã {project} bằng các dịch vụ AI bên ngoài"
 ai_tools_intro: "Các dịch vụ dưới đây đọc kho mã GitHub công khai của dự án: chỉ cần thay github.com trong URL của kho mã bằng địa chỉ của dịch vụ. Các dịch vụ này do bên thứ ba vận hành, không phải tôi, và chỉ hoạt động với kho mã công khai."
