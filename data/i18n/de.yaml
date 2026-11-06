@@ -79,7 +79,7 @@ projects:
   desc: Werkzeug zum Zeichnen von Syntaxbäumen der generativen Grammatik (in Planung)
 - name: Corpus Hub
   desc: Plattform zum Sammeln und Durchsuchen sprachlicher Korpora (in Planung)
-ai_tools_h: "Links für KI-Assistenten"
+ai_tools_h: "Lesen des Repositorys von {project} mit externen KI-Diensten"
 ai_tools_intro: "Diese Dienste lesen das öffentliche GitHub-Repository des Projekts: Ersetzen Sie github.com in der URL des Repositorys durch die Adresse des Dienstes. Sie werden von Dritten betrieben, nicht von mir, und funktionieren nur mit öffentlichen Repositorys."
 ai_tools_repo: "Repository"
 ai_tools_groups:
