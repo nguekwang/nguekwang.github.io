@@ -23,6 +23,6 @@ services:
 # site; the project name in the Projects section and the CV links there.
 projects:
   linguasim: {repo: nguekwang/linguasim}
-  Languer Map: {repo: nguekwang/languer-map, site: "https://nguekwang.github.io/languer-map/"}
+  Languer Map: {repo: nguekwang/languer, site: "https://nguekwang.github.io/languer/"}
   phrase-marker-gen: {repo: nguekwang/phrase-marker-gen}
   Corpus Hub: {repo: ""}
