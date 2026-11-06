@@ -1,4 +1,5 @@
 __pycache__/
 *.png
 _site/
+_preview/
 browser-check/

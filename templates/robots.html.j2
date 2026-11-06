@@ -1,0 +1,3 @@
+{# Pull request previews (build.py --preview) must not appear in search results; the live site is indexed as usual. -#}
+{% if preview %}<meta name="robots" content="noindex">
+{% endif %}

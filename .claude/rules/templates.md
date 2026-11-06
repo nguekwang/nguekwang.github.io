@@ -14,3 +14,4 @@ HTML structure only. Page text comes from `data/`; never write page text into a 
 - The translation request is the last item of the language menu: a `mailto:` link whose subject and body come from `translation_request` in `data/site.yaml` (English noun phrases).
 - Sub-pages under `/<lang>/` (`names.html.j2`, `ai_tools.html.j2`) extend `templates/subpage.html.j2`, which holds their head, language menu, back link and footer. Change that layout once there.
 - `templates/llms.txt.j2` builds `_site/llms.txt`, a plain-text English summary for AI assistants, from `data/i18n/en.yaml`.
+- Every page head includes `templates/robots.html.j2`, which adds `noindex` only to pull request previews (`build.py --preview`). New page templates must include it too.
