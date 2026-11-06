@@ -73,12 +73,10 @@ interests:
 projects:
 - name: linguasim
   desc: Dil benzerliğini ölçmek için Python araç takımı (geliştirme aşamasında; açık kaynak olarak yayımlanması planlanıyor)
-- name: Languer Map
-  desc: Dünya dillerinin etkileşimli atlası (geliştirme aşamasında)
+- name: Lang Log
+  desc: Dünya dillerinin etkileşimli atlası ve az kaynaklı dillere ait derlem ve veriler (geliştirme aşamasında)
 - name: phrase-marker-gen
   desc: Üretici dilbilgisinde sözdizim ağaçları çizmek için bir araç (planlanıyor)
-- name: Corpus Centre
-  desc: Dil derlemlerini toplamak ve aramak için bir merkez (planlanıyor)
 ai_tools_h: "{project} deposunu harici yapay zekâ hizmetleriyle okuma"
 ai_tools_intro: "Bu hizmetler projenin herkese açık GitHub deposunu okur: deponun adresindeki github.com yerine hizmetin adresini yazmanız yeterlidir. Bu hizmetleri ben değil, başkaları işletir ve yalnızca herkese açık depolarla çalışırlar."
 ai_tools_repo: "Depo"

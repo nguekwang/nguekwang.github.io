@@ -73,12 +73,10 @@ interests:
 projects:
 - name: linguasim
   desc: 言語の類似度を測る Python のツール(開発中、オープンソースで公開予定)
-- name: Languer Map
-  desc: 世界の言語のインタラクティブな地図(開発中)
+- name: Lang Log
+  desc: 世界の言語のインタラクティブな地図と、低資源言語のコーパスやデータの置き場(開発中)
 - name: phrase-marker-gen
   desc: 生成文法の構文木を描くツール(構想中)
-- name: Corpus Centre
-  desc: 言語コーパスを集めて検索するためのハブ(構想中)
 ai_tools_h: "{project} のリポジトリを外部の AI サービスで読む"
 ai_tools_intro: "このプロジェクトの公開 GitHub リポジトリを読み込むサービスです。リポジトリの URL の github.com を各サービスのアドレスに書き換えると使えます。いずれも私ではなく第三者が運営しており、公開リポジトリでのみ動きます。"
 ai_tools_repo: "リポジトリ"

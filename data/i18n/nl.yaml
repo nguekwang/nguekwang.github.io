@@ -73,12 +73,10 @@ interests:
 projects:
 - name: linguasim
   desc: Python-toolkit voor het meten van taalovereenkomst (in ontwikkeling; open-sourcepublicatie gepland)
-- name: Languer Map
-  desc: Interactieve atlas van de talen van de wereld (in ontwikkeling)
+- name: Lang Log
+  desc: Interactieve atlas van de talen van de wereld, met corpora en gegevens over talen met weinig middelen (in ontwikkeling)
 - name: phrase-marker-gen
   desc: Tool voor het tekenen van syntaxisbomen in de generatieve grammatica (gepland)
-- name: Corpus Centre
-  desc: Platform voor het verzamelen en doorzoeken van taalcorpora (gepland)
 ai_tools_h: "Lezen van de repository van {project} met externe AI-diensten"
 ai_tools_intro: "Deze diensten lezen de openbare GitHub-repository van het project: vervang github.com in de URL van de repository door het adres van de dienst. Ze worden door derden beheerd, niet door mij, en werken alleen met openbare repository's."
 ai_tools_repo: "Repository"
