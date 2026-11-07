@@ -1,0 +1,5 @@
+{#- The security policies of every page, right after <meta charset> (a <meta> policy covers only what comes after it).
+    `policy` is "measured" (pages that load GoatCounter), "plain" (the language chooser) or "cv" (the CV printed to PDF).
+    The values are built by security_policies() in tools/security_policy.py; tools/security_check.py checks every built page. -#}
+<meta http-equiv="Content-Security-Policy" content="{{ security_policies(policy).csp }}">
+<meta name="referrer" content="{{ security_policies(policy).referrer }}">

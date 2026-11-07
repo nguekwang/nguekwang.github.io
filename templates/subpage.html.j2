@@ -4,8 +4,7 @@
 <html lang="{{ code }}" dir="{{ t.dir }}">
 <head>
 <meta charset="utf-8">
-{% include "csp.html.j2" %}
-<meta name="referrer" content="strict-origin-when-cross-origin">
+{% with policy = "measured" %}{% include "security.html.j2" %}{% endwith %}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ title }}</title>
 <meta name="description" content="{{ description }}">
@@ -39,6 +38,6 @@
 </main>
 <script src="{{ up }}lang.js"></script>
 <script src="{{ up }}cv.js"></script>
-<script data-goatcounter="{{ site.goatcounter }}" async src="https://gc.zgo.at/count.js"></script>
+<script data-goatcounter="{{ site.goatcounter }}" async src="{{ goatcounter_script }}"></script>
 </body>
 </html>

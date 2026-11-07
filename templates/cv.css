@@ -1,0 +1,27 @@
+/* Style of the printable CV (templates/cv.html.j2). tools/build.py copies this file next to the
+   temporary CV HTML that headless Chrome prints to PDF; it is not published on the site. */
+@page { size: A4; margin: 15mm 16mm 14mm; }
+* { box-sizing: border-box; }
+html { font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif; font-size: 9.5pt; line-height: 1.45; color: #1a1a1a; }
+:lang(ja) { font-family: "Noto Sans CJK JP", sans-serif; }
+:lang(zh-Hans) { font-family: "Noto Sans CJK SC", sans-serif; }
+:lang(zh-Hant) { font-family: "Noto Sans CJK TC", sans-serif; }
+:lang(ko) { font-family: "Noto Sans CJK KR", sans-serif; }
+:lang(ar), :lang(fa) { font-family: "Noto Sans", "Noto Sans Arabic", sans-serif; }
+:lang(hi) { font-family: "Noto Sans", "Noto Sans Devanagari", sans-serif; }
+:lang(th) { font-family: "Noto Sans", "Noto Sans Thai", sans-serif; }
+body { margin: 0; }
+header { border-bottom: 1.5pt solid #1a1a1a; padding-bottom: 8pt; margin-bottom: 4pt; }
+.doc { margin: 0; font-size: 9pt; letter-spacing: .08em; text-transform: uppercase; color: #555; }
+h1 { margin: 2pt 0 0; font-size: 20pt; line-height: 1.25; }
+.alt { margin: 0; color: #444; }
+.contact { margin: 6pt 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 2pt 16pt; }
+.contact span { color: #555; }
+.mt { margin: 6pt 0 0; font-size: 8.5pt; color: #555; }
+.mt a { color: inherit; }
+h2 { margin: 10pt 0 3pt; font-size: 11pt; border-bottom: .5pt solid #999; padding-bottom: 1pt; break-after: avoid; }
+p { margin: 0; }
+ul { margin: 0; padding-inline-start: 1.2em; }
+li { margin: 1pt 0; break-inside: avoid; }
+.keywords { color: #333; }
+footer { margin-top: 14pt; padding-top: 4pt; border-top: .5pt solid #999; font-size: 8.5pt; color: #555; }

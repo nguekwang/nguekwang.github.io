@@ -15,4 +15,5 @@ HTML structure only. Page text comes from `data/`; never write page text into a 
 - Sub-pages under `/<lang>/` (`names.html.j2`, `ai_tools.html.j2`) extend `templates/subpage.html.j2`, which holds their head, language menu, back link and footer. Change that layout once there.
 - `templates/robots.txt.j2` builds `_site/robots.txt`; its sitemap URL comes from `url` in `data/site.yaml`.
 - `templates/llms.txt.j2` builds `_site/llms.txt`, a plain-text English summary for AI assistants, from `data/i18n/en.yaml`.
+- Every page head starts with `<meta charset>` and then includes `templates/security.html.j2` with its `policy` (see `security.md`). No `<style>` elements or `style=` attributes.
 - Every page head includes `templates/robots.html.j2`, which adds `noindex` only to pull request previews (`build.py --preview`). New page templates must include it too.
