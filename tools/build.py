@@ -178,8 +178,11 @@ def check_ai_tools(texts, ref, ai_tools):
         repo = (p or {}).get("repo") or ""
         if repo and not GITHUB_REPO.fullmatch(repo):
             errors.append(f"data/ai_tools.yaml {name}: repo must be owner/name, such as nguekwang/linguasim")
-        if set(p or {}) - {"repo"}:
-            errors.append(f"data/ai_tools.yaml {name}: unknown fields {sorted(set(p) - {'repo'})}")
+        if set(p or {}) - {"repo", "site"}:
+            errors.append(f"data/ai_tools.yaml {name}: unknown fields {sorted(set(p) - {'repo', 'site'})}")
+        url = (p or {}).get("site")
+        if url is not None and not (isinstance(url, str) and url.startswith("https://")):
+            errors.append(f"data/ai_tools.yaml {name}: site must be an https:// URL")
     slugs = [r.split("/")[1] for r in (ai_repo(p) for p in projects.values()) if GITHUB_REPO.fullmatch(r)]
     if len(set(slugs)) != len(slugs):
         errors.append("data/ai_tools.yaml projects: two repositories have the same name")
@@ -199,6 +202,11 @@ def check_ai_tools(texts, ref, ai_tools):
 
 def ai_repo(p):
     return (p or {}).get("repo") or ""
+
+
+def project_sites(ai_tools):
+    """The address where each project runs (`site` in data/ai_tools.yaml), by project name."""
+    return {name: p["site"] for name, p in (ai_tools.get("projects") or {}).items() if (p or {}).get("site")}
 
 
 def ai_tools_pages(site, ai_tools):
@@ -406,6 +414,7 @@ def main():
 
     talks = (load("talks.yaml") or {}).get("talks") or []
     ai_pages = ai_tools_pages(site, ai_tools)
+    sites = project_sites(ai_tools)
     langs = [{"code": c, "native": texts[c]["native"], "og_locale": texts[c]["og_locale"]}
              for c in site["languages"]]
     req = site["translation_request"]
@@ -439,7 +448,7 @@ def main():
             jsonld=jsonld(site, code, t, title, website_name, post_editors.get(code)),
             alt_name=site["name"]["latin"] if ja else site["name"]["ja"],
             alt_lang="en" if ja else "ja",
-            pubs=publications(site, code, t, pubs), names_slug=NAMES_SLUG, ai_pages=ai_pages,
+            pubs=publications(site, code, t, pubs), names_slug=NAMES_SLUG, ai_pages=ai_pages, project_sites=sites,
             footer_name=site["name"]["ja"] if ja else site["name"]["latin_short"],
             request_mailto=f"mailto:{site['email']}?subject={urllib.parse.quote(req['subject'])}&body={urllib.parse.quote(req['body'])}",
         )
@@ -491,7 +500,8 @@ def main():
         site=site, langs=langs, title=website_name, site_name=website_name, description=en["desc"],
         jsonld=jsonld(site, None, en, website_name, website_name)))
     write("llms.txt", env.get_template("llms.txt.j2").render(
-        site=site, langs=langs, t=en, pubs=publications(site, REFERENCE, en, pubs), ai_pages=ai_pages))
+        site=site, langs=langs, t=en, pubs=publications(site, REFERENCE, en, pubs), ai_pages=ai_pages,
+        project_sites=sites))
     subpages = [NAMES_SLUG] + [p["path"] for p in ai_pages.values()]
     write("sitemap.xml", env.get_template("sitemap.xml.j2").render(site=site, codes=codes, subpages=subpages))
     print(f"built {len(codes)} language pages (and their sub-pages: {', '.join(subpages)}) into {os.path.relpath(OUT, ROOT)}/")
@@ -512,7 +522,7 @@ def main():
                     h1=site["name"]["ja"] if ja else site["name"]["latin"],
                     alt_name=site["name"]["latin"] if ja else site["name"]["ja"],
                     alt_lang="en" if ja else "ja",
-                    pubs=publications(site, code, t, pubs),
+                    pubs=publications(site, code, t, pubs), project_sites=sites,
                     updated=updated_text(site, code, t["updated"], date),
                     notice=notice(code, t, post_editors.get(code)),
                 ))

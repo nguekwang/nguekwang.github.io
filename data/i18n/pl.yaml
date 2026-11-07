@@ -73,12 +73,10 @@ interests:
 projects:
 - name: linguasim
   desc: Zestaw narzędzi w Pythonie do pomiaru podobieństwa języków (w przygotowaniu; planowane udostępnienie jako open source)
-- name: Languer Map
-  desc: Interaktywny atlas języków świata (w przygotowaniu)
+- name: Lang Log
+  desc: Interaktywny atlas języków świata wraz z korpusami i danymi języków o niewielkich zasobach (w przygotowaniu)
 - name: phrase-marker-gen
   desc: Narzędzie do rysowania drzew składniowych gramatyki generatywnej (w planach)
-- name: Corpus Hub
-  desc: Platforma do gromadzenia i przeszukiwania korpusów językowych (w planach)
 ai_tools_h: "Czytanie repozytorium {project} za pomocą zewnętrznych usług AI"
 ai_tools_intro: "Te usługi odczytują publiczne repozytorium projektu na GitHubie: wystarczy zastąpić github.com w adresie repozytorium adresem usługi. Prowadzą je inne podmioty, nie ja, i działają tylko z repozytoriami publicznymi."
 ai_tools_repo: "Repozytorium"
