@@ -15,6 +15,10 @@ Usage:
   python3 tools/build.py            check the data, then build the site into _site/
   python3 tools/build.py --check    check the data only
   python3 tools/build.py --no-pdf   build the site without the CV PDFs (no Chrome needed)
+  python3 tools/build.py --preview --out=DIR
+                                    build a pull request preview into DIR: every page gets
+                                    <meta name="robots" content="noindex"> so search engines skip it
+                                    (.github/workflows/pages.yml publishes it under /preview/pr-<number>/)
 
 The check fails when any language file differs in structure from data/i18n/en.yaml
 (missing or extra keys, different list lengths, empty text), so every language shows the same items.
@@ -382,7 +386,10 @@ def check_publications(pubs, ref):
 
 
 def main():
-    global SITE_URL
+    global SITE_URL, OUT
+    for arg in sys.argv[1:]:
+        if arg.startswith("--out="):
+            OUT = os.path.abspath(arg[len("--out="):])
     site = load("site.yaml")
     SITE_URL = site["url"].rstrip("/")
     texts = {}
@@ -419,6 +426,8 @@ def main():
         undefined=StrictUndefined,
         keep_trailing_newline=True,
     )
+    # A pull request preview is the same site with noindex on every page (see templates/robots.html.j2).
+    env.globals["preview"] = "--preview" in sys.argv[1:]
 
     shutil.rmtree(OUT, ignore_errors=True)
     shutil.copytree(os.path.join(ROOT, "static"), OUT)
@@ -495,7 +504,7 @@ def main():
         project_sites=sites))
     subpages = [NAMES_SLUG] + [p["path"] for p in ai_pages.values()]
     write("sitemap.xml", env.get_template("sitemap.xml.j2").render(site=site, codes=codes, subpages=subpages))
-    print(f"built {len(codes)} language pages (and their sub-pages: {', '.join(subpages)}) into _site/")
+    print(f"built {len(codes)} language pages (and their sub-pages: {', '.join(subpages)}) into {os.path.relpath(OUT, ROOT)}/")
 
     if "--no-pdf" in sys.argv[1:]:
         print("skipped the CV PDFs (--no-pdf); the CV links on the pages point to missing files")

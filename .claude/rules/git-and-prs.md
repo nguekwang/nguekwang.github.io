@@ -16,6 +16,7 @@
 
 - Title and description in English.
 - For any visible change, the pull request needs before and after screenshots (at least the Japanese page and one right-to-left page such as Arabic). The `screenshots` workflow takes them (Japanese and every right-to-left language, desktop and mobile) and keeps a comment on the pull request with a table of changed pages and a link to the images. Look at the images and mention anything unexpected in the description; do not take them by hand unless the workflow cannot run.
+- Every pull request from this repository gets a preview of the site at `/preview/pr-<number>/`, and `pages.yml` keeps a comment on the pull request with its links (see `build-and-ci.md`). Point the owner to that comment in the report; do not post preview links by hand.
 - Watch CI on the pull request and fix failures until it passes. Do not skip or weaken a check to make it pass.
 - The owner reviews and merges. Do not merge your own pull request.
 - If you open a new pull request that replaces an older one, say in the report that the older one can be closed.

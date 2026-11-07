@@ -1,14 +1,14 @@
-# Check the data, build the static site from data/ + templates/, and deploy it to GitHub Pages.
-# - Pull requests: check and build only. Fails if any language differs in structure from en.yaml,
-#   if unapproved personal information is found (tools/privacy_check.py), or if a link between
-#   the site's own pages is broken (tools/check_links.py).
-# - Push to main: check, build, and deploy.
-# Requires Settings > Pages > Build and deployment > Source = "GitHub Actions".
+# Check the data and build the static site from data/ + templates/ for every pull request.
+# Fails if any language differs in structure from en.yaml, if unapproved personal information is
+# found (tools/privacy_check.py), or if a link between the site's own pages is broken
+# (tools/check_links.py).
+# For pull requests from this repository (not forks or Dependabot) it also builds a preview of the
+# site (tools/build.py --preview: noindex on every page) and uploads it as the artifact "preview".
+# .github/workflows/pages.yml publishes it at /preview/pr-<number>/ and links it on the pull request.
+# Deploying the live site from main is done by pages.yml, not here.
 name: site
 on:
   pull_request:
-  push:
-    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
@@ -39,20 +39,16 @@ jobs:
         run: python3 tools/build.py
       - name: Check links between the site's own pages
         run: python3 tools/check_links.py
-      - if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v5
+      - name: Build the pull request preview (same pages with noindex, same CV PDFs)
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]'
+        run: |
+          python3 tools/build.py --preview --no-pdf --out=_preview
+          (cd _site && find . -name '*.pdf' -exec cp --parents {} ../_preview/ \;)
+      - if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]'
+        uses: actions/upload-artifact@v7
         with:
-          path: _site
-  deploy:
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v5
+          name: preview
+          path: _preview
+          # pages.yml publishes every open pull request's latest preview again on each deployment,
+          # so keep it for as long as GitHub allows.
+          retention-days: 90
