@@ -5,7 +5,6 @@ All page text lives in YAML under data/:
   data/site.yaml          site-wide settings, names, language order, keyword order
   data/i18n/<code>.yaml   page text for one language
   data/talks.yaml         talks (language-independent)
-  data/projects.yaml      public repository and license of each project (language-independent)
   data/institutions.yaml  per institution and language: official name or our translation
 HTML structure lives in templates/. This script only joins the two.
 
@@ -81,7 +80,7 @@ def compare(ref, other, path, errors):
         errors.append(f"{path}: empty")
 
 
-def check(site, texts, institutions, projects):
+def check(site, texts, institutions):
     errors = []
     i18n_dir = os.path.join(DATA, "i18n")
     on_disk = {f[:-5] for f in os.listdir(i18n_dir) if f.endswith(".yaml")}
@@ -101,33 +100,9 @@ def check(site, texts, institutions, projects):
         if set(ref.get("institutions", {})) != set(institutions.get("order", [])):
             errors.append(f"data/institutions.yaml order: ids differ from data/i18n/{REFERENCE}.yaml institutions")
     errors += check_institutions(site, institutions)
-    if ref is not None:
-        errors += check_projects(texts, ref, projects)
     for code, t in texts.items():
         if isinstance(t.get("updated"), str) and t["updated"].count("{date}") != 1:
             errors.append(f"{code}.updated: must contain {{date}} exactly once")
-        if isinstance(t.get("license"), str) and t["license"].count("{name}") != 1:
-            errors.append(f"{code}.license: must contain {{name}} exactly once")
-    return errors
-
-
-def check_projects(texts, ref, projects):
-    """Project names are the same in every language, and each one has an entry in data/projects.yaml."""
-    errors = []
-    names = [p.get("name") for p in ref.get("projects", []) if isinstance(p, dict)]
-    for code, t in texts.items():
-        other = [p.get("name") for p in t.get("projects", []) if isinstance(p, dict)]
-        if other != names:
-            errors.append(f"{code}.projects: names must be {names} (the same in every language)")
-    if set(projects) != set(names):
-        errors.append(f"data/projects.yaml projects: names differ from data/i18n/{REFERENCE}.yaml projects")
-    for name, p in projects.items():
-        p = p or {}
-        repo, lic = p.get("repo") or "", p.get("license") or ""
-        if repo and not repo.startswith("https://github.com/"):
-            errors.append(f"data/projects.yaml {name}: repo must be a https://github.com/ URL")
-        if bool(repo) != bool(lic):
-            errors.append(f"data/projects.yaml {name}: set repo and license together")
     return errors
 
 
@@ -199,8 +174,7 @@ def main():
         if os.path.exists(os.path.join(DATA, "i18n", code + ".yaml")):
             texts[code] = load("i18n", code + ".yaml")
     institutions = load("institutions.yaml") or {}
-    projects = (load("projects.yaml") or {}).get("projects") or {}
-    errors = check(site, texts, institutions, projects)
+    errors = check(site, texts, institutions)
     if errors:
         print(f"{len(errors)} problem(s) in data/:", file=sys.stderr)
         for e in errors:
@@ -232,7 +206,7 @@ def main():
         h1 = site["name"]["ja"] if ja else site["name"]["latin"]
         title = f"{h1} – {t['keywords']['typology']}"
         html = page.render(
-            site=site, langs=langs, talks=talks, projects=projects, code=code, t=t,
+            site=site, langs=langs, talks=talks, code=code, t=t,
             h1=h1, title=title,
             updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
             jsonld=jsonld(site, code, t, title),
@@ -269,7 +243,7 @@ def main():
         site=site, langs=langs, title=site["name"]["latin"], description=en["desc"],
         jsonld=jsonld(site, None, en, site["name"]["latin"])))
     write("llms.txt", env.get_template("llms.txt.j2").render(
-        site=site, langs=langs, t=en, projects=projects, keywords=[en["keywords"][k] for k in site["keywords"]]))
+        site=site, langs=langs, t=en, keywords=[en["keywords"][k] for k in site["keywords"]]))
     write("sitemap.xml", env.get_template("sitemap.xml.j2").render(site=site, codes=codes, slug=NAMES_SLUG))
     print(f"built {len(codes)} language pages (and their {NAMES_SLUG}/ pages) into _site/")
 

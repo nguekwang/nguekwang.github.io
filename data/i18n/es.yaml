@@ -27,7 +27,6 @@ interests_h: Temas de investigación
 current_h: Investigación actual
 current: Cuantificación de la similitud interlingüística. A partir de inventarios fonémicos (PHOIBLE) y datos léxicos, mido cuán cercanas son las lenguas y los dialectos, empezando por las lenguas romances. El objetivo es una medida aplicable a muchas lenguas, con fundamentos estadísticos explícitos, que ayude a decidir dónde termina un dialecto y empieza una lengua.
 projects_h: Proyectos
-license: ' (Licencia: {name})'
 langs_h: Idiomas
 langs:
 - Japonés (lengua materna)

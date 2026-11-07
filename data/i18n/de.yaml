@@ -27,7 +27,6 @@ interests_h: Forschungsthemen
 current_h: Aktuelle Forschung
 current: Quantifizierung sprachübergreifender Ähnlichkeit. Anhand von Phoneminventaren (PHOIBLE) und Wortschatzdaten messe ich, wie nah Sprachen und Dialekte einander sind, beginnend mit den romanischen Sprachen. Ziel ist ein Maß, das für viele Sprachen funktioniert, auf expliziter Statistik beruht und Hinweise darauf geben kann, wo ein Dialekt endet und eine Sprache beginnt.
 projects_h: Projekte
-license: ' (Lizenz: {name})'
 langs_h: Sprachen
 langs:
 - Japanisch (Muttersprache)

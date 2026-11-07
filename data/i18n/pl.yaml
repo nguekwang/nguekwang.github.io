@@ -27,7 +27,6 @@ interests_h: Tematy badawcze
 current_h: Obecne badania
 current: Ilościowy pomiar podobieństwa między językami. Na podstawie inwentarzy fonemów (PHOIBLE) i danych leksykalnych mierzę, jak bliskie są sobie języki i dialekty, zaczynając od języków romańskich. Celem jest miara, która działa dla wielu języków, opiera się na jawnej statystyce i może pomóc ustalić, gdzie kończy się dialekt, a zaczyna język.
 projects_h: Projekty
-license: ' (Licencja: {name})'
 langs_h: Języki
 langs:
 - Japoński (ojczysty)

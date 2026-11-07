@@ -27,7 +27,6 @@ interests_h: Temas de pesquisa
 current_h: Pesquisa atual
 current: Quantificar a semelhança entre línguas. Com inventários de fonemas (PHOIBLE) e dados lexicais, meço a proximidade entre línguas e dialetos, começando pelas línguas românicas. O objetivo é uma medida que funcione para muitas línguas, se apoie em estatística explícita e ajude a indicar onde termina um dialeto e começa uma língua.
 projects_h: Projetos
-license: ' (Licença: {name})'
 langs_h: Línguas
 langs:
 - Japonês (nativo)
