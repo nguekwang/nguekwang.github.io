@@ -3,8 +3,8 @@
 and WebKit (Safari, and every browser on iPhone and iPad).
 
 Serves the built site from a local web server, opens every page of every language at desktop
-width (1280 px) and phone width (390 px, as a touch device) in each engine with Playwright, and
-fails if any page:
+width (1280 px) and phone width (390 px, as a touch device), in light and dark mode, in each
+engine with Playwright, and fails if any page:
   - scrolls sideways (the page is wider than the window),
   - has a language menu panel that, when open, sticks out of the window,
   - raises a JavaScript error, or logs a console error (this includes Content-Security-Policy
@@ -34,6 +34,10 @@ VIEWS = {
     # A phone: narrow, touch, no hover. Firefox has no mobile emulation in Playwright, so
     # is_mobile is only passed to the engines that support it (see context_options()).
     "mobile": {"viewport": {"width": 390, "height": 844}, "has_touch": True, "is_mobile": True},
+    # Dark mode (research-aide .claude/rules/web-browsers.md), at both widths.
+    "desktop-dark": {"viewport": {"width": 1280, "height": 800}, "color_scheme": "dark"},
+    "mobile-dark": {"viewport": {"width": 390, "height": 844}, "has_touch": True, "is_mobile": True,
+                    "color_scheme": "dark"},
 }
 
 
@@ -76,7 +80,7 @@ def serve(directory):
 
 
 def context_options(engine, view):
-    opts = dict(VIEWS[view], device_scale_factor=1)
+    opts = dict({"color_scheme": "light"}, **VIEWS[view], device_scale_factor=1)
     if engine == "firefox":
         opts.pop("is_mobile", None)
     return opts
