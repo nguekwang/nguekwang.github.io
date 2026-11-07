@@ -1,16 +1,11 @@
 # Publish the site to GitHub Pages: the live site built from main, plus a preview of every open
-# pull request at /preview/pr-<number>/, and keep one comment on each pull request with links to
-# its preview (with ?ref=pr-<number>, so GoatCounter can tell preview visits apart).
-#
-# GitHub Pages replaces the whole site on every deployment, so every run publishes main and all
-# current previews together. It runs when main changes, when site.yml has finished for a pull
-# request (a new preview), and when a pull request is closed (its preview is dropped).
-#
-# Pull request code never runs here: the previews are built and checked by site.yml (the artifact
-# "preview", with noindex on every page) and only downloaded and unpacked here, and only for pull
-# requests from this repository whose site.yml run passed. Forks and Dependabot get no preview.
-# workflow_run and pull_request_target run with main's workflow files, so this file takes effect
-# only once it is on main.
+# pull request at /preview/pr-<number>/, and one comment on each pull request with links to its
+# preview (with ?ref=pr-<number>). The shared workflow in nguekwang/research-aide does the work
+# (rule: research-aide .claude/rules/pr-previews.md); site.yml builds, checks and uploads each
+# pull request's preview.
+# It runs when main changes, when site.yml has finished for a pull request, and when a pull
+# request is closed (its preview is dropped). workflow_run and pull_request_target use main's
+# workflow files; pull request code never runs here.
 # Requires Settings > Pages > Build and deployment > Source = "GitHub Actions".
 name: pages
 on:
@@ -32,107 +27,26 @@ jobs:
     concurrency:
       group: pages
       cancel-in-progress: false
-    runs-on: ubuntu-latest
     permissions:
       contents: read
       actions: read
       pull-requests: write
       pages: write
       id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          # Always main, whatever triggered the run.
-          ref: main
-          # Full history, so the "last updated" footer can find the latest commit that changed the site.
-          fetch-depth: 0
-      - uses: actions/setup-python@v7
-        with:
-          python-version: "3.12"
-          cache: pip
-      - run: pip install -r requirements.txt
+    uses: nguekwang/research-aide/.github/workflows/pages-with-previews.yml@main
+    with:
       # Fonts for the CV PDFs (Latin, Cyrillic, Arabic, Devanagari, Thai, CJK); Chrome itself is preinstalled on the runner.
-      - name: Install fonts for the CV PDFs
-        run: sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends fonts-noto-core fonts-noto-cjk
-      - name: Check that every language has the same items
-        run: python3 tools/build.py --check
-      - name: Check for personal information the owner has not approved
-        run: python3 tools/privacy_check.py
-      - name: Build (pages and CV PDFs)
-        run: python3 tools/build.py
-      - name: Check links between the site's own pages
-        run: python3 tools/check_links.py
-      - id: previews
-        name: Add the latest passing preview of every open pull request
-        uses: actions/github-script@v9
-        with:
-          script: |
-            const fs = require('fs');
-            const { execFileSync } = require('child_process');
-            const { owner, repo } = context.repo;
-            const pulls = await github.paginate(github.rest.pulls.list, { owner, repo, state: 'open', per_page: 100 });
-            const added = [];
-            for (const pr of pulls) {
-              if (!pr.head.repo || pr.head.repo.full_name !== `${owner}/${repo}` || pr.user.login === 'dependabot[bot]') continue;
-              // The newest passing site.yml run of the pull request's branch: while a new commit is
-              // still being checked, the preview of the previous commit stays up.
-              const { data: { workflow_runs: runs } } = await github.rest.actions.listWorkflowRuns({
-                owner, repo, workflow_id: 'site.yml', event: 'pull_request', branch: pr.head.ref, status: 'success', per_page: 20 });
-              let artifact = null, run = null;
-              for (const r of runs) {
-                if (!r.pull_requests.some(p => p.number === pr.number) && r.head_sha !== pr.head.sha) continue;
-                const { data } = await github.rest.actions.listWorkflowRunArtifacts({ owner, repo, run_id: r.id, name: 'preview' });
-                artifact = data.artifacts.find(a => !a.expired);
-                if (artifact) { run = r; break; }
-              }
-              if (!artifact) { core.info(`#${pr.number}: no passing preview yet`); continue; }
-              const zip = await github.rest.actions.downloadArtifact({ owner, repo, artifact_id: artifact.id, archive_format: 'zip' });
-              const dir = `_site/preview/pr-${pr.number}`;
-              fs.mkdirSync(dir, { recursive: true });
-              fs.writeFileSync('preview.zip', Buffer.from(zip.data));
-              execFileSync('unzip', ['-q', 'preview.zip', '-d', dir]);
-              fs.unlinkSync('preview.zip');
-              core.info(`#${pr.number}: preview of ${run.head_sha.slice(0, 7)}`);
-              added.push({ number: pr.number, sha: run.head_sha, current: run.head_sha === pr.head.sha });
-            }
-            core.setOutput('added', JSON.stringify(added));
-      - uses: actions/upload-pages-artifact@v5
-        with:
-          path: _site
-      - id: deployment
-        uses: actions/deploy-pages@v5
-      - name: Link each preview on its pull request
-        uses: actions/github-script@v9
-        env:
-          ADDED: ${{ steps.previews.outputs.added }}
-          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
-        with:
-          script: |
-            const marker = '<!-- preview-bot -->';
-            const { owner, repo } = context.repo;
-            const base = process.env.PAGE_URL.replace(/\/?$/, '/');
-            for (const p of JSON.parse(process.env.ADDED || '[]')) {
-              const root = `${base}preview/pr-${p.number}/`;
-              const ref = `?ref=pr-${p.number}`;
-              const body = [
-                marker,
-                '### Preview',
-                '',
-                `This pull request's version of the site, from commit ${p.sha.slice(0, 7)}${p.current ? '' : ' (the latest commit is still being checked)'}:`,
-                '',
-                `- Japanese: ${root}ja/${ref}`,
-                `- Arabic (right to left): ${root}ar/${ref}`,
-                `- English: ${root}en/${ref}`,
-                `- Language chooser: ${root}${ref}`,
-                '',
-                'Search engines do not index it (noindex), and it is removed when the pull request is closed.',
-              ].join('\n');
-              const comments = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number: p.number });
-              const old = comments.find(c => c.body.startsWith(marker));
-              if (old && old.body === body) continue;
-              if (old) await github.rest.issues.updateComment({ owner, repo, comment_id: old.id, body });
-              else await github.rest.issues.createComment({ owner, repo, issue_number: p.number, body });
-            }
+      build: |
+        pip install -r requirements.txt
+        sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends fonts-noto-core fonts-noto-cjk
+        python3 tools/build.py --check
+        python3 tools/privacy_check.py
+        python3 tools/build.py
+        python3 tools/check_links.py
+      site-dir: _site
+      preview-workflow: site.yml
+      links: |
+        Japanese|ja/
+        Arabic (right to left)|ar/
+        English|en/
+        Language chooser|
