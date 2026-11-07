@@ -7,7 +7,6 @@
 mt_notice: Цю сторінку перекладено машинно.
 post_edited: 'Машинний переклад; перевірка й редагування: {names}.'
 native: Українська
-dir: ltr
 og_locale: uk_UA
 request: Запросити іншу мову
 theme_dark: Темна тема

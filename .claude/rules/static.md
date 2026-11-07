@@ -5,7 +5,7 @@ paths:
 
 # Static files (`static/`)
 
-Copied to the site as they are (CSS, JS, robots.txt).
+Copied to the site as they are (CSS, JS). Files with a value taken from `data/` (such as `robots.txt`, whose sitemap URL comes from `url` in `data/site.yaml`) are templates instead (see `generated-values.md` in `research-aide`).
 
 - `static/style.css` is the one place for style. Do not add per-page or per-language style rules.
 - The CSS must work in Chromium, Firefox and WebKit (Safari): see `css-and-browsers.md`.

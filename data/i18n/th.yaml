@@ -7,7 +7,6 @@
 mt_notice: หน้านี้แปลด้วยเครื่อง
 post_edited: 'แปลด้วยเครื่อง และตรวจแก้โดย {names}'
 native: ไทย
-dir: ltr
 og_locale: th_TH
 request: ขอเพิ่มภาษาอื่น
 theme_dark: ธีมสีเข้ม

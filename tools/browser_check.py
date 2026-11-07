@@ -24,6 +24,7 @@ Usage:
 import argparse, functools, glob, http.server, os, sys, threading
 
 import yaml
+from babel import Locale
 from PIL import Image, ImageDraw
 from playwright.sync_api import sync_playwright
 
@@ -54,8 +55,9 @@ def screenshot_langs():
     """Japanese and every right-to-left language (what .claude/rules/git-and-prs.md asks for)."""
     langs = ["ja"]
     for path in sorted(glob.glob(os.path.join(ROOT, "data", "i18n", "*.yaml"))):
-        if load_yaml(path).get("dir") == "rtl":
-            langs.append(os.path.basename(path)[:-5])
+        code = os.path.basename(path)[:-5]
+        if Locale.parse(code, sep="-").character_order == "right-to-left":
+            langs.append(code)
     return langs
 
 

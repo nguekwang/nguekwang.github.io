@@ -311,6 +311,11 @@ def check_institutions(site, institutions):
     return errors
 
 
+def text_dir(code):
+    """Writing direction of a language ("rtl" or "ltr"), from its CLDR data in Babel, so no language file writes it."""
+    return "rtl" if Locale.parse(code, sep="-").character_order == "right-to-left" else "ltr"
+
+
 def last_change():
     """Return (sha, date) of the latest commit that changed SITE_PATHS, or (None, today).
 
@@ -412,6 +417,8 @@ def main():
             print("  " + e, file=sys.stderr)
         sys.exit(1)
     print(f"data OK: {len(texts)} languages share the structure of {REFERENCE}.yaml")
+    for code, t in texts.items():
+        t["dir"] = text_dir(code)
     if "--check" in sys.argv[1:]:
         return
 
@@ -437,6 +444,7 @@ def main():
 
     shutil.rmtree(OUT, ignore_errors=True)
     shutil.copytree(os.path.join(ROOT, "static"), OUT)
+    write("robots.txt", env.get_template("robots.txt.j2").render(site=site))
 
     # The WebSite in the JSON-LD is one entity shared by every language, so it has one name.
     website_name = site_title(site, texts, None)
