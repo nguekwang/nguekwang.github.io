@@ -1,30 +1,28 @@
 # CLAUDE.md
 
+@../research-aide/.claude/common.md
+
 The personal website of Matsuura Yoshihiro (https://nguekwang.github.io/): page text kept as YAML data in many languages, built into static HTML by `tools/build.py`, checked and deployed by GitHub Actions.
 
-This file holds only the principles. Concrete rules live in `.claude/rules/` (see the map below).
+This file holds only the principles. The owner's shared rules come from the `research-aide` repository (imported above; clone it next to this repository). Rules only for this repository live in `.claude/rules/` (see the map below); they add site details to the shared rules.
+
+If the shared rules are not in your context (the import above can be skipped, for example before external imports are approved or when `../research-aide` is missing), read `../research-aide/.claude/common.md` and every file it lists before doing anything else. If `../research-aide` does not exist, clone `nguekwang/research-aide` next to this repository first, or tell the owner.
 
 ## Principles
 
-- **The owner decides and reviews.** Every change goes through a pull request; the owner merges. Earlier decisions are recorded in this repository; follow them, and when a request conflicts with one, say so instead of overriding it.
 - **Publish only what the owner approved.** This repository and the site are public.
-- **Every language shows the same thing.** A change is not done until every language has it.
+- **Every language shows the same thing**, and each language follows its own official documents (`languages.md` in `research-aide`).
 - **Fix things once, at the source.** Text in `data/`, structure in `templates/`, style and scripts in `static/`, build logic in `tools/`. Never patch one page, one language or one link.
-- **Plain pages that work for everyone.** Each language is its own static page with ordinary links, readable without JavaScript and by search engines and AI assistants.
-- **English first.** The repository reads as English; other languages appear only as page content and names.
-- **Each language follows its own official documents.** Digits, dates, punctuation and other notation follow the conventions of that language's current official documents (government, legislature, national standards), not one style shared by all languages.
-- **Write decisions down.** When a new rule is decided, record it in the right rule file in the same pull request.
+- **Plain pages that work for everyone.** Each language is its own static page with ordinary links, readable without JavaScript and by search engines and AI assistants, in every browser (`web-browsers.md` in `research-aide`).
 
 ## Where the rules are
 
-Loaded in every session:
+Loaded in every session (each adds site details to the shared rule of the same topic):
 
-- `.claude/rules/instruction-files.md`: how this file and the rule files are organized and written. Read it before editing any of them.
-- `.claude/rules/working-with-the-owner.md`: starting a task, asking questions, reporting.
-- `.claude/rules/git-and-prs.md`: branches, conflicts, checks, pull requests.
-- `.claude/rules/english-first.md`: which language each part of the repository is written in.
+- `.claude/rules/git-and-prs.md`: checks before pushing, screenshots and previews on pull requests.
+- `.claude/rules/english-first.md`: where Japanese may appear.
 - `.claude/rules/publishing.md`: what may be published and what stays out of this repository.
-- `.claude/rules/security.md`: escaping, scripts, Content-Security-Policy, no forms.
+- `.claude/rules/security.md`: autoescape, Content-Security-Policy, measurement.
 
 Loaded when Claude works on matching files:
 
