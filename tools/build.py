@@ -43,6 +43,9 @@ from babel.lists import format_list
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
 from markupsafe import Markup, escape
 
+from security_policy import GOATCOUNTER_SCRIPT, security_policies
+from security_check import check_page
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
 OUT = os.path.join(ROOT, "_site")
@@ -428,6 +431,9 @@ def main():
     )
     # A pull request preview is the same site with noindex on every page (see templates/robots.html.j2).
     env.globals["preview"] = "--preview" in sys.argv[1:]
+    # Content-Security-Policy and referrer policy of every page (templates/security.html.j2, tools/security_policy.py).
+    env.globals["security_policies"] = lambda policy: security_policies(site, policy)
+    env.globals["goatcounter_script"] = GOATCOUNTER_SCRIPT
 
     shutil.rmtree(OUT, ignore_errors=True)
     shutil.copytree(os.path.join(ROOT, "static"), OUT)
@@ -511,13 +517,15 @@ def main():
         return
     cv = env.get_template("cv.html.j2")
     with tempfile.TemporaryDirectory() as tmp:
+        # The CV's stylesheet sits next to the temporary HTML files, so the policy can keep style-src 'self'.
+        shutil.copy(os.path.join(ROOT, "templates", "cv.css"), tmp)
         jobs = []
         for code in codes:
             ja = code == "ja"
             t = texts[code]
             src = os.path.join(tmp, code + ".html")
             with open(src, "w", encoding="utf-8") as f:
-                f.write(cv.render(
+                f.write(cv_html := cv.render(
                     site=site, talks=talks, code=code, t=t,
                     h1=site["name"]["ja"] if ja else site["name"]["latin"],
                     alt_name=site["name"]["latin"] if ja else site["name"]["ja"],
@@ -526,6 +534,10 @@ def main():
                     updated=updated_text(site, code, t["updated"], date),
                     notice=notice(code, t, post_editors.get(code)),
                 ))
+            # The CV is not published, but it gets the same checks as every page (tools/security_check.py).
+            problems = check_page(cv_html, security_policies(site, "cv"))
+            if problems:
+                raise SystemExit(f"CV ({code}) fails the security check:\n  " + "\n  ".join(problems))
             jobs.append((src, os.path.join(OUT, code, site["cv_file"])))
         print_pdfs(find_chrome(), jobs, tmp)
     print(f"built {len(codes)} CV PDFs (/<lang>/{site['cv_file']})")

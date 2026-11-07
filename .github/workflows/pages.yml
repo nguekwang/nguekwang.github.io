@@ -43,6 +43,7 @@ jobs:
         python3 tools/privacy_check.py
         python3 tools/build.py
         python3 tools/check_links.py
+        python3 tools/security_check.py
       site-dir: _site
       preview-workflow: site.yml
       links: |
