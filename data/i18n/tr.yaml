@@ -7,7 +7,6 @@
 mt_notice: Bu sayfa makine çevirisiyle çevrilmiştir.
 post_edited: 'Makine çevirisidir; {names} tarafından gözden geçirilip düzeltildi.'
 native: Türkçe
-dir: ltr
 og_locale: tr_TR
 request: Başka bir dil iste
 theme_dark: Koyu tema

@@ -7,7 +7,6 @@
 mt_notice: ''
 post_edited: 'Traducción automática revisada y corregida por {names}.'
 native: Español
-dir: ltr
 og_locale: es_ES
 request: Solicitar otro idioma
 theme_dark: Tema oscuro

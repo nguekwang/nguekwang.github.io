@@ -7,7 +7,6 @@
 mt_notice: ''
 post_edited: 'Machine-translated, then reviewed and corrected by {names}.'
 native: English
-dir: ltr
 og_locale: en_US
 request: Request another language
 # Label (for screen readers and tooltip) of the light/dark theme toggle next to the language menu.

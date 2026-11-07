@@ -7,7 +7,6 @@
 mt_notice: ''
 post_edited: '機械翻訳をもとに、{names}が手直ししました。'
 native: 日本語
-dir: ltr
 og_locale: ja_JP
 request: 他の言語の翻訳版をリクエスト
 theme_dark: ダークテーマ

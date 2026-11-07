@@ -1,5 +1,6 @@
+{#- robots.txt; the sitemap URL comes from `url` in data/site.yaml. -#}
 # All crawlers, including search engines and AI assistants, may read the whole site.
 User-agent: *
 Allow: /
 
-Sitemap: https://nguekwang.github.io/sitemap.xml
+Sitemap: {{ site.url }}/sitemap.xml
