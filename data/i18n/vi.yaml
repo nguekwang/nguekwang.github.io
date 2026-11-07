@@ -72,7 +72,7 @@ interests:
 - Hệ thống chữ viết và điện toán đa ngôn ngữ (bộ gõ, quốc tế hóa)
 projects:
 - name: linguasim
-  desc: Bộ công cụ Python để đo độ tương đồng giữa các ngôn ngữ (đang phát triển; dự kiến phát hành mã nguồn mở)
+  desc: Bộ công cụ Python để đo độ tương đồng giữa các ngôn ngữ (đang phát triển)
 - name: Lang Log
   desc: Bản đồ tương tác về các ngôn ngữ trên thế giới, kèm kho ngữ liệu và dữ liệu về các ngôn ngữ ít tài nguyên (đang phát triển)
 - name: phrase-marker-gen
@@ -100,7 +100,7 @@ outlook:
 - name: "Thụ đắc ngôn ngữ thứ hai"
   desc: "kiểm chứng xem ngôn ngữ càng gần tiếng mẹ đẻ thì có càng dễ học hay không"
 - name: "Công cụ có giao diện đồ họa"
-  desc: "xây dựng công cụ để ai cũng tính được độ tương đồng và phát hành dưới dạng mã nguồn mở"
+  desc: "xây dựng công cụ để ai cũng tính được độ tương đồng"
 keywords:
   typology: "Loại hình học ngôn ngữ và phổ quát ngôn ngữ"
   formal-semantics: "Ngữ nghĩa học hình thức và ngữ nghĩa học liên ngôn ngữ"
@@ -122,10 +122,6 @@ keywords:
   input-methods: Bộ gõ
   typesetting: Dàn trang kỹ thuật số
   linux: "Linux và nhân hệ điều hành"
-  oss: Phần mềm nguồn mở
-  tech-democratization: "Dân chủ hóa công nghệ"
-  digital-commons: "Tài sản chung số"
-  decentralized-web: "Web phi tập trung và tự lưu trữ"
   sign-languages: "Ngôn ngữ ký hiệu"
   constructed: "Ngôn ngữ nhân tạo"
   formal-languages: "Ngôn ngữ hình thức"

@@ -72,7 +72,7 @@ interests:
 - Schriftsysteme und mehrsprachige Informatik (Eingabemethoden, Internationalisierung)
 projects:
 - name: linguasim
-  desc: Python-Toolkit zur Messung von Sprachähnlichkeit (in Entwicklung; Open-Source-Veröffentlichung geplant)
+  desc: Python-Toolkit zur Messung von Sprachähnlichkeit (in Entwicklung)
 - name: Lang Log
   desc: Interaktiver Atlas der Sprachen der Welt mit Korpora und Daten zu ressourcenarmen Sprachen (in Entwicklung)
 - name: phrase-marker-gen
@@ -100,7 +100,7 @@ outlook:
 - name: "Zweitspracherwerb"
   desc: "prüfen, ob Sprachen, die der eigenen näher sind, leichter zu lernen sind"
 - name: "Ein GUI-Werkzeug"
-  desc: "ein Werkzeug bauen, mit dem jede und jeder Ähnlichkeit berechnen kann, und es als Open Source veröffentlichen"
+  desc: "ein Werkzeug bauen, mit dem jede und jeder Ähnlichkeit berechnen kann"
 keywords:
   typology: "Sprachtypologie und Sprachuniversalien"
   formal-semantics: "Formale Semantik und sprachübergreifende Semantik"
@@ -122,10 +122,6 @@ keywords:
   input-methods: Eingabemethoden
   typesetting: Digitaler Satz
   linux: "Linux und Betriebssystemkerne"
-  oss: Open-Source-Software
-  tech-democratization: "Demokratisierung der Technik"
-  digital-commons: "Digitale Gemeingüter"
-  decentralized-web: "Dezentrales Web und Self-Hosting"
   sign-languages: "Gebärdensprachen"
   constructed: "Plansprachen"
   formal-languages: "Formale Sprachen"

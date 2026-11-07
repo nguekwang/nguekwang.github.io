@@ -79,7 +79,7 @@ interests:
 - Writing systems and multilingual computing (input methods, internationalization)
 projects:
 - name: linguasim
-  desc: A Python toolkit for measuring language similarity (in development; planned open-source release)
+  desc: A Python toolkit for measuring language similarity (in development)
 - name: Lang Log
   desc: 'An interactive atlas of the world''s languages, with corpora and data for low-resource languages (in development)'
 - name: phrase-marker-gen
@@ -109,7 +109,7 @@ outlook:
 - name: "Second-language learning"
   desc: "test whether languages closer to one's own are easier to learn"
 - name: "A GUI tool"
-  desc: "build a tool anyone can use to compute similarity, and release it as open source"
+  desc: "build a tool anyone can use to compute similarity"
 keywords:
   typology: "Linguistic typology and language universals"
   formal-semantics: "Formal semantics and cross-linguistic semantics"
@@ -131,10 +131,6 @@ keywords:
   input-methods: Input methods
   typesetting: Digital typesetting
   linux: "Linux and operating system kernels"
-  oss: Open-source software
-  tech-democratization: "Democratization of technology"
-  digital-commons: "Digital commons"
-  decentralized-web: "Decentralized web and self-hosting"
   sign-languages: "Sign languages"
   constructed: "Constructed languages"
   formal-languages: "Formal languages"

@@ -72,7 +72,7 @@ interests:
 - Sistem tulisan dan komputasi multibahasa (metode input, internasionalisasi)
 projects:
 - name: linguasim
-  desc: Perangkat Python untuk mengukur kemiripan bahasa (sedang dikembangkan; direncanakan dirilis sebagai sumber terbuka)
+  desc: Perangkat Python untuk mengukur kemiripan bahasa (sedang dikembangkan)
 - name: Lang Log
   desc: Atlas interaktif bahasa-bahasa di dunia, beserta korpus dan data bahasa-bahasa bersumber daya rendah (sedang dikembangkan)
 - name: phrase-marker-gen
@@ -100,7 +100,7 @@ outlook:
 - name: "Pemerolehan bahasa kedua"
   desc: "menguji apakah bahasa yang lebih dekat dengan bahasa sendiri lebih mudah dipelajari"
 - name: "Alat berbasis GUI"
-  desc: "membuat alat yang dapat dipakai siapa saja untuk menghitung kemiripan, dan merilisnya sebagai sumber terbuka"
+  desc: "membuat alat yang dapat dipakai siapa saja untuk menghitung kemiripan"
 keywords:
   typology: "Tipologi bahasa dan kesemestaan bahasa"
   formal-semantics: "Semantik formal dan semantik lintas bahasa"
@@ -122,10 +122,6 @@ keywords:
   input-methods: Metode input
   typesetting: Tata letak digital
   linux: "Linux dan kernel sistem operasi"
-  oss: Perangkat lunak sumber terbuka
-  tech-democratization: "Demokratisasi teknologi"
-  digital-commons: "Milik bersama digital"
-  decentralized-web: "Web terdesentralisasi dan hosting mandiri"
   sign-languages: "Bahasa isyarat"
   constructed: "Bahasa buatan"
   formal-languages: "Bahasa formal"

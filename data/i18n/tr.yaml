@@ -72,7 +72,7 @@ interests:
 - Yazı sistemleri ve çok dilli bilişim (giriş yöntemleri, uluslararasılaştırma)
 projects:
 - name: linguasim
-  desc: Dil benzerliğini ölçmek için Python araç takımı (geliştirme aşamasında; açık kaynak olarak yayımlanması planlanıyor)
+  desc: Dil benzerliğini ölçmek için Python araç takımı (geliştirme aşamasında)
 - name: Lang Log
   desc: Dünya dillerinin etkileşimli atlası ve az kaynaklı dillere ait derlem ve veriler (geliştirme aşamasında)
 - name: phrase-marker-gen
@@ -100,7 +100,7 @@ outlook:
 - name: "İkinci dil edinimi"
   desc: "kişinin kendi diline daha yakın dillerin daha kolay öğrenilip öğrenilmediğini sınamak"
 - name: "Grafik arayüzlü bir araç"
-  desc: "herkesin benzerlik hesaplayabileceği bir araç geliştirmek ve açık kaynak olarak yayımlamak"
+  desc: "herkesin benzerlik hesaplayabileceği bir araç geliştirmek"
 keywords:
   typology: "Dil tipolojisi ve dil evrenselleri"
   formal-semantics: "Biçimsel anlambilim ve diller arası anlambilim"
@@ -122,10 +122,6 @@ keywords:
   input-methods: Giriş yöntemleri
   typesetting: Dijital dizgi
   linux: "Linux ve işletim sistemi çekirdekleri"
-  oss: Açık kaynak yazılım
-  tech-democratization: "Teknolojinin demokratikleşmesi"
-  digital-commons: "Dijital müşterekler"
-  decentralized-web: "Merkeziyetsiz web ve kendi sunucunda barındırma"
   sign-languages: "İşaret dilleri"
   constructed: "Yapay diller"
   formal-languages: "Biçimsel diller"
