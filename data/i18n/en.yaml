@@ -86,6 +86,9 @@ projects:
   desc: A tool for drawing syntax trees in generative grammar (planned)
 # Page of links for AI assistants, one per project with a public repository (/<lang>/ai-tools/<repo>/).
 # ai_tools_h is also the small link under the project. Services and repositories: data/ai_tools.yaml.
+# After the description of a project whose repository has a LICENSE file (`license` in data/ai_tools.yaml),
+# with any space it needs before it; {name} becomes the license, linked to that file.
+license: " (License: {name})"
 ai_tools_h: "Reading the {project} repository with external AI services"
 ai_tools_intro: "These services read the project's public GitHub repository: replace github.com in the repository's URL with the service's address. They are run by others, not by me, and work only with public repositories."
 ai_tools_repo: "Repository"

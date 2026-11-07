@@ -148,6 +148,8 @@ def check(site, texts, institutions, post_editors, ai_tools):
             for mark in marks:
                 if isinstance(t.get(key), str) and t[key].count(mark) != 1:
                     errors.append(f"{code}.{key}: must contain {mark} exactly once")
+        if isinstance(t.get("license"), str) and t["license"].count("{name}") != 1:
+            errors.append(f"{code}.license: must contain {{name}} exactly once")
         if isinstance(t.get("ai_tools_h"), str) and t["ai_tools_h"].count("{project}") != 1:
             errors.append(f"{code}.ai_tools_h: must contain {{project}} exactly once")
         if isinstance(t.get("post_edited"), str) and t["post_edited"].count("{names}") != 1:
@@ -178,8 +180,13 @@ def check_ai_tools(texts, ref, ai_tools):
         repo = (p or {}).get("repo") or ""
         if repo and not GITHUB_REPO.fullmatch(repo):
             errors.append(f"data/ai_tools.yaml {name}: repo must be owner/name, such as nguekwang/linguasim")
-        if set(p or {}) - {"repo", "site"}:
-            errors.append(f"data/ai_tools.yaml {name}: unknown fields {sorted(set(p) - {'repo', 'site'})}")
+        if set(p or {}) - {"repo", "site", "license"}:
+            errors.append(f"data/ai_tools.yaml {name}: unknown fields {sorted(set(p) - {'repo', 'site', 'license'})}")
+        lic = (p or {}).get("license")
+        if lic is not None and not (isinstance(lic, str) and re.fullmatch(r"[A-Za-z0-9.+-]+", lic)):
+            errors.append(f"data/ai_tools.yaml {name}: license must be an SPDX id, such as MIT")
+        if lic and not repo:
+            errors.append(f"data/ai_tools.yaml {name}: license needs a public repo")
         url = (p or {}).get("site")
         if url is not None and not (isinstance(url, str) and url.startswith("https://")):
             errors.append(f"data/ai_tools.yaml {name}: site must be an https:// URL")
@@ -207,6 +214,12 @@ def ai_repo(p):
 def project_sites(ai_tools):
     """The address where each project runs (`site` in data/ai_tools.yaml), by project name."""
     return {name: p["site"] for name, p in (ai_tools.get("projects") or {}).items() if (p or {}).get("site")}
+
+
+def project_licenses(ai_tools):
+    """Each project's license (`license` in data/ai_tools.yaml) and its LICENSE file, by project name."""
+    return {name: {"id": p["license"], "url": f"https://github.com/{p['repo']}/blob/HEAD/LICENSE"}
+            for name, p in (ai_tools.get("projects") or {}).items() if (p or {}).get("license")}
 
 
 def ai_tools_pages(site, ai_tools):
@@ -415,6 +428,7 @@ def main():
     talks = (load("talks.yaml") or {}).get("talks") or []
     ai_pages = ai_tools_pages(site, ai_tools)
     sites = project_sites(ai_tools)
+    licenses = project_licenses(ai_tools)
     langs = [{"code": c, "native": texts[c]["native"], "og_locale": texts[c]["og_locale"]}
              for c in site["languages"]]
     req = site["translation_request"]
@@ -448,7 +462,7 @@ def main():
             jsonld=jsonld(site, code, t, title, website_name, post_editors.get(code)),
             alt_name=site["name"]["latin"] if ja else site["name"]["ja"],
             alt_lang="en" if ja else "ja",
-            pubs=publications(site, code, t, pubs), names_slug=NAMES_SLUG, ai_pages=ai_pages, project_sites=sites,
+            pubs=publications(site, code, t, pubs), names_slug=NAMES_SLUG, ai_pages=ai_pages, project_sites=sites, licenses=licenses,
             footer_name=site["name"]["ja"] if ja else site["name"]["latin_short"],
             request_mailto=f"mailto:{site['email']}?subject={urllib.parse.quote(req['subject'])}&body={urllib.parse.quote(req['body'])}",
         )
@@ -501,7 +515,7 @@ def main():
         jsonld=jsonld(site, None, en, website_name, website_name)))
     write("llms.txt", env.get_template("llms.txt.j2").render(
         site=site, langs=langs, t=en, pubs=publications(site, REFERENCE, en, pubs), ai_pages=ai_pages,
-        project_sites=sites))
+        project_sites=sites, licenses=licenses))
     subpages = [NAMES_SLUG] + [p["path"] for p in ai_pages.values()]
     write("sitemap.xml", env.get_template("sitemap.xml.j2").render(site=site, codes=codes, subpages=subpages))
     print(f"built {len(codes)} language pages (and their sub-pages: {', '.join(subpages)}) into {os.path.relpath(OUT, ROOT)}/")

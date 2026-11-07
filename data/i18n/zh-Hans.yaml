@@ -77,6 +77,7 @@ projects:
   desc: 世界语言的交互式地图，以及低资源语言的语料库和数据（开发中）
 - name: phrase-marker-gen
   desc: 用于绘制生成语法句法树的工具（构想中）
+license: "（许可证：{name}）"
 ai_tools_h: "用外部 AI 服务阅读 {project} 的仓库"
 ai_tools_intro: "以下服务可读取本项目的公开 GitHub 仓库：只需将仓库网址中的 github.com 替换为相应服务的地址。这些服务由第三方而非本人运营，且仅适用于公开仓库。"
 ai_tools_repo: "仓库"

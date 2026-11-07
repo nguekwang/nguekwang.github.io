@@ -77,6 +77,7 @@ projects:
   desc: Atlante interattivo delle lingue del mondo, con corpora e dati sulle lingue a risorse limitate (in sviluppo)
 - name: phrase-marker-gen
   desc: Strumento per disegnare alberi sintattici della grammatica generativa (in progetto)
+license: " (Licenza: {name})"
 ai_tools_h: "Lettura del repository di {project} con servizi di IA esterni"
 ai_tools_intro: "Questi servizi leggono il repository pubblico del progetto su GitHub: basta sostituire github.com nell'URL del repository con l'indirizzo del servizio. Sono gestiti da terzi, non da me, e funzionano solo con repository pubblici."
 ai_tools_repo: "Repository"

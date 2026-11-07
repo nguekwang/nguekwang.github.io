@@ -21,7 +21,10 @@ services:
 # site then shows no link and builds no page for it. Never set it to a private repository.
 # `site` (optional) is the address where the project itself runs, such as its GitHub Pages
 # site; the project name in the Projects section and the CV links there.
+# `license` (optional) is the SPDX id (https://spdx.org/licenses/) of the LICENSE file in `repo`.
+# Set it only once that file exists on the default branch; the Projects section then shows it
+# after the description, linked to the file. Owner's choice (Q&A RP1): MIT, except Lang Log (AGPL-3.0-only).
 projects:
   linguasim: {repo: nguekwang/linguasim}
-  Lang Log: {repo: lang-log/lang-log.github.io, site: "https://lang-log.github.io/"}
+  Lang Log: {repo: lang-log/lang-log.github.io, site: "https://lang-log.github.io/", license: AGPL-3.0-only}
   phrase-marker-gen: {repo: nguekwang/phrase-marker-gen}

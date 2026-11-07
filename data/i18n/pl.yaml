@@ -77,6 +77,7 @@ projects:
   desc: Interaktywny atlas języków świata wraz z korpusami i danymi języków o niewielkich zasobach (w przygotowaniu)
 - name: phrase-marker-gen
   desc: Narzędzie do rysowania drzew składniowych gramatyki generatywnej (w planach)
+license: " (Licencja: {name})"
 ai_tools_h: "Czytanie repozytorium {project} za pomocą zewnętrznych usług AI"
 ai_tools_intro: "Te usługi odczytują publiczne repozytorium projektu na GitHubie: wystarczy zastąpić github.com w adresie repozytorium adresem usługi. Prowadzą je inne podmioty, nie ja, i działają tylko z repozytoriami publicznymi."
 ai_tools_repo: "Repozytorium"

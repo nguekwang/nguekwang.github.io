@@ -26,7 +26,7 @@
 
 ## {{ t.projects_h }}
 
-{% for p in t.projects %}- {{ p.name }}: {{ p.desc }}{% if p.name in project_sites %}
+{% for p in t.projects %}- {{ p.name }}: {{ p.desc }}{% if p.name in licenses %}{{ t.license | replace("{name}", licenses[p.name].id) }}{% endif %}{% if p.name in project_sites %}
   - {{ project_sites[p.name] }}{% endif %}{% if p.name in ai_pages %}
   - {{ t.ai_tools_h | replace("{project}", p.name) }}: {{ site.url }}/en/{{ ai_pages[p.name].path }}/{% endif %}
 {% endfor %}## {{ t.outlook_h }}

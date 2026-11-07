@@ -70,7 +70,7 @@
 
   <section lang="{{ code }}">
     <h2>{{ t.projects_h }}</h2>
-    <ul>{% for p in t.projects %}<li><strong>{% if p.name in project_sites %}<a href="{{ project_sites[p.name] }}" data-cv="project-site">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %}</strong>{{ t.colon }}{{ p.desc }}{% if p.name in ai_pages %}<br><span class="meta">{% set h = t.ai_tools_h.split("{project}") %}<a href="{{ ai_pages[p.name].path }}/">{{ h[0] }}<bdi>{{ p.name }}</bdi>{{ h[1] }}</a></span>{% endif %}</li>{% endfor %}</ul>
+    <ul>{% for p in t.projects %}<li><strong>{% if p.name in project_sites %}<a href="{{ project_sites[p.name] }}" data-cv="project-site">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %}</strong>{{ t.colon }}{{ p.desc }}{% if p.name in licenses %}{% set l = t.license.split("{name}") %}{{ l[0] }}<a href="{{ licenses[p.name].url }}" data-cv="license"><bdi>{{ licenses[p.name].id }}</bdi></a>{{ l[1] }}{% endif %}{% if p.name in ai_pages %}<br><span class="meta">{% set h = t.ai_tools_h.split("{project}") %}<a href="{{ ai_pages[p.name].path }}/">{{ h[0] }}<bdi>{{ p.name }}</bdi>{{ h[1] }}</a></span>{% endif %}</li>{% endfor %}</ul>
   </section>
 
   <section lang="{{ code }}">
