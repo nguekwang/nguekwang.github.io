@@ -1,11 +1,16 @@
 # Page text for one language (ja). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: ''
+post_edited: '機械翻訳をもとに、{names}が手直ししました。'
 native: 日本語
 dir: ltr
+og_locale: ja_JP
 request: 他の言語の翻訳版をリクエスト
+theme_dark: ダークテーマ
 pubs_h: 業績・発表
 career_h: "経歴"
 contact_h: 連絡先
@@ -13,25 +18,52 @@ career:
 - "2003年12月 広島県広島市生まれ"
 - "2022年3月 広島市立基町高等学校 普通科 普通コース 卒業"
 - 2026年3月 大阪大学 外国語学部 スペイン語専攻 卒業
-thesis: 卒業論文
 colon: '：'
 email: メール
 updated: '最終更新：{date}'
+site_title: 研究ポートフォリオ
 desc: 松浦 義広。言語類型論・音韻論。音素目録にもとづく言語間類似度の定量化。
-unpublished: (非公開)
+pub_title_en: '（{title}）'
+pub_note: '（{year}）（{details}）'
+list_sep: '、'
+pub_types:
+  bachelor_thesis: '卒業論文'
+pub_status:
+  unpublished: '非公開'
 keywords_h: キーワード
-tagline: 人間の言語が意味を表すしくみのうち、何が普遍的なのかを、形式的・計算的な方法と多言語のデータで調べています。
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "言語の比較"
+  theory: "理論言語学"
+  math: "数理・データ"
+  objects: "研究対象"
+  tech: "技術"
 btn_email: メールする
 btn_github: GitHub
+btn_cv: "CV(PDF)"
+cv_h: "経歴書"
+website: "ウェブサイト"
 interests_h: 研究テーマ
 current_h: 現在の研究
-current: 言語間の類似度の定量化。音素目録(PHOIBLE)や語彙のデータから、言語や方言がどれだけ近いかを測っています。まずはロマンス諸語から始め、多くの言語に使えて統計的な根拠がはっきりした尺度を作り、方言と言語の線引きの議論に役立てることを目指しています。
+current: 類似とは何か、言語の特性を客観的に記述する方法は何かを問い、その方法を「人間の音声言語」にとどまらず、文字言語や手話、ホモ・サピエンス以外の存在の言語(と呼べるかもしれないもの)、人工言語、形式言語にも適用できる可能性を探求しています。
 projects_h: プロジェクト
-langs_h: 使用言語
+outlook_h: "展望"
+langs_h: 言語
 langs:
-- 日本語(母語)
-- 英語(CEFR C1)
-- スペイン語(CEFR B1、学部専攻)
+- label: "母語(L1)"
+  items:
+  - "日本語"
+- label: "運用言語"
+  items:
+  - "英語(CEFR C1)"
+  - "スペイン語(CEFR B1、学部専攻)"
+- label: "習得中の言語"
+  items:
+  - "韓国語"
+  - "フランス語"
+  - "ロシア語"
+  - "中国語"
+  - "アラビア語"
 interests:
 - 言語の普遍性と類型論：すべての言語に共通するもの、言語ごとに違うもの
 - 言語横断の意味論：形式意味論を理論の核に、計算的方法を道具に
@@ -40,41 +72,67 @@ interests:
 - 文字体系と多言語の情報処理(入力メソッド、国際化)
 projects:
 - name: linguasim
-  desc: 言語の類似度を測る Python のツール(開発中、オープンソースで公開予定)
-- name: Languer Map
-  desc: 世界の言語のインタラクティブな地図(開発中)
+  desc: 言語の類似度を測る Python のツール(開発中)
+- name: Lang Log
+  desc: 世界の言語のインタラクティブな地図と、低資源言語のコーパスやデータの置き場(開発中)
 - name: phrase-marker-gen
   desc: 生成文法の構文木を描くツール(構想中)
-- name: Corpus Hub
-  desc: 言語コーパスを集めて検索するためのハブ(構想中)
+ai_tools_h: "{project} のリポジトリを外部の AI サービスで読む"
+ai_tools_intro: "このプロジェクトの公開 GitHub リポジトリを読み込むサービスです。リポジトリの URL の github.com を各サービスのアドレスに書き換えると使えます。いずれも私ではなく第三者が運営しており、公開リポジトリでのみ動きます。"
+ai_tools_repo: "リポジトリ"
+ai_tools_groups:
+  read: "AI で読む"
+  diagram: "図にする"
+  browse: "ブラウザでコードを見る"
+ai_tools_desc:
+  gitingest: "リポジトリを、AI のチャットに貼り付けやすい1つのテキスト(概要、ファイル構成、ファイルの中身)にまとめます。"
+  gitmcp: "リポジトリをリモートの MCP サーバーにします。MCP に対応した AI アシスタントに、この URL をカスタム MCP サーバーとして追加して使います。アカウントや API キーは要りません。"
+  deepwiki: "リポジトリの Wiki 風の解説を自動で作り、リポジトリについての質問に答えます。"
+  uithub: "ファイル構成とファイルの中身を、AI アシスタント向けのテキストとして表示します。"
+  gitreverse: "AI コーディングアシスタント向けに、プロジェクトのプロンプトと自然言語の仕様書を作ります。"
+  gitdiagram: "リポジトリの構成を、操作できる図にします。"
+  github-dev: "リポジトリをブラウザ上のコードエディタ(VS Code)で開きます。GitHub が運営しており、GitHub へのサインインが必要です。"
+outlook:
+- name: "方言と言語の線引き"
+  desc: "類似度の尺度をもとに、ある言語変種を方言と呼ぶか言語と呼ぶかの基準を示す"
+- name: "統語の類似度"
+  desc: "音韻と語彙に加えて統語の近さも測り、まとめた一つの指標にする"
+- name: "第二言語習得への応用"
+  desc: "母語に近い言語ほど学びやすいのかを確かめる"
+- name: "GUI ツール"
+  desc: "誰でも類似度を計算できるツールを作る"
 keywords:
-  typology: 言語類型論
-  universals: 言語普遍性
-  crossling-semantics: 通言語的意味論
-  formal-semantics: 形式意味論
-  theoretical: 理論言語学
-  syntax: 統語論
-  morphology: 形態論
+  typology: "言語類型論・言語普遍性"
+  formal-semantics: "形式意味論・通言語的意味論"
   generative: 生成文法
   cognitive: 認知言語学
-  computational: 計算言語学
+  computational: "計算言語学・自然言語処理"
   phylogenetic: 系統言語学
-  similarity: 言語間の類似度
+  contact: "言語接触"
+  nationalism: "言語とナショナリズム"
+  similarity: "言語間の類似度・距離"
   phonology: 音韻論
-  romance: ロマンス諸語
+  romance: "ロマンス諸語(イベロ=ロマンス語)"
   mozarabic: モサラベ語(アンダルシア=ロマンス語)
   ladino: ラディノ語(ユダヤ=スペイン語)
-  ibero-romance: イベロ=ロマンス語
   medieval-castilian: 中世カスティーリャ語
   writing-systems: 文字体系
-  nlp: 自然言語処理
-  i18n: 国際化(i18n)
-  unicode: Unicode・文字コード
+  i18n: "国際化(i18n)"
+  unicode: "Unicode・文字コード"
   input-methods: 入力メソッド
   typesetting: デジタル組版
-  linux: Linux
-  kernels: OSカーネル
-  oss: オープンソースソフトウェア(OSS)
+  linux: "Linux・OSカーネル"
+  sign-languages: "手話言語"
+  constructed: "人工言語"
+  formal-languages: "形式言語"
+  information-theory: "情報理論"
+  morse: "モールス信号"
+  probability: "確率論・統計学"
+  data-viz: "データの可視化"
+  saussurean: "ソシュール言語学"
+  wittgenstein: "分析哲学・ウィトゲンシュタイン"
+  vibrations-waves: "振動波動論"
+  signal-processing: "信号処理"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

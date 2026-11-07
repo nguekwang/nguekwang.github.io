@@ -1,11 +1,17 @@
 # Page text for one language (en). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: ''
+post_edited: 'Machine-translated, then reviewed and corrected by {names}.'
 native: English
 dir: ltr
+og_locale: en_US
 request: Request another language
+# Label (for screen readers and tooltip) of the light/dark theme toggle next to the language menu.
+theme_dark: Dark theme
 pubs_h: Publications & Presentations
 career_h: "Background"
 contact_h: Contact
@@ -13,26 +19,58 @@ career:
 - "Born in December 2003 in Hiroshima, Japan"
 - "Graduated, Hiroshima Municipal Motomachi High School (general course, standard track), March 2022"
 - B.A. in Spanish, School of Foreign Studies, The University of Osaka, March 2026
-thesis: Thesis
-# Separator between a label and its text (thesis, projects), with any space it needs.
+# Separator between a label and its text (projects), with any space it needs.
 colon: ': '
 email: Email
 updated: 'Last updated: {date}'
+site_title: Research Portfolio
 desc: 'Yoshihiro Matsuura: linguistic typology and phonology, quantifying cross-linguistic similarity from phoneme inventories.'
-unpublished: (unpublished)
+# Publications (data/publications.yaml). Each line is <title><pub_title_en><pub_note>.
+# pub_title_en wraps the English title ({title}) when the original is in another language.
+# pub_note holds {year} and {details} (the type, then the status, joined by list_sep).
+# Use the language's own brackets, comma and spacing.
+pub_title_en: ' ({title})'
+pub_note: ' ({year}) ({details})'
+list_sep: ', '
+pub_types:
+  bachelor_thesis: 'bachelor''s thesis'
+pub_status:
+  unpublished: 'unpublished'
 keywords_h: Keywords
-tagline: I study what is universal in how human languages encode meaning, using formal and computational methods on cross-linguistic data.
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "Language comparison"
+  theory: "Theoretical linguistics"
+  math: "Mathematics and data"
+  objects: "Objects of study"
+  tech: "Technology"
 btn_email: Email me
 btn_github: GitHub
+btn_cv: "CV (PDF)"
+# Title of the CV (PDF), and the label for the site's address in it.
+cv_h: "Curriculum Vitae"
+website: "Website"
 interests_h: Research topics
 current_h: Current research
-current: Quantifying cross-linguistic similarity. Using phoneme inventories (PHOIBLE) and vocabulary data, I measure how close languages and dialects are, starting with the Romance languages. The aim is a measure that works for many languages, rests on explicit statistics, and can inform where a dialect ends and a language begins.
+current: What similarity is, and how the properties of a language can be described objectively. I explore whether such methods can reach beyond spoken human language to written language, sign languages, what may count as language in beings other than Homo sapiens, constructed languages and formal languages.
 projects_h: Projects
+outlook_h: "Outlook"
 langs_h: Languages
 langs:
-- Japanese (native)
-- English (CEFR C1)
-- Spanish (CEFR B1, B.A. major)
+- label: "First language (L1)"
+  items:
+  - "Japanese"
+- label: "Working languages"
+  items:
+  - "English (CEFR C1)"
+  - "Spanish (CEFR B1, B.A. major)"
+- label: "Languages under study"
+  items:
+  - "Korean"
+  - "French"
+  - "Russian"
+  - "Chinese"
+  - "Arabic"
 interests:
 - 'Language universals and typology: what all human languages share, and how they differ'
 - Cross-linguistic semantics, with formal semantics as the theory and computational methods as the tools
@@ -41,41 +79,69 @@ interests:
 - Writing systems and multilingual computing (input methods, internationalization)
 projects:
 - name: linguasim
-  desc: A Python toolkit for measuring language similarity (in development; planned open-source release)
-- name: Languer Map
-  desc: 'An interactive atlas of the world''s languages (in development)'
+  desc: A Python toolkit for measuring language similarity (in development)
+- name: Lang Log
+  desc: 'An interactive atlas of the world''s languages, with corpora and data for low-resource languages (in development)'
 - name: phrase-marker-gen
   desc: A tool for drawing syntax trees in generative grammar (planned)
-- name: Corpus Hub
-  desc: A hub for collecting and searching language corpora (planned)
+# Page of links for AI assistants, one per project with a public repository (/<lang>/ai-tools/<repo>/).
+# ai_tools_h is also the small link under the project. Services and repositories: data/ai_tools.yaml.
+ai_tools_h: "Reading the {project} repository with external AI services"
+ai_tools_intro: "These services read the project's public GitHub repository: replace github.com in the repository's URL with the service's address. They are run by others, not by me, and work only with public repositories."
+ai_tools_repo: "Repository"
+ai_tools_groups:
+  read: "Reading with AI"
+  diagram: "Diagrams"
+  browse: "Code in the browser"
+ai_tools_desc:
+  gitingest: "Turns the repository into one text digest (summary, file tree and file contents) to paste into an AI chat."
+  gitmcp: "Turns the repository into a remote MCP server: add this URL as a custom MCP server in an AI assistant that supports MCP. No account or API key is needed."
+  deepwiki: "Generates wiki-style documentation of the repository and answers questions about it."
+  uithub: "Shows the file tree and file contents as plain text for an AI assistant."
+  gitreverse: "Writes a prompt and a plain-language specification of the project for an AI coding assistant."
+  gitdiagram: "Draws the structure of the repository as an interactive diagram."
+  github-dev: "Opens the repository in a code editor (VS Code) in the browser. Run by GitHub; you need to sign in to GitHub."
+outlook:
+- name: "Dialect or language"
+  desc: "use similarity measures to propose criteria for when a variety counts as a dialect and when as a language"
+- name: "Syntactic similarity"
+  desc: "measure how close syntax is, alongside sounds and vocabulary, and combine them into one index"
+- name: "Second-language learning"
+  desc: "test whether languages closer to one's own are easier to learn"
+- name: "A GUI tool"
+  desc: "build a tool anyone can use to compute similarity"
 keywords:
-  typology: Linguistic typology
-  universals: Language universals
-  crossling-semantics: Cross-linguistic semantics
-  formal-semantics: Formal semantics
-  theoretical: Theoretical linguistics
-  syntax: Syntax
-  morphology: Morphology
+  typology: "Linguistic typology and language universals"
+  formal-semantics: "Formal semantics and cross-linguistic semantics"
   generative: Generative grammar
   cognitive: Cognitive linguistics
-  computational: Computational linguistics
+  computational: "Computational linguistics and natural language processing"
   phylogenetic: Phylogenetic linguistics
-  similarity: Language similarity
+  contact: "Language contact"
+  nationalism: "Language and nationalism"
+  similarity: "Language similarity and distance"
   phonology: Phonology
-  romance: Romance languages
+  romance: "Romance languages (Ibero-Romance)"
   mozarabic: Mozarabic (Andalusi Romance)
   ladino: Ladino (Judaeo-Spanish)
-  ibero-romance: Ibero-Romance
   medieval-castilian: Medieval Castilian
   writing-systems: Writing systems
-  nlp: Natural language processing
-  i18n: Internationalization (i18n)
-  unicode: Unicode and character encoding
+  i18n: "Internationalization (i18n)"
+  unicode: "Unicode and character encoding"
   input-methods: Input methods
   typesetting: Digital typesetting
-  linux: Linux
-  kernels: Operating system kernels
-  oss: Open-source software
+  linux: "Linux and operating system kernels"
+  sign-languages: "Sign languages"
+  constructed: "Constructed languages"
+  formal-languages: "Formal languages"
+  information-theory: "Information theory"
+  morse: "Morse code"
+  probability: "Probability theory and statistics"
+  data-viz: "Data visualization"
+  saussurean: "Saussurean linguistics"
+  wittgenstein: "Analytic philosophy and Wittgenstein"
+  vibrations-waves: "Vibrations and waves"
+  signal-processing: "Signal processing"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

@@ -1,28 +1,6 @@
-<!doctype html>
-<html lang="{{ code }}" dir="{{ t.dir }}">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self' https://gc.zgo.at; img-src 'self' https://nguekwang.goatcounter.com; connect-src 'self' https://nguekwang.goatcounter.com; form-action 'none'; base-uri 'none'; object-src 'none'">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ title }}</title>
-<meta name="description" content="{{ t.names_intro }}">
-<meta name="author" content="{{ site.name.latin_short }}">
-<link rel="canonical" href="{{ site.url }}/{{ code }}/{{ slug }}/">
-{% for o in langs %}<link rel="alternate" hreflang="{{ o.code }}" href="{{ site.url }}/{{ o.code }}/{{ slug }}/">
-{% endfor %}<link rel="stylesheet" href="../../style.css">
-</head>
-<body>
-<main>
-  <nav><details class="langmenu">
-      <summary>{{ t.native }}</summary>
-      <div class="panel">
-        <ul>{% for o in langs %}{% if o.code == code %}<li><span lang="{{ o.code }}">{{ o.native }}</span></li>{% else %}<li><a href="../../{{ o.code }}/{{ slug }}/" lang="{{ o.code }}" hreflang="{{ o.code }}">{{ o.native }}</a></li>{% endif %}{% endfor %}</ul>
-      </div>
-    </details></nav>
-  {% if t.mt_notice %}<p class="mt">{{ t.mt_notice }}</p>{% endif %}
-  <p class="back"><a href="../">{{ t.names_back }}</a></p>
-  <h1 class="page-h">{{ t.names_h }}</h1>
+{#- The institution-names page, /<lang>/institution-names/. Layout: subpage.html.j2. -#}
+{% extends "subpage.html.j2" %}
+{% block content %}  <h1 class="page-h">{{ t.names_h }}</h1>
   <p>{{ t.names_intro }}</p>
   <ul class="names">{% for r in rows %}
     <li><strong>{{ r.name }}</strong><br>
@@ -30,10 +8,4 @@
       {% else %}{{ t.names_translated }}<br><span class="meta">{{ t.names_basis }}{{ t.colon }}<bdi lang="{{ r.basis_lang }}">{{ r.basis_name }}</bdi></span>{% endif %}
     </li>{% endfor %}
   </ul>
-  <footer>{% if updated_url %}<a href="{{ updated_url }}" class="updated">{{ updated }}</a>{% else %}{{ updated }}{% endif %}<br><small><bdi dir="ltr">&copy; {{ site.copyright_from }}<span class="range-dash">–</span></bdi> {{ footer_name }}</small></footer>
-</main>
-<script src="../../lang.js"></script>
-<script src="../../cv.js"></script>
-<script data-goatcounter="{{ site.goatcounter }}" async src="https://gc.zgo.at/count.js"></script>
-</body>
-</html>
+{% endblock %}

@@ -2,15 +2,23 @@
 """Static site generator for this site.
 
 All page text lives in YAML under data/:
-  data/site.yaml          site-wide settings, names, language order, keyword order
+  data/site.yaml          site-wide settings, names, language order, keyword groups
   data/i18n/<code>.yaml   page text for one language
   data/talks.yaml         talks (language-independent)
+  data/publications.yaml  publications and theses (titles as written; labels from data/i18n)
   data/institutions.yaml  per institution and language: official name or our translation
+  data/post_editors.yaml  native speakers who post-edited a machine-translated language
+  data/ai_tools.yaml      services that read a project's GitHub repository, and each project's repository
 HTML structure lives in templates/. This script only joins the two.
 
 Usage:
   python3 tools/build.py            check the data, then build the site into _site/
   python3 tools/build.py --check    check the data only
+  python3 tools/build.py --no-pdf   build the site without the CV PDFs (no Chrome needed)
+  python3 tools/build.py --preview --out=DIR
+                                    build a pull request preview into DIR: every page gets
+                                    <meta name="robots" content="noindex"> so search engines skip it
+                                    (.github/workflows/pages.yml publishes it under /preview/pr-<number>/)
 
 The check fails when any language file differs in structure from data/i18n/en.yaml
 (missing or extra keys, different list lengths, empty text), so every language shows the same items.
@@ -21,14 +29,19 @@ site (SITE_PATHS), formatted for each language with Babel, linked to that commit
 Links that leave the site (http/https URLs outside site.url) open in a new tab: write() adds
 target="_blank" rel="noopener noreferrer" to them in every generated HTML file, so templates
 never need to set it per link. mailto: links and links between the site's own pages are left as they are.
+
+Each language also gets a CV as a PDF at /<lang>/<site.cv_file>, made from the same data as the page:
+templates/cv.html.j2 is rendered to a temporary HTML file and printed to PDF with headless Chrome
+(set CHROME to its path if it is not found on PATH). The CV shows only what the page already shows.
 """
-import datetime, json, os, re, shutil, subprocess, sys, urllib.parse
+import concurrent.futures, datetime, json, os, re, shutil, subprocess, sys, tempfile, urllib.parse
 
 import yaml
 from babel import Locale
 from babel.dates import format_skeleton
+from babel.lists import format_list
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
-from markupsafe import Markup
+from markupsafe import Markup, escape
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
@@ -36,6 +49,8 @@ OUT = os.path.join(ROOT, "_site")
 REFERENCE = "en"
 # Keys whose value may be an empty string (an empty value means "do not show").
 MAY_BE_EMPTY = {"mt_notice"}
+# Keys that may be only a space (Thai separates list items with a space, not a comma).
+MAY_BE_SPACE = {"list_sep"}
 # Opening tag of an <a> element; group 1 holds its attributes.
 A_TAG = re.compile(r"<a\b([^>]*)>", re.IGNORECASE)
 HREF = re.compile(r"""\bhref\s*=\s*["']([^"']*)["']""", re.IGNORECASE)
@@ -47,6 +62,13 @@ SITE_PATHS = ["data", "templates", "static", "tools"]
 # Page that explains how institution names are written, at /<lang>/<NAMES_SLUG>/.
 NAMES_SLUG = "institution-names"
 NAME_STATUSES = {"official", "translated"}
+# Pages of links for AI assistants, one per project with a public repository, at /<lang>/<AI_TOOLS_SLUG>/<repo name>/.
+AI_TOOLS_SLUG = "ai-tools"
+GITHUB_REPO = re.compile(r"[A-Za-z0-9-]+/[A-Za-z0-9._-]+")
+# Browsers tried, in order, for printing the CV to PDF when CHROME is not set.
+CHROME_NAMES = ["chrome-headless-shell", "google-chrome", "google-chrome-stable", "chromium", "chromium-browser"]
+# Fields allowed for one post-editor. Anything else (such as an email address) is rejected.
+POST_EDITOR_FIELDS = {"name", "url"}
 
 
 def load(*parts):
@@ -77,10 +99,16 @@ def compare(ref, other, path, errors):
     elif not isinstance(other, str):
         errors.append(f"{path}: expected text")
     elif not other.strip() and path.rsplit(".", 1)[-1] not in MAY_BE_EMPTY:
-        errors.append(f"{path}: empty")
+        if not (other and path.rsplit(".", 1)[-1] in MAY_BE_SPACE):
+            errors.append(f"{path}: empty")
 
 
-def check(site, texts, institutions):
+def keyword_ids(site):
+    """All keyword ids in display order, across the groups in data/site.yaml."""
+    return [k for g in site.get("keywords", []) for k in g.get("items", [])]
+
+
+def check(site, texts, institutions, post_editors, ai_tools):
     errors = []
     i18n_dir = os.path.join(DATA, "i18n")
     on_disk = {f[:-5] for f in os.listdir(i18n_dir) if f.endswith(".yaml")}
@@ -90,7 +118,15 @@ def check(site, texts, institutions):
         errors.append(f"data/i18n/{code}.yaml: listed in data/site.yaml but the file is missing")
     ref = texts.get(REFERENCE)
     if ref is not None:
-        order = site.get("keywords", [])
+        groups = site.get("keywords", [])
+        group_ids = [g.get("group") for g in groups]
+        order = keyword_ids(site)
+        if len(set(group_ids)) != len(group_ids):
+            errors.append("data/site.yaml keywords: duplicate group ids")
+        if set(group_ids) != set(ref.get("keyword_groups", {})):
+            errors.append(f"data/site.yaml keywords: group ids differ from data/i18n/{REFERENCE}.yaml keyword_groups")
+        if any(not g.get("items") for g in groups):
+            errors.append("data/site.yaml keywords: every group needs at least one keyword")
         if len(set(order)) != len(order):
             errors.append("data/site.yaml keywords: duplicate ids")
         if set(order) != set(ref.get("keywords", {})):
@@ -100,10 +136,148 @@ def check(site, texts, institutions):
         if set(ref.get("institutions", {})) != set(institutions.get("order", [])):
             errors.append(f"data/institutions.yaml order: ids differ from data/i18n/{REFERENCE}.yaml institutions")
     errors += check_institutions(site, institutions)
+    errors += check_post_editors(site, texts, post_editors)
+    if ref is not None:
+        errors += check_ai_tools(texts, ref, ai_tools)
     for code, t in texts.items():
+        if isinstance(t.get("og_locale"), str) and not re.fullmatch(r"[a-z]{2,3}_[A-Z]{2}", t["og_locale"]):
+            errors.append(f"{code}.og_locale: must look like ja_JP (Open Graph locale)")
         if isinstance(t.get("updated"), str) and t["updated"].count("{date}") != 1:
             errors.append(f"{code}.updated: must contain {{date}} exactly once")
+        for key, marks in (("pub_title_en", ("{title}",)), ("pub_note", ("{year}", "{details}"))):
+            for mark in marks:
+                if isinstance(t.get(key), str) and t[key].count(mark) != 1:
+                    errors.append(f"{code}.{key}: must contain {mark} exactly once")
+        if isinstance(t.get("ai_tools_h"), str) and t["ai_tools_h"].count("{project}") != 1:
+            errors.append(f"{code}.ai_tools_h: must contain {{project}} exactly once")
+        if isinstance(t.get("post_edited"), str) and t["post_edited"].count("{names}") != 1:
+            errors.append(f"{code}.post_edited: must contain {{names}} exactly once")
     return errors
+
+
+def check_ai_tools(texts, ref, ai_tools):
+    """data/ai_tools.yaml: every project has an entry, and every service a description and group.
+
+    Project names are the same in every language, so a new project cannot be added to the
+    language files without deciding here whether it gets a page of links for AI assistants.
+    """
+    errors = []
+    names = [p.get("name") for p in ref.get("projects", []) if isinstance(p, dict)]
+    for code, t in texts.items():
+        other = [p.get("name") for p in t.get("projects", []) if isinstance(p, dict)]
+        if other != names:
+            errors.append(f"{code}.projects: names must be {names} (the same in every language)")
+    projects = ai_tools.get("projects") or {}
+    for name in names:
+        if name not in projects:
+            errors.append(f"data/ai_tools.yaml projects: add an entry for {name!r} (repo may be empty)")
+    for name in projects:
+        if name not in names:
+            errors.append(f"data/ai_tools.yaml projects: {name!r} is not a project in data/i18n/{REFERENCE}.yaml")
+    for name, p in projects.items():
+        repo = (p or {}).get("repo") or ""
+        if repo and not GITHUB_REPO.fullmatch(repo):
+            errors.append(f"data/ai_tools.yaml {name}: repo must be owner/name, such as nguekwang/linguasim")
+        if set(p or {}) - {"repo", "site"}:
+            errors.append(f"data/ai_tools.yaml {name}: unknown fields {sorted(set(p) - {'repo', 'site'})}")
+        url = (p or {}).get("site")
+        if url is not None and not (isinstance(url, str) and url.startswith("https://")):
+            errors.append(f"data/ai_tools.yaml {name}: site must be an https:// URL")
+    slugs = [r.split("/")[1] for r in (ai_repo(p) for p in projects.values()) if GITHUB_REPO.fullmatch(r)]
+    if len(set(slugs)) != len(slugs):
+        errors.append("data/ai_tools.yaml projects: two repositories have the same name")
+    services = ai_tools.get("services") or []
+    ids = [s.get("id") for s in services]
+    if len(set(ids)) != len(ids):
+        errors.append("data/ai_tools.yaml services: duplicate ids")
+    if set(ids) != set(ref.get("ai_tools_desc", {})):
+        errors.append(f"data/ai_tools.yaml services: ids differ from data/i18n/{REFERENCE}.yaml ai_tools_desc")
+    if {s.get("group") for s in services} != set(ref.get("ai_tools_groups", {})):
+        errors.append(f"data/ai_tools.yaml services: groups differ from data/i18n/{REFERENCE}.yaml ai_tools_groups")
+    for s in services:
+        if not all(s.get(k) for k in ("id", "name", "host", "group")):
+            errors.append(f"data/ai_tools.yaml services: {s.get('id')!r} needs id, name, host and group")
+    return errors
+
+
+def ai_repo(p):
+    return (p or {}).get("repo") or ""
+
+
+def project_sites(ai_tools):
+    """The address where each project runs (`site` in data/ai_tools.yaml), by project name."""
+    return {name: p["site"] for name, p in (ai_tools.get("projects") or {}).items() if (p or {}).get("site")}
+
+
+def ai_tools_pages(site, ai_tools):
+    """The projects that get a page of links for AI assistants, by project name.
+
+    Each value has the page's path under /<lang>/, the repository URL and the services in
+    display groups: [(group id, [(service, URL), ...]), ...].
+    """
+    groups = {}  # dicts keep insertion order: groups appear in the order of their first service
+    for s in ai_tools.get("services") or []:
+        groups.setdefault(s["group"], []).append(s)
+    pages = {}
+    for name, p in (ai_tools.get("projects") or {}).items():
+        repo = ai_repo(p)
+        if not repo:
+            continue
+        pages[name] = {
+            "path": f"{AI_TOOLS_SLUG}/{repo.split('/')[1]}",
+            "repo": f"https://github.com/{repo}",
+            "groups": [(g, [(s, f"https://{s['host']}/{repo}") for s in items]) for g, items in groups.items()],
+        }
+    return pages
+
+
+def check_post_editors(site, texts, post_editors):
+    """Post-editors are listed only for machine-translated languages, with a name and an optional https URL."""
+    errors = []
+    if not isinstance(post_editors, dict):
+        return ["data/post_editors.yaml post_editors: expected a mapping of language codes"]
+    for code, people in post_editors.items():
+        where = f"data/post_editors.yaml {code}"
+        if code not in site["languages"]:
+            errors.append(f"{where}: not a language in data/site.yaml")
+            continue
+        if not str((texts.get(code) or {}).get("mt_notice", "")).strip():
+            errors.append(f"{where}: this language is not machine-translated (its mt_notice is empty)")
+        if not isinstance(people, list) or not people:
+            errors.append(f"{where}: expected a list of people")
+            continue
+        for i, p in enumerate(people):
+            if not isinstance(p, dict):
+                errors.append(f"{where}[{i}]: expected name (and url)")
+                continue
+            for k in p.keys() - POST_EDITOR_FIELDS:
+                errors.append(f"{where}[{i}].{k}: not allowed (only {sorted(POST_EDITOR_FIELDS)}; "
+                              "no contact details in this public repository)")
+            if not isinstance(p.get("name"), str) or not p["name"].strip():
+                errors.append(f"{where}[{i}].name: missing")
+            if "url" in p and not (isinstance(p["url"], str) and p["url"].startswith("https://")):
+                errors.append(f"{where}[{i}].url: must start with https://")
+    return errors
+
+
+def notice(code, t, people):
+    """The notice at the top of a page: mt_notice, or post_edited with the post-editors' names.
+
+    Names are joined with the language's own list separators ("A, B, and C", "A、B、C") and
+    linked to the URL each person chose. Returns "" (no notice) for languages the owner wrote.
+    """
+    if not people:
+        return t["mt_notice"]
+    parts = []
+    for p in people:
+        name = Markup("<bdi>{}</bdi>").format(p["name"])
+        parts.append(Markup('<a href="{}">{}</a>').format(p["url"], name) if p.get("url") else name)
+    marks = [f"\x00{i}\x00" for i in range(len(parts))]
+    joined = str(escape(format_list(marks, locale=Locale.parse(code, sep="-"))))
+    for mark, part in zip(marks, parts):
+        joined = joined.replace(mark, str(part))
+    before, after = t["post_edited"].split("{names}")
+    return escape(before) + Markup(joined) + escape(after)
 
 
 def check_institutions(site, institutions):
@@ -156,17 +330,66 @@ def last_change():
     return None, datetime.date.today()
 
 
-def updated_text(site, code, template, date):
-    """Fill {date} with the month and year in the language's own format (e.g. 2026年11月)."""
-    text = format_skeleton("yMMMM", date, locale=Locale.parse(code, sep="-"))
+def local_digits(site, code, text):
+    """Write 0-9 with the language's own digits when data/site.yaml `digits` lists them."""
     digits = site.get("digits", {}).get(code)
     if digits:
         text = text.translate(str.maketrans("0123456789", digits))
-    return template.replace("{date}", text)
+    return text
+
+
+def updated_text(site, code, template, date):
+    """Fill {date} with the month and year in the language's own format (e.g. 2026年11月)."""
+    text = format_skeleton("yMMMM", date, locale=Locale.parse(code, sep="-"))
+    return template.replace("{date}", local_digits(site, code, text))
+
+
+def publications(site, code, t, pubs):
+    """Return data/publications.yaml entries with this language's text around the titles.
+
+    The template writes <title><en_space><en_open><title_en><en_after><note>, for example
+    言語間の類似度の定量的な算出（A Quantitative Analysis of Cross-Linguistic Similarity）（2026）（卒業論文、非公開）.
+    The brackets around the English title go inside one left-to-right isolate with it, so a
+    right-to-left page that wraps the title keeps them on the right sides.
+    """
+    before, after = t["pub_title_en"].split("{title}")
+    open_ = before.lstrip()
+    space = before[:len(before) - len(open_)]
+    out = []
+    for p in pubs:
+        details = [t["pub_types"][p["type"]]]
+        if p.get("status"):
+            details.append(t["pub_status"][p["status"]])
+        note = (t["pub_note"].replace("{year}", local_digits(site, code, str(p["year"])))
+                .replace("{details}", t["list_sep"].join(details)))
+        out.append({"title": p["title"], "lang": p["lang"], "title_en": p.get("title_en"),
+                    "en_space": space, "en_open": open_, "en_after": after, "note": note})
+    return out
+
+
+def check_publications(pubs, ref):
+    errors = []
+    for i, p in enumerate(pubs):
+        where = f"data/publications.yaml publications[{i}]"
+        for key in ("title", "lang", "year", "type"):
+            if not p.get(key):
+                errors.append(f"{where}: missing {key}")
+        if p.get("lang") != "en" and not p.get("title_en"):
+            errors.append(f"{where}: title_en is required when lang is not en")
+        if p.get("type") not in ref.get("pub_types", {}):
+            errors.append(f"{where}: type {p.get('type')!r} is not in pub_types of data/i18n/{REFERENCE}.yaml")
+        if p.get("status") and p["status"] not in ref.get("pub_status", {}):
+            errors.append(f"{where}: status {p['status']!r} is not in pub_status of data/i18n/{REFERENCE}.yaml")
+        if set(p) - {"title", "lang", "title_en", "year", "type", "status"}:
+            errors.append(f"{where}: unknown fields {sorted(set(p) - {'title', 'lang', 'title_en', 'year', 'type', 'status'})}")
+    return errors
 
 
 def main():
-    global SITE_URL
+    global SITE_URL, OUT
+    for arg in sys.argv[1:]:
+        if arg.startswith("--out="):
+            OUT = os.path.abspath(arg[len("--out="):])
     site = load("site.yaml")
     SITE_URL = site["url"].rstrip("/")
     texts = {}
@@ -174,7 +397,12 @@ def main():
         if os.path.exists(os.path.join(DATA, "i18n", code + ".yaml")):
             texts[code] = load("i18n", code + ".yaml")
     institutions = load("institutions.yaml") or {}
-    errors = check(site, texts, institutions)
+    post_editors = (load("post_editors.yaml") or {}).get("post_editors") or {}
+    pubs = (load("publications.yaml") or {}).get("publications") or []
+    ai_tools = load("ai_tools.yaml") or {}
+    errors = check(site, texts, institutions, post_editors, ai_tools)
+    if REFERENCE in texts:
+        errors += check_publications(pubs, texts[REFERENCE])
     if errors:
         print(f"{len(errors)} problem(s) in data/:", file=sys.stderr)
         for e in errors:
@@ -185,7 +413,10 @@ def main():
         return
 
     talks = (load("talks.yaml") or {}).get("talks") or []
-    langs = [{"code": c, "native": texts[c]["native"]} for c in site["languages"]]
+    ai_pages = ai_tools_pages(site, ai_tools)
+    sites = project_sites(ai_tools)
+    langs = [{"code": c, "native": texts[c]["native"], "og_locale": texts[c]["og_locale"]}
+             for c in site["languages"]]
     req = site["translation_request"]
     sha, date = last_change()
     updated_url = f"{site['repo']}/commit/{sha}" if sha else None
@@ -195,25 +426,29 @@ def main():
         undefined=StrictUndefined,
         keep_trailing_newline=True,
     )
+    # A pull request preview is the same site with noindex on every page (see templates/robots.html.j2).
+    env.globals["preview"] = "--preview" in sys.argv[1:]
 
     shutil.rmtree(OUT, ignore_errors=True)
     shutil.copytree(os.path.join(ROOT, "static"), OUT)
 
+    # The WebSite in the JSON-LD is one entity shared by every language, so it has one name.
+    website_name = site_title(site, texts, None)
     page = env.get_template("page.html.j2")
     for code in site["languages"]:
         ja = code == "ja"
         t = texts[code]
         h1 = site["name"]["ja"] if ja else site["name"]["latin"]
-        title = f"{h1} – {t['keywords']['typology']}"
+        title = site_title(site, texts, code)
         html = page.render(
             site=site, langs=langs, talks=talks, code=code, t=t,
-            h1=h1, title=title,
+            h1=h1, title=title, site_name=site_title(site, texts, code), notice=notice(code, t, post_editors.get(code)),
             updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
-            jsonld=jsonld(site, code, t, title),
+            copyright_from=local_digits(site, code, str(site["copyright_from"])),
+            jsonld=jsonld(site, code, t, title, website_name, post_editors.get(code)),
             alt_name=site["name"]["latin"] if ja else site["name"]["ja"],
             alt_lang="en" if ja else "ja",
-            thesis_title=site["thesis"]["title_ja"] if ja else site["thesis"]["title_en"],
-            thesis_lang="ja" if ja else "en", names_slug=NAMES_SLUG,
+            pubs=publications(site, code, t, pubs), names_slug=NAMES_SLUG, ai_pages=ai_pages, project_sites=sites,
             footer_name=site["name"]["ja"] if ja else site["name"]["latin_short"],
             request_mailto=f"mailto:{site['email']}?subject={urllib.parse.quote(req['subject'])}&body={urllib.parse.quote(req['body'])}",
         )
@@ -230,30 +465,118 @@ def main():
                 row["basis_name"] = texts[n["basis"]]["institutions"][iid]
                 row["basis_lang"] = n["basis"]
             rows.append(row)
+        title = f"{t['names_h']} – {site_title(site, texts, code)}"
+        sub = {"path": NAMES_SLUG, "name": t["names_h"], "description": t["names_intro"]}
         write(os.path.join(code, NAMES_SLUG, "index.html"), names_page.render(
-            site=site, langs=langs, code=code, t=t, rows=rows, slug=NAMES_SLUG,
-            title=f"{t['names_h']} – {site['name']['ja'] if code == 'ja' else site['name']['latin']}",
+            site=site, langs=langs, code=code, t=t, rows=rows, path=NAMES_SLUG, up="../../", home="../",
+            description=t["names_intro"], title=title, site_name=site_title(site, texts, code),
+            notice=notice(code, t, post_editors.get(code)),
+            jsonld=jsonld(site, code, t, title, website_name, post_editors.get(code), sub=sub),
             updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
+            copyright_from=local_digits(site, code, str(site["copyright_from"])),
             footer_name=site["name"]["ja"] if code == "ja" else site["name"]["latin_short"],
         ))
+
+    ai_page = env.get_template("ai_tools.html.j2")
+    for name, p in ai_pages.items():
+        for code in site["languages"]:
+            t = texts[code]
+            heading = t["ai_tools_h"].replace("{project}", name)
+            title = f"{heading} – {site_title(site, texts, code)}"
+            sub = {"path": p["path"], "name": heading, "description": t["ai_tools_intro"]}
+            write(os.path.join(code, *p["path"].split("/"), "index.html"), ai_page.render(
+                site=site, langs=langs, code=code, t=t, project=name, p=p, path=p["path"], up="../../../", home="../../",
+                description=t["ai_tools_intro"], title=title, site_name=site_title(site, texts, code),
+                notice=notice(code, t, post_editors.get(code)),
+                jsonld=jsonld(site, code, t, title, website_name, post_editors.get(code), sub=sub),
+                updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
+                copyright_from=local_digits(site, code, str(site["copyright_from"])),
+                footer_name=site["name"]["ja"] if code == "ja" else site["name"]["latin_short"],
+            ))
 
     codes = site["languages"]
     en = texts[REFERENCE]
     write("index.html", env.get_template("root.html.j2").render(
-        site=site, langs=langs, title=site["name"]["latin"], description=en["desc"],
-        jsonld=jsonld(site, None, en, site["name"]["latin"])))
+        site=site, langs=langs, title=website_name, site_name=website_name, description=en["desc"],
+        jsonld=jsonld(site, None, en, website_name, website_name)))
     write("llms.txt", env.get_template("llms.txt.j2").render(
-        site=site, langs=langs, t=en, keywords=[en["keywords"][k] for k in site["keywords"]]))
-    write("sitemap.xml", env.get_template("sitemap.xml.j2").render(site=site, codes=codes, slug=NAMES_SLUG))
-    print(f"built {len(codes)} language pages (and their {NAMES_SLUG}/ pages) into _site/")
+        site=site, langs=langs, t=en, pubs=publications(site, REFERENCE, en, pubs), ai_pages=ai_pages,
+        project_sites=sites))
+    subpages = [NAMES_SLUG] + [p["path"] for p in ai_pages.values()]
+    write("sitemap.xml", env.get_template("sitemap.xml.j2").render(site=site, codes=codes, subpages=subpages))
+    print(f"built {len(codes)} language pages (and their sub-pages: {', '.join(subpages)}) into {os.path.relpath(OUT, ROOT)}/")
+
+    if "--no-pdf" in sys.argv[1:]:
+        print("skipped the CV PDFs (--no-pdf); the CV links on the pages point to missing files")
+        return
+    cv = env.get_template("cv.html.j2")
+    with tempfile.TemporaryDirectory() as tmp:
+        jobs = []
+        for code in codes:
+            ja = code == "ja"
+            t = texts[code]
+            src = os.path.join(tmp, code + ".html")
+            with open(src, "w", encoding="utf-8") as f:
+                f.write(cv.render(
+                    site=site, talks=talks, code=code, t=t,
+                    h1=site["name"]["ja"] if ja else site["name"]["latin"],
+                    alt_name=site["name"]["latin"] if ja else site["name"]["ja"],
+                    alt_lang="en" if ja else "ja",
+                    pubs=publications(site, code, t, pubs), project_sites=sites,
+                    updated=updated_text(site, code, t["updated"], date),
+                    notice=notice(code, t, post_editors.get(code)),
+                ))
+            jobs.append((src, os.path.join(OUT, code, site["cv_file"])))
+        print_pdfs(find_chrome(), jobs, tmp)
+    print(f"built {len(codes)} CV PDFs (/<lang>/{site['cv_file']})")
 
 
-def jsonld(site, code, t, title):
+def find_chrome():
+    chrome = os.environ.get("CHROME") or next(filter(None, map(shutil.which, CHROME_NAMES)), None)
+    if not chrome:
+        raise SystemExit("no Chrome found for the CV PDFs: set CHROME=/path/to/chrome, "
+                         "or build without them with --no-pdf")
+    return chrome
+
+
+def print_pdfs(chrome, jobs, tmp):
+    """Print each (html, pdf) pair with headless Chrome; fail if any PDF is not written."""
+    def one(i, job):
+        src, dst = job
+        if os.path.exists(dst):
+            os.remove(dst)
+        cmd = [chrome, "--headless", "--no-sandbox", "--disable-gpu", "--no-first-run", "--disable-background-networking",
+               f"--user-data-dir={os.path.join(tmp, f'profile-{i}')}",
+               "--no-pdf-header-footer", "--print-to-pdf-no-header",
+               f"--print-to-pdf={dst}", "file://" + src]
+        r = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+        if not os.path.exists(dst) or os.path.getsize(dst) == 0:
+            raise SystemExit(f"Chrome did not write {dst}:\n{r.stderr}")
+    with concurrent.futures.ThreadPoolExecutor(4) as pool:
+        list(pool.map(one, *zip(*enumerate(jobs))))
+
+
+
+def site_title(site, texts, code):
+    """The site's name in one language: the owner's name, a dash and `site_title`.
+
+    The Japanese pages use the Japanese name; every other page uses `latin_title`
+    (surname first). The root language chooser (code None) uses English. Page titles,
+    og:site_name and the WebSite name in the JSON-LD all use it.
+    """
+    name = site["name"]["ja"] if code == "ja" else site["name"]["latin_title"]
+    return f"{name} – {texts[code or REFERENCE]['site_title']}"
+
+def jsonld(site, code, t, title, website_name, post_editors=None, sub=None):
     """Structured data (schema.org JSON-LD) for one page.
 
     Every page describes the same Person and WebSite (same @id), so search engines and
     AI assistants can join the language versions into one entity. `code` is None for the
-    root language chooser.
+    root language chooser. With `sub` ({path, name, description}), the page is the sub-page
+    /<code>/<path>/ (such as the institution-names page): a WebPage about the Person, with a
+    breadcrumb back to the language's profile page, instead of the ProfilePage itself. Post-editors of the page's
+    language are listed as `contributor` of the page. `website_name` is the WebSite's
+    name, the same on every page.
     """
     base = site["url"]
     name = site["name"]
@@ -267,7 +590,7 @@ def jsonld(site, code, t, title):
         "url": f"{base}/",
         "email": f"mailto:{site['email']}",
         "description": t["desc"],
-        "knowsAbout": [t["keywords"][k] for k in site["keywords"]],
+        "knowsAbout": [t["keywords"][k] for k in keyword_ids(site)],
         "knowsLanguage": site["knows_language"],
         "alumniOf": {
             "@type": "CollegeOrUniversity",
@@ -281,12 +604,33 @@ def jsonld(site, code, t, title):
         "@type": "WebSite",
         "@id": f"{base}/#website",
         "url": f"{base}/",
-        "name": name["latin"],
+        "name": website_name,
         "inLanguage": site["languages"],
         "about": {"@id": f"{base}/#person"},
     }
     graph = [website, person]
-    if code is not None:
+    if code is not None and sub is not None:
+        home = f"{base}/{code}/"
+        url = f"{home}{sub['path']}/"
+        home_name = name["ja"] if code == "ja" else name["latin"]
+        graph.insert(0, {
+            "@type": "WebPage",
+            "@id": f"{url}#page",
+            "url": url,
+            "name": title,
+            "description": sub["description"],
+            "inLanguage": code,
+            "isPartOf": {"@id": f"{base}/#website"},
+            "about": {"@id": f"{base}/#person"},
+            "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": home_name, "item": home},
+                    {"@type": "ListItem", "position": 2, "name": sub["name"], "item": url},
+                ],
+            },
+        })
+    elif code is not None:
         url = f"{base}/{code}/"
         graph.insert(0, {
             "@type": "ProfilePage",
@@ -298,6 +642,10 @@ def jsonld(site, code, t, title):
             "isPartOf": {"@id": f"{base}/#website"},
             "mainEntity": {"@id": f"{base}/#person"},
         })
+    if code is not None and post_editors:
+        graph[0]["contributor"] = [
+            {"@type": "Person", "name": p["name"], **({"url": p["url"]} if p.get("url") else {})}
+            for p in post_editors]
     data = {"@context": "https://schema.org", "@graph": graph}
     # Escape "</" so the JSON can never close the surrounding <script> element.
     return Markup(json.dumps(data, ensure_ascii=False, indent=1).replace("</", "<\\/"))

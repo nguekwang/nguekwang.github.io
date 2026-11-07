@@ -1,11 +1,16 @@
 # Page text for one language (zh-Hant). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: 本頁面為機器翻譯。
+post_edited: '本頁為機器翻譯，由{names}審校。'
 native: 繁體中文
 dir: ltr
+og_locale: zh_TW
 request: 申請其他語言版本
+theme_dark: 深色主題
 pubs_h: 論文與發表
 career_h: "經歷"
 contact_h: 聯絡方式
@@ -13,25 +18,52 @@ career:
 - "2003年12月生於日本廣島縣廣島市"
 - "廣島市立基町高等學校 普通科 普通課程 畢業(2022年3月)"
 - 大阪大學外國語學部 西班牙語專業 學士(2026年3月)
-thesis: 畢業論文
 colon: '：'
 email: 電子郵件
 updated: '最後更新：{date}'
+site_title: 研究作品集
 desc: 松浦義廣：語言類型學與音韻學，基於音位庫存的跨語言相似度定量研究。
-unpublished: （未公開）
+pub_title_en: '（{title}）'
+pub_note: '（{year}）（{details}）'
+list_sep: '，'
+pub_types:
+  bachelor_thesis: '畢業論文'
+pub_status:
+  unpublished: '未公開'
 keywords_h: 關鍵詞
-tagline: 我研究人類語言在表達意義上的普遍性，對跨語言資料運用形式化與計算方法。
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "語言比較"
+  theory: "理論語言學"
+  math: "數學與資料"
+  objects: "研究對象"
+  tech: "技術"
 btn_email: 寄送電子郵件
 btn_github: GitHub
+btn_cv: "履歷 (PDF)"
+cv_h: "個人履歷"
+website: "網站"
 interests_h: 研究主題
 current_h: 目前的研究
-current: 跨語言相似度的量化。我利用音位清單（PHOIBLE）與詞彙資料測量語言與方言之間的距離，首先從羅曼語族著手。目標是建立一個適用於多種語言、基於明確統計方法、並能為「方言與語言的界線在哪裡」提供依據的度量。
+current: 什麼是相似，以及如何客觀地描述語言的特性。我在探索將這些方法從「人類的有聲語言」擴展到書面語言、手語、智人以外的存在可能擁有的語言、人造語言與形式語言的可能性。
 projects_h: 專案
+outlook_h: "展望"
 langs_h: 語言
 langs:
-- 日語（母語）
-- 英語（CEFR C1）
-- 西班牙語（CEFR B1，大學主修）
+- label: "母語（L1）"
+  items:
+  - "日語"
+- label: "工作語言"
+  items:
+  - "英語（CEFR C1）"
+  - "西班牙語（CEFR B1，大學主修）"
+- label: "正在學習的語言"
+  items:
+  - "韓語"
+  - "法語"
+  - "俄語"
+  - "中文"
+  - "阿拉伯語"
 interests:
 - 語言共性與類型學：所有人類語言的共同點與差異
 - 跨語言語意學：以形式語意學為理論，以計算方法為工具
@@ -40,41 +72,67 @@ interests:
 - 文字系統與多語言運算（輸入法、國際化）
 projects:
 - name: linguasim
-  desc: 用於測量語言相似度的 Python 工具組（開發中，預計開源）
-- name: Languer Map
-  desc: 世界語言的互動式地圖（開發中）
+  desc: 用於測量語言相似度的 Python 工具組（開發中）
+- name: Lang Log
+  desc: 世界語言的互動式地圖，以及低資源語言的語料庫和資料（開發中）
 - name: phrase-marker-gen
   desc: 用於繪製生成語法句法樹的工具（構想中）
-- name: Corpus Hub
-  desc: 用於收集與檢索語言語料庫的平台（構想中）
+ai_tools_h: "用外部 AI 服務閱讀 {project} 的儲存庫"
+ai_tools_intro: "以下服務可讀取本專案的公開 GitHub 儲存庫：只要將儲存庫網址中的 github.com 換成該服務的網址即可。這些服務由第三方而非本人經營，且僅適用於公開儲存庫。"
+ai_tools_repo: "儲存庫"
+ai_tools_groups:
+  read: "用 AI 閱讀"
+  diagram: "圖表"
+  browse: "在瀏覽器中檢視程式碼"
+ai_tools_desc:
+  gitingest: "將儲存庫整理成一份文字（概要、檔案結構與檔案內容），方便貼到 AI 對話中。"
+  gitmcp: "將儲存庫變成遠端 MCP 伺服器：在支援 MCP 的 AI 助理中將此網址新增為自訂 MCP 伺服器即可。不需要帳號或 API 金鑰。"
+  deepwiki: "為儲存庫產生維基式文件，並回答關於儲存庫的問題。"
+  uithub: "以純文字形式向 AI 助理呈現檔案結構與檔案內容。"
+  gitreverse: "為 AI 程式設計助理撰寫專案的提示詞與自然語言規格說明。"
+  gitdiagram: "將儲存庫的結構繪製成可互動的圖表。"
+  github-dev: "在瀏覽器中的程式碼編輯器（VS Code）開啟儲存庫。由 GitHub 經營，需要登入 GitHub。"
+outlook:
+- name: "方言與語言的界線"
+  desc: "依據相似度指標，提出把某一語言變體稱為方言還是語言的標準"
+- name: "句法相似度"
+  desc: "在語音和詞彙之外也測量句法的接近程度，並合成為一個綜合指標"
+- name: "第二語言習得的應用"
+  desc: "檢驗與母語越接近的語言是否越容易學習"
+- name: "圖形介面工具"
+  desc: "開發人人都能計算相似度的工具"
 keywords:
-  typology: 語言類型學
-  universals: 語言共性
-  crossling-semantics: 跨語言語意學
-  formal-semantics: 形式語意學
-  theoretical: 理論語言學
-  syntax: 句法學
-  morphology: 構詞學
+  typology: "語言類型學與語言共性"
+  formal-semantics: "形式語意學與跨語言語意學"
   generative: 生成語法
   cognitive: 認知語言學
-  computational: 計算語言學
+  computational: "計算語言學與自然語言處理"
   phylogenetic: 親緣語言學
-  similarity: 語言相似度
+  contact: "語言接觸"
+  nationalism: "語言與民族主義"
+  similarity: "語言間的相似度與距離"
   phonology: 音韻學
-  romance: 羅曼語族
+  romance: "羅曼語族（伊比利亞-羅曼語支）"
   mozarabic: 莫札拉布語（安達盧斯羅曼語）
   ladino: 拉迪諾語（猶太西班牙語）
-  ibero-romance: 伊比利亞-羅曼語支
   medieval-castilian: 中世紀卡斯提亞語
   writing-systems: 文字系統
-  nlp: 自然語言處理
-  i18n: 國際化（i18n）
-  unicode: Unicode 與字元編碼
+  i18n: "國際化（i18n）"
+  unicode: "Unicode 與字元編碼"
   input-methods: 輸入法
   typesetting: 數位排版
-  linux: Linux
-  kernels: 作業系統核心
-  oss: 開源軟體
+  linux: "Linux 與作業系統核心"
+  sign-languages: "手語"
+  constructed: "人造語言"
+  formal-languages: "形式語言"
+  information-theory: "資訊理論"
+  morse: "摩斯電碼"
+  probability: "機率論與統計學"
+  data-viz: "資料視覺化"
+  saussurean: "索緒爾語言學"
+  wittgenstein: "分析哲學與維根斯坦"
+  vibrations-waves: "振動與波"
+  signal-processing: "訊號處理"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

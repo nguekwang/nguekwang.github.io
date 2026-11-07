@@ -1,0 +1,59 @@
+# Weekly check of every link on the built site, including links to other sites
+# (institution sources, GitHub, ...). Internal links are also checked on every pull request
+# by site.yml. When a link is broken, this opens (or updates) one issue titled "Broken links on the site".
+name: links
+on:
+  schedule:
+    - cron: "17 0 * * 1"   # every Monday 00:17 UTC (09:17 in Japan)
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python3 tools/build.py
+      - name: Skip post-editor links
+        # Links to the people who post-edited a translation (data/post_editors.yaml) must not be
+        # listed in a public issue. They have their own check that reports to the owner privately.
+        run: |
+          python3 - <<'PY'
+          import os, re
+          urls = []
+          if os.path.exists("data/post_editors.yaml"):
+              with open("data/post_editors.yaml", encoding="utf-8") as f:
+                  urls = sorted(set(re.findall(r"https?://[^\s'\"<>]+", f.read())))
+          # lychee reads .lycheeignore: one regular expression per line.
+          with open(".lycheeignore", "w", encoding="utf-8") as f:
+              f.writelines("^" + re.escape(u) + "\n" for u in urls)
+          print(f"skipping {len(urls)} post-editor link(s)")
+          PY
+      - id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --config lychee.toml --no-progress "_site/**/*.html"
+          output: links-report.md
+          fail: false
+      - name: Open or update the issue
+        if: steps.lychee.outputs.exit_code != 0
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const fs = require('fs');
+            const title = 'Broken links on the site';
+            const body = fs.readFileSync('links-report.md', 'utf8') +
+              `\n\nFound by the weekly link check: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const { owner, repo } = context.repo;
+            const issues = await github.paginate(github.rest.issues.listForRepo, { owner, repo, state: 'open' });
+            const old = issues.find(i => i.title === title && !i.pull_request);
+            if (old) await github.rest.issues.update({ owner, repo, issue_number: old.number, body });
+            else await github.rest.issues.create({ owner, repo, title, body });

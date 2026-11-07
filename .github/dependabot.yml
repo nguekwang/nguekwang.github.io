@@ -1,0 +1,19 @@
+# Dependabot opens a pull request when a new version of a GitHub Action used in
+# .github/workflows/ or a Python package in requirements.txt is released.
+# CI (site.yml, screenshots.yml) checks each one; the owner reviews and merges as usual.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ["*"]
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      python:
+        patterns: ["*"]

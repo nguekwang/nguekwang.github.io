@@ -1,11 +1,16 @@
 # Page text for one language (pl). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: Ta strona została przetłumaczona maszynowo.
+post_edited: 'Tłumaczenie maszynowe; korekta: {names}.'
 native: Polski
 dir: ltr
+og_locale: pl_PL
 request: Poproś o inny język
+theme_dark: Ciemny motyw
 pubs_h: Publikacje i wystąpienia
 career_h: "Życiorys"
 contact_h: Kontakt
@@ -13,25 +18,52 @@ career:
 - "Urodzony w grudniu 2003 r. w Hiroszimie (Japonia)"
 - "Świadectwo ukończenia szkoły średniej, Miejskie Liceum Motomachi w Hiroszimie (kierunek ogólny, ścieżka standardowa), marzec 2022 r."
 - Licencjat (język hiszpański), Wydział Studiów Zagranicznych, Uniwersytet Osakijski, marzec 2026 r.
-thesis: Praca licencjacka
 colon: ': '
 email: E-mail
 updated: 'Ostatnia aktualizacja: {date}'
+site_title: Portfolio badawcze
 desc: 'Yoshihiro Matsuura: typologia językowa i fonologia, ilościowe mierzenie podobieństwa międzyjęzykowego na podstawie inwentarzy fonemów.'
-unpublished: (nieopublikowana)
+pub_title_en: ' ({title})'
+pub_note: ' ({year}) ({details})'
+list_sep: ', '
+pub_types:
+  bachelor_thesis: 'praca licencjacka'
+pub_status:
+  unpublished: 'nieopublikowana'
 keywords_h: Słowa kluczowe
-tagline: Badam, co jest uniwersalne w sposobie, w jaki języki ludzkie kodują znaczenie, stosując metody formalne i obliczeniowe do danych z wielu języków.
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "Porównywanie języków"
+  theory: "Językoznawstwo teoretyczne"
+  math: "Matematyka i dane"
+  objects: "Przedmioty badań"
+  tech: "Technologia"
 btn_email: Napisz do mnie
 btn_github: GitHub
+btn_cv: "CV (PDF)"
+cv_h: "Curriculum vitae"
+website: "Strona internetowa"
 interests_h: Tematy badawcze
 current_h: Obecne badania
-current: Ilościowy pomiar podobieństwa między językami. Na podstawie inwentarzy fonemów (PHOIBLE) i danych leksykalnych mierzę, jak bliskie są sobie języki i dialekty, zaczynając od języków romańskich. Celem jest miara, która działa dla wielu języków, opiera się na jawnej statystyce i może pomóc ustalić, gdzie kończy się dialekt, a zaczyna język.
+current: "Czym jest podobieństwo i jak obiektywnie opisywać właściwości języka. Badam możliwość zastosowania tych metod poza mówionym językiem ludzkim: do języka pisanego, języków migowych, tego, co u istot innych niż Homo sapiens mogłoby uchodzić za język, języków sztucznych i języków formalnych."
 projects_h: Projekty
+outlook_h: "Perspektywy"
 langs_h: Języki
 langs:
-- Japoński (ojczysty)
-- Angielski (CEFR C1)
-- Hiszpański (CEFR B1, kierunek studiów licencjackich)
+- label: "Język ojczysty (L1)"
+  items:
+  - "Japoński"
+- label: "Języki robocze"
+  items:
+  - "Angielski (CEFR C1)"
+  - "Hiszpański (CEFR B1, kierunek studiów licencjackich)"
+- label: "Języki w trakcie nauki"
+  items:
+  - "Koreański"
+  - "Francuski"
+  - "Rosyjski"
+  - "Chiński"
+  - "Arabski"
 interests:
 - 'Uniwersalia językowe i typologia: co łączy wszystkie języki ludzkie, a czym się one różnią'
 - 'Semantyka międzyjęzykowa: semantyka formalna jako teoria, metody obliczeniowe jako narzędzia'
@@ -40,41 +72,67 @@ interests:
 - Systemy pisma i informatyka wielojęzyczna (metody wprowadzania tekstu, internacjonalizacja)
 projects:
 - name: linguasim
-  desc: Zestaw narzędzi w Pythonie do pomiaru podobieństwa języków (w przygotowaniu; planowane udostępnienie jako open source)
-- name: Languer Map
-  desc: Interaktywny atlas języków świata (w przygotowaniu)
+  desc: Zestaw narzędzi w Pythonie do pomiaru podobieństwa języków (w przygotowaniu)
+- name: Lang Log
+  desc: Interaktywny atlas języków świata wraz z korpusami i danymi języków o niewielkich zasobach (w przygotowaniu)
 - name: phrase-marker-gen
   desc: Narzędzie do rysowania drzew składniowych gramatyki generatywnej (w planach)
-- name: Corpus Hub
-  desc: Platforma do gromadzenia i przeszukiwania korpusów językowych (w planach)
+ai_tools_h: "Czytanie repozytorium {project} za pomocą zewnętrznych usług AI"
+ai_tools_intro: "Te usługi odczytują publiczne repozytorium projektu na GitHubie: wystarczy zastąpić github.com w adresie repozytorium adresem usługi. Prowadzą je inne podmioty, nie ja, i działają tylko z repozytoriami publicznymi."
+ai_tools_repo: "Repozytorium"
+ai_tools_groups:
+  read: "Czytanie przez AI"
+  diagram: "Diagramy"
+  browse: "Kod w przeglądarce"
+ai_tools_desc:
+  gitingest: "Łączy repozytorium w jeden tekst (podsumowanie, drzewo plików i ich zawartość) do wklejenia w czacie z AI."
+  gitmcp: "Zamienia repozytorium w zdalny serwer MCP: dodaj ten adres jako własny serwer MCP w asystencie AI obsługującym MCP. Konto ani klucz API nie są potrzebne."
+  deepwiki: "Tworzy dokumentację repozytorium w stylu wiki i odpowiada na pytania na jego temat."
+  uithub: "Pokazuje drzewo plików i ich zawartość jako zwykły tekst dla asystenta AI."
+  gitreverse: "Pisze prompt i specyfikację projektu w języku naturalnym dla asystenta programowania AI."
+  gitdiagram: "Rysuje strukturę repozytorium jako interaktywny diagram."
+  github-dev: "Otwiera repozytorium w edytorze kodu (VS Code) w przeglądarce. Usługa GitHuba; wymaga zalogowania się do GitHuba."
+outlook:
+- name: "Dialekt czy język"
+  desc: "zaproponować, na podstawie miar podobieństwa, kryteria, kiedy odmianę uznać za dialekt, a kiedy za język"
+- name: "Podobieństwo składniowe"
+  desc: "mierzyć bliskość składni obok dźwięków i słownictwa i połączyć je w jeden wskaźnik"
+- name: "Przyswajanie języka drugiego"
+  desc: "sprawdzić, czy języki bliższe własnemu łatwiej się przyswaja"
+- name: "Narzędzie z interfejsem graficznym"
+  desc: "stworzyć narzędzie, za pomocą którego każdy obliczy podobieństwo"
 keywords:
-  typology: Typologia językowa
-  universals: Uniwersalia językowe
-  crossling-semantics: Semantyka międzyjęzykowa
-  formal-semantics: Semantyka formalna
-  theoretical: Językoznawstwo teoretyczne
-  syntax: Składnia
-  morphology: Morfologia
+  typology: "Typologia językowa i uniwersalia językowe"
+  formal-semantics: "Semantyka formalna i semantyka międzyjęzykowa"
   generative: Gramatyka generatywna
   cognitive: Językoznawstwo kognitywne
-  computational: Lingwistyka komputerowa
+  computational: "Lingwistyka komputerowa i przetwarzanie języka naturalnego"
   phylogenetic: Lingwistyka filogenetyczna
-  similarity: Podobieństwo języków
+  contact: "Kontakt językowy"
+  nationalism: "Język a nacjonalizm"
+  similarity: "Podobieństwo i odległość między językami"
   phonology: Fonologia
-  romance: Języki romańskie
+  romance: "Języki romańskie (języki iberoromańskie)"
   mozarabic: Mozarabski (romański andaluzyjski)
   ladino: Ladino (judeo-hiszpański)
-  ibero-romance: Języki iberoromańskie
   medieval-castilian: Średniowieczny kastylijski
   writing-systems: Systemy pisma
-  nlp: Przetwarzanie języka naturalnego
-  i18n: Internacjonalizacja (i18n)
-  unicode: Unicode i kodowanie znaków
+  i18n: "Internacjonalizacja (i18n)"
+  unicode: "Unicode i kodowanie znaków"
   input-methods: Metody wprowadzania tekstu
   typesetting: Skład cyfrowy
-  linux: Linux
-  kernels: Jądra systemów operacyjnych
-  oss: Oprogramowanie open source
+  linux: "Linux i jądra systemów operacyjnych"
+  sign-languages: "Języki migowe"
+  constructed: "Języki sztuczne"
+  formal-languages: "Języki formalne"
+  information-theory: "Teoria informacji"
+  morse: "Alfabet Morse’a"
+  probability: "Rachunek prawdopodobieństwa i statystyka"
+  data-viz: "Wizualizacja danych"
+  saussurean: "Językoznawstwo Saussure’a"
+  wittgenstein: "Filozofia analityczna i Wittgenstein"
+  vibrations-waves: "Drgania i fale"
+  signal-processing: "Przetwarzanie sygnałów"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

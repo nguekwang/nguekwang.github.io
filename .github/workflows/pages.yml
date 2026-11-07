@@ -1,0 +1,52 @@
+# Publish the site to GitHub Pages: the live site built from main, plus a preview of every open
+# pull request at /preview/pr-<number>/, and one comment on each pull request with links to its
+# preview (with ?ref=pr-<number>). The shared workflow in nguekwang/research-aide does the work
+# (rule: research-aide .claude/rules/pr-previews.md); site.yml builds, checks and uploads each
+# pull request's preview.
+# It runs when main changes, when site.yml has finished for a pull request, and when a pull
+# request is closed (its preview is dropped). workflow_run and pull_request_target use main's
+# workflow files; pull request code never runs here.
+# Requires Settings > Pages > Build and deployment > Source = "GitHub Actions".
+name: pages
+on:
+  push:
+    branches: [main]
+  workflow_run:
+    workflows: [site]
+    types: [completed]
+  pull_request_target:
+    types: [closed]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  publish:
+    # From workflow_run, only runs of site.yml for a pull request that passed.
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success')
+    # One deployment at a time; a newer waiting run replaces an older one, and each run publishes the latest state.
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      actions: read
+      pull-requests: write
+      pages: write
+      id-token: write
+    uses: nguekwang/research-aide/.github/workflows/pages-with-previews.yml@main
+    with:
+      # Fonts for the CV PDFs (Latin, Cyrillic, Arabic, Devanagari, Thai, CJK); Chrome itself is preinstalled on the runner.
+      build: |
+        pip install -r requirements.txt
+        sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends fonts-noto-core fonts-noto-cjk
+        python3 tools/build.py --check
+        python3 tools/privacy_check.py
+        python3 tools/build.py
+        python3 tools/check_links.py
+      site-dir: _site
+      preview-workflow: site.yml
+      links: |
+        Japanese|ja/
+        Arabic (right to left)|ar/
+        English|en/
+        Language chooser|

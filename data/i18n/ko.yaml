@@ -1,11 +1,16 @@
 # Page text for one language (ko). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: 이 페이지는 기계 번역되었습니다.
+post_edited: '기계 번역 후 검수: {names}'
 native: 한국어
 dir: ltr
+og_locale: ko_KR
 request: 다른 언어 요청
+theme_dark: 다크 테마
 pubs_h: 논문 및 발표
 career_h: "약력"
 contact_h: 연락처
@@ -13,25 +18,52 @@ career:
 - "2003년 12월 일본 히로시마현 히로시마시 출생"
 - "히로시마 시립 모토마치 고등학교 보통과 보통코스 졸업 (2022년 3월)"
 - 오사카대학 외국어학부 스페인어 전공 학사 (2026년 3월)
-thesis: 졸업 논문
 colon: ': '
 email: 이메일
 updated: '최종 업데이트: {date}'
+site_title: 연구 포트폴리오
 desc: '마쓰우라 요시히로: 언어유형론과 음운론, 음소 목록에 기반한 언어 간 유사도의 정량화.'
-unpublished: (비공개)
+pub_title_en: ' ({title})'
+pub_note: ' ({year}) ({details})'
+list_sep: ', '
+pub_types:
+  bachelor_thesis: '졸업 논문'
+pub_status:
+  unpublished: '비공개'
 keywords_h: 키워드
-tagline: 인간 언어가 의미를 나타내는 방식의 보편성을, 여러 언어의 데이터에 형식적·계산적 방법을 적용하여 연구합니다.
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "언어 비교"
+  theory: "이론언어학"
+  math: "수리·데이터"
+  objects: "연구 대상"
+  tech: "기술"
 btn_email: 이메일 보내기
 btn_github: GitHub
+btn_cv: "이력서 (PDF)"
+cv_h: "이력서"
+website: "웹사이트"
 interests_h: 연구 주제
 current_h: 현재 연구
-current: 언어 간 유사도의 정량화. 음소 목록(PHOIBLE)과 어휘 데이터를 이용하여 언어와 방언이 얼마나 가까운지를 측정하며, 로망스어부터 시작합니다. 많은 언어에 적용할 수 있고, 명시적인 통계에 기반하며, 방언과 언어의 경계를 판단하는 데 도움이 되는 척도를 만드는 것이 목표입니다.
+current: 유사란 무엇인가, 언어의 특성을 객관적으로 기술하는 방법은 무엇인가. 이러한 방법을 인간의 음성 언어에 그치지 않고 문자 언어와 수어, 호모 사피엔스 이외의 존재가 가진 언어(라고 부를 수 있을지도 모르는 것), 인공어, 형식 언어에도 적용할 가능성을 탐구하고 있습니다.
 projects_h: 프로젝트
+outlook_h: "전망"
 langs_h: 언어
 langs:
-- 일본어(모어)
-- 영어(CEFR C1)
-- 스페인어(CEFR B1, 학부 전공)
+- label: "모어(L1)"
+  items:
+  - "일본어"
+- label: "운용 언어"
+  items:
+  - "영어(CEFR C1)"
+  - "스페인어(CEFR B1, 학부 전공)"
+- label: "습득 중인 언어"
+  items:
+  - "한국어"
+  - "프랑스어"
+  - "러시아어"
+  - "중국어"
+  - "아랍어"
 interests:
 - '언어 보편성과 유형론: 모든 인간 언어가 공유하는 것과 서로 다른 점'
 - '범언어적 의미론: 이론으로서의 형식의미론, 도구로서의 계산적 방법'
@@ -40,41 +72,67 @@ interests:
 - 문자 체계와 다국어 컴퓨팅 (입력기, 국제화)
 projects:
 - name: linguasim
-  desc: 언어 유사도를 측정하는 Python 도구 모음 (개발 중, 오픈 소스 공개 예정)
-- name: Languer Map
-  desc: 세계 언어의 인터랙티브 지도 (개발 중)
+  desc: 언어 유사도를 측정하는 Python 도구 모음 (개발 중)
+- name: Lang Log
+  desc: 세계 언어의 인터랙티브 지도와 저자원 언어의 코퍼스·데이터 (개발 중)
 - name: phrase-marker-gen
   desc: 생성문법의 통사 트리를 그리는 도구 (구상 중)
-- name: Corpus Hub
-  desc: 언어 코퍼스를 모으고 검색하는 허브 (구상 중)
+ai_tools_h: "외부 AI 서비스로 {project} 저장소 읽기"
+ai_tools_intro: "프로젝트의 공개 GitHub 저장소를 읽는 서비스입니다. 저장소 URL의 github.com을 각 서비스의 주소로 바꾸면 사용할 수 있습니다. 모두 제가 아닌 제3자가 운영하며, 공개 저장소에서만 작동합니다."
+ai_tools_repo: "저장소"
+ai_tools_groups:
+  read: "AI로 읽기"
+  diagram: "다이어그램"
+  browse: "브라우저에서 코드 보기"
+ai_tools_desc:
+  gitingest: "저장소를 AI 채팅에 붙여 넣기 좋은 하나의 텍스트(개요, 파일 구조, 파일 내용)로 묶습니다."
+  gitmcp: "저장소를 원격 MCP 서버로 만듭니다. MCP를 지원하는 AI 어시스턴트에 이 URL을 사용자 지정 MCP 서버로 추가해 사용합니다. 계정이나 API 키는 필요 없습니다."
+  deepwiki: "저장소에 대한 위키 형식의 문서를 만들고, 저장소에 관한 질문에 답합니다."
+  uithub: "파일 구조와 파일 내용을 AI 어시스턴트용 일반 텍스트로 보여 줍니다."
+  gitreverse: "AI 코딩 어시스턴트를 위해 프로젝트의 프롬프트와 자연어 사양서를 작성합니다."
+  gitdiagram: "저장소의 구조를 상호작용할 수 있는 다이어그램으로 그립니다."
+  github-dev: "저장소를 브라우저의 코드 편집기(VS Code)에서 엽니다. GitHub가 운영하며 GitHub 로그인이 필요합니다."
+outlook:
+- name: "방언과 언어의 경계"
+  desc: "유사도 척도를 바탕으로 어떤 언어 변종을 방언으로 볼지 언어로 볼지의 기준을 제시"
+- name: "통사의 유사도"
+  desc: "음운과 어휘에 더해 통사의 가까움도 측정하고, 이를 하나의 지표로 통합"
+- name: "제2언어 습득에의 응용"
+  desc: "모어와 가까운 언어일수록 배우기 쉬운지 검증"
+- name: "GUI 도구"
+  desc: "누구나 유사도를 계산할 수 있는 도구를 만들기"
 keywords:
-  typology: 언어 유형론
-  universals: 언어 보편성
-  crossling-semantics: 범언어적 의미론
-  formal-semantics: 형식의미론
-  theoretical: 이론언어학
-  syntax: 통사론
-  morphology: 형태론
+  typology: "언어 유형론·언어 보편성"
+  formal-semantics: "형식의미론·범언어적 의미론"
   generative: 생성문법
   cognitive: 인지언어학
-  computational: 전산언어학
+  computational: "전산언어학·자연어 처리"
   phylogenetic: 계통언어학
-  similarity: 언어 간 유사도
+  contact: "언어 접촉"
+  nationalism: "언어와 민족주의"
+  similarity: "언어 간 유사도·거리"
   phonology: 음운론
-  romance: 로망스어
+  romance: "로망스어(이베로로망스어)"
   mozarabic: 모사라베어 (안달루스 로망스어)
   ladino: 라디노어 (유대 스페인어)
-  ibero-romance: 이베로로망스어
   medieval-castilian: 중세 카스티야어
   writing-systems: 문자 체계
-  nlp: 자연어 처리
-  i18n: 국제화(i18n)
-  unicode: 유니코드와 문자 인코딩
+  i18n: "국제화(i18n)"
+  unicode: "유니코드와 문자 인코딩"
   input-methods: 입력기
   typesetting: 디지털 조판
-  linux: Linux
-  kernels: 운영체제 커널
-  oss: 오픈 소스 소프트웨어
+  linux: "Linux·운영체제 커널"
+  sign-languages: "수어"
+  constructed: "인공어"
+  formal-languages: "형식 언어"
+  information-theory: "정보 이론"
+  morse: "모스 부호"
+  probability: "확률론·통계학"
+  data-viz: "데이터 시각화"
+  saussurean: "소쉬르 언어학"
+  wittgenstein: "분석철학·비트겐슈타인"
+  vibrations-waves: "진동·파동론"
+  signal-processing: "신호 처리"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.

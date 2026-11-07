@@ -1,11 +1,16 @@
 # Page text for one language (vi). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
+# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
+# it must contain {names} exactly once.
 
 mt_notice: Trang này được dịch máy.
+post_edited: 'Bản dịch máy, được hiệu đính bởi {names}.'
 native: Tiếng Việt
 dir: ltr
+og_locale: vi_VN
 request: Yêu cầu ngôn ngữ khác
+theme_dark: Giao diện tối
 pubs_h: Công bố và báo cáo
 career_h: "Tiểu sử"
 contact_h: Liên hệ
@@ -13,25 +18,52 @@ career:
 - "Sinh tháng 12 năm 2003 tại Hiroshima, Nhật Bản"
 - "Tốt nghiệp THPT, Trường THPT Thành phố Hiroshima Motomachi (ban phổ thông, chương trình tiêu chuẩn), tháng 3 năm 2022"
 - Cử nhân tiếng Tây Ban Nha, Khoa Ngoại ngữ, Đại học Osaka, tháng 3 năm 2026
-thesis: Khóa luận tốt nghiệp
 colon: ': '
 email: Email
 updated: 'Cập nhật lần cuối: {date}'
+site_title: Hồ sơ nghiên cứu
 desc: 'Yoshihiro Matsuura: loại hình học ngôn ngữ và âm vị học, định lượng độ tương đồng giữa các ngôn ngữ từ hệ thống âm vị.'
-unpublished: (không công bố)
+pub_title_en: ' ({title})'
+pub_note: ' ({year}) ({details})'
+list_sep: ', '
+pub_types:
+  bachelor_thesis: 'khóa luận tốt nghiệp'
+pub_status:
+  unpublished: 'không công bố'
 keywords_h: Từ khóa
-tagline: Tôi nghiên cứu những gì mang tính phổ quát trong cách các ngôn ngữ của con người mã hóa ý nghĩa, bằng các phương pháp hình thức và tính toán trên dữ liệu liên ngôn ngữ.
+# Labels of the keyword groups. Group order and members: keywords in data/site.yaml.
+keyword_groups:
+  comparison: "So sánh ngôn ngữ"
+  theory: "Ngôn ngữ học lý thuyết"
+  math: "Toán học và dữ liệu"
+  objects: "Đối tượng nghiên cứu"
+  tech: "Công nghệ"
 btn_email: Gửi email
 btn_github: GitHub
+btn_cv: "CV (PDF)"
+cv_h: "Sơ yếu lý lịch"
+website: "Trang web"
 interests_h: Chủ đề nghiên cứu
 current_h: Nghiên cứu hiện tại
-current: Định lượng độ tương đồng giữa các ngôn ngữ. Dựa trên bảng âm vị (PHOIBLE) và dữ liệu từ vựng, tôi đo mức độ gần gũi giữa các ngôn ngữ và phương ngữ, bắt đầu từ các ngôn ngữ Rôman. Mục tiêu là một thước đo áp dụng được cho nhiều ngôn ngữ, dựa trên thống kê rõ ràng, và có thể giúp xác định đâu là ranh giới giữa phương ngữ và ngôn ngữ.
+current: Thế nào là tương đồng, và làm thế nào để mô tả khách quan các đặc tính của ngôn ngữ. Tôi tìm hiểu khả năng áp dụng những phương pháp này không chỉ cho ngôn ngữ nói của con người mà cả ngôn ngữ viết, ngôn ngữ ký hiệu, những gì có thể coi là ngôn ngữ ở các thực thể ngoài Homo sapiens, ngôn ngữ nhân tạo và ngôn ngữ hình thức.
 projects_h: Dự án
+outlook_h: "Định hướng"
 langs_h: Ngôn ngữ
 langs:
-- Tiếng Nhật (bản ngữ)
-- Tiếng Anh (CEFR C1)
-- Tiếng Tây Ban Nha (CEFR B1, chuyên ngành cử nhân)
+- label: "Bản ngữ (L1)"
+  items:
+  - "Tiếng Nhật"
+- label: "Ngôn ngữ làm việc"
+  items:
+  - "Tiếng Anh (CEFR C1)"
+  - "Tiếng Tây Ban Nha (CEFR B1, chuyên ngành cử nhân)"
+- label: "Ngôn ngữ đang học"
+  items:
+  - "Tiếng Hàn"
+  - "Tiếng Pháp"
+  - "Tiếng Nga"
+  - "Tiếng Trung"
+  - "Tiếng Ả Rập"
 interests:
 - 'Phổ quát ngôn ngữ và loại hình học: điểm chung của mọi ngôn ngữ và sự khác biệt giữa chúng'
 - Ngữ nghĩa học liên ngôn ngữ, với ngữ nghĩa học hình thức làm lý thuyết và phương pháp tính toán làm công cụ
@@ -40,41 +72,67 @@ interests:
 - Hệ thống chữ viết và điện toán đa ngôn ngữ (bộ gõ, quốc tế hóa)
 projects:
 - name: linguasim
-  desc: Bộ công cụ Python để đo độ tương đồng giữa các ngôn ngữ (đang phát triển; dự kiến phát hành mã nguồn mở)
-- name: Languer Map
-  desc: Bản đồ tương tác về các ngôn ngữ trên thế giới (đang phát triển)
+  desc: Bộ công cụ Python để đo độ tương đồng giữa các ngôn ngữ (đang phát triển)
+- name: Lang Log
+  desc: Bản đồ tương tác về các ngôn ngữ trên thế giới, kèm kho ngữ liệu và dữ liệu về các ngôn ngữ ít tài nguyên (đang phát triển)
 - name: phrase-marker-gen
   desc: Công cụ vẽ cây cú pháp theo ngữ pháp tạo sinh (đang lên ý tưởng)
-- name: Corpus Hub
-  desc: Nền tảng thu thập và tra cứu kho ngữ liệu ngôn ngữ (đang lên ý tưởng)
+ai_tools_h: "Đọc kho mã {project} bằng các dịch vụ AI bên ngoài"
+ai_tools_intro: "Các dịch vụ dưới đây đọc kho mã GitHub công khai của dự án: chỉ cần thay github.com trong URL của kho mã bằng địa chỉ của dịch vụ. Các dịch vụ này do bên thứ ba vận hành, không phải tôi, và chỉ hoạt động với kho mã công khai."
+ai_tools_repo: "Kho mã"
+ai_tools_groups:
+  read: "Đọc bằng AI"
+  diagram: "Sơ đồ"
+  browse: "Mã nguồn trên trình duyệt"
+ai_tools_desc:
+  gitingest: "Gộp kho mã thành một văn bản duy nhất (tóm tắt, cây tệp và nội dung tệp) để dán vào cuộc trò chuyện với AI."
+  gitmcp: "Biến kho mã thành một máy chủ MCP từ xa: thêm URL này làm máy chủ MCP tùy chỉnh trong trợ lý AI có hỗ trợ MCP. Không cần tài khoản hay khóa API."
+  deepwiki: "Tạo tài liệu kiểu wiki cho kho mã và trả lời các câu hỏi về kho mã."
+  uithub: "Hiển thị cây tệp và nội dung tệp dưới dạng văn bản thuần cho trợ lý AI."
+  gitreverse: "Viết prompt và bản đặc tả dự án bằng ngôn ngữ tự nhiên cho trợ lý lập trình AI."
+  gitdiagram: "Vẽ cấu trúc của kho mã thành sơ đồ tương tác."
+  github-dev: "Mở kho mã trong trình soạn thảo mã (VS Code) trên trình duyệt. Do GitHub vận hành; cần đăng nhập GitHub."
+outlook:
+- name: "Phương ngữ hay ngôn ngữ"
+  desc: "dựa trên các thước đo tương đồng, đề xuất tiêu chí khi nào một biến thể được coi là phương ngữ và khi nào là ngôn ngữ"
+- name: "Tương đồng cú pháp"
+  desc: "đo cả mức gần gũi về cú pháp bên cạnh ngữ âm và từ vựng, rồi gộp lại thành một chỉ số"
+- name: "Thụ đắc ngôn ngữ thứ hai"
+  desc: "kiểm chứng xem ngôn ngữ càng gần tiếng mẹ đẻ thì có càng dễ học hay không"
+- name: "Công cụ có giao diện đồ họa"
+  desc: "xây dựng công cụ để ai cũng tính được độ tương đồng"
 keywords:
-  typology: Loại hình học ngôn ngữ
-  universals: Phổ quát ngôn ngữ
-  crossling-semantics: Ngữ nghĩa học liên ngôn ngữ
-  formal-semantics: Ngữ nghĩa học hình thức
-  theoretical: Ngôn ngữ học lý thuyết
-  syntax: Cú pháp học
-  morphology: Hình thái học
+  typology: "Loại hình học ngôn ngữ và phổ quát ngôn ngữ"
+  formal-semantics: "Ngữ nghĩa học hình thức và ngữ nghĩa học liên ngôn ngữ"
   generative: Ngữ pháp tạo sinh
   cognitive: Ngôn ngữ học tri nhận
-  computational: Ngôn ngữ học tính toán
+  computational: "Ngôn ngữ học tính toán và xử lý ngôn ngữ tự nhiên"
   phylogenetic: Ngôn ngữ học phát sinh chủng loại
-  similarity: Độ tương đồng giữa các ngôn ngữ
+  contact: "Tiếp xúc ngôn ngữ"
+  nationalism: "Ngôn ngữ và chủ nghĩa dân tộc"
+  similarity: "Độ tương đồng và khoảng cách giữa các ngôn ngữ"
   phonology: Âm vị học
-  romance: Các ngôn ngữ Rôman
+  romance: "Các ngôn ngữ Rôman (các ngôn ngữ Rôman Iberia)"
   mozarabic: Tiếng Mozarab (Rôman Andalus)
   ladino: Tiếng Ladino (Do Thái - Tây Ban Nha)
-  ibero-romance: Các ngôn ngữ Rôman Iberia
   medieval-castilian: Tiếng Castilla trung đại
   writing-systems: Hệ thống chữ viết
-  nlp: Xử lý ngôn ngữ tự nhiên
-  i18n: Quốc tế hóa (i18n)
-  unicode: Unicode và mã hóa ký tự
+  i18n: "Quốc tế hóa (i18n)"
+  unicode: "Unicode và mã hóa ký tự"
   input-methods: Bộ gõ
   typesetting: Dàn trang kỹ thuật số
-  linux: Linux
-  kernels: Nhân hệ điều hành
-  oss: Phần mềm nguồn mở
+  linux: "Linux và nhân hệ điều hành"
+  sign-languages: "Ngôn ngữ ký hiệu"
+  constructed: "Ngôn ngữ nhân tạo"
+  formal-languages: "Ngôn ngữ hình thức"
+  information-theory: "Lý thuyết thông tin"
+  morse: "Mã Morse"
+  probability: "Lý thuyết xác suất và thống kê học"
+  data-viz: "Trực quan hóa dữ liệu"
+  saussurean: "Ngôn ngữ học Saussure"
+  wittgenstein: "Triết học phân tích và Wittgenstein"
+  vibrations-waves: "Dao động và sóng"
+  signal-processing: "Xử lý tín hiệu"
 
 # Page about how institution names are written (/<lang>/institution-names/).
 # names_h is also the small link under the background list.
