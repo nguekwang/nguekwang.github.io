@@ -7,7 +7,6 @@
 mt_notice: این صفحه با ترجمهٔ ماشینی ترجمه شده است.
 post_edited: 'ترجمهٔ ماشینی؛ بازبینی و ویرایش: {names}.'
 native: فارسی
-dir: rtl
 og_locale: fa_IR
 request: درخواست زبان دیگر
 theme_dark: حالت تیره

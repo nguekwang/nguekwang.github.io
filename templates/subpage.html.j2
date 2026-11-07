@@ -4,7 +4,7 @@
 <html lang="{{ code }}" dir="{{ t.dir }}">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self' https://gc.zgo.at; img-src 'self' https://nguekwang.goatcounter.com; connect-src 'self' https://nguekwang.goatcounter.com; form-action 'none'; base-uri 'none'; object-src 'none'">
+{% include "csp.html.j2" %}
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ title }}</title>

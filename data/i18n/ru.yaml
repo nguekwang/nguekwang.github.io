@@ -7,7 +7,6 @@
 mt_notice: Эта страница переведена автоматически.
 post_edited: 'Машинный перевод; проверка и правка: {names}.'
 native: Русский
-dir: ltr
 og_locale: ru_RU
 request: Запросить другой язык
 theme_dark: Тёмная тема

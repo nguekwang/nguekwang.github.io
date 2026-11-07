@@ -7,7 +7,6 @@
 mt_notice: تُرجمت هذه الصفحة آليًا.
 post_edited: 'ترجمة آلية. المراجعة والتصحيح: {names}.'
 native: العربية
-dir: rtl
 og_locale: ar_AR
 request: طلب لغة أخرى
 theme_dark: الوضع الداكن

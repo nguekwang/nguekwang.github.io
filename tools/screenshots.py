@@ -15,12 +15,12 @@ screenshots never counts as a visit.
 Usage:
   python3 tools/screenshots.py --before BASE_SITE_DIR --after _site --out screenshots [--langs ja ar]
 
-The default languages are ja and every right-to-left language in data/i18n/*.yaml (dir: rtl),
+The default languages are ja and every right-to-left language in data/i18n/*.yaml (from its CLDR data in Babel),
 which is what .claude/rules/git-and-prs.md asks for.
 """
 import argparse, base64, functools, glob, http.server, os, threading
 
-import yaml
+from babel import Locale
 from playwright.sync_api import sync_playwright
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -30,9 +30,9 @@ VIEWS = {"desktop": {"width": 1280, "height": 800}, "mobile": {"width": 390, "he
 def default_langs():
     langs = ["ja"]
     for path in sorted(glob.glob(os.path.join(ROOT, "data", "i18n", "*.yaml"))):
-        with open(path, encoding="utf-8") as f:
-            if (yaml.safe_load(f) or {}).get("dir") == "rtl":
-                langs.append(os.path.basename(path)[:-5])
+        code = os.path.basename(path)[:-5]
+        if Locale.parse(code, sep="-").character_order == "right-to-left":
+            langs.append(code)
     return langs
 
 
