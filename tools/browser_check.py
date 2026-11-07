@@ -2,7 +2,7 @@
 """Check the built site in the three browser engines: Chromium (Chrome, Edge), Firefox (Gecko)
 and WebKit (Safari, and every browser on iPhone and iPad).
 
-Serves the built site from a local HTTPS server, opens every page of every language at desktop
+Serves the built site from a local web server, opens every page of every language at desktop
 width (1280 px) and phone width (390 px, as a touch device), in light and dark mode, in each
 engine with Playwright, and fails if any page:
   - scrolls sideways (the page is wider than the window),
@@ -21,7 +21,7 @@ so the check never counts as a visit and does not log a failed load.
 Usage:
   python3 tools/browser_check.py --site _site --out browser-check [--engines chromium firefox webkit]
 """
-import argparse, functools, glob, http.server, os, ssl, subprocess, sys, tempfile, threading
+import argparse, functools, glob, http.server, os, sys, threading
 
 import yaml
 from babel import Locale
@@ -71,31 +71,18 @@ def pages(site):
 
 
 def serve(directory):
-    """Serve `directory` over HTTPS on a free local port in a background thread; return its base URL.
-
-    HTTPS like the live site: the pages' Content-Security-Policy has upgrade-insecure-requests, so
-    over plain HTTP WebKit would ask for every file over HTTPS and fail. The certificate is a
-    throwaway self-signed one made with openssl; the browser contexts accept it (ignore_https_errors).
-    """
+    """Serve `directory` on a free local port in a background thread; return its base URL."""
     class Quiet(http.server.SimpleHTTPRequestHandler):
         def log_message(self, *args):
             pass
-    tmp = tempfile.mkdtemp(prefix="browser-check-tls-")
-    cert, key = os.path.join(tmp, "cert.pem"), os.path.join(tmp, "key.pem")
-    subprocess.run(["openssl", "req", "-x509", "-newkey", "rsa:2048", "-nodes", "-days", "1",
-                    "-subj", "/CN=127.0.0.1", "-addext", "subjectAltName=IP:127.0.0.1",
-                    "-keyout", key, "-out", cert], check=True, capture_output=True)
-    tls = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-    tls.load_cert_chain(cert, key)
     handler = functools.partial(Quiet, directory=directory)
     server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
-    server.socket = tls.wrap_socket(server.socket, server_side=True)
     threading.Thread(target=server.serve_forever, daemon=True).start()
-    return f"https://127.0.0.1:{server.server_port}"
+    return f"http://127.0.0.1:{server.server_port}"
 
 
 def context_options(engine, view):
-    opts = dict({"color_scheme": "light"}, **VIEWS[view], device_scale_factor=1, ignore_https_errors=True)
+    opts = dict({"color_scheme": "light"}, **VIEWS[view], device_scale_factor=1)
     if engine == "firefox":
         opts.pop("is_mobile", None)
     return opts

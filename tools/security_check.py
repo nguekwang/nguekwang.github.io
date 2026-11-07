@@ -30,7 +30,6 @@ REQUIRED = {
     "form-action": ["'none'"],
     "base-uri": ["'none'"],
     "object-src": ["'none'"],
-    "upgrade-insecure-requests": [],
 }
 # Directives that list where things may load from; each must be set, since default-src is 'none'.
 FETCH = ("script-src", "style-src", "img-src", "connect-src")

@@ -4,6 +4,9 @@ templates/security.html.j2 writes them into each page right after <meta charset>
 tools/security_check.py checks every built page against them. Rules: .claude/rules/security.md
 here and web-security.md in the research-aide repository.
 
+No upgrade-insecure-requests: no source allows http:, so it adds nothing, and WebKit applies it to
+http://127.0.0.1, which breaks the browser check (web-security.md in research-aide).
+
 GitHub Pages cannot send response headers, so only what works in a <meta> element is set here.
 The headers the site still lacks are listed in .claude/rules/security.md.
 """
@@ -55,7 +58,6 @@ def security_policies(site, policy):
         ("form-action", ["'none'"]),
         ("base-uri", ["'none'"]),
         ("object-src", ["'none'"]),
-        ("upgrade-insecure-requests", []),
     ]
     csp = "; ".join(" ".join([name] + sources) for name, sources in directives)
     referrer = MEASURED_REFERRER if policy == "measured" else PLAIN_REFERRER
