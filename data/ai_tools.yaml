@@ -1,6 +1,8 @@
 # Pages of links for AI assistants, one per project, at /<lang>/ai-tools/<repository name>/.
-# Each service reads a public GitHub repository when "github.com" in the repository's URL is
-# replaced by its `host`. The descriptions are page text: `ai_tools_desc` in data/i18n/<code>.yaml.
+# Each service reads a public GitHub repository at https://<host>/<owner>/<name>. The page lists each
+# one under what it is for (`ai_tools_purpose`, the link text) with a description (`ai_tools_desc`),
+# both page text in data/i18n/<code>.yaml; the service name is shown only as a small label.
+# The page does not show the URLs or tell readers to replace github.com (the owner's request).
 # `group` is one of the ids under `ai_tools_groups` in data/i18n/<code>.yaml; groups are shown in
 # the order they first appear here.
 # Checked on 2026-11-05 that each service is running and uses this URL form. Left out:

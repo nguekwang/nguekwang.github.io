@@ -78,15 +78,24 @@ projects:
 - name: phrase-marker-gen
   desc: Công cụ vẽ cây cú pháp theo ngữ pháp tạo sinh (đang lên ý tưởng)
 ai_tools_h: "Đọc kho mã {project} bằng các dịch vụ AI bên ngoài"
-ai_tools_intro: "Các dịch vụ dưới đây đọc kho mã GitHub công khai của dự án: chỉ cần thay github.com trong URL của kho mã bằng địa chỉ của dịch vụ. Các dịch vụ này do bên thứ ba vận hành, không phải tôi, và chỉ hoạt động với kho mã công khai."
+ai_tools_intro: "Các dịch vụ dưới đây đọc kho mã GitHub công khai của dự án. Các dịch vụ này do bên thứ ba vận hành, không phải tôi, và chỉ hoạt động với kho mã công khai."
 ai_tools_repo: "Kho mã"
 ai_tools_groups:
   read: "Đọc bằng AI"
   diagram: "Sơ đồ"
   browse: "Mã nguồn trên trình duyệt"
+ai_tools_service: "Dịch vụ"
+ai_tools_purpose:
+  gitingest: "Gộp thành một văn bản để dán vào cuộc trò chuyện với AI"
+  gitmcp: "Kết nối với trợ lý AI dưới dạng máy chủ MCP"
+  deepwiki: "Đọc phần giải thích được tạo sẵn và đặt câu hỏi"
+  uithub: "Xem các tệp dưới dạng văn bản thuần cho AI"
+  gitreverse: "Tạo bản đặc tả cho trợ lý lập trình AI"
+  gitdiagram: "Xem cấu trúc dưới dạng sơ đồ"
+  github-dev: "Mở mã trong trình soạn thảo trên trình duyệt"
 ai_tools_desc:
   gitingest: "Gộp kho mã thành một văn bản duy nhất (tóm tắt, cây tệp và nội dung tệp) để dán vào cuộc trò chuyện với AI."
-  gitmcp: "Biến kho mã thành một máy chủ MCP từ xa: thêm URL này làm máy chủ MCP tùy chỉnh trong trợ lý AI có hỗ trợ MCP. Không cần tài khoản hay khóa API."
+  gitmcp: "Biến kho mã thành một máy chủ MCP từ xa: thêm URL của liên kết làm máy chủ MCP tùy chỉnh trong trợ lý AI có hỗ trợ MCP. Không cần tài khoản hay khóa API."
   deepwiki: "Tạo tài liệu kiểu wiki cho kho mã và trả lời các câu hỏi về kho mã."
   uithub: "Hiển thị cây tệp và nội dung tệp dưới dạng văn bản thuần cho trợ lý AI."
   gitreverse: "Viết prompt và bản đặc tả dự án bằng ngôn ngữ tự nhiên cho trợ lý lập trình AI."

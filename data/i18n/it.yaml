@@ -78,15 +78,24 @@ projects:
 - name: phrase-marker-gen
   desc: Strumento per disegnare alberi sintattici della grammatica generativa (in progetto)
 ai_tools_h: "Lettura del repository di {project} con servizi di IA esterni"
-ai_tools_intro: "Questi servizi leggono il repository pubblico del progetto su GitHub: basta sostituire github.com nell'URL del repository con l'indirizzo del servizio. Sono gestiti da terzi, non da me, e funzionano solo con repository pubblici."
+ai_tools_intro: "Questi servizi leggono il repository pubblico del progetto su GitHub. Sono gestiti da terzi, non da me, e funzionano solo con repository pubblici."
 ai_tools_repo: "Repository"
 ai_tools_groups:
   read: "Lettura con l'IA"
   diagram: "Diagrammi"
   browse: "Codice nel browser"
+ai_tools_service: "Servizio"
+ai_tools_purpose:
+  gitingest: "Trasformarlo in un unico testo da incollare in una chat di IA"
+  gitmcp: "Collegarlo a un assistente di IA come server MCP"
+  deepwiki: "Leggere una spiegazione generata e fare domande"
+  uithub: "Vedere i file come testo semplice per un'IA"
+  gitreverse: "Ottenere una specifica per un assistente di programmazione IA"
+  gitdiagram: "Vedere la struttura in un diagramma"
+  github-dev: "Aprire il codice in un editor nel browser"
 ai_tools_desc:
   gitingest: "Raccoglie il repository in un unico testo (riepilogo, struttura dei file e contenuti) da incollare in una chat con un'IA."
-  gitmcp: "Trasforma il repository in un server MCP remoto: aggiungi questo URL come server MCP personalizzato in un assistente di IA che supporta MCP. Non servono account né chiavi API."
+  gitmcp: "Trasforma il repository in un server MCP remoto: aggiungi l'URL del link come server MCP personalizzato in un assistente di IA che supporta MCP. Non servono account né chiavi API."
   deepwiki: "Genera una documentazione del repository in stile wiki e risponde a domande su di esso."
   uithub: "Mostra la struttura dei file e i loro contenuti come testo semplice per un assistente di IA."
   gitreverse: "Scrive un prompt e una specifica del progetto in linguaggio naturale per un assistente di programmazione con IA."

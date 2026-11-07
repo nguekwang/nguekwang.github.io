@@ -78,15 +78,24 @@ projects:
 - name: phrase-marker-gen
   desc: Tool voor het tekenen van syntaxisbomen in de generatieve grammatica (gepland)
 ai_tools_h: "Lezen van de repository van {project} met externe AI-diensten"
-ai_tools_intro: "Deze diensten lezen de openbare GitHub-repository van het project: vervang github.com in de URL van de repository door het adres van de dienst. Ze worden door derden beheerd, niet door mij, en werken alleen met openbare repository's."
+ai_tools_intro: "Deze diensten lezen de openbare GitHub-repository van het project. Ze worden door derden beheerd, niet door mij, en werken alleen met openbare repository's."
 ai_tools_repo: "Repository"
 ai_tools_groups:
   read: "Lezen met AI"
   diagram: "Diagrammen"
   browse: "Code in de browser"
+ai_tools_service: "Dienst"
+ai_tools_purpose:
+  gitingest: "Er één tekst van maken om in een AI-chat te plakken"
+  gitmcp: "Koppelen aan een AI-assistent als MCP-server"
+  deepwiki: "Een gegenereerde uitleg lezen en vragen stellen"
+  uithub: "De bestanden als platte tekst voor een AI bekijken"
+  gitreverse: "Een specificatie maken voor een AI-programmeerassistent"
+  gitdiagram: "De structuur als diagram bekijken"
+  github-dev: "De code openen in een editor in de browser"
 ai_tools_desc:
   gitingest: "Bundelt de repository tot één tekst (samenvatting, bestandsstructuur en inhoud) om in een AI-chat te plakken."
-  gitmcp: "Maakt van de repository een externe MCP-server: voeg deze URL toe als aangepaste MCP-server in een AI-assistent die MCP ondersteunt. Een account of API-sleutel is niet nodig."
+  gitmcp: "Maakt van de repository een externe MCP-server: voeg de gelinkte URL toe als aangepaste MCP-server in een AI-assistent die MCP ondersteunt. Een account of API-sleutel is niet nodig."
   deepwiki: "Maakt documentatie van de repository in wikistijl en beantwoordt vragen erover."
   uithub: "Toont de bestandsstructuur en de inhoud van de bestanden als platte tekst voor een AI-assistent."
   gitreverse: "Schrijft een prompt en een specificatie van het project in gewone taal voor een AI-programmeerassistent."
