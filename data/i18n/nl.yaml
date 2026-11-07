@@ -72,7 +72,7 @@ interests:
 - Schriftsystemen en meertalige informatica (invoermethoden, internationalisering)
 projects:
 - name: linguasim
-  desc: Python-toolkit voor het meten van taalovereenkomst (in ontwikkeling; open-sourcepublicatie gepland)
+  desc: Python-toolkit voor het meten van taalovereenkomst (in ontwikkeling)
 - name: Lang Log
   desc: Interactieve atlas van de talen van de wereld, met corpora en gegevens over talen met weinig middelen (in ontwikkeling)
 - name: phrase-marker-gen
@@ -100,7 +100,7 @@ outlook:
 - name: "Tweedetaalverwerving"
   desc: "nagaan of talen die dichter bij de eigen taal liggen makkelijker te leren zijn"
 - name: "Een GUI-tool"
-  desc: "een tool bouwen waarmee iedereen gelijkenis kan berekenen, en die als open source uitbrengen"
+  desc: "een tool bouwen waarmee iedereen gelijkenis kan berekenen"
 keywords:
   typology: "Taaltypologie en taaluniversalia"
   formal-semantics: "Formele semantiek en taaloverstijgende semantiek"
@@ -122,9 +122,6 @@ keywords:
   input-methods: Invoermethoden
   typesetting: Digitale typografie
   linux: "Linux en besturingssysteemkernels"
-  oss: Opensourcesoftware
-  tech-democratization: "Democratisering van technologie"
-  digital-commons: "Digitale commons"
   decentralized-web: "Gedecentraliseerd web en self-hosting"
   sign-languages: "Gebarentalen"
   constructed: "Kunsttalen"

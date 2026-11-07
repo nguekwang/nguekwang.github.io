@@ -72,7 +72,7 @@ interests:
 - Systèmes d'écriture et informatique multilingue (méthodes de saisie, internationalisation)
 projects:
 - name: linguasim
-  desc: Boîte à outils Python pour mesurer la similarité entre langues (en développement ; publication en open source prévue)
+  desc: Boîte à outils Python pour mesurer la similarité entre langues (en développement)
 - name: Lang Log
   desc: Atlas interactif des langues du monde, avec des corpus et des données sur les langues peu dotées (en développement)
 - name: phrase-marker-gen
@@ -100,7 +100,7 @@ outlook:
 - name: "Acquisition des langues secondes"
   desc: "vérifier si les langues plus proches de la sienne sont plus faciles à apprendre"
 - name: "Un outil graphique"
-  desc: "créer un outil permettant à chacun de calculer la similarité, et le publier en open source"
+  desc: "créer un outil permettant à chacun de calculer la similarité"
 keywords:
   typology: "Typologie linguistique et universaux linguistiques"
   formal-semantics: "Sémantique formelle et sémantique interlinguistique"
@@ -122,9 +122,6 @@ keywords:
   input-methods: Méthodes de saisie
   typesetting: Composition typographique numérique
   linux: "Linux et noyaux de systèmes d'exploitation"
-  oss: Logiciels libres et open source
-  tech-democratization: "Démocratisation de la technologie"
-  digital-commons: "Communs numériques"
   decentralized-web: "Web décentralisé et auto-hébergement"
   sign-languages: "Langues des signes"
   constructed: "Langues construites"

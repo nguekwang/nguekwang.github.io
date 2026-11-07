@@ -72,7 +72,7 @@ interests:
 - Systemy pisma i informatyka wielojęzyczna (metody wprowadzania tekstu, internacjonalizacja)
 projects:
 - name: linguasim
-  desc: Zestaw narzędzi w Pythonie do pomiaru podobieństwa języków (w przygotowaniu; planowane udostępnienie jako open source)
+  desc: Zestaw narzędzi w Pythonie do pomiaru podobieństwa języków (w przygotowaniu)
 - name: Lang Log
   desc: Interaktywny atlas języków świata wraz z korpusami i danymi języków o niewielkich zasobach (w przygotowaniu)
 - name: phrase-marker-gen
@@ -100,7 +100,7 @@ outlook:
 - name: "Przyswajanie języka drugiego"
   desc: "sprawdzić, czy języki bliższe własnemu łatwiej się przyswaja"
 - name: "Narzędzie z interfejsem graficznym"
-  desc: "stworzyć narzędzie, za pomocą którego każdy obliczy podobieństwo, i udostępnić je jako open source"
+  desc: "stworzyć narzędzie, za pomocą którego każdy obliczy podobieństwo"
 keywords:
   typology: "Typologia językowa i uniwersalia językowe"
   formal-semantics: "Semantyka formalna i semantyka międzyjęzykowa"
@@ -122,9 +122,6 @@ keywords:
   input-methods: Metody wprowadzania tekstu
   typesetting: Skład cyfrowy
   linux: "Linux i jądra systemów operacyjnych"
-  oss: Oprogramowanie open source
-  tech-democratization: "Demokratyzacja technologii"
-  digital-commons: "Cyfrowe dobra wspólne"
   decentralized-web: "Zdecentralizowana sieć i self-hosting"
   sign-languages: "Języki migowe"
   constructed: "Języki sztuczne"

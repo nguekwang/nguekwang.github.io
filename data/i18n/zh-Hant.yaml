@@ -72,7 +72,7 @@ interests:
 - 文字系統與多語言運算（輸入法、國際化）
 projects:
 - name: linguasim
-  desc: 用於測量語言相似度的 Python 工具組（開發中，預計開源）
+  desc: 用於測量語言相似度的 Python 工具組（開發中）
 - name: Lang Log
   desc: 世界語言的互動式地圖，以及低資源語言的語料庫和資料（開發中）
 - name: phrase-marker-gen
@@ -100,7 +100,7 @@ outlook:
 - name: "第二語言習得的應用"
   desc: "檢驗與母語越接近的語言是否越容易學習"
 - name: "圖形介面工具"
-  desc: "開發人人都能計算相似度的工具，並以開源形式發布"
+  desc: "開發人人都能計算相似度的工具"
 keywords:
   typology: "語言類型學與語言共性"
   formal-semantics: "形式語意學與跨語言語意學"
@@ -122,9 +122,6 @@ keywords:
   input-methods: 輸入法
   typesetting: 數位排版
   linux: "Linux 與作業系統核心"
-  oss: 開源軟體
-  tech-democratization: "技術民主化"
-  digital-commons: "數位公共財"
   decentralized-web: "去中心化網路與自架主機"
   sign-languages: "手語"
   constructed: "人造語言"
