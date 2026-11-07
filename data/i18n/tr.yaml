@@ -78,15 +78,24 @@ projects:
 - name: phrase-marker-gen
   desc: Üretici dilbilgisinde sözdizim ağaçları çizmek için bir araç (planlanıyor)
 ai_tools_h: "{project} deposunu harici yapay zekâ hizmetleriyle okuma"
-ai_tools_intro: "Bu hizmetler projenin herkese açık GitHub deposunu okur: deponun adresindeki github.com yerine hizmetin adresini yazmanız yeterlidir. Bu hizmetleri ben değil, başkaları işletir ve yalnızca herkese açık depolarla çalışırlar."
+ai_tools_intro: "Bu hizmetler projenin herkese açık GitHub deposunu okur. Bu hizmetleri ben değil, başkaları işletir ve yalnızca herkese açık depolarla çalışırlar."
 ai_tools_repo: "Depo"
 ai_tools_groups:
   read: "Yapay zekâ ile okuma"
   diagram: "Diyagramlar"
   browse: "Tarayıcıda kod"
+ai_tools_service: "Hizmet"
+ai_tools_purpose:
+  gitingest: "Yapay zekâ sohbetine yapıştırmak için tek bir metne dönüştürün"
+  gitmcp: "MCP sunucusu olarak bir yapay zekâ asistanına bağlayın"
+  deepwiki: "Oluşturulan açıklamayı okuyun ve soru sorun"
+  uithub: "Dosyaları yapay zekâ için düz metin olarak görün"
+  gitreverse: "Yapay zekâ kodlama asistanı için belirtim alın"
+  gitdiagram: "Yapıyı diyagram olarak görün"
+  github-dev: "Kodu tarayıcıdaki bir düzenleyicide açın"
 ai_tools_desc:
   gitingest: "Depoyu, bir yapay zekâ sohbetine yapıştırılabilecek tek bir metinde (özet, dosya ağacı ve dosya içerikleri) toplar."
-  gitmcp: "Depoyu uzak bir MCP sunucusuna dönüştürür: bu adresi MCP destekleyen bir yapay zekâ asistanına özel MCP sunucusu olarak ekleyin. Hesap veya API anahtarı gerekmez."
+  gitmcp: "Depoyu uzak bir MCP sunucusuna dönüştürür: bağlantıdaki adresi MCP destekleyen bir yapay zekâ asistanına özel MCP sunucusu olarak ekleyin. Hesap veya API anahtarı gerekmez."
   deepwiki: "Depo için viki tarzında belgeler oluşturur ve depoyla ilgili soruları yanıtlar."
   uithub: "Dosya ağacını ve dosya içeriklerini bir yapay zekâ asistanı için düz metin olarak gösterir."
   gitreverse: "Bir yapay zekâ kodlama asistanı için projenin istemini ve doğal dilde belirtimini yazar."

@@ -6,9 +6,9 @@
   <p class="meta">{{ t.ai_tools_repo }}{{ t.colon }}<a href="{{ p.repo }}" dir="ltr">{{ p.repo | replace("https://", "") }}</a></p>
   {% for group, items in p.groups %}<h2>{{ t.ai_tools_groups[group] }}</h2>
   <ul class="names">{% for s, url in items %}
-    <li><strong><a href="{{ url }}">{{ s.name }}</a></strong><br>
+    <li><strong><a href="{{ url }}">{{ t.ai_tools_purpose[s.id] }}</a></strong><br>
       {{ t.ai_tools_desc[s.id] }}<br>
-      <span class="meta"><a href="{{ url }}" dir="ltr">{{ url | replace("https://", "") }}</a><br><bdi dir="ltr">github.com → {{ s.host }}</bdi></span>
+      <span class="meta">{{ t.ai_tools_service }}{{ t.colon }}<bdi>{{ s.name }}</bdi></span>
     </li>{% endfor %}
   </ul>
   {% endfor %}

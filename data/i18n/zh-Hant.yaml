@@ -78,15 +78,24 @@ projects:
 - name: phrase-marker-gen
   desc: 用於繪製生成語法句法樹的工具（構想中）
 ai_tools_h: "用外部 AI 服務閱讀 {project} 的儲存庫"
-ai_tools_intro: "以下服務可讀取本專案的公開 GitHub 儲存庫：只要將儲存庫網址中的 github.com 換成該服務的網址即可。這些服務由第三方而非本人經營，且僅適用於公開儲存庫。"
+ai_tools_intro: "以下服務可讀取本專案的公開 GitHub 儲存庫。這些服務由第三方而非本人經營，且僅適用於公開儲存庫。"
 ai_tools_repo: "儲存庫"
 ai_tools_groups:
   read: "用 AI 閱讀"
   diagram: "圖表"
   browse: "在瀏覽器中檢視程式碼"
+ai_tools_service: "服務"
+ai_tools_purpose:
+  gitingest: "整理成一段文字，貼到 AI 對話中"
+  gitmcp: "作為 MCP 伺服器接入 AI 助理"
+  deepwiki: "閱讀自動產生的說明並提問"
+  uithub: "以純文字形式檢視檔案，供 AI 使用"
+  gitreverse: "產生供 AI 程式設計助理使用的規格說明"
+  gitdiagram: "用圖表檢視儲存庫結構"
+  github-dev: "在瀏覽器的編輯器中開啟程式碼"
 ai_tools_desc:
   gitingest: "將儲存庫整理成一份文字（概要、檔案結構與檔案內容），方便貼到 AI 對話中。"
-  gitmcp: "將儲存庫變成遠端 MCP 伺服器：在支援 MCP 的 AI 助理中將此網址新增為自訂 MCP 伺服器即可。不需要帳號或 API 金鑰。"
+  gitmcp: "將儲存庫變成遠端 MCP 伺服器：在支援 MCP 的 AI 助理中將連結的網址新增為自訂 MCP 伺服器即可。不需要帳號或 API 金鑰。"
   deepwiki: "為儲存庫產生維基式文件，並回答關於儲存庫的問題。"
   uithub: "以純文字形式向 AI 助理呈現檔案結構與檔案內容。"
   gitreverse: "為 AI 程式設計助理撰寫專案的提示詞與自然語言規格說明。"
