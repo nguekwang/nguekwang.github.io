@@ -22,7 +22,7 @@ same_as:
 # Google Search Console: "HTML tag" method, the value of content="..." only.
 # Bing Webmaster Tools: "HTML Meta Tag" method (msvalidate.01), the value of content="..." only.
 verification:
-  google: ""
+  google: "vbHfV0w41tKXYEAid8L6_XhA01IqC_ekt7L6tF8P2Fo"
   bing: ""
 
 # Language order (as shown in the language menu).
