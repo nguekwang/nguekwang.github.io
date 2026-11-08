@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">{% for c in codes %}
   <url>
-    <loc>{{ site.url }}/{{ c }}/</loc>{% for a in codes %}
+    <loc>{{ site.url }}/{{ c }}/</loc>{% if c in lastmod %}
+    <lastmod>{{ lastmod[c] }}</lastmod>{% endif %}{% for a in codes %}
     <xhtml:link rel="alternate" hreflang="{{ a }}" href="{{ site.url }}/{{ a }}/"/>{% endfor %}
     <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}/"/>
   </url>{% endfor %}{% for path in subpages %}{% for c in codes %}
   <url>
-    <loc>{{ site.url }}/{{ c }}/{{ path }}/</loc>{% for a in codes %}
+    <loc>{{ site.url }}/{{ c }}/{{ path }}/</loc>{% if c in lastmod %}
+    <lastmod>{{ lastmod[c] }}</lastmod>{% endif %}{% for a in codes %}
     <xhtml:link rel="alternate" hreflang="{{ a }}" href="{{ site.url }}/{{ a }}/{{ path }}/"/>{% endfor %}
   </url>{% endfor %}{% endfor %}
 </urlset>
