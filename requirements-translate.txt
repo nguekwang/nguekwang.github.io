@@ -1,0 +1,3 @@
+# Extra packages for tools/translate.py (used by .github/workflows/translate.yml).
+claude-agent-sdk==0.2.172
+ruamel.yaml==0.19.1
