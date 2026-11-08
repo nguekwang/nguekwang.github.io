@@ -40,11 +40,12 @@ ADDRESS = [
     re.compile(r"\d+\s*(?:丁目|番地|番\s*\d+\s*号)"),
     re.compile(r"(?<![\d-])\d{1,2}-\d{1,2}-\d{1,3}(?![\d-])"),  # chome-ban-go, e.g. 1-2-3
 ]
-# Words that mean "born" / "birth" in the site's languages.
+# Words that mean "born" / "birth" in the site's languages. Short ones need word boundaries,
+# or they match inside other words ("ne" in "machine").
 BIRTH_WORDS = re.compile(
-    r"born|birth|生まれ|生年月日|誕生|出生|出生于|태어|생년월일|nacid[oa]|nacimiento|n[ée]e?\b|naissance|"
-    r"родил|рожд|народ|geboren|geburt|nat[oa]\b|nascit|nascid|geboren|doğ|lahir|เกิด|जन्म|"
-    r"تولد|ولد|ميلاد|urodz|sinh",
+    r"born|birth|生まれ|生年月日|誕生|出生|出生于|태어|생년월일|nacid[oa]|nacimiento|\bn[ée]e?\b|naissance|"
+    r"родил|рожд|народ|geboren|geburt|\bnat[oa]\b|nascit|nascid|geboren|doğ|lahir|เกิด|जन्म|"
+    r"تولد|ولد|ميلاد|urodz|\bsinh\b",
     re.IGNORECASE,
 )
 FULL_DATE = [
