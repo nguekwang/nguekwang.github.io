@@ -27,7 +27,7 @@ Loaded in every session (each adds site details to the shared rule of the same t
 Loaded when Claude works on matching files:
 
 - `.claude/rules/data.md`: `data/**`
-- `.claude/rules/writing-style.md`: `data/**` (wording, project names, institution names, machine translation and post-editors)
+- `.claude/rules/writing-style.md`: `data/**` (wording, project names, institution names, machine translation)
 - `.claude/rules/templates.md`: `templates/**`
 - `.claude/rules/static.md`: `static/**`
 - `.claude/rules/css-and-browsers.md`: `static/**`, `templates/**` (CSS that works in Chromium, Firefox and WebKit/Safari)

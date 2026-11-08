@@ -1,11 +1,8 @@
 # Page text for one language (zh-Hant). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
-# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
-# it must contain {names} exactly once.
 
 mt_notice: 本頁面為機器翻譯。
-post_edited: '本頁為機器翻譯，由{names}審校。'
 native: 繁體中文
 og_locale: zh_TW
 request: 申請其他語言版本

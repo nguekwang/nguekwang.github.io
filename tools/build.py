@@ -7,7 +7,6 @@ All page text lives in YAML under data/:
   data/talks.yaml         talks (language-independent)
   data/publications.yaml  publications and theses (titles as written; labels from data/i18n)
   data/institutions.yaml  per institution and language: official name or our translation
-  data/post_editors.yaml  native speakers who post-edited a machine-translated language
   data/ai_tools.yaml      services that read a project's GitHub repository, and each project's repository
 HTML structure lives in templates/. This script only joins the two.
 
@@ -39,9 +38,8 @@ import concurrent.futures, datetime, json, os, re, shutil, subprocess, sys, temp
 import yaml
 from babel import Locale
 from babel.dates import format_skeleton
-from babel.lists import format_list
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
-from markupsafe import Markup, escape
+from markupsafe import Markup
 
 from security_policy import GOATCOUNTER_SCRIPT, security_policies
 from security_check import check_page
@@ -70,8 +68,6 @@ AI_TOOLS_SLUG = "ai-tools"
 GITHUB_REPO = re.compile(r"[A-Za-z0-9-]+/[A-Za-z0-9._-]+")
 # Browsers tried, in order, for printing the CV to PDF when CHROME is not set.
 CHROME_NAMES = ["chrome-headless-shell", "google-chrome", "google-chrome-stable", "chromium", "chromium-browser"]
-# Fields allowed for one post-editor. Anything else (such as an email address) is rejected.
-POST_EDITOR_FIELDS = {"name", "url"}
 
 
 def load(*parts):
@@ -111,7 +107,7 @@ def keyword_ids(site):
     return [k for g in site.get("keywords", []) for k in g.get("items", [])]
 
 
-def check(site, texts, institutions, post_editors, ai_tools):
+def check(site, texts, institutions, ai_tools):
     errors = []
     i18n_dir = os.path.join(DATA, "i18n")
     on_disk = {f[:-5] for f in os.listdir(i18n_dir) if f.endswith(".yaml")}
@@ -139,7 +135,6 @@ def check(site, texts, institutions, post_editors, ai_tools):
         if set(ref.get("institutions", {})) != set(institutions.get("order", [])):
             errors.append(f"data/institutions.yaml order: ids differ from data/i18n/{REFERENCE}.yaml institutions")
     errors += check_institutions(site, institutions)
-    errors += check_post_editors(site, texts, post_editors)
     if ref is not None:
         errors += check_ai_tools(texts, ref, ai_tools)
     for code, t in texts.items():
@@ -153,8 +148,6 @@ def check(site, texts, institutions, post_editors, ai_tools):
                     errors.append(f"{code}.{key}: must contain {mark} exactly once")
         if isinstance(t.get("ai_tools_h"), str) and t["ai_tools_h"].count("{project}") != 1:
             errors.append(f"{code}.ai_tools_h: must contain {{project}} exactly once")
-        if isinstance(t.get("post_edited"), str) and t["post_edited"].count("{names}") != 1:
-            errors.append(f"{code}.post_edited: must contain {{names}} exactly once")
     return errors
 
 
@@ -236,53 +229,6 @@ def ai_tools_pages(site, ai_tools):
     return pages
 
 
-def check_post_editors(site, texts, post_editors):
-    """Post-editors are listed only for machine-translated languages, with a name and an optional https URL."""
-    errors = []
-    if not isinstance(post_editors, dict):
-        return ["data/post_editors.yaml post_editors: expected a mapping of language codes"]
-    for code, people in post_editors.items():
-        where = f"data/post_editors.yaml {code}"
-        if code not in site["languages"]:
-            errors.append(f"{where}: not a language in data/site.yaml")
-            continue
-        if not str((texts.get(code) or {}).get("mt_notice", "")).strip():
-            errors.append(f"{where}: this language is not machine-translated (its mt_notice is empty)")
-        if not isinstance(people, list) or not people:
-            errors.append(f"{where}: expected a list of people")
-            continue
-        for i, p in enumerate(people):
-            if not isinstance(p, dict):
-                errors.append(f"{where}[{i}]: expected name (and url)")
-                continue
-            for k in p.keys() - POST_EDITOR_FIELDS:
-                errors.append(f"{where}[{i}].{k}: not allowed (only {sorted(POST_EDITOR_FIELDS)}; "
-                              "no contact details in this public repository)")
-            if not isinstance(p.get("name"), str) or not p["name"].strip():
-                errors.append(f"{where}[{i}].name: missing")
-            if "url" in p and not (isinstance(p["url"], str) and p["url"].startswith("https://")):
-                errors.append(f"{where}[{i}].url: must start with https://")
-    return errors
-
-
-def notice(code, t, people):
-    """The notice at the top of a page: mt_notice, or post_edited with the post-editors' names.
-
-    Names are joined with the language's own list separators ("A, B, and C", "A、B、C") and
-    linked to the URL each person chose. Returns "" (no notice) for languages the owner wrote.
-    """
-    if not people:
-        return t["mt_notice"]
-    parts = []
-    for p in people:
-        name = Markup("<bdi>{}</bdi>").format(p["name"])
-        parts.append(Markup('<a href="{}">{}</a>').format(p["url"], name) if p.get("url") else name)
-    marks = [f"\x00{i}\x00" for i in range(len(parts))]
-    joined = str(escape(format_list(marks, locale=Locale.parse(code, sep="-"))))
-    for mark, part in zip(marks, parts):
-        joined = joined.replace(mark, str(part))
-    before, after = t["post_edited"].split("{names}")
-    return escape(before) + Markup(joined) + escape(after)
 
 
 def check_institutions(site, institutions):
@@ -407,10 +353,9 @@ def main():
         if os.path.exists(os.path.join(DATA, "i18n", code + ".yaml")):
             texts[code] = load("i18n", code + ".yaml")
     institutions = load("institutions.yaml") or {}
-    post_editors = (load("post_editors.yaml") or {}).get("post_editors") or {}
     pubs = (load("publications.yaml") or {}).get("publications") or []
     ai_tools = load("ai_tools.yaml") or {}
-    errors = check(site, texts, institutions, post_editors, ai_tools)
+    errors = check(site, texts, institutions, ai_tools)
     if REFERENCE in texts:
         errors += check_publications(pubs, texts[REFERENCE])
     if errors:
@@ -458,10 +403,10 @@ def main():
         title = site_title(site, texts, code)
         html = page.render(
             site=site, langs=langs, talks=talks, code=code, t=t,
-            h1=h1, title=title, site_name=site_title(site, texts, code), notice=notice(code, t, post_editors.get(code)),
+            h1=h1, title=title, site_name=site_title(site, texts, code), notice=t["mt_notice"],
             updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
             copyright_from=local_digits(site, code, str(site["copyright_from"])),
-            jsonld=jsonld(site, code, t, title, website_name, post_editors.get(code)),
+            jsonld=jsonld(site, code, t, title, website_name),
             alt_name=site["name"]["latin"] if ja else site["name"]["ja"],
             alt_lang="en" if ja else "ja",
             pubs=publications(site, code, t, pubs), names_slug=NAMES_SLUG, ai_pages=ai_pages, project_sites=sites,
@@ -486,8 +431,8 @@ def main():
         write(os.path.join(code, NAMES_SLUG, "index.html"), names_page.render(
             site=site, langs=langs, code=code, t=t, rows=rows, path=NAMES_SLUG, up="../../", home="../",
             description=t["names_intro"], title=title, site_name=site_title(site, texts, code),
-            notice=notice(code, t, post_editors.get(code)),
-            jsonld=jsonld(site, code, t, title, website_name, post_editors.get(code), sub=sub),
+            notice=t["mt_notice"],
+            jsonld=jsonld(site, code, t, title, website_name, sub=sub),
             updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
             copyright_from=local_digits(site, code, str(site["copyright_from"])),
             footer_name=site["name"]["ja"] if code == "ja" else site["name"]["latin_short"],
@@ -503,8 +448,8 @@ def main():
             write(os.path.join(code, *p["path"].split("/"), "index.html"), ai_page.render(
                 site=site, langs=langs, code=code, t=t, project=name, p=p, path=p["path"], up="../../../", home="../../",
                 description=t["ai_tools_intro"], title=title, site_name=site_title(site, texts, code),
-                notice=notice(code, t, post_editors.get(code)),
-                jsonld=jsonld(site, code, t, title, website_name, post_editors.get(code), sub=sub),
+                notice=t["mt_notice"],
+                jsonld=jsonld(site, code, t, title, website_name, sub=sub),
                 updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
                 copyright_from=local_digits(site, code, str(site["copyright_from"])),
                 footer_name=site["name"]["ja"] if code == "ja" else site["name"]["latin_short"],
@@ -542,7 +487,7 @@ def main():
                     alt_lang="en" if ja else "ja",
                     pubs=publications(site, code, t, pubs), project_sites=sites,
                     updated=updated_text(site, code, t["updated"], date),
-                    notice=notice(code, t, post_editors.get(code)),
+                    notice=t["mt_notice"],
                 ))
             # The CV is not published, but it gets the same checks as every page (tools/security_check.py).
             problems = check_page(cv_html, security_policies(site, "cv"))
@@ -589,15 +534,14 @@ def site_title(site, texts, code):
     name = site["name"]["ja"] if code == "ja" else site["name"]["latin_title"]
     return f"{name} – {texts[code or REFERENCE]['site_title']}"
 
-def jsonld(site, code, t, title, website_name, post_editors=None, sub=None):
+def jsonld(site, code, t, title, website_name, sub=None):
     """Structured data (schema.org JSON-LD) for one page.
 
     Every page describes the same Person and WebSite (same @id), so search engines and
     AI assistants can join the language versions into one entity. `code` is None for the
     root language chooser. With `sub` ({path, name, description}), the page is the sub-page
     /<code>/<path>/ (such as the institution-names page): a WebPage about the Person, with a
-    breadcrumb back to the language's profile page, instead of the ProfilePage itself. Post-editors of the page's
-    language are listed as `contributor` of the page. `website_name` is the WebSite's
+    breadcrumb back to the language's profile page, instead of the ProfilePage itself. `website_name` is the WebSite's
     name, the same on every page.
     """
     base = site["url"]
@@ -664,10 +608,6 @@ def jsonld(site, code, t, title, website_name, post_editors=None, sub=None):
             "isPartOf": {"@id": f"{base}/#website"},
             "mainEntity": {"@id": f"{base}/#person"},
         })
-    if code is not None and post_editors:
-        graph[0]["contributor"] = [
-            {"@type": "Person", "name": p["name"], **({"url": p["url"]} if p.get("url") else {})}
-            for p in post_editors]
     data = {"@context": "https://schema.org", "@graph": graph}
     # Escape "</" so the JSON can never close the surrounding <script> element.
     return Markup(json.dumps(data, ensure_ascii=False, indent=1).replace("</", "<\\/"))

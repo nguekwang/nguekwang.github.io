@@ -12,7 +12,6 @@ All page text lives here as YAML. HTML structure is in `templates/`.
 - `data/talks.yaml`: talks (language-independent).
 - `data/publications.yaml`: publications and theses (see below).
 - `data/institutions.yaml`: institution names per language (official or translated).
-- `data/post_editors.yaml`: native speakers who post-edited a machine-translated language (see `writing-style.md`).
 - `data/privacy.yaml`: allow list for `tools/privacy_check.py` (see `build-and-ci.md`).
 - `data/ai_tools.yaml`: services that read a project's GitHub repository, and each project's public repository (see below).
 
