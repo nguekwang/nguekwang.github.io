@@ -86,15 +86,24 @@ projects:
 # Page of links for AI assistants, one per project with a public repository (/<lang>/ai-tools/<repo>/).
 # ai_tools_h is also the small link under the project. Services and repositories: data/ai_tools.yaml.
 ai_tools_h: "Reading the {project} repository with external AI services"
-ai_tools_intro: "These services read the project's public GitHub repository: replace github.com in the repository's URL with the service's address. They are run by others, not by me, and work only with public repositories."
+ai_tools_intro: "These services read the project's public GitHub repository. They are run by others, not by me, and work only with public repositories."
 ai_tools_repo: "Repository"
 ai_tools_groups:
   read: "Reading with AI"
   diagram: "Diagrams"
   browse: "Code in the browser"
+ai_tools_service: "Service"
+ai_tools_purpose:
+  gitingest: "Turn it into one text to paste into an AI chat"
+  gitmcp: "Connect it to an AI assistant as an MCP server"
+  deepwiki: "Read a generated explanation and ask questions"
+  uithub: "View the files as plain text for an AI"
+  gitreverse: "Get a specification for an AI coding assistant"
+  gitdiagram: "See the structure as a diagram"
+  github-dev: "Open the code in an editor in the browser"
 ai_tools_desc:
   gitingest: "Turns the repository into one text digest (summary, file tree and file contents) to paste into an AI chat."
-  gitmcp: "Turns the repository into a remote MCP server: add this URL as a custom MCP server in an AI assistant that supports MCP. No account or API key is needed."
+  gitmcp: "Turns the repository into a remote MCP server: add the linked URL as a custom MCP server in an AI assistant that supports MCP. No account or API key is needed."
   deepwiki: "Generates wiki-style documentation of the repository and answers questions about it."
   uithub: "Shows the file tree and file contents as plain text for an AI assistant."
   gitreverse: "Writes a prompt and a plain-language specification of the project for an AI coding assistant."

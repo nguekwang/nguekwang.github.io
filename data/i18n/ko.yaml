@@ -77,15 +77,24 @@ projects:
 - name: phrase-marker-gen
   desc: 생성문법의 통사 트리를 그리는 도구 (구상 중)
 ai_tools_h: "외부 AI 서비스로 {project} 저장소 읽기"
-ai_tools_intro: "프로젝트의 공개 GitHub 저장소를 읽는 서비스입니다. 저장소 URL의 github.com을 각 서비스의 주소로 바꾸면 사용할 수 있습니다. 모두 제가 아닌 제3자가 운영하며, 공개 저장소에서만 작동합니다."
+ai_tools_intro: "프로젝트의 공개 GitHub 저장소를 읽는 서비스입니다. 모두 제가 아닌 제3자가 운영하며, 공개 저장소에서만 작동합니다."
 ai_tools_repo: "저장소"
 ai_tools_groups:
   read: "AI로 읽기"
   diagram: "다이어그램"
   browse: "브라우저에서 코드 보기"
+ai_tools_service: "서비스"
+ai_tools_purpose:
+  gitingest: "AI 채팅에 붙여 넣을 하나의 텍스트로 만들기"
+  gitmcp: "MCP 서버로 AI 어시스턴트에 연결하기"
+  deepwiki: "자동으로 만든 설명을 읽고 질문하기"
+  uithub: "파일 내용을 AI용 텍스트로 보기"
+  gitreverse: "AI 코딩 도구용 사양서 만들기"
+  gitdiagram: "저장소 구조를 도식으로 보기"
+  github-dev: "브라우저의 편집기에서 코드 열기"
 ai_tools_desc:
   gitingest: "저장소를 AI 채팅에 붙여 넣기 좋은 하나의 텍스트(개요, 파일 구조, 파일 내용)로 묶습니다."
-  gitmcp: "저장소를 원격 MCP 서버로 만듭니다. MCP를 지원하는 AI 어시스턴트에 이 URL을 사용자 지정 MCP 서버로 추가해 사용합니다. 계정이나 API 키는 필요 없습니다."
+  gitmcp: "저장소를 원격 MCP 서버로 만듭니다. MCP를 지원하는 AI 어시스턴트에 링크된 URL을 사용자 지정 MCP 서버로 추가해 사용합니다. 계정이나 API 키는 필요 없습니다."
   deepwiki: "저장소에 대한 위키 형식의 문서를 만들고, 저장소에 관한 질문에 답합니다."
   uithub: "파일 구조와 파일 내용을 AI 어시스턴트용 일반 텍스트로 보여 줍니다."
   gitreverse: "AI 코딩 어시스턴트를 위해 프로젝트의 프롬프트와 자연어 사양서를 작성합니다."

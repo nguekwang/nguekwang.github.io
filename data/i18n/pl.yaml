@@ -77,15 +77,24 @@ projects:
 - name: phrase-marker-gen
   desc: Narzędzie do rysowania drzew składniowych gramatyki generatywnej (w planach)
 ai_tools_h: "Czytanie repozytorium {project} za pomocą zewnętrznych usług AI"
-ai_tools_intro: "Te usługi odczytują publiczne repozytorium projektu na GitHubie: wystarczy zastąpić github.com w adresie repozytorium adresem usługi. Prowadzą je inne podmioty, nie ja, i działają tylko z repozytoriami publicznymi."
+ai_tools_intro: "Te usługi odczytują publiczne repozytorium projektu na GitHubie. Prowadzą je inne podmioty, nie ja, i działają tylko z repozytoriami publicznymi."
 ai_tools_repo: "Repozytorium"
 ai_tools_groups:
   read: "Czytanie przez AI"
   diagram: "Diagramy"
   browse: "Kod w przeglądarce"
+ai_tools_service: "Usługa"
+ai_tools_purpose:
+  gitingest: "Zamień w jeden tekst do wklejenia w czacie z AI"
+  gitmcp: "Podłącz do asystenta AI jako serwer MCP"
+  deepwiki: "Przeczytaj wygenerowane objaśnienie i zadawaj pytania"
+  uithub: "Zobacz pliki jako zwykły tekst dla AI"
+  gitreverse: "Uzyskaj specyfikację dla asystenta programowania AI"
+  gitdiagram: "Zobacz strukturę na diagramie"
+  github-dev: "Otwórz kod w edytorze w przeglądarce"
 ai_tools_desc:
   gitingest: "Łączy repozytorium w jeden tekst (podsumowanie, drzewo plików i ich zawartość) do wklejenia w czacie z AI."
-  gitmcp: "Zamienia repozytorium w zdalny serwer MCP: dodaj ten adres jako własny serwer MCP w asystencie AI obsługującym MCP. Konto ani klucz API nie są potrzebne."
+  gitmcp: "Zamienia repozytorium w zdalny serwer MCP: dodaj adres z odnośnika jako własny serwer MCP w asystencie AI obsługującym MCP. Konto ani klucz API nie są potrzebne."
   deepwiki: "Tworzy dokumentację repozytorium w stylu wiki i odpowiada na pytania na jego temat."
   uithub: "Pokazuje drzewo plików i ich zawartość jako zwykły tekst dla asystenta AI."
   gitreverse: "Pisze prompt i specyfikację projektu w języku naturalnym dla asystenta programowania AI."

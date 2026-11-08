@@ -159,7 +159,7 @@ def check(site, texts, institutions, post_editors, ai_tools):
 
 
 def check_ai_tools(texts, ref, ai_tools):
-    """data/ai_tools.yaml: every project has an entry, and every service a description and group.
+    """data/ai_tools.yaml: every project has an entry, and every service a purpose, description and group.
 
     Project names are the same in every language, so a new project cannot be added to the
     language files without deciding here whether it gets a page of links for AI assistants.
@@ -195,6 +195,8 @@ def check_ai_tools(texts, ref, ai_tools):
         errors.append("data/ai_tools.yaml services: duplicate ids")
     if set(ids) != set(ref.get("ai_tools_desc", {})):
         errors.append(f"data/ai_tools.yaml services: ids differ from data/i18n/{REFERENCE}.yaml ai_tools_desc")
+    if set(ids) != set(ref.get("ai_tools_purpose", {})):
+        errors.append(f"data/ai_tools.yaml services: ids differ from data/i18n/{REFERENCE}.yaml ai_tools_purpose")
     if {s.get("group") for s in services} != set(ref.get("ai_tools_groups", {})):
         errors.append(f"data/ai_tools.yaml services: groups differ from data/i18n/{REFERENCE}.yaml ai_tools_groups")
     for s in services:

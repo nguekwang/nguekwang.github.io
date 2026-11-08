@@ -77,15 +77,24 @@ projects:
 - name: phrase-marker-gen
   desc: Ferramenta para desenhar árvores sintáticas da gramática gerativa (em planejamento)
 ai_tools_h: "Leitura do repositório de {project} com serviços de IA externos"
-ai_tools_intro: "Estes serviços leem o repositório público do projeto no GitHub: basta substituir github.com no URL do repositório pelo endereço do serviço. São mantidos por terceiros, não por mim, e só funcionam com repositórios públicos."
+ai_tools_intro: "Estes serviços leem o repositório público do projeto no GitHub. São mantidos por terceiros, não por mim, e só funcionam com repositórios públicos."
 ai_tools_repo: "Repositório"
 ai_tools_groups:
   read: "Leitura com IA"
   diagram: "Diagramas"
   browse: "Código no navegador"
+ai_tools_service: "Serviço"
+ai_tools_purpose:
+  gitingest: "Transformá-lo num só texto para colar num chat de IA"
+  gitmcp: "Ligá-lo a um assistente de IA como servidor MCP"
+  deepwiki: "Ler uma explicação gerada e fazer perguntas"
+  uithub: "Ver os ficheiros como texto simples para uma IA"
+  gitreverse: "Obter uma especificação para um assistente de programação com IA"
+  gitdiagram: "Ver a estrutura num diagrama"
+  github-dev: "Abrir o código num editor no navegador"
 ai_tools_desc:
   gitingest: "Reúne o repositório num único texto (resumo, árvore de arquivos e conteúdo) para colar num chat de IA."
-  gitmcp: "Transforma o repositório num servidor MCP remoto: adicione este URL como servidor MCP personalizado num assistente de IA compatível com MCP. Não é preciso conta nem chave de API."
+  gitmcp: "Transforma o repositório num servidor MCP remoto: adicione o URL da ligação como servidor MCP personalizado num assistente de IA compatível com MCP. Não é preciso conta nem chave de API."
   deepwiki: "Gera documentação do repositório no estilo de uma wiki e responde a perguntas sobre ele."
   uithub: "Mostra a árvore de arquivos e o conteúdo como texto simples para um assistente de IA."
   gitreverse: "Escreve um prompt e uma especificação do projeto em linguagem natural para um assistente de programação com IA."

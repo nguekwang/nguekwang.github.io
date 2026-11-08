@@ -77,15 +77,24 @@ projects:
 - name: phrase-marker-gen
   desc: Alat untuk menggambar pohon sintaksis tata bahasa generatif (direncanakan)
 ai_tools_h: "Membaca repositori {project} dengan layanan AI eksternal"
-ai_tools_intro: "Layanan berikut membaca repositori GitHub publik proyek ini: cukup ganti github.com pada URL repositori dengan alamat layanannya. Layanan ini dikelola pihak lain, bukan saya, dan hanya berfungsi untuk repositori publik."
+ai_tools_intro: "Layanan berikut membaca repositori GitHub publik proyek ini. Layanan ini dikelola pihak lain, bukan saya, dan hanya berfungsi untuk repositori publik."
 ai_tools_repo: "Repositori"
 ai_tools_groups:
   read: "Membaca dengan AI"
   diagram: "Diagram"
   browse: "Kode di peramban"
+ai_tools_service: "Layanan"
+ai_tools_purpose:
+  gitingest: "Jadikan satu teks untuk ditempel ke obrolan AI"
+  gitmcp: "Hubungkan ke asisten AI sebagai server MCP"
+  deepwiki: "Baca penjelasan yang dibuat otomatis dan ajukan pertanyaan"
+  uithub: "Lihat berkas sebagai teks biasa untuk AI"
+  gitreverse: "Dapatkan spesifikasi untuk asisten pemrograman AI"
+  gitdiagram: "Lihat strukturnya sebagai diagram"
+  github-dev: "Buka kode di editor dalam peramban"
 ai_tools_desc:
   gitingest: "Menyatukan repositori menjadi satu teks (ringkasan, struktur berkas, dan isi berkas) untuk ditempelkan ke obrolan AI."
-  gitmcp: "Menjadikan repositori sebuah server MCP jarak jauh: tambahkan URL ini sebagai server MCP kustom di asisten AI yang mendukung MCP. Tidak perlu akun atau kunci API."
+  gitmcp: "Menjadikan repositori sebuah server MCP jarak jauh: tambahkan URL tautannya sebagai server MCP kustom di asisten AI yang mendukung MCP. Tidak perlu akun atau kunci API."
   deepwiki: "Membuat dokumentasi repositori bergaya wiki dan menjawab pertanyaan tentangnya."
   uithub: "Menampilkan struktur berkas dan isinya sebagai teks biasa untuk asisten AI."
   gitreverse: "Menulis prompt dan spesifikasi proyek dalam bahasa alami untuk asisten pemrograman AI."
