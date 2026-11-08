@@ -14,6 +14,7 @@ All page text lives here as YAML. HTML structure is in `templates/`.
 - `data/institutions.yaml`: institution names per language (official or translated).
 - `data/post_editors.yaml`: native speakers who post-edited a machine-translated language (see `writing-style.md`).
 - `data/privacy.yaml`: allow list for `tools/privacy_check.py` (see `build-and-ci.md`).
+- `data/translation.yaml`: machine translation settings: model, keys each language writes itself (`own_keys`), and terms kept as written in English (`protected_terms`) (see `writing-style.md`).
 - `data/ai_tools.yaml`: services that read a project's GitHub repository, and each project's public repository (see below).
 
 ## Every language has the same items

@@ -340,6 +340,25 @@ def last_change():
     return None, datetime.date.today()
 
 
+def language_dates(codes):
+    """Date (YYYY-MM-DD) of the latest commit that changed each language's pages, for <lastmod> in sitemap.xml.
+
+    A language's pages change with its own data/i18n/<code>.yaml and with everything shared
+    (SITE_PATHS outside data/i18n/). Without git history the dates are left out, never guessed.
+    """
+    dates = {}
+    shared = SITE_PATHS + [":(exclude)data/i18n"]
+    for code in codes:
+        try:
+            out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", *shared, f"data/i18n/{code}.yaml"],
+                                 cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip()
+        except (OSError, subprocess.CalledProcessError):
+            out = ""
+        if out:
+            dates[code] = out
+    return dates
+
+
 def local_digits(site, code, text):
     """Write 0-9 with the language's own digits when data/site.yaml `digits` lists them."""
     digits = site.get("digits", {}).get(code)
@@ -519,7 +538,8 @@ def main():
         site=site, langs=langs, t=en, pubs=publications(site, REFERENCE, en, pubs), ai_pages=ai_pages,
         project_sites=sites))
     subpages = [NAMES_SLUG] + [p["path"] for p in ai_pages.values()]
-    write("sitemap.xml", env.get_template("sitemap.xml.j2").render(site=site, codes=codes, subpages=subpages))
+    write("sitemap.xml", env.get_template("sitemap.xml.j2").render(
+        site=site, codes=codes, subpages=subpages, lastmod=language_dates(codes)))
     print(f"built {len(codes)} language pages (and their sub-pages: {', '.join(subpages)}) into {os.path.relpath(OUT, ROOT)}/")
 
     if "--no-pdf" in sys.argv[1:]:

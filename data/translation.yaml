@@ -1,0 +1,33 @@
+# Machine translation of the page text (tools/translate.py, .github/workflows/translate.yml).
+#
+# English (data/i18n/en.yaml, REFERENCE in tools/build.py) is the source text (the owner's choice,
+# 2026-11-05). When a pull request changes English text, CI asks Claude to translate only the
+# changed parts into every machine-translated language and adds the result to the same pull request.
+# Languages whose mt_notice is empty are written by the owner and are never machine-translated;
+# CI only warns that they may need the same change.
+
+# Model and effort for the translation.
+model: claude-opus-5-5
+effort: high
+
+# Keys that each language writes for itself and that are never translated from English.
+# A new one of these needs a hand-written value in every language (build.py --check fails until then).
+own_keys:
+  - mt_notice    # machine-translation notice, in the language itself
+  - native       # the language's own name
+  - og_locale    # Open Graph locale code
+  - institutions # names follow data/institutions.yaml (official or translated), checked by hand
+
+# Terms kept exactly as written in English in every machine-translated language. Project names
+# (`name` under `projects` in en.yaml) and {placeholders} are protected automatically.
+# `python3 tools/translate.py --check` fails when a translation drops one.
+protected_terms:
+  - GitHub
+  - CEFR
+  - Python
+  - i18n
+  - Linux
+  - MCP
+  - VS Code
+  - PDF
+  - API
