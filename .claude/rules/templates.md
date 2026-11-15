@@ -17,3 +17,4 @@ HTML structure only. Page text comes from `data/`; never write page text into a 
 - `templates/llms.txt.j2` builds `_site/llms.txt`, a plain-text English summary for AI assistants, from `data/i18n/en.yaml`.
 - Every page head starts with `<meta charset>` and then includes `templates/security.html.j2` with its `policy` (see `security.md`). No `<style>` elements or `style=` attributes.
 - Every page head includes `templates/robots.html.j2`, which adds `noindex` only to pull request previews (`build.py --preview`). New page templates must include it too.
+- Every page head includes `templates/icons.html.j2` (with `up`, the path back to the site root), which links `static/favicon.svg` and `static/favicon-192.png` (the same drawing at 192 x 192, a multiple of 48 px as search engines want). New page templates must include it too; when the SVG changes, redraw the PNG from it.
