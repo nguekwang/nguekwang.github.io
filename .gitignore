@@ -1,5 +1,7 @@
 __pycache__/
 *.png
+# The favicon is drawn by hand from static/favicon.svg and committed.
+!static/favicon-192.png
 _site/
 _preview/
 browser-check/

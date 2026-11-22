@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- The site's favicon: "Y" for yoshi. Opened on its own, so the stylesheet does not
+       apply; the colour copies the light-theme accent colour in static/style.css.
+       static/favicon-192.png is this drawing at 192 x 192. -->
+  <rect width="64" height="64" rx="12" fill="#1f3a5f"/>
+  <path d="M19 15 32 33 45 15M32 33V50" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
