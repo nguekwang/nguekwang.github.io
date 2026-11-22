@@ -4,7 +4,7 @@ The shared rule is `git-and-prs.md` in the `research-aide` repository (branches,
 
 ## Before pushing
 
-- Run `python3 tools/build.py --check`, `python3 tools/privacy_check.py`, `python3 tools/build.py` and `python3 tools/check_links.py`. All must pass (CI runs the same steps).
+- Run `python3 tools/build.py --check`, `python3 tools/privacy_check.py`, `python3 tools/build.py`, `python3 tools/check_links.py`, `npm run check` and `python3 tools/check_single_source.py` (see `build-and-ci.md`). All must pass (CI runs the same steps).
 - `tools/privacy_check.py` is a safety net, not a replacement for checking the diff yourself (see `publishing.md`). Add to its allow list (`data/privacy.yaml`) only what the owner has approved.
 
 ## Pull requests

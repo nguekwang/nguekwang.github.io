@@ -11,11 +11,16 @@ workflow .github/workflows/links.yml checks those with lychee. Also checks that 
 
 Usage: python3 tools/check_links.py [SITE_DIR]
 """
-import html.parser, os, re, sys, urllib.parse
+
+import html.parser
+import os
+import re
+import sys
+import urllib.parse
 
 import yaml
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from locations import ROOT
 
 
 class Links(html.parser.HTMLParser):
@@ -37,7 +42,7 @@ def target(site_dir, site_url, page, link, project_sites=()):
     if any(link.startswith(p) for p in project_sites):
         return None  # a project site published from its own repository
     if link.startswith(site_url + "/") or link == site_url:
-        rel = link[len(site_url):] or "/"
+        rel = link[len(site_url) :] or "/"
         return os.path.join(site_dir, urllib.parse.unquote(rel).lstrip("/"))
     if re.match(r"^[a-z][a-z0-9+.-]*:", link, re.IGNORECASE) or link.startswith("//"):
         return None  # another site, mailto:, data:, ...

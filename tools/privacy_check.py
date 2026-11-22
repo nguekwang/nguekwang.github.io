@@ -17,11 +17,16 @@ date, so the manual check before committing (CLAUDE.md) still applies.
 
 Usage: python3 tools/privacy_check.py
 """
-import os, re, subprocess, sys
+
+import os
+import re
+import subprocess
+import sys
 
 import yaml
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from locations import ROOT
+
 ALLOW_FILE = "data/privacy.yaml"
 # This script holds example numbers in its own comments and patterns.
 SKIP = {"tools/privacy_check.py"}
@@ -36,7 +41,7 @@ PHONE = [
 ]
 ADDRESS = [
     re.compile(r"〒\s*\d{3}-?\d{4}"),
-    re.compile(r"(?<![\d-])\d{3}-\d{4}(?![\d-])"),          # postal code
+    re.compile(r"(?<![\d-])\d{3}-\d{4}(?![\d-])"),  # postal code
     re.compile(r"\d+\s*(?:丁目|番地|番\s*\d+\s*号)"),
     re.compile(r"(?<![\d-])\d{1,2}-\d{1,2}-\d{1,3}(?![\d-])"),  # chome-ban-go, e.g. 1-2-3
 ]
@@ -48,16 +53,22 @@ BIRTH_WORDS = re.compile(
     re.IGNORECASE,
 )
 FULL_DATE = [
-    re.compile(r"\d{4}\s*[-/.年년]\s*\d{1,2}\s*[-/.月월]\s*\d{1,2}(?!\d)"),  # 2003-12-05, 2003年12月5日
-    re.compile(r"(?<!\d)\d{1,2}\s*[./-]\s*\d{1,2}\s*[./-]\s*\d{4}"),       # 05.12.2003, 12/5/2003
-    re.compile(r"(?<!\d)\d{1,2}(?:st|nd|rd|th|er|\.)?\s+(?:de\s+)?(?!năm\b)[^\W\d_]{3,}\.?\s+(?:de\s+)?\d{4}"),  # 5 December 2003 (not vi "tháng 12 năm 2003")
-    re.compile(r"[^\W\d_]{3,}\.?\s+\d{1,2},\s*\d{4}"),                     # December 5, 2003
+    re.compile(
+        r"\d{4}\s*[-/.年년]\s*\d{1,2}\s*[-/.月월]\s*\d{1,2}(?!\d)"
+    ),  # 2003-12-05, 2003年12月5日
+    re.compile(r"(?<!\d)\d{1,2}\s*[./-]\s*\d{1,2}\s*[./-]\s*\d{4}"),  # 05.12.2003, 12/5/2003
+    re.compile(
+        r"(?<!\d)\d{1,2}(?:st|nd|rd|th|er|\.)?\s+(?:de\s+)?(?!năm\b)[^\W\d_]{3,}\.?\s+(?:de\s+)?\d{4}"
+    ),  # 5 December 2003 (not vi "tháng 12 năm 2003")
+    re.compile(r"[^\W\d_]{3,}\.?\s+\d{1,2},\s*\d{4}"),  # December 5, 2003
 ]
 CJK_FULL_DATE = re.compile(r"\d{4}\s*[年년]\s*\d{1,2}\s*[月월]\s*\d{1,2}\s*[日일]")
 
 
 def tracked_files():
-    out = subprocess.run(["git", "ls-files", "-z"], cwd=ROOT, capture_output=True, check=True).stdout
+    out = subprocess.run(
+        ["git", "ls-files", "-z"], cwd=ROOT, capture_output=True, check=True
+    ).stdout
     return [p for p in out.decode().split("\0") if p]
 
 
@@ -113,7 +124,10 @@ def main():
         print(f"{len(problems)} possible piece(s) of personal information:", file=sys.stderr)
         for p in problems:
             print("  " + p, file=sys.stderr)
-        print(f"If the owner approved publishing one of these, add it to {ALLOW_FILE}.", file=sys.stderr)
+        print(
+            f"If the owner approved publishing one of these, add it to {ALLOW_FILE}.",
+            file=sys.stderr,
+        )
         sys.exit(1)
     print("privacy check OK: no unapproved personal information found")
 

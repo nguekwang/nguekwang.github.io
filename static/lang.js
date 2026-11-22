@@ -15,7 +15,9 @@
 
   // Head elements that are the same on every page and must not be touched.
   function keep(el) {
-    return el.matches('meta[charset], meta[http-equiv], meta[name="viewport"], meta[name="referrer"], link[rel="stylesheet"], script[src$="theme.js"]');
+    return el.matches(
+      'meta[charset], meta[http-equiv], meta[name="viewport"], meta[name="referrer"], link[rel="stylesheet"], script[src$="theme.js"]',
+    );
   }
 
   function swap(html, url) {
@@ -26,8 +28,12 @@
     root.lang = doc.documentElement.lang;
     root.dir = doc.documentElement.dir;
     var head = document.head;
-    Array.prototype.slice.call(head.children).forEach(function (el) { if (!keep(el)) head.removeChild(el); });
-    Array.prototype.slice.call(doc.head.children).forEach(function (el) { if (!keep(el)) head.appendChild(document.importNode(el, true)); });
+    Array.prototype.slice.call(head.children).forEach(function (el) {
+      if (!keep(el)) head.removeChild(el);
+    });
+    Array.prototype.slice.call(doc.head.children).forEach(function (el) {
+      if (!keep(el)) head.appendChild(document.importNode(el, true));
+    });
     document.querySelector('main').replaceWith(document.importNode(main, true));
     history.replaceState(history.state, '', url);
     document.dispatchEvent(new CustomEvent('langswitch'));
@@ -37,7 +43,8 @@
 
   var busy = false;
   document.addEventListener('click', function (e) {
-    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey)
+      return;
     var a = e.target.closest ? e.target.closest('.langmenu a[hreflang]') : null;
     if (!a || a.origin !== location.origin) return;
     e.preventDefault();
@@ -45,8 +52,16 @@
     busy = true;
     var url = a.href;
     fetch(url, { credentials: 'same-origin' })
-      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
-      .then(function (html) { swap(html, url); busy = false; })
-      .catch(function () { location.replace(url); });
+      .then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        return r.text();
+      })
+      .then(function (html) {
+        swap(html, url);
+        busy = false;
+      })
+      .catch(function () {
+        location.replace(url);
+      });
   });
 })();

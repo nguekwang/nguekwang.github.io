@@ -33,7 +33,17 @@ Each language also gets a CV as a PDF at /<lang>/<site.cv_file>, made from the s
 templates/cv.html.j2 is rendered to a temporary HTML file and printed to PDF with headless Chrome
 (set CHROME to its path if it is not found on PATH). The CV shows only what the page already shows.
 """
-import concurrent.futures, datetime, json, os, re, shutil, subprocess, sys, tempfile, urllib.parse
+
+import concurrent.futures
+import datetime
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+import urllib.parse
 
 import yaml
 from babel import Locale
@@ -44,7 +54,8 @@ from markupsafe import Markup
 from security_policy import GOATCOUNTER_SCRIPT, security_policies
 from security_check import check_page
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from locations import ROOT
+
 DATA = os.path.join(ROOT, "data")
 OUT = os.path.join(ROOT, "_site")
 REFERENCE = "en"
@@ -67,7 +78,13 @@ NAME_STATUSES = {"official", "translated"}
 AI_TOOLS_SLUG = "ai-tools"
 GITHUB_REPO = re.compile(r"[A-Za-z0-9-]+/[A-Za-z0-9._-]+")
 # Browsers tried, in order, for printing the CV to PDF when CHROME is not set.
-CHROME_NAMES = ["chrome-headless-shell", "google-chrome", "google-chrome-stable", "chromium", "chromium-browser"]
+CHROME_NAMES = [
+    "chrome-headless-shell",
+    "google-chrome",
+    "google-chrome-stable",
+    "chromium",
+    "chromium-browser",
+]
 
 
 def load(*parts):
@@ -93,7 +110,7 @@ def compare(ref, other, path, errors):
         elif len(ref) != len(other):
             errors.append(f"{path}: {len(other)} items, {REFERENCE}.yaml has {len(ref)}")
         else:
-            for i, (a, b) in enumerate(zip(ref, other)):
+            for i, (a, b) in enumerate(zip(ref, other, strict=False)):
                 compare(a, b, f"{path}[{i}]", errors)
     elif not isinstance(other, str):
         errors.append(f"{path}: expected text")
@@ -123,22 +140,30 @@ def check(site, texts, institutions, ai_tools):
         if len(set(group_ids)) != len(group_ids):
             errors.append("data/site.yaml keywords: duplicate group ids")
         if set(group_ids) != set(ref.get("keyword_groups", {})):
-            errors.append(f"data/site.yaml keywords: group ids differ from data/i18n/{REFERENCE}.yaml keyword_groups")
+            errors.append(
+                f"data/site.yaml keywords: group ids differ from data/i18n/{REFERENCE}.yaml keyword_groups"
+            )
         if any(not g.get("items") for g in groups):
             errors.append("data/site.yaml keywords: every group needs at least one keyword")
         if len(set(order)) != len(order):
             errors.append("data/site.yaml keywords: duplicate ids")
         if set(order) != set(ref.get("keywords", {})):
-            errors.append(f"data/site.yaml keywords: ids differ from data/i18n/{REFERENCE}.yaml keywords")
+            errors.append(
+                f"data/site.yaml keywords: ids differ from data/i18n/{REFERENCE}.yaml keywords"
+            )
         for code, t in texts.items():
             compare(ref, t, code, errors)
         if set(ref.get("institutions", {})) != set(institutions.get("order", [])):
-            errors.append(f"data/institutions.yaml order: ids differ from data/i18n/{REFERENCE}.yaml institutions")
+            errors.append(
+                f"data/institutions.yaml order: ids differ from data/i18n/{REFERENCE}.yaml institutions"
+            )
     errors += check_institutions(site, institutions)
     if ref is not None:
         errors += check_ai_tools(texts, ref, ai_tools)
     for code, t in texts.items():
-        if isinstance(t.get("og_locale"), str) and not re.fullmatch(r"[a-z]{2,3}_[A-Z]{2}", t["og_locale"]):
+        if isinstance(t.get("og_locale"), str) and not re.fullmatch(
+            r"[a-z]{2,3}_[A-Z]{2}", t["og_locale"]
+        ):
             errors.append(f"{code}.og_locale: must look like ja_JP (Open Graph locale)")
         if isinstance(t.get("updated"), str) and t["updated"].count("{date}") != 1:
             errors.append(f"{code}.updated: must contain {{date}} exactly once")
@@ -166,20 +191,30 @@ def check_ai_tools(texts, ref, ai_tools):
     projects = ai_tools.get("projects") or {}
     for name in names:
         if name not in projects:
-            errors.append(f"data/ai_tools.yaml projects: add an entry for {name!r} (repo may be empty)")
+            errors.append(
+                f"data/ai_tools.yaml projects: add an entry for {name!r} (repo may be empty)"
+            )
     for name in projects:
         if name not in names:
-            errors.append(f"data/ai_tools.yaml projects: {name!r} is not a project in data/i18n/{REFERENCE}.yaml")
+            errors.append(
+                f"data/ai_tools.yaml projects: {name!r} is not a project in data/i18n/{REFERENCE}.yaml"
+            )
     for name, p in projects.items():
         repo = (p or {}).get("repo") or ""
         if repo and not GITHUB_REPO.fullmatch(repo):
-            errors.append(f"data/ai_tools.yaml {name}: repo must be owner/name, such as nguekwang/linguasim")
+            errors.append(
+                f"data/ai_tools.yaml {name}: repo must be owner/name, such as nguekwang/linguasim"
+            )
         if set(p or {}) - {"repo", "site"}:
-            errors.append(f"data/ai_tools.yaml {name}: unknown fields {sorted(set(p) - {'repo', 'site'})}")
+            errors.append(
+                f"data/ai_tools.yaml {name}: unknown fields {sorted(set(p) - {'repo', 'site'})}"
+            )
         url = (p or {}).get("site")
         if url is not None and not (isinstance(url, str) and url.startswith("https://")):
             errors.append(f"data/ai_tools.yaml {name}: site must be an https:// URL")
-    slugs = [r.split("/")[1] for r in (ai_repo(p) for p in projects.values()) if GITHUB_REPO.fullmatch(r)]
+    slugs = [
+        r.split("/")[1] for r in (ai_repo(p) for p in projects.values()) if GITHUB_REPO.fullmatch(r)
+    ]
     if len(set(slugs)) != len(slugs):
         errors.append("data/ai_tools.yaml projects: two repositories have the same name")
     services = ai_tools.get("services") or []
@@ -187,14 +222,22 @@ def check_ai_tools(texts, ref, ai_tools):
     if len(set(ids)) != len(ids):
         errors.append("data/ai_tools.yaml services: duplicate ids")
     if set(ids) != set(ref.get("ai_tools_desc", {})):
-        errors.append(f"data/ai_tools.yaml services: ids differ from data/i18n/{REFERENCE}.yaml ai_tools_desc")
+        errors.append(
+            f"data/ai_tools.yaml services: ids differ from data/i18n/{REFERENCE}.yaml ai_tools_desc"
+        )
     if set(ids) != set(ref.get("ai_tools_purpose", {})):
-        errors.append(f"data/ai_tools.yaml services: ids differ from data/i18n/{REFERENCE}.yaml ai_tools_purpose")
+        errors.append(
+            f"data/ai_tools.yaml services: ids differ from data/i18n/{REFERENCE}.yaml ai_tools_purpose"
+        )
     if {s.get("group") for s in services} != set(ref.get("ai_tools_groups", {})):
-        errors.append(f"data/ai_tools.yaml services: groups differ from data/i18n/{REFERENCE}.yaml ai_tools_groups")
+        errors.append(
+            f"data/ai_tools.yaml services: groups differ from data/i18n/{REFERENCE}.yaml ai_tools_groups"
+        )
     for s in services:
         if not all(s.get(k) for k in ("id", "name", "host", "group")):
-            errors.append(f"data/ai_tools.yaml services: {s.get('id')!r} needs id, name, host and group")
+            errors.append(
+                f"data/ai_tools.yaml services: {s.get('id')!r} needs id, name, host and group"
+            )
     return errors
 
 
@@ -204,7 +247,11 @@ def ai_repo(p):
 
 def project_sites(ai_tools):
     """The address where each project runs (`site` in data/ai_tools.yaml), by project name."""
-    return {name: p["site"] for name, p in (ai_tools.get("projects") or {}).items() if (p or {}).get("site")}
+    return {
+        name: p["site"]
+        for name, p in (ai_tools.get("projects") or {}).items()
+        if (p or {}).get("site")
+    }
 
 
 def ai_tools_pages(site, ai_tools):
@@ -224,11 +271,12 @@ def ai_tools_pages(site, ai_tools):
         pages[name] = {
             "path": f"{AI_TOOLS_SLUG}/{repo.split('/')[1]}",
             "repo": f"https://github.com/{repo}",
-            "groups": [(g, [(s, f"https://{s['host']}/{repo}") for s in items]) for g, items in groups.items()],
+            "groups": [
+                (g, [(s, f"https://{s['host']}/{repo}") for s in items])
+                for g, items in groups.items()
+            ],
         }
     return pages
-
-
 
 
 def check_institutions(site, institutions):
@@ -254,7 +302,9 @@ def check_institutions(site, institutions):
                 errors.append(f"{where}.{code}: status must be one of {sorted(NAME_STATUSES)}")
             elif status == "official" and not str(n.get("source", "")).startswith("https://"):
                 errors.append(f"{where}.{code}: official needs a source URL")
-            elif status == "translated" and (n.get("basis") not in names or names[n["basis"]].get("status") != "official"):
+            elif status == "translated" and (
+                n.get("basis") not in names or names[n["basis"]].get("status") != "official"
+            ):
                 errors.append(f"{where}.{code}: basis must be a language whose name is official")
     return errors
 
@@ -271,18 +321,32 @@ def last_change():
     simplification, so the link points at the commit that holds the actual diff.
     """
     try:
-        shallow = subprocess.run(["git", "rev-parse", "--is-shallow-repository"], cwd=ROOT,
-                                 capture_output=True, text=True, check=True).stdout.strip()
+        shallow = subprocess.run(
+            ["git", "rev-parse", "--is-shallow-repository"],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=True,
+        ).stdout.strip()
         if shallow == "true":
-            print("warning: shallow clone, the last-updated commit may be wrong "
-                  "(use fetch-depth: 0)", file=sys.stderr)
-        out = subprocess.run(["git", "log", "-1", "--format=%H %cs", "--", *SITE_PATHS], cwd=ROOT,
-                             capture_output=True, text=True, check=True).stdout.split()
+            print(
+                "warning: shallow clone, the last-updated commit may be wrong (use fetch-depth: 0)",
+                file=sys.stderr,
+            )
+        out = subprocess.run(
+            ["git", "log", "-1", "--format=%H %cs", "--", *SITE_PATHS],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=True,
+        ).stdout.split()
         if len(out) == 2:
             return out[0], datetime.date.fromisoformat(out[1])
     except (OSError, subprocess.CalledProcessError):
         pass
-    print("warning: no git history, the last-updated date is today and has no link", file=sys.stderr)
+    print(
+        "warning: no git history, the last-updated date is today and has no link", file=sys.stderr
+    )
     return None, datetime.date.today()
 
 
@@ -310,16 +374,28 @@ def publications(site, code, t, pubs):
     """
     before, after = t["pub_title_en"].split("{title}")
     open_ = before.lstrip()
-    space = before[:len(before) - len(open_)]
+    space = before[: len(before) - len(open_)]
     out = []
     for p in pubs:
         details = [t["pub_types"][p["type"]]]
         if p.get("status"):
             details.append(t["pub_status"][p["status"]])
-        note = (t["pub_note"].replace("{year}", local_digits(site, code, str(p["year"])))
-                .replace("{details}", t["list_sep"].join(details)))
-        out.append({"title": p["title"], "lang": p["lang"], "title_en": p.get("title_en"),
-                    "en_space": space, "en_open": open_, "en_after": after, "note": note})
+        note = (
+            t["pub_note"]
+            .replace("{year}", local_digits(site, code, str(p["year"])))
+            .replace("{details}", t["list_sep"].join(details))
+        )
+        out.append(
+            {
+                "title": p["title"],
+                "lang": p["lang"],
+                "title_en": p.get("title_en"),
+                "en_space": space,
+                "en_open": open_,
+                "en_after": after,
+                "note": note,
+            }
+        )
     return out
 
 
@@ -333,11 +409,17 @@ def check_publications(pubs, ref):
         if p.get("lang") != "en" and not p.get("title_en"):
             errors.append(f"{where}: title_en is required when lang is not en")
         if p.get("type") not in ref.get("pub_types", {}):
-            errors.append(f"{where}: type {p.get('type')!r} is not in pub_types of data/i18n/{REFERENCE}.yaml")
+            errors.append(
+                f"{where}: type {p.get('type')!r} is not in pub_types of data/i18n/{REFERENCE}.yaml"
+            )
         if p.get("status") and p["status"] not in ref.get("pub_status", {}):
-            errors.append(f"{where}: status {p['status']!r} is not in pub_status of data/i18n/{REFERENCE}.yaml")
+            errors.append(
+                f"{where}: status {p['status']!r} is not in pub_status of data/i18n/{REFERENCE}.yaml"
+            )
         if set(p) - {"title", "lang", "title_en", "year", "type", "status"}:
-            errors.append(f"{where}: unknown fields {sorted(set(p) - {'title', 'lang', 'title_en', 'year', 'type', 'status'})}")
+            errors.append(
+                f"{where}: unknown fields {sorted(set(p) - {'title', 'lang', 'title_en', 'year', 'type', 'status'})}"
+            )
     return errors
 
 
@@ -345,7 +427,7 @@ def main():
     global SITE_URL, OUT
     for arg in sys.argv[1:]:
         if arg.startswith("--out="):
-            OUT = os.path.abspath(arg[len("--out="):])
+            OUT = os.path.abspath(arg[len("--out=") :])
     site = load("site.yaml")
     SITE_URL = site["url"].rstrip("/")
     texts = {}
@@ -372,8 +454,10 @@ def main():
     talks = (load("talks.yaml") or {}).get("talks") or []
     ai_pages = ai_tools_pages(site, ai_tools)
     sites = project_sites(ai_tools)
-    langs = [{"code": c, "native": texts[c]["native"], "og_locale": texts[c]["og_locale"]}
-             for c in site["languages"]]
+    langs = [
+        {"code": c, "native": texts[c]["native"], "og_locale": texts[c]["og_locale"]}
+        for c in site["languages"]
+    ]
     req = site["translation_request"]
     sha, date = last_change()
     updated_url = f"{site['repo']}/commit/{sha}" if sha else None
@@ -402,14 +486,25 @@ def main():
         h1 = site["name"]["ja"] if ja else site["name"]["latin"]
         title = site_title(site, texts, code)
         html = page.render(
-            site=site, langs=langs, talks=talks, code=code, t=t,
-            h1=h1, title=title, site_name=site_title(site, texts, code), notice=t["mt_notice"],
-            updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
+            site=site,
+            langs=langs,
+            talks=talks,
+            code=code,
+            t=t,
+            h1=h1,
+            title=title,
+            site_name=site_title(site, texts, code),
+            notice=t["mt_notice"],
+            updated=updated_text(site, code, t["updated"], date),
+            updated_url=updated_url,
             copyright_from=local_digits(site, code, str(site["copyright_from"])),
             jsonld=jsonld(site, code, t, title, website_name),
             alt_name=site["name"]["latin"] if ja else site["name"]["ja"],
             alt_lang="en" if ja else "ja",
-            pubs=publications(site, code, t, pubs), names_slug=NAMES_SLUG, ai_pages=ai_pages, project_sites=sites,
+            pubs=publications(site, code, t, pubs),
+            names_slug=NAMES_SLUG,
+            ai_pages=ai_pages,
+            project_sites=sites,
             footer_name=site["name"]["ja"] if ja else site["name"]["latin_short"],
             request_mailto=f"mailto:{site['email']}?subject={urllib.parse.quote(req['subject'])}&body={urllib.parse.quote(req['body'])}",
         )
@@ -428,15 +523,28 @@ def main():
             rows.append(row)
         title = f"{t['names_h']} – {site_title(site, texts, code)}"
         sub = {"path": NAMES_SLUG, "name": t["names_h"], "description": t["names_intro"]}
-        write(os.path.join(code, NAMES_SLUG, "index.html"), names_page.render(
-            site=site, langs=langs, code=code, t=t, rows=rows, path=NAMES_SLUG, up="../../", home="../",
-            description=t["names_intro"], title=title, site_name=site_title(site, texts, code),
-            notice=t["mt_notice"],
-            jsonld=jsonld(site, code, t, title, website_name, sub=sub),
-            updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
-            copyright_from=local_digits(site, code, str(site["copyright_from"])),
-            footer_name=site["name"]["ja"] if code == "ja" else site["name"]["latin_short"],
-        ))
+        write(
+            os.path.join(code, NAMES_SLUG, "index.html"),
+            names_page.render(
+                site=site,
+                langs=langs,
+                code=code,
+                t=t,
+                rows=rows,
+                path=NAMES_SLUG,
+                up="../../",
+                home="../",
+                description=t["names_intro"],
+                title=title,
+                site_name=site_title(site, texts, code),
+                notice=t["mt_notice"],
+                jsonld=jsonld(site, code, t, title, website_name, sub=sub),
+                updated=updated_text(site, code, t["updated"], date),
+                updated_url=updated_url,
+                copyright_from=local_digits(site, code, str(site["copyright_from"])),
+                footer_name=site["name"]["ja"] if code == "ja" else site["name"]["latin_short"],
+            ),
+        )
 
     ai_page = env.get_template("ai_tools.html.j2")
     for name, p in ai_pages.items():
@@ -445,27 +553,62 @@ def main():
             heading = t["ai_tools_h"].replace("{project}", name)
             title = f"{heading} – {site_title(site, texts, code)}"
             sub = {"path": p["path"], "name": heading, "description": t["ai_tools_intro"]}
-            write(os.path.join(code, *p["path"].split("/"), "index.html"), ai_page.render(
-                site=site, langs=langs, code=code, t=t, project=name, p=p, path=p["path"], up="../../../", home="../../",
-                description=t["ai_tools_intro"], title=title, site_name=site_title(site, texts, code),
-                notice=t["mt_notice"],
-                jsonld=jsonld(site, code, t, title, website_name, sub=sub),
-                updated=updated_text(site, code, t["updated"], date), updated_url=updated_url,
-                copyright_from=local_digits(site, code, str(site["copyright_from"])),
-                footer_name=site["name"]["ja"] if code == "ja" else site["name"]["latin_short"],
-            ))
+            write(
+                os.path.join(code, *p["path"].split("/"), "index.html"),
+                ai_page.render(
+                    site=site,
+                    langs=langs,
+                    code=code,
+                    t=t,
+                    project=name,
+                    p=p,
+                    path=p["path"],
+                    up="../../../",
+                    home="../../",
+                    description=t["ai_tools_intro"],
+                    title=title,
+                    site_name=site_title(site, texts, code),
+                    notice=t["mt_notice"],
+                    jsonld=jsonld(site, code, t, title, website_name, sub=sub),
+                    updated=updated_text(site, code, t["updated"], date),
+                    updated_url=updated_url,
+                    copyright_from=local_digits(site, code, str(site["copyright_from"])),
+                    footer_name=site["name"]["ja"] if code == "ja" else site["name"]["latin_short"],
+                ),
+            )
 
     codes = site["languages"]
     en = texts[REFERENCE]
-    write("index.html", env.get_template("root.html.j2").render(
-        site=site, langs=langs, title=website_name, site_name=website_name, description=en["desc"],
-        jsonld=jsonld(site, None, en, website_name, website_name)))
-    write("llms.txt", env.get_template("llms.txt.j2").render(
-        site=site, langs=langs, t=en, pubs=publications(site, REFERENCE, en, pubs), ai_pages=ai_pages,
-        project_sites=sites))
+    write(
+        "index.html",
+        env.get_template("root.html.j2").render(
+            site=site,
+            langs=langs,
+            title=website_name,
+            site_name=website_name,
+            description=en["desc"],
+            jsonld=jsonld(site, None, en, website_name, website_name),
+        ),
+    )
+    write(
+        "llms.txt",
+        env.get_template("llms.txt.j2").render(
+            site=site,
+            langs=langs,
+            t=en,
+            pubs=publications(site, REFERENCE, en, pubs),
+            ai_pages=ai_pages,
+            project_sites=sites,
+        ),
+    )
     subpages = [NAMES_SLUG] + [p["path"] for p in ai_pages.values()]
-    write("sitemap.xml", env.get_template("sitemap.xml.j2").render(site=site, codes=codes, subpages=subpages))
-    print(f"built {len(codes)} language pages (and their sub-pages: {', '.join(subpages)}) into {os.path.relpath(OUT, ROOT)}/")
+    write(
+        "sitemap.xml",
+        env.get_template("sitemap.xml.j2").render(site=site, codes=codes, subpages=subpages),
+    )
+    print(
+        f"built {len(codes)} language pages (and their sub-pages: {', '.join(subpages)}) into {os.path.relpath(OUT, ROOT)}/"
+    )
 
     if "--no-pdf" in sys.argv[1:]:
         print("skipped the CV PDFs (--no-pdf); the CV links on the pages point to missing files")
@@ -480,19 +623,27 @@ def main():
             t = texts[code]
             src = os.path.join(tmp, code + ".html")
             with open(src, "w", encoding="utf-8") as f:
-                f.write(cv_html := cv.render(
-                    site=site, talks=talks, code=code, t=t,
-                    h1=site["name"]["ja"] if ja else site["name"]["latin"],
-                    alt_name=site["name"]["latin"] if ja else site["name"]["ja"],
-                    alt_lang="en" if ja else "ja",
-                    pubs=publications(site, code, t, pubs), project_sites=sites,
-                    updated=updated_text(site, code, t["updated"], date),
-                    notice=t["mt_notice"],
-                ))
+                f.write(
+                    cv_html := cv.render(
+                        site=site,
+                        talks=talks,
+                        code=code,
+                        t=t,
+                        h1=site["name"]["ja"] if ja else site["name"]["latin"],
+                        alt_name=site["name"]["latin"] if ja else site["name"]["ja"],
+                        alt_lang="en" if ja else "ja",
+                        pubs=publications(site, code, t, pubs),
+                        project_sites=sites,
+                        updated=updated_text(site, code, t["updated"], date),
+                        notice=t["mt_notice"],
+                    )
+                )
             # The CV is not published, but it gets the same checks as every page (tools/security_check.py).
             problems = check_page(cv_html, security_policies(site, "cv"))
             if problems:
-                raise SystemExit(f"CV ({code}) fails the security check:\n  " + "\n  ".join(problems))
+                raise SystemExit(
+                    f"CV ({code}) fails the security check:\n  " + "\n  ".join(problems)
+                )
             jobs.append((src, os.path.join(OUT, code, site["cv_file"])))
         print_pdfs(find_chrome(), jobs, tmp)
     print(f"built {len(codes)} CV PDFs (/<lang>/{site['cv_file']})")
@@ -501,27 +652,39 @@ def main():
 def find_chrome():
     chrome = os.environ.get("CHROME") or next(filter(None, map(shutil.which, CHROME_NAMES)), None)
     if not chrome:
-        raise SystemExit("no Chrome found for the CV PDFs: set CHROME=/path/to/chrome, "
-                         "or build without them with --no-pdf")
+        raise SystemExit(
+            "no Chrome found for the CV PDFs: set CHROME=/path/to/chrome, "
+            "or build without them with --no-pdf"
+        )
     return chrome
 
 
 def print_pdfs(chrome, jobs, tmp):
     """Print each (html, pdf) pair with headless Chrome; fail if any PDF is not written."""
+
     def one(i, job):
         src, dst = job
         if os.path.exists(dst):
             os.remove(dst)
-        cmd = [chrome, "--headless", "--no-sandbox", "--disable-gpu", "--no-first-run", "--disable-background-networking",
-               f"--user-data-dir={os.path.join(tmp, f'profile-{i}')}",
-               "--no-pdf-header-footer", "--print-to-pdf-no-header",
-               f"--print-to-pdf={dst}", "file://" + src]
+        cmd = [
+            chrome,
+            "--headless",
+            "--no-sandbox",
+            "--disable-gpu",
+            "--no-first-run",
+            "--disable-background-networking",
+            f"--user-data-dir={os.path.join(tmp, f'profile-{i}')}",
+            "--no-pdf-header-footer",
+            "--print-to-pdf-no-header",
+            f"--print-to-pdf={dst}",
+            "file://" + src,
+        ]
         r = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
         if not os.path.exists(dst) or os.path.getsize(dst) == 0:
             raise SystemExit(f"Chrome did not write {dst}:\n{r.stderr}")
-    with concurrent.futures.ThreadPoolExecutor(4) as pool:
-        list(pool.map(one, *zip(*enumerate(jobs))))
 
+    with concurrent.futures.ThreadPoolExecutor(4) as pool:
+        list(pool.map(one, *zip(*enumerate(jobs), strict=False)))
 
 
 def site_title(site, texts, code):
@@ -533,6 +696,7 @@ def site_title(site, texts, code):
     """
     name = site["name"]["ja"] if code == "ja" else site["name"]["latin_title"]
     return f"{name} – {texts[code or REFERENCE]['site_title']}"
+
 
 def jsonld(site, code, t, title, website_name, sub=None):
     """Structured data (schema.org JSON-LD) for one page.
@@ -579,35 +743,41 @@ def jsonld(site, code, t, title, website_name, sub=None):
         home = f"{base}/{code}/"
         url = f"{home}{sub['path']}/"
         home_name = name["ja"] if code == "ja" else name["latin"]
-        graph.insert(0, {
-            "@type": "WebPage",
-            "@id": f"{url}#page",
-            "url": url,
-            "name": title,
-            "description": sub["description"],
-            "inLanguage": code,
-            "isPartOf": {"@id": f"{base}/#website"},
-            "about": {"@id": f"{base}/#person"},
-            "breadcrumb": {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {"@type": "ListItem", "position": 1, "name": home_name, "item": home},
-                    {"@type": "ListItem", "position": 2, "name": sub["name"], "item": url},
-                ],
+        graph.insert(
+            0,
+            {
+                "@type": "WebPage",
+                "@id": f"{url}#page",
+                "url": url,
+                "name": title,
+                "description": sub["description"],
+                "inLanguage": code,
+                "isPartOf": {"@id": f"{base}/#website"},
+                "about": {"@id": f"{base}/#person"},
+                "breadcrumb": {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {"@type": "ListItem", "position": 1, "name": home_name, "item": home},
+                        {"@type": "ListItem", "position": 2, "name": sub["name"], "item": url},
+                    ],
+                },
             },
-        })
+        )
     elif code is not None:
         url = f"{base}/{code}/"
-        graph.insert(0, {
-            "@type": "ProfilePage",
-            "@id": f"{url}#page",
-            "url": url,
-            "name": title,
-            "description": t["desc"],
-            "inLanguage": code,
-            "isPartOf": {"@id": f"{base}/#website"},
-            "mainEntity": {"@id": f"{base}/#person"},
-        })
+        graph.insert(
+            0,
+            {
+                "@type": "ProfilePage",
+                "@id": f"{url}#page",
+                "url": url,
+                "name": title,
+                "description": t["desc"],
+                "inLanguage": code,
+                "isPartOf": {"@id": f"{base}/#website"},
+                "mainEntity": {"@id": f"{base}/#person"},
+            },
+        )
     data = {"@context": "https://schema.org", "@graph": graph}
     # Escape "</" so the JSON can never close the surrounding <script> element.
     return Markup(json.dumps(data, ensure_ascii=False, indent=1).replace("</", "<\\/"))
@@ -622,14 +792,22 @@ def is_external(href):
 
 def open_external_in_new_tab(html):
     """Add target="_blank" rel="noopener noreferrer" to every <a> that leaves the site."""
+
     def fix(m):
         attrs = m.group(1)
         href = HREF.search(attrs)
-        if not href or not is_external(href.group(1)) or re.search(r"\btarget\s*=", attrs, re.IGNORECASE):
+        if (
+            not href
+            or not is_external(href.group(1))
+            or re.search(r"\btarget\s*=", attrs, re.IGNORECASE)
+        ):
             return m.group(0)
         if re.search(r"\brel\s*=", attrs, re.IGNORECASE):
-            raise SystemExit(f"external link already has rel=, set target/rel in one place: {m.group(0)}")
+            raise SystemExit(
+                f"external link already has rel=, set target/rel in one place: {m.group(0)}"
+            )
         return f'<a{attrs} target="_blank" rel="noopener noreferrer">'
+
     return A_TAG.sub(fix, html)
 
 

@@ -1,5 +1,5 @@
 # Dependabot opens a pull request when a new version of a GitHub Action used in
-# .github/workflows/ or a Python package in requirements.txt is released.
+# .github/workflows/ or a Python or npm package in requirements*.txt or package.json is released.
 # CI (site.yml, screenshots.yml) checks each one; the owner reviews and merges as usual.
 version: 2
 updates:
@@ -16,4 +16,11 @@ updates:
       interval: weekly
     groups:
       python:
+        patterns: ["*"]
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      npm:
         patterns: ["*"]

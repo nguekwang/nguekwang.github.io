@@ -1,0 +1,19 @@
+# Settings for Ruff, the Python linter and formatter (.claude/rules/build-and-ci.md).
+# The scripts in tools/ are run directly with python3; this file holds only tool settings.
+[project]
+name = "nguekwang-github-io"
+version = "0"
+requires-python = ">=3.12"
+
+[tool.ruff]
+# CI runs Python 3.12 (.github/workflows/site.yml and the shared Pages workflow).
+target-version = "py312"
+line-length = 100
+extend-exclude = ["node_modules", "_site", "_preview"]
+
+[tool.ruff.lint]
+# E/W: pycodestyle errors and warnings; F: Pyflakes (undefined and unused names);
+# B: flake8-bugbear (likely bugs); PLE: Pylint errors.
+select = ["E", "W", "F", "B", "PLE"]
+# The formatter sets line length; it does not split long strings and URLs, which stay as they are.
+ignore = ["E501"]

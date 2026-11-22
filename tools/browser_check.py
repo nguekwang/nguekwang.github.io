@@ -21,14 +21,22 @@ so the check never counts as a visit and does not log a failed load.
 Usage:
   python3 tools/browser_check.py --site _site --out browser-check [--engines chromium firefox webkit]
 """
-import argparse, functools, glob, http.server, os, sys, threading
+
+import argparse
+import functools
+import glob
+import http.server
+import os
+import sys
+import threading
 
 import yaml
 from babel import Locale
 from PIL import Image, ImageDraw
 from playwright.sync_api import sync_playwright
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from locations import ROOT
+
 ENGINES = ["chromium", "firefox", "webkit"]
 VIEWS = {
     "desktop": {"viewport": {"width": 1280, "height": 800}},
@@ -37,8 +45,12 @@ VIEWS = {
     "mobile": {"viewport": {"width": 390, "height": 844}, "has_touch": True, "is_mobile": True},
     # Dark mode (research-aide .claude/rules/web-browsers.md), at both widths.
     "desktop-dark": {"viewport": {"width": 1280, "height": 800}, "color_scheme": "dark"},
-    "mobile-dark": {"viewport": {"width": 390, "height": 844}, "has_touch": True, "is_mobile": True,
-                    "color_scheme": "dark"},
+    "mobile-dark": {
+        "viewport": {"width": 390, "height": 844},
+        "has_touch": True,
+        "is_mobile": True,
+        "color_scheme": "dark",
+    },
 }
 
 
@@ -72,9 +84,11 @@ def pages(site):
 
 def serve(directory):
     """Serve `directory` on a free local port in a background thread; return its base URL."""
+
     class Quiet(http.server.SimpleHTTPRequestHandler):
         def log_message(self, *args):
             pass
+
     handler = functools.partial(Quiet, directory=directory)
     server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
     threading.Thread(target=server.serve_forever, daemon=True).start()
@@ -112,12 +126,20 @@ MEASURE = """(width) => {
 def check_page(context, base, path, shot=None):
     problems = []
     page = context.new_page()
-    page.route("**/*", lambda route: route.continue_()
-               if route.request.url.startswith(base) else route.fulfill(status=200, body=""))
+    page.route(
+        "**/*",
+        lambda route: (
+            route.continue_()
+            if route.request.url.startswith(base)
+            else route.fulfill(status=200, body="")
+        ),
+    )
     page.on("pageerror", lambda e: problems.append(f"JavaScript error: {e}"))
+
     def on_console(m):
         if m.type == "error":
             problems.append(f"console error: {m.text}")
+
     page.on("console", on_console)
     page.goto(base + path, wait_until="load")
     page.wait_for_timeout(200)
@@ -137,10 +159,13 @@ def check_page(context, base, path, shot=None):
 def compare(paths, labels, out):
     ims = [Image.open(p).convert("RGB") for p in paths]
     gap, head = 12, 22
-    canvas = Image.new("RGB", (sum(i.width for i in ims) + gap * (len(ims) - 1),
-                               max(i.height for i in ims) + head), "white")
+    canvas = Image.new(
+        "RGB",
+        (sum(i.width for i in ims) + gap * (len(ims) - 1), max(i.height for i in ims) + head),
+        "white",
+    )
     draw, x = ImageDraw.Draw(canvas), 0
-    for im, label in zip(ims, labels):
+    for im, label in zip(ims, labels, strict=False):
         draw.text((x + 4, 4), label, fill="black")
         canvas.paste(im, (x, head))
         x += im.width + gap
@@ -181,7 +206,10 @@ def main():
             files = [os.path.join(args.out, f"{e}-{lang}-{view}.png") for e in args.engines]
             compare(files, args.engines, os.path.join(args.out, f"compare-{lang}-{view}.png"))
 
-    lines = [f"Checked {len(all_pages)} pages x {len(VIEWS)} widths in {', '.join(args.engines)}.", ""]
+    lines = [
+        f"Checked {len(all_pages)} pages x {len(VIEWS)} widths in {', '.join(args.engines)}.",
+        "",
+    ]
     if failures:
         lines += ["| Engine | Width | Page | Problem |", "| --- | --- | --- | --- |"]
         lines += [f"| {e} | {v} | `{p}` | {msg.replace('|', '/')} |" for e, v, p, msg in failures]
