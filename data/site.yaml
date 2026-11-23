@@ -66,5 +66,7 @@ alumni_of:
   url: https://www.osaka-u.ac.jp/en
 
 translation_request:
+  # Address of the translation request link (owner, 2026-11-23); forwarded to the owner's mailbox.
+  to: request@lang-log.com
   subject: "[REQUEST] Additional Language Support"
   body: "Please add the following language to your research website: "

@@ -8,6 +8,8 @@
 # Email addresses that may appear anywhere in the repository.
 emails:
   - nguekwang@gmail.com
+  # Translation request address (owner, 2026-11-23).
+  - request@lang-log.com
   # Commit trailers and bots, not personal addresses.
   - noreply@anthropic.com
   - noreply@github.com

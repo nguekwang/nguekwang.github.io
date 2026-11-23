@@ -506,7 +506,7 @@ def main():
             ai_pages=ai_pages,
             project_sites=sites,
             footer_name=site["name"]["ja"] if ja else site["name"]["latin_short"],
-            request_mailto=f"mailto:{site['email']}?subject={urllib.parse.quote(req['subject'])}&body={urllib.parse.quote(req['body'])}",
+            request_mailto=f"mailto:{req['to']}?subject={urllib.parse.quote(req['subject'])}&body={urllib.parse.quote(req['body'])}",
         )
         write(os.path.join(code, "index.html"), html)
 
