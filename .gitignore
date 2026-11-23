@@ -5,3 +5,4 @@ __pycache__/
 _site/
 _preview/
 browser-check/
+node_modules/

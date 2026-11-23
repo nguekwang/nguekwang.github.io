@@ -1,6 +1,8 @@
 ---
 paths:
   - "tools/**"
+  - "package.json"
+  - "pyproject.toml"
   - ".github/**"
   - "requirements*.txt"
   - "lychee.toml"
@@ -19,10 +21,12 @@ paths:
 
 ## Automated checks
 
+- Code quality (`quality` job in `site.yml`, before the build, every pull request): `npm run check` runs Prettier (`.prettierrc.json`), ESLint (`eslint.config.mjs`, `static/*.js` as browser scripts) and Ruff (`pyproject.toml`: rules E, W, F, B and PLE, Python 3.12). Versions are exact (`package.json` with `package-lock.json`, `requirements-dev.txt` with hashes; Node.js from `.nvmrc`). Before pushing, run `npm ci --ignore-scripts`, `pip install --require-hashes -r requirements-dev.txt`, `npm run format` and `npm run format:python` on the files you changed, then `npm run check`. `.prettierignore` leaves out `data/` (page text, written as the owner wrote it), `templates/*.j2` (Jinja, which Prettier cannot parse), `static/favicon.svg` (the drawing the PNG is made from) and `package-lock.json`. Never loosen a rule or ignore a path to pass.
+- `tools/check_single_source.py` (same job): fails on a copy of a value listed in `tools/single-source.json` outside its source file, a colour outside `static/style.css` (except the files listed there, which are opened or printed on their own), or a constant with the same name and value in two files. Repository folders come from `ROOT` in `tools/locations.py`. A new shared value gets an entry in `tools/single-source.json` in the same pull request.
 - `tools/privacy_check.py` (CI, every pull request): fails on email addresses, phone numbers, postal codes or street addresses, and full birth dates that are not in the allow list `data/privacy.yaml`. Add to the allow list only what the owner has approved.
 - `tools/security_check.py` (CI, every pull request, on `_site/` and the preview): fails when a page lacks the site's Content-Security-Policy or referrer policy, or has inline style, inline script or event handlers, `http://` URLs, outside scripts, forms or frames, or a new-tab link without `rel="noopener noreferrer"`. Rules: `security.md`.
 - `tools/check_links.py` (CI, every pull request): fails when a link between the site's own pages, or an entry in `sitemap.xml`, points at a file that is not built. Project sites under the site URL (`site` in `data/ai_tools.yaml`) come from their own repositories and are skipped.
 - `.github/workflows/links.yml` (weekly): checks links to other sites with lychee (`lychee.toml`) and opens or updates the issue "Broken links on the site".
 - `.github/workflows/screenshots.yml` (pull requests that touch `data/`, `templates/`, `static/`, `tools/` or requirements): before/after screenshots by `tools/screenshots.py`, uploaded as an artifact and summarised in a pull request comment.
 - `.github/workflows/browsers.yml` (same pull requests): `tools/browser_check.py` opens every page of every language at desktop and phone width, in light and dark mode, in Chromium, Firefox and WebKit, and fails on sideways scrolling, a language menu outside the window, or a JavaScript or console error. Rules: `css-and-browsers.md`.
-- `.github/dependabot.yml`: weekly pull requests for new versions of GitHub Actions and Python packages. The owner reviews and merges them like any other pull request.
+- `.github/dependabot.yml`: weekly pull requests for new versions of GitHub Actions, Python packages and npm packages. The owner reviews and merges them like any other pull request.

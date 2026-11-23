@@ -4,7 +4,7 @@
 name: links
 on:
   schedule:
-    - cron: "17 0 * * 1"   # every Monday 00:17 UTC (09:17 in Japan)
+    - cron: "17 0 * * 1" # every Monday 00:17 UTC (09:17 in Japan)
   workflow_dispatch:
 permissions:
   contents: read

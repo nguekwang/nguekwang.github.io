@@ -12,8 +12,12 @@
   var media = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
 
   function saved() {
-    try { var v = localStorage.getItem(KEY); return v === 'light' || v === 'dark' ? v : null; }
-    catch (e) { return null; }
+    try {
+      var v = localStorage.getItem(KEY);
+      return v === 'light' || v === 'dark' ? v : null;
+    } catch {
+      return null;
+    }
   }
   function current() {
     return root.getAttribute('data-theme') || (media && media.matches ? 'dark' : 'light');
@@ -34,7 +38,11 @@
     if (!b) return;
     var next = current() === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
-    try { localStorage.setItem(KEY, next); } catch (e2) { /* private mode: keep for this page only */ }
+    try {
+      localStorage.setItem(KEY, next);
+    } catch {
+      /* private mode: keep for this page only */
+    }
     sync();
   });
 

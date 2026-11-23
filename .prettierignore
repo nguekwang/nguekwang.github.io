@@ -1,0 +1,14 @@
+# Files Prettier leaves alone. Prettier also skips everything in .gitignore (_site/, _preview/,
+# node_modules/ ...). Why each entry is here: .claude/rules/build-and-ci.md.
+
+# Written by npm.
+package-lock.json
+
+# Page text and settings the owner writes; the build reads them as they are.
+data/
+
+# Jinja templates, which Prettier cannot parse.
+templates/*.j2
+
+# Drawn by hand; the PNG next to it is drawn from it.
+static/favicon.svg

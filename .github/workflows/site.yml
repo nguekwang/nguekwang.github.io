@@ -1,4 +1,4 @@
-# Check the data and build the static site from data/ + templates/ for every pull request.
+# Check the code (formatter, linters, copy check), then check the data and build the static site from data/ + templates/ for every pull request.
 # Fails if any language differs in structure from en.yaml, if unapproved personal information is
 # found (tools/privacy_check.py), if a link between the site's own pages is broken
 # (tools/check_links.py), or if a page breaks the security rules (tools/security_check.py).
@@ -16,7 +16,27 @@ concurrency:
   group: site-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  # Formatter, linters and the copy check (readable-code.md in research-aide; build-and-ci.md here).
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: npm ci --ignore-scripts
+      - run: pip install --require-hashes -r requirements-dev.txt
+      - name: Prettier, ESLint, Ruff
+        run: npm run check
+      - name: Check that each shared value is written once
+        run: python3 tools/check_single_source.py
   build:
+    needs: quality
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7

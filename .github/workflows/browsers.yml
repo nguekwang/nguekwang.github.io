@@ -6,7 +6,15 @@
 name: browsers
 on:
   pull_request:
-    paths: [data/**, templates/**, static/**, tools/**, "requirements*.txt", .github/workflows/browsers.yml]
+    paths:
+      [
+        data/**,
+        templates/**,
+        static/**,
+        tools/**,
+        "requirements*.txt",
+        .github/workflows/browsers.yml,
+      ]
   workflow_dispatch:
 permissions:
   contents: read
