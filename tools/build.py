@@ -17,7 +17,7 @@ Usage:
   python3 tools/build.py --preview --out=DIR
                                     build a pull request preview into DIR: every page gets
                                     <meta name="robots" content="noindex"> so search engines skip it
-                                    (.github/workflows/pages.yml publishes it under /preview/pr-<number>/)
+                                    (.github/workflows/previews.yml publishes it on Cloudflare Pages)
 
 The check fails when any language file differs in structure from data/i18n/en.yaml
 (missing or extra keys, different list lengths, empty text), so every language shows the same items.

@@ -7,4 +7,4 @@ The shared rule is `publishing.md` in the `research-aide` repository. This repos
 - Do not add a `README.md`.
 - The thesis is listed by title only. Do not publish its PDF.
 - The email address is shown as plain text and a `mailto:` link, without obfuscation.
-- Pull request previews at `/preview/pr-<number>/` are public too (with `noindex`). They are published only after the pull request passed `tools/privacy_check.py`, so the same check before pushing applies to every pull request, not only to what is merged.
+- Pull request previews at `https://pr-<number>.nguekwang-preview.pages.dev/` are public too (with `noindex`). They are published only after the pull request passed `tools/privacy_check.py`, so the same check before pushing applies to every pull request, not only to what is merged.

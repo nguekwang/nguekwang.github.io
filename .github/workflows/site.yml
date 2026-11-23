@@ -4,7 +4,8 @@
 # (tools/check_links.py), or if a page breaks the security rules (tools/security_check.py).
 # For pull requests from this repository (not forks or Dependabot) it also builds a preview of the
 # site (tools/build.py --preview: noindex on every page) and uploads it as the artifact "preview".
-# .github/workflows/pages.yml publishes it at /preview/pr-<number>/ and links it on the pull request.
+# .github/workflows/previews.yml publishes it on Cloudflare Pages at
+# https://pr-<number>.nguekwang-preview.pages.dev/ and links it on the pull request.
 # Deploying the live site from main is done by pages.yml, not here.
 name: site
 on:
@@ -72,6 +73,5 @@ jobs:
         with:
           name: preview
           path: _preview
-          # pages.yml publishes every open pull request's latest preview again on each deployment,
-          # so keep it for as long as GitHub allows.
+          # previews.yml uploads it to Cloudflare Pages when this run passes.
           retention-days: 90

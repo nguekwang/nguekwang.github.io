@@ -1,28 +1,16 @@
-# Publish the site to GitHub Pages: the live site built from main, plus a preview of every open
-# pull request at /preview/pr-<number>/, and one comment on each pull request with links to its
-# preview (with ?ref=pr-<number>). The shared workflow in nguekwang/research-aide does the work
-# (rule: research-aide .claude/rules/pr-previews.md); site.yml builds, checks and uploads each
-# pull request's preview.
-# It runs when main changes, when site.yml has finished for a pull request, and when a pull
-# request is closed (its preview is dropped). workflow_run and pull_request_target use main's
-# workflow files; pull request code never runs here.
+# Publish the live site to GitHub Pages, built from main. The shared workflow in
+# nguekwang/research-aide does the work (rule: research-aide .claude/rules/pr-previews.md).
+# Pull request previews are on Cloudflare Pages (previews.yml), not here.
 # Requires Settings > Pages > Build and deployment > Source = "GitHub Actions".
 name: pages
 on:
   push:
     branches: [main]
-  workflow_run:
-    workflows: [site]
-    types: [completed]
-  pull_request_target:
-    types: [closed]
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
   publish:
-    # From workflow_run, only runs of site.yml for a pull request that passed.
-    if: github.event_name != 'workflow_run' || (github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success')
     # One deployment at a time; a newer waiting run replaces an older one, and each run publishes the latest state.
     concurrency:
       group: pages
@@ -30,7 +18,6 @@ jobs:
     permissions:
       contents: read
       actions: read
-      pull-requests: write
       pages: write
       id-token: write
     uses: nguekwang/research-aide/.github/workflows/pages-with-previews.yml@main
@@ -45,9 +32,5 @@ jobs:
         python3 tools/check_links.py
         python3 tools/security_check.py
       site-dir: _site
-      preview-workflow: site.yml
-      links: |
-        Japanese|ja/
-        Arabic (right to left)|ar/
-        English|en/
-        Language chooser|
+      # Previews are on Cloudflare Pages (previews.yml).
+      previews: false
