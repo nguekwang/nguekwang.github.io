@@ -1,0 +1,73 @@
+# Machine translation of changed English text (tools/translate.py, settings in data/translation.yaml).
+# When a pull request from this repository changes data/i18n/en.yaml, Claude translates only the
+# changed parts into every machine-translated language, and this workflow adds the result to the
+# same pull request as one commit. The owner reviews it with the rest of the pull request.
+#
+# - Signs in with the repository secret CLAUDE_CODE_OAUTH_TOKEN (made with `claude setup-token`).
+#   Without it the workflow warns and does nothing.
+# - English text already translated in an earlier run of this pull request is not translated again:
+#   the base is the latest commit made by this workflow, or the pull request's base.
+# - A commit pushed with GITHUB_TOKEN does not start other workflows, so this job runs the data
+#   checks itself before pushing. The preview and screenshots follow the next push to the branch.
+# - Owner-written languages (mt_notice empty: en, ja, es) are never changed here.
+name: translate
+on:
+  pull_request:
+    paths: [data/i18n/en.yaml, data/translation.yaml]
+permissions:
+  contents: read
+concurrency:
+  group: translate-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  translate:
+    # Forks and Dependabot get no secrets and cannot push.
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      BASE_SHA: ${{ github.event.pull_request.base.sha }}
+      HEAD_REF: ${{ github.event.pull_request.head.ref }}
+      COMMIT_MESSAGE: Translate changed English text into the machine-translated languages
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt -r requirements-translate.txt
+      - name: Find the English text that is already translated
+        id: base
+        run: |
+          last=$(git log -1 --format=%H --fixed-strings --grep="$COMMIT_MESSAGE" "$BASE_SHA..HEAD")
+          echo "ref=${last:-$BASE_SHA}" >> "$GITHUB_OUTPUT"
+      - name: Translate
+        id: translate
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          BASE_REF: ${{ steps.base.outputs.ref }}
+        run: |
+          if [ -z "$CLAUDE_CODE_OAUTH_TOKEN" ]; then
+            echo "::warning::Secret CLAUDE_CODE_OAUTH_TOKEN is not set, so nothing was translated."
+            exit 0
+          fi
+          python3 tools/translate.py --base "$BASE_REF"
+      - name: Check the translations (protected terms, personal information)
+        run: |
+          python3 tools/translate.py --check
+          python3 tools/privacy_check.py
+      - name: Commit and push the translations
+        run: |
+          if git diff --quiet -- data/i18n; then
+            echo "No translation changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/i18n
+          git commit -m "$COMMIT_MESSAGE"
+          git push origin "HEAD:refs/heads/$HEAD_REF"

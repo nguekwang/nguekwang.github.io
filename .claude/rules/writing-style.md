@@ -28,4 +28,6 @@ paths:
 ## Machine translation
 
 - English, Japanese and Spanish are written by the owner; their `mt_notice` is empty. Every other language is machine-translated and must show `mt_notice`.
+- English is the source of every machine translation (the owner's choice, 2026-11-05). Change page text in `data/i18n/en.yaml` (and by hand in the other owner-written languages); `.github/workflows/translate.yml` then translates the changed parts into the machine-translated languages with Claude and adds them to the same pull request. Do not hand-translate the machine-translated languages for that change: the workflow translates every changed English part and would overwrite them.
+- Terms that stay in English in every language (product and project names, codes such as CEFR) go under `protected_terms` in `data/translation.yaml`; project names and `{placeholders}` are protected automatically. A new keyword that every language keeps in English belongs there too.
 - The machine-translated languages are not reviewed by native speakers, and the pages credit no translators (the owner's decision in November 2026). Do not propose recruiting reviewers again unless the owner raises it.
