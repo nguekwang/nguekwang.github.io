@@ -1,6 +1,8 @@
 ---
 paths:
   - "tools/**"
+  - "package.json"
+  - "pyproject.toml"
   - ".github/**"
   - "requirements*.txt"
   - "lychee.toml"
@@ -19,13 +21,15 @@ paths:
 
 ## Automated checks
 
+- Code quality (`quality` job in `site.yml`, before the build, every pull request): `npm run check` runs Prettier (`.prettierrc.json`), ESLint (`eslint.config.mjs`, `static/*.js` as browser scripts) and Ruff (`pyproject.toml`: rules E, W, F, B and PLE, Python 3.12). Versions are exact (`package.json` with `package-lock.json`, `requirements-dev.txt` with hashes; Node.js from `.nvmrc`). Before pushing, run `npm ci --ignore-scripts`, `pip install --require-hashes -r requirements-dev.txt`, `npm run format` and `npm run format:python` on the files you changed, then `npm run check`. `.prettierignore` leaves out `data/` (page text, written as the owner wrote it), `templates/*.j2` (Jinja, which Prettier cannot parse), `static/favicon.svg` (the drawing the PNG is made from) and `package-lock.json`. Never loosen a rule or ignore a path to pass.
+- `tools/check_single_source.py` (same job): fails on a copy of a value listed in `tools/single-source.json` outside its source file, a colour outside `static/style.css` (except the files listed there, which are opened or printed on their own), or a constant with the same name and value in two files. Repository folders come from `ROOT` in `tools/locations.py`. A new shared value gets an entry in `tools/single-source.json` in the same pull request.
 - `tools/privacy_check.py` (CI, every pull request): fails on email addresses, phone numbers, postal codes or street addresses, and full birth dates that are not in the allow list `data/privacy.yaml`. Add to the allow list only what the owner has approved.
 - `tools/security_check.py` (CI, every pull request, on `_site/` and the preview): fails when a page lacks the site's Content-Security-Policy or referrer policy, or has inline style, inline script or event handlers, `http://` URLs, outside scripts, forms or frames, or a new-tab link without `rel="noopener noreferrer"`. Rules: `security.md`.
 - `tools/check_links.py` (CI, every pull request): fails when a link between the site's own pages, or an entry in `sitemap.xml`, points at a file that is not built. Project sites under the site URL (`site` in `data/ai_tools.yaml`) come from their own repositories and are skipped.
-- `.github/workflows/links.yml` (weekly): checks links to other sites with lychee (`lychee.toml`) and opens or updates the issue "Broken links on the site". Links listed in `data/post_editors.yaml` are skipped, so they never appear in a public issue.
+- `.github/workflows/links.yml` (weekly): checks links to other sites with lychee (`lychee.toml`) and opens or updates the issue "Broken links on the site".
 - `.github/workflows/screenshots.yml` (pull requests that touch `data/`, `templates/`, `static/`, `tools/` or requirements): before/after screenshots by `tools/screenshots.py`, uploaded as an artifact and summarised in a pull request comment.
 - `.github/workflows/browsers.yml` (same pull requests): `tools/browser_check.py` opens every page of every language at desktop and phone width, in light and dark mode, in Chromium, Firefox and WebKit, and fails on sideways scrolling, a language menu outside the window, or a JavaScript or console error. Rules: `css-and-browsers.md`.
 - `tools/translate.py --check` (CI, every pull request): fails when a machine-translated language drops a protected term (`protected_terms` in `data/translation.yaml`, project names) or a `{placeholder}` that its English text has. `tools/translate.py --base <base> --stale` (pull requests) only warns about languages whose text did not change although the English did, including the owner-written ones.
 - `.github/workflows/translate.yml` (pull requests from this repository that change `data/i18n/en.yaml` or `data/translation.yaml`): `tools/translate.py` asks Claude (Claude Agent SDK, model and effort in `data/translation.yaml`, signed in with the repository secret `CLAUDE_CODE_OAUTH_TOKEN`) to translate only the English units that changed since the pull request's base, or since this workflow's last commit on it, into every machine-translated language, and pushes them as one commit to the same pull request. Unchanged text stays byte for byte as it was. A commit pushed with `GITHUB_TOKEN` starts no other workflow, so the job runs the translation and privacy checks itself; the preview and screenshots follow the next push. Without the secret it warns and does nothing.
 - The footer's last-updated date and `<lastmod>` in `sitemap.xml` both come from git: `<lastmod>` of a language's pages is the latest commit that changed that language's file or anything shared (`language_dates()` in `tools/build.py`).
-- `.github/dependabot.yml`: weekly pull requests for new versions of GitHub Actions and Python packages. The owner reviews and merges them like any other pull request.
+- `.github/dependabot.yml`: weekly pull requests for new versions of GitHub Actions, Python packages and npm packages. The owner reviews and merges them like any other pull request.

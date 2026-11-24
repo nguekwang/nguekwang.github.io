@@ -1,11 +1,8 @@
 # Page text for one language (id). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
-# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
-# it must contain {names} exactly once.
 
 mt_notice: Halaman ini diterjemahkan secara otomatis.
-post_edited: 'Terjemahan mesin, ditinjau dan diperbaiki oleh {names}.'
 native: Bahasa Indonesia
 og_locale: id_ID
 request: Minta bahasa lain
@@ -88,7 +85,6 @@ ai_tools_purpose:
   gitingest: "Jadikan satu teks untuk ditempel ke obrolan AI"
   gitmcp: "Hubungkan ke asisten AI sebagai server MCP"
   deepwiki: "Baca penjelasan yang dibuat otomatis dan ajukan pertanyaan"
-  uithub: "Lihat berkas sebagai teks biasa untuk AI"
   gitreverse: "Dapatkan spesifikasi untuk asisten pemrograman AI"
   gitdiagram: "Lihat strukturnya sebagai diagram"
   github-dev: "Buka kode di editor dalam peramban"
@@ -96,7 +92,6 @@ ai_tools_desc:
   gitingest: "Menyatukan repositori menjadi satu teks (ringkasan, struktur berkas, dan isi berkas) untuk ditempelkan ke obrolan AI."
   gitmcp: "Menjadikan repositori sebuah server MCP jarak jauh: tambahkan URL tautannya sebagai server MCP kustom di asisten AI yang mendukung MCP. Tidak perlu akun atau kunci API."
   deepwiki: "Membuat dokumentasi repositori bergaya wiki dan menjawab pertanyaan tentangnya."
-  uithub: "Menampilkan struktur berkas dan isinya sebagai teks biasa untuk asisten AI."
   gitreverse: "Menulis prompt dan spesifikasi proyek dalam bahasa alami untuk asisten pemrograman AI."
   gitdiagram: "Menggambar struktur repositori sebagai diagram interaktif."
   github-dev: "Membuka repositori di editor kode (VS Code) di peramban. Dikelola oleh GitHub; Anda perlu masuk ke GitHub."

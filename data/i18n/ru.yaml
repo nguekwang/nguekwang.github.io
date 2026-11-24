@@ -1,11 +1,8 @@
 # Page text for one language (ru). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
-# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
-# it must contain {names} exactly once.
 
 mt_notice: Эта страница переведена автоматически.
-post_edited: 'Машинный перевод; проверка и правка: {names}.'
 native: Русский
 og_locale: ru_RU
 request: Запросить другой язык
@@ -88,7 +85,6 @@ ai_tools_purpose:
   gitingest: "Собрать в один текст для вставки в чат с ИИ"
   gitmcp: "Подключить к ИИ-ассистенту как MCP-сервер"
   deepwiki: "Прочитать созданное описание и задать вопросы"
-  uithub: "Посмотреть файлы как простой текст для ИИ"
   gitreverse: "Получить спецификацию для ИИ-ассистента по программированию"
   gitdiagram: "Посмотреть структуру на схеме"
   github-dev: "Открыть код в редакторе в браузере"
@@ -96,7 +92,6 @@ ai_tools_desc:
   gitingest: "Собирает репозиторий в один текст (обзор, дерево файлов и их содержимое), который можно вставить в чат с ИИ."
   gitmcp: "Превращает репозиторий в удалённый MCP-сервер: добавьте адрес ссылки как пользовательский MCP-сервер в ИИ-ассистент с поддержкой MCP. Учётная запись и ключ API не нужны."
   deepwiki: "Создаёт документацию репозитория в виде вики и отвечает на вопросы о нём."
-  uithub: "Показывает дерево файлов и их содержимое в виде простого текста для ИИ-ассистента."
   gitreverse: "Пишет промпт и описание проекта на естественном языке для ИИ-ассистента программиста."
   gitdiagram: "Изображает структуру репозитория в виде интерактивной диаграммы."
   github-dev: "Открывает репозиторий в редакторе кода (VS Code) в браузере. Сервис GitHub; нужно войти в GitHub."

@@ -17,13 +17,16 @@ Fails (exit 1) when a page:
 tools/build.py runs the same check on the CV HTML before printing it to PDF.
 Rules: .claude/rules/security.md here, web-security.md in the research-aide repository.
 """
-import html.parser, os, sys
+
+import html.parser
+import os
+import sys
 
 import yaml
 
 from security_policy import GOATCOUNTER_SCRIPT, POLICIES, security_policies
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from locations import ROOT
 
 REQUIRED = {
     "default-src": ["'none'"],
@@ -35,8 +38,17 @@ REQUIRED = {
 FETCH = ("script-src", "style-src", "img-src", "connect-src")
 # Browsers ignore these in a <meta> policy, so writing them there only gives a false sense of safety.
 IGNORED_IN_META = ("frame-ancestors", "report-uri", "report-to", "sandbox")
-BANNED_SOURCES = ("'unsafe-inline'", "'unsafe-eval'", "'unsafe-hashes'", "'wasm-unsafe-eval'", "data:", "blob:",
-                  "*", "http:", "https:")
+BANNED_SOURCES = (
+    "'unsafe-inline'",
+    "'unsafe-eval'",
+    "'unsafe-hashes'",
+    "'wasm-unsafe-eval'",
+    "data:",
+    "blob:",
+    "*",
+    "http:",
+    "https:",
+)
 BANNED_TAGS = ("style", "form", "iframe", "frame", "frameset", "object", "embed", "base")
 URL_ATTRS = ("href", "src", "action", "formaction", "poster", "data", "srcset")
 
@@ -69,8 +81,8 @@ def check_policy(csp):
 class Page(html.parser.HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
-        self.tags = []        # (tag, attrs) of every start tag, in order
-        self.inline = []      # type of each <script> without src that has content
+        self.tags = []  # (tag, attrs) of every start tag, in order
+        self.inline = []  # type of each <script> without src that has content
         self._script = None
 
     def handle_starttag(self, tag, attrs):
@@ -97,15 +109,28 @@ def check_page(text, expected):
     problems = []
     head = [(t, a) for t, a in p.tags if t not in ("html", "head")][:3]
     want = [("meta", "charset"), ("meta", "http-equiv"), ("meta", "name")]
-    if [(t, k) for (t, a), (_, k) in zip(head, want) if k in a] != want or len(head) < 3:
-        problems.append("the <head> must start with <meta charset>, the CSP <meta> and the referrer <meta>")
-    csps = [a.get("content", "") for t, a in p.tags
-            if t == "meta" and a.get("http-equiv", "").lower() == "content-security-policy"]
+    if [(t, k) for (t, a), (_, k) in zip(head, want, strict=False) if k in a] != want or len(
+        head
+    ) < 3:
+        problems.append(
+            "the <head> must start with <meta charset>, the CSP <meta> and the referrer <meta>"
+        )
+    csps = [
+        a.get("content", "")
+        for t, a in p.tags
+        if t == "meta" and a.get("http-equiv", "").lower() == "content-security-policy"
+    ]
     if csps != [expected["csp"]]:
         problems.append(f"expected exactly one CSP <meta> with `{expected['csp']}`, found {csps}")
-    refs = [a.get("content", "") for t, a in p.tags if t == "meta" and a.get("name", "").lower() == "referrer"]
+    refs = [
+        a.get("content", "")
+        for t, a in p.tags
+        if t == "meta" and a.get("name", "").lower() == "referrer"
+    ]
     if refs != [expected["referrer"]]:
-        problems.append(f"expected exactly one referrer <meta> with `{expected['referrer']}`, found {refs}")
+        problems.append(
+            f"expected exactly one referrer <meta> with `{expected['referrer']}`, found {refs}"
+        )
     for t, a in p.tags:
         if t in BANNED_TAGS:
             problems.append(f"<{t}> is not allowed")
@@ -127,7 +152,7 @@ def check_page(text, expected):
         if t == "a" and a.get("target") == "_blank":
             rel = a.get("rel", "").split()
             if "noopener" not in rel or "noreferrer" not in rel:
-                problems.append(f"new-tab link without rel=\"noopener noreferrer\": {a.get('href')}")
+                problems.append(f'new-tab link without rel="noopener noreferrer": {a.get("href")}')
     for kind in p.inline:
         if kind != "application/ld+json":
             problems.append(f"inline <script type={kind or '(none)'}> (only JSON-LD may be inline)")
@@ -136,12 +161,18 @@ def check_page(text, expected):
 
 def main():
     args = sys.argv[1:]
-    site_dir = os.path.join(ROOT, args[args.index("--site") + 1]) if "--site" in args else os.path.join(ROOT, "_site")
+    site_dir = (
+        os.path.join(ROOT, args[args.index("--site") + 1])
+        if "--site" in args
+        else os.path.join(ROOT, "_site")
+    )
     with open(os.path.join(ROOT, "data", "site.yaml"), encoding="utf-8") as f:
         site = yaml.safe_load(f)
     errors = []
     for kind in POLICIES:
-        errors += [f"policy {kind}: {e}" for e in check_policy(security_policies(site, kind)["csp"])]
+        errors += [
+            f"policy {kind}: {e}" for e in check_policy(security_policies(site, kind)["csp"])
+        ]
     pages = 0
     for dirpath, _, files in os.walk(site_dir):
         for name in sorted(files):
@@ -152,7 +183,9 @@ def main():
             # The language chooser at / counts nothing; every other page counts visits with GoatCounter.
             kind = "plain" if rel == "index.html" else "measured"
             with open(path, encoding="utf-8") as f:
-                errors += [f"{rel}: {e}" for e in check_page(f.read(), security_policies(site, kind))]
+                errors += [
+                    f"{rel}: {e}" for e in check_page(f.read(), security_policies(site, kind))
+                ]
             pages += 1
     if not pages:
         errors.append(f"no pages found in {site_dir}; build the site first")

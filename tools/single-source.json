@@ -1,0 +1,28 @@
+{
+  "_comment": "Read by tools/check_single_source.py. Each value is written once, in its source file; other files read it from there. See .claude/rules/build-and-ci.md.",
+  "values": [
+    {
+      "pattern": "https://nguekwang\\.github\\.io",
+      "source": "data/site.yaml",
+      "why": "the site address (url); the build reads it"
+    },
+    {
+      "pattern": "gc\\.zgo\\.at",
+      "source": "tools/security_policy.py",
+      "why": "the GoatCounter script (GOATCOUNTER_SCRIPT); the build and the policy read it"
+    },
+    {
+      "pattern": "Path\\(__file__\\)|os\\.path\\.abspath\\(__file__\\)",
+      "source": "tools/locations.py",
+      "why": "where the repository is; scripts import ROOT"
+    }
+  ],
+  "colours": {
+    "_comment": "Colours are tokens in static/style.css; other files use var(--...). The files below are opened or printed on their own, where the stylesheet does not apply.",
+    "source": "static/style.css",
+    "also": {
+      "templates/cv.css": "the CV, printed to PDF with its own stylesheet",
+      "tools/screenshots.py": "the comparison page of the screenshots workflow, not part of the site"
+    }
+  }
+}

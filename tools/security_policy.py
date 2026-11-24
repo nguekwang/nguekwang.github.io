@@ -10,6 +10,7 @@ http://127.0.0.1, which breaks the browser check (web-security.md in research-ai
 GitHub Pages cannot send response headers, so only what works in a <meta> element is set here.
 The headers the site still lacks are listed in .claude/rules/security.md.
 """
+
 import urllib.parse
 
 # GoatCounter's counting script. The page loads it from here, so the policy and the page share one value.

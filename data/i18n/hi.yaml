@@ -1,11 +1,8 @@
 # Page text for one language (hi). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
-# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
-# it must contain {names} exactly once.
 
 mt_notice: यह पृष्ठ मशीन द्वारा अनूदित है।
-post_edited: 'मशीनी अनुवाद, जिसकी समीक्षा और सुधार {names} ने किया।'
 native: हिन्दी
 og_locale: hi_IN
 request: दूसरी भाषा का अनुरोध करें
@@ -88,7 +85,6 @@ ai_tools_purpose:
   gitingest: "एआई चैट में चिपकाने के लिए एक टेक्स्ट बनाएँ"
   gitmcp: "MCP सर्वर के रूप में एआई सहायक से जोड़ें"
   deepwiki: "बनाई गई व्याख्या पढ़ें और प्रश्न पूछें"
-  uithub: "फ़ाइलों को एआई के लिए सादे टेक्स्ट के रूप में देखें"
   gitreverse: "एआई कोडिंग सहायक के लिए विनिर्देश पाएँ"
   gitdiagram: "संरचना को आरेख के रूप में देखें"
   github-dev: "ब्राउज़र के संपादक में कोड खोलें"
@@ -96,7 +92,6 @@ ai_tools_desc:
   gitingest: "रिपॉज़िटरी को एक ही पाठ (सारांश, फ़ाइल संरचना और फ़ाइलों की सामग्री) में समेटती है, जिसे एआई चैट में चिपकाया जा सके।"
   gitmcp: "रिपॉज़िटरी को एक दूरस्थ MCP सर्वर बनाती है: MCP का समर्थन करने वाले एआई सहायक में लिंक किए गए URL को कस्टम MCP सर्वर के रूप में जोड़ें। खाते या API कुंजी की आवश्यकता नहीं है।"
   deepwiki: "रिपॉज़िटरी का विकी-शैली का प्रलेखन बनाती है और उसके बारे में प्रश्नों के उत्तर देती है।"
-  uithub: "फ़ाइल संरचना और फ़ाइलों की सामग्री को एआई सहायक के लिए सादे पाठ के रूप में दिखाती है।"
   gitreverse: "एआई कोडिंग सहायक के लिए परियोजना का प्रॉम्प्ट और प्राकृतिक भाषा में विनिर्देश लिखती है।"
   gitdiagram: "रिपॉज़िटरी की संरचना को एक इंटरैक्टिव आरेख के रूप में बनाती है।"
   github-dev: "रिपॉज़िटरी को ब्राउज़र में एक कोड संपादक (VS Code) में खोलती है। इसे GitHub चलाता है; GitHub में साइन इन करना आवश्यक है।"

@@ -1,11 +1,8 @@
 # Page text for one language (fr). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
-# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
-# it must contain {names} exactly once.
 
 mt_notice: Cette page a été traduite automatiquement.
-post_edited: 'Traduction automatique relue et corrigée par {names}.'
 native: Français
 og_locale: fr_FR
 request: Demander une autre langue
@@ -88,7 +85,6 @@ ai_tools_purpose:
   gitingest: "En faire un seul texte à coller dans un chat d'IA"
   gitmcp: "Le connecter à un assistant d'IA comme serveur MCP"
   deepwiki: "Lire une explication générée et poser des questions"
-  uithub: "Voir les fichiers en texte brut pour une IA"
   gitreverse: "Obtenir une spécification pour un assistant de programmation IA"
   gitdiagram: "Voir la structure sous forme de diagramme"
   github-dev: "Ouvrir le code dans un éditeur dans le navigateur"
@@ -96,7 +92,6 @@ ai_tools_desc:
   gitingest: "Réunit le dépôt en un seul texte (résumé, arborescence et contenu des fichiers) à coller dans une conversation avec une IA."
   gitmcp: "Fait du dépôt un serveur MCP distant : ajoutez l'URL du lien comme serveur MCP personnalisé dans un assistant d'IA compatible MCP. Aucun compte ni clé d'API n'est nécessaire."
   deepwiki: "Produit une documentation du dépôt sous forme de wiki et répond aux questions à son sujet."
-  uithub: "Affiche l'arborescence et le contenu des fichiers en texte brut pour un assistant d'IA."
   gitreverse: "Rédige un prompt et une spécification du projet en langage naturel pour un assistant de programmation par IA."
   gitdiagram: "Représente la structure du dépôt sous forme de diagramme interactif."
   github-dev: "Ouvre le dépôt dans un éditeur de code (VS Code) dans le navigateur. Service de GitHub ; une connexion à GitHub est nécessaire."

@@ -19,6 +19,7 @@
 <link rel="canonical" href="{{ site.url }}/">
 {% for o in langs %}<link rel="alternate" hreflang="{{ o.code }}" href="{{ site.url }}/{{ o.code }}/">
 {% endfor %}<link rel="alternate" hreflang="x-default" href="{{ site.url }}/">
+{% with up = "" %}{% include "icons.html.j2" %}{% endwith %}
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">{{ jsonld }}</script>
 <script src="redirect.js" data-langs="{{ langs | map(attribute='code') | join(' ') }}"></script>

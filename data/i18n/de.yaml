@@ -1,11 +1,8 @@
 # Page text for one language (de). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
-# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
-# it must contain {names} exactly once.
 
 mt_notice: Diese Seite wurde maschinell übersetzt.
-post_edited: 'Maschinell übersetzt, überprüft und korrigiert von {names}.'
 native: Deutsch
 og_locale: de_DE
 request: Weitere Sprache anfragen
@@ -88,7 +85,6 @@ ai_tools_purpose:
   gitingest: "Als einen Text zum Einfügen in einen KI-Chat ausgeben"
   gitmcp: "Als MCP-Server mit einem KI-Assistenten verbinden"
   deepwiki: "Eine erzeugte Erklärung lesen und Fragen stellen"
-  uithub: "Die Dateien als reinen Text für eine KI ansehen"
   gitreverse: "Eine Spezifikation für einen KI-Programmierassistenten erstellen"
   gitdiagram: "Den Aufbau als Diagramm ansehen"
   github-dev: "Den Code in einem Editor im Browser öffnen"
@@ -96,7 +92,6 @@ ai_tools_desc:
   gitingest: "Fasst das Repository zu einem einzigen Text (Übersicht, Dateibaum und Dateiinhalte) zusammen, der sich in einen KI-Chat einfügen lässt."
   gitmcp: "Macht das Repository zu einem entfernten MCP-Server: Fügen Sie die verlinkte URL in einem KI-Assistenten mit MCP-Unterstützung als benutzerdefinierten MCP-Server hinzu. Konto oder API-Schlüssel sind nicht nötig."
   deepwiki: "Erstellt eine Dokumentation des Repositorys im Stil eines Wikis und beantwortet Fragen dazu."
-  uithub: "Zeigt den Dateibaum und die Dateiinhalte als reinen Text für einen KI-Assistenten."
   gitreverse: "Schreibt einen Prompt und eine Spezifikation des Projekts in natürlicher Sprache für einen KI-Programmierassistenten."
   gitdiagram: "Stellt die Struktur des Repositorys als interaktives Diagramm dar."
   github-dev: "Öffnet das Repository in einem Code-Editor (VS Code) im Browser. Betrieben von GitHub; eine Anmeldung bei GitHub ist erforderlich."

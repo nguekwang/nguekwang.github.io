@@ -1,11 +1,8 @@
 # Page text for one language (ja). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
-# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
-# it must contain {names} exactly once.
 
 mt_notice: ''
-post_edited: '機械翻訳をもとに、{names}が手直ししました。'
 native: 日本語
 og_locale: ja_JP
 request: 他の言語の翻訳版をリクエスト
@@ -88,7 +85,6 @@ ai_tools_purpose:
   gitingest: "AI のチャットに貼る1つのテキストにする"
   gitmcp: "AI アシスタントに MCP サーバーとしてつなぐ"
   deepwiki: "自動で作られた解説を読み、質問する"
-  uithub: "ファイルの中身を AI 向けのテキストで見る"
   gitreverse: "AI コーディング向けの仕様書を作る"
   gitdiagram: "リポジトリの構成を図で見る"
   github-dev: "ブラウザのエディタでコードを開く"
@@ -96,7 +92,6 @@ ai_tools_desc:
   gitingest: "リポジトリを、AI のチャットに貼り付けやすい1つのテキスト(概要、ファイル構成、ファイルの中身)にまとめます。"
   gitmcp: "リポジトリをリモートの MCP サーバーにします。MCP に対応した AI アシスタントに、リンク先の URL をカスタム MCP サーバーとして追加して使います。アカウントや API キーは要りません。"
   deepwiki: "リポジトリの Wiki 風の解説を自動で作り、リポジトリについての質問に答えます。"
-  uithub: "ファイル構成とファイルの中身を、AI アシスタント向けのテキストとして表示します。"
   gitreverse: "AI コーディングアシスタント向けに、プロジェクトのプロンプトと自然言語の仕様書を作ります。"
   gitdiagram: "リポジトリの構成を、操作できる図にします。"
   github-dev: "リポジトリをブラウザ上のコードエディタ(VS Code)で開きます。GitHub が運営しており、GitHub へのサインインが必要です。"

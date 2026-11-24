@@ -1,11 +1,8 @@
 # Page text for one language (en). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
-# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
-# it must contain {names} exactly once.
 
 mt_notice: ''
-post_edited: 'Machine-translated, then reviewed and corrected by {names}.'
 native: English
 og_locale: en_US
 request: Request another language
@@ -97,7 +94,6 @@ ai_tools_purpose:
   gitingest: "Turn it into one text to paste into an AI chat"
   gitmcp: "Connect it to an AI assistant as an MCP server"
   deepwiki: "Read a generated explanation and ask questions"
-  uithub: "View the files as plain text for an AI"
   gitreverse: "Get a specification for an AI coding assistant"
   gitdiagram: "See the structure as a diagram"
   github-dev: "Open the code in an editor in the browser"
@@ -105,7 +101,6 @@ ai_tools_desc:
   gitingest: "Turns the repository into one text digest (summary, file tree and file contents) to paste into an AI chat."
   gitmcp: "Turns the repository into a remote MCP server: add the linked URL as a custom MCP server in an AI assistant that supports MCP. No account or API key is needed."
   deepwiki: "Generates wiki-style documentation of the repository and answers questions about it."
-  uithub: "Shows the file tree and file contents as plain text for an AI assistant."
   gitreverse: "Writes a prompt and a plain-language specification of the project for an AI coding assistant."
   gitdiagram: "Draws the structure of the repository as an interactive diagram."
   github-dev: "Opens the repository in a code editor (VS Code) in the browser. Run by GitHub; you need to sign in to GitHub."

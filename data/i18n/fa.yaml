@@ -1,11 +1,8 @@
 # Page text for one language (fa). Every language file must have exactly the same keys,
 # list lengths and keyword ids as en.yaml; `python3 tools/build.py --check` enforces this.
 # Every value must be filled in, except mt_notice (machine-translation notice), which may be empty to hide it.
-# post_edited replaces mt_notice once a native speaker has post-edited the language (see data/post_editors.yaml);
-# it must contain {names} exactly once.
 
 mt_notice: این صفحه با ترجمهٔ ماشینی ترجمه شده است.
-post_edited: 'ترجمهٔ ماشینی؛ بازبینی و ویرایش: {names}.'
 native: فارسی
 og_locale: fa_IR
 request: درخواست زبان دیگر
@@ -88,7 +85,6 @@ ai_tools_purpose:
   gitingest: "تبدیل به یک متن برای چسباندن در گفت‌وگو با هوش مصنوعی"
   gitmcp: "اتصال به دستیار هوش مصنوعی به‌عنوان سرور MCP"
   deepwiki: "خواندن توضیح ساخته‌شده و پرسیدن سؤال"
-  uithub: "دیدن پرونده‌ها به‌صورت متن ساده برای هوش مصنوعی"
   gitreverse: "گرفتن مشخصات برای دستیار برنامه‌نویسی هوش مصنوعی"
   gitdiagram: "دیدن ساختار در قالب نمودار"
   github-dev: "باز کردن کد در ویرایشگری درون مرورگر"
@@ -96,7 +92,6 @@ ai_tools_desc:
   gitingest: "مخزن را در یک متن واحد (خلاصه، درخت پرونده‌ها و محتوای آن‌ها) گرد می‌آورد تا در گفت‌وگو با هوش مصنوعی جای‌گذاری شود."
   gitmcp: "مخزن را به یک سرور MCP راه دور تبدیل می‌کند: نشانی پیوند را در دستیار هوش مصنوعی‌ای که از MCP پشتیبانی می‌کند، به‌عنوان سرور MCP سفارشی بیفزایید. به حساب کاربری یا کلید API نیازی نیست."
   deepwiki: "برای مخزن مستنداتی به سبک ویکی می‌سازد و به پرسش‌ها دربارهٔ آن پاسخ می‌دهد."
-  uithub: "درخت پرونده‌ها و محتوای آن‌ها را به‌صورت متن ساده برای دستیار هوش مصنوعی نشان می‌دهد."
   gitreverse: "برای دستیار برنامه‌نویسی هوش مصنوعی، یک پرامپت و مشخصات پروژه را به زبان طبیعی می‌نویسد."
   gitdiagram: "ساختار مخزن را به‌صورت نموداری تعاملی ترسیم می‌کند."
   github-dev: "مخزن را در یک ویرایشگر کد (VS Code) در مرورگر باز می‌کند. GitHub آن را اداره می‌کند و ورود به GitHub لازم است."

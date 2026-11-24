@@ -12,10 +12,9 @@ All page text lives here as YAML. HTML structure is in `templates/`.
 - `data/talks.yaml`: talks (language-independent).
 - `data/publications.yaml`: publications and theses (see below).
 - `data/institutions.yaml`: institution names per language (official or translated).
-- `data/post_editors.yaml`: native speakers who post-edited a machine-translated language (see `writing-style.md`).
 - `data/privacy.yaml`: allow list for `tools/privacy_check.py` (see `build-and-ci.md`).
 - `data/translation.yaml`: machine translation settings: model, keys each language writes itself (`own_keys`), and terms kept as written in English (`protected_terms`) (see `writing-style.md`).
-- `data/ai_tools.yaml`: services that read a project's GitHub repository, and each project's public repository (see below).
+- `data/ai_tools.yaml`: services that read a project's GitHub repository, and each project's public repository (see `projects.md`).
 
 ## Every language has the same items
 
@@ -32,14 +31,6 @@ All page text lives here as YAML. HTML structure is in `templates/`.
 - Keep the groups in line with the research text (`interests`, `current`): language comparison first, then theoretical linguistics (including analytic philosophy, at the owner's request), objects of study, mathematics and data, and technology (the last two next to each other). Group labels name fields at the same level; do not use a label (such as "research areas") that covers the other groups.
 - Do not list keywords whose fields overlap as separate items: merge them into one (for example "Probability theory and statistics"), and do not repeat a group label as a keyword.
 
-## Projects and their links for AI assistants
-
-- Each project with a public repository gets a page of links for AI assistants at `/<lang>/ai-tools/<repo name>/`, linked under the project in the Projects section. It lists services that read the repository (`services` in `data/ai_tools.yaml`). Each item leads with what it is for (`ai_tools_purpose`, which is the link), then a description (`ai_tools_desc`), then the service name as a small label (`ai_tools_service`). Do not print the service URLs or tell readers to replace `github.com` in the URL (no `github.com → host` lines); the owner found them unhelpful (2026-11-07).
-- The page heading and the link to it (`ai_tools_h`, with `{project}` exactly once) say that the repository is read with external AI services, so the project itself does not look like an AI tool (the owner's request). Do not put the project name before a colon and a generic label such as "Links for AI assistants".
-- Every time a project is added to `projects` in the language files, add it under `projects` in `data/ai_tools.yaml` in the same change; `python3 tools/build.py --check` fails otherwise. Set `repo` (owner/name) as soon as the repository is public, even before it has code (the owner's choice); while it is private or missing, leave it empty, which shows no link and builds no page. Never set a private repository.
-- When a project runs somewhere (for example Lang Log at `https://lang-log.github.io/`, the GitHub Pages site of its own organization), set `site` for it in `data/ai_tools.yaml`; its name in the Projects section, the CV and `llms.txt` then links there. A project site under `https://nguekwang.github.io/<repository name>/` is also possible; then do not create a directory with the same name in this site.
-- Before adding a service, check that it is running and that it works by replacing `github.com`; record the date checked in `data/ai_tools.yaml`. Remove a service that has shut down. A new service needs a purpose and a description in every language file in the same change.
-
 ## Values that are not page text
 
 - `updated` in each language file is only a label with one `{date}` placeholder. The date comes from git (see `build-and-ci.md`); never write a date in the YAML.
@@ -52,17 +43,5 @@ All page text lives here as YAML. HTML structure is in `templates/`.
 - Every publication or thesis is one entry in `data/publications.yaml`, newest first. Never write one into a template or a language file. The build lists every entry on every language page, in the CV and in `llms.txt`.
 - Each entry has the title as written (`title`, `lang`), the English title (`title_en`, required when the title is not English), `year`, `type` and optional `status`. Every language shows both titles.
 - A line reads `<title> (<English title>) (<year>) (<type>, <status>)`, as the owner asked, with no label in front; for example `言語間の類似度の定量的な算出（A Quantitative Analysis of Cross-Linguistic Similarity）（2026）（卒業論文、非公開）`.
-- The brackets, comma and spacing come from `pub_title_en`, `pub_note` and `list_sep` in each language file, written as that language's modern official documents write them. The year uses the language's digits (`digits` in `data/site.yaml`).
+- The brackets, comma and spacing come from `pub_title_en`, `pub_note` and `list_sep` in each language file, written as that language's modern official documents write them. The year uses the language's digits (`digits.md`).
 - A new `type` or `status` needs a translation under `pub_types` or `pub_status` in every language file in the same change; `python3 tools/build.py --check` fails otherwise.
-
-## Digits
-
-Digits follow the language's modern official documents, like all other notation. Current choices and their basis:
-
-- Persian (`fa`): Persian digits (۰-۹), as in Iranian government documents.
-- Hindi (`hi`): 0-9. Article 343(1) of the Constitution of India makes "the international form of Indian numerals" (0-9) the form for the Union's official purposes.
-- Arabic (`ar`): 0-9 (the owner's decision). Official documents differ by country (٠-٩ in parts of the Mashriq and the Gulf, 0-9 in the Maghreb); the site does not target one country, so it follows the United Nations' Arabic official documents, which use 0-9.
-- Thai (`th`): Thai government documents use Thai digits (๐-๙). The page uses 0-9 until the owner decides whether to switch.
-- Every other language: 0-9.
-- To use other digits, write them in `data/i18n/<code>.yaml` and list the language under `digits` in `data/site.yaml` (used for the dates and years the build generates), and update the list above in the same change.
-- Never convert digits in whole strings at build time: identifiers such as "i18n" must keep 0-9.

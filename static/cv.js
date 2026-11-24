@@ -34,7 +34,7 @@
     var vars = {
       path: 'cv-' + a.getAttribute('data-cv'),
       title: a.getAttribute('data-cv') + ' (' + document.documentElement.lang + ')',
-      event: true
+      event: true,
     };
     if (ref) vars.referrer = ref;
     window.goatcounter.count(vars);

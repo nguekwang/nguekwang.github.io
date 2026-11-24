@@ -20,7 +20,8 @@
 {% endfor %}<meta name="twitter:card" content="summary">
 <link rel="canonical" href="{{ site.url }}/{{ code }}/{{ path }}/">
 {% for o in langs %}<link rel="alternate" hreflang="{{ o.code }}" href="{{ site.url }}/{{ o.code }}/{{ path }}/">
-{% endfor %}<link rel="stylesheet" href="{{ up }}style.css">
+{% endfor %}{% include "icons.html.j2" %}
+<link rel="stylesheet" href="{{ up }}style.css">
 <script type="application/ld+json">{{ jsonld }}</script>
 <script src="{{ up }}theme.js"></script>
 </head>

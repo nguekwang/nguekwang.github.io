@@ -18,12 +18,19 @@ The source is data/i18n/en.yaml. A "unit" is one text value, or one whole list (
       Warn (never fail) about languages whose text did not change although the English did,
       including the owner-written languages, which are updated by hand.
 """
-import argparse, asyncio, io, json, os, re, subprocess, sys
+
+import argparse
+import asyncio
+import io
+import json
+import os
+import re
+import subprocess
+import sys
 
 import yaml
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from build import DATA, REFERENCE, ROOT, compare  # noqa: E402
+from build import DATA, REFERENCE, ROOT, compare
 
 PLACEHOLDER = re.compile(r"\{\w+\}")
 # Spaces that look like an ordinary space in an editor; the language files write them as \uXXXX
@@ -119,8 +126,13 @@ def todo(en, base_en, texts, codes, own_keys):
     changed = set(changed_units(en, base_en, own_keys))
     jobs = {}
     for code in codes:
-        paths = [p for p in units(en, own_keys)
-                 if p in changed or get(texts[code], p) is None or not same_shape(p, get(en, p), get(texts[code], p))]
+        paths = [
+            p
+            for p in units(en, own_keys)
+            if p in changed
+            or get(texts[code], p) is None
+            or not same_shape(p, get(en, p), get(texts[code], p))
+        ]
         if paths:
             jobs[code] = paths
     return jobs
@@ -129,11 +141,19 @@ def todo(en, base_en, texts, codes, own_keys):
 def schema_of(value):
     """JSON schema with the same shape as an English unit, so Claude answers in that shape."""
     if isinstance(value, dict):
-        return {"type": "object", "additionalProperties": False, "required": list(value),
-                "properties": {k: schema_of(v) for k, v in value.items()}}
+        return {
+            "type": "object",
+            "additionalProperties": False,
+            "required": list(value),
+            "properties": {k: schema_of(v) for k, v in value.items()},
+        }
     if isinstance(value, list):
-        return {"type": "array", "minItems": len(value), "maxItems": len(value),
-                "items": schema_of(value[0]) if value else {"type": "string"}}
+        return {
+            "type": "array",
+            "minItems": len(value),
+            "maxItems": len(value),
+            "items": schema_of(value[0]) if value else {"type": "string"},
+        }
     return {"type": "string"}
 
 
@@ -144,6 +164,7 @@ def key(path):
 
 def language_name(code):
     from babel import Locale
+
     return Locale.parse(code, sep="-").english_name
 
 
@@ -170,9 +191,15 @@ current {name} text for that path, if any (keep its wording where the English me
 
 async def ask(cfg, system, prompt, schema):
     from claude_agent_sdk import ClaudeAgentOptions, ResultMessage, query
+
     options = ClaudeAgentOptions(
-        model=cfg["model"], effort=cfg.get("effort"), system_prompt=system,
-        tools=[], allowed_tools=[], setting_sources=[], max_turns=3,
+        model=cfg["model"],
+        effort=cfg.get("effort"),
+        system_prompt=system,
+        tools=[],
+        allowed_tools=[],
+        setting_sources=[],
+        max_turns=3,
         output_format={"type": "json_schema", "schema": schema},
     )
     result = None
@@ -209,11 +236,19 @@ async def translate(cfg, en, texts, code, paths, terms, limit):
     with open(os.path.join(DATA, "i18n", code + ".yaml"), encoding="utf-8") as f:
         current = f.read()
     payload = {key(p): {"english": get(en, p), "previous": get(texts[code], p)} for p in paths}
-    schema = {"type": "object", "additionalProperties": False, "required": list(payload),
-              "properties": {key(p): schema_of(get(en, p)) for p in paths}}
+    schema = {
+        "type": "object",
+        "additionalProperties": False,
+        "required": list(payload),
+        "properties": {key(p): schema_of(get(en, p)) for p in paths},
+    }
     system = SYSTEM.format(name=name, code=code, terms=", ".join(terms))
-    prompt = PROMPT.format(code=code, name=name, current=current,
-                           units=json.dumps(payload, ensure_ascii=False, indent=1))
+    prompt = PROMPT.format(
+        code=code,
+        name=name,
+        current=current,
+        units=json.dumps(payload, ensure_ascii=False, indent=1),
+    )
     async with limit:
         for attempt in range(ATTEMPTS):
             answer = await ask(cfg, system, prompt, schema)
@@ -222,23 +257,28 @@ async def translate(cfg, en, texts, code, paths, terms, limit):
                 print(f"{code}: translated {len(paths)} unit(s)")
                 return code, {p: answer[key(p)] for p in paths}
             print(f"{code}: attempt {attempt + 1} rejected: {'; '.join(problems)}", file=sys.stderr)
-            prompt += "\n\nYour previous answer had these problems; fix them:\n" + "\n".join(problems)
+            prompt += "\n\nYour previous answer had these problems; fix them:\n" + "\n".join(
+                problems
+            )
     raise SystemExit(f"{code}: no valid translation after {ATTEMPTS} attempts")
 
 
 def round_trip():
     from ruamel.yaml import YAML
+
     y = YAML()
     y.preserve_quotes = True
-    y.width = 10 ** 6  # never wrap long lines
+    y.width = 10**6  # never wrap long lines
     y.indent(mapping=2, sequence=2, offset=0)
     return y
 
 
 def escape_invisible(text):
     """Write invisible characters inside double-quoted strings as \\uXXXX, as the files do by hand."""
+
     def fix(m):
         return "".join(f"\\u{ord(ch):04x}" if ch in INVISIBLE_SPACES else ch for ch in m.group(0))
+
     return re.sub(r'"(?:[^"\\\n]|\\.)*"', fix, text)
 
 
@@ -262,7 +302,9 @@ def write_language(code, en, own_keys, results):
     prune(doc, en, own_keys, top=True)
     out = io.StringIO()
     y.dump(doc, out)
-    text = escape_invisible(out.getvalue())  # finish before opening the file, so an error never empties it
+    text = escape_invisible(
+        out.getvalue()
+    )  # finish before opening the file, so an error never empties it
     with open(path, "w", encoding="utf-8") as f:
         f.write(text)
 
@@ -288,7 +330,9 @@ def check_terms(cfg, en, texts, codes):
         for p in units(en, own):
             lost = missing_terms(terms, get(en, p), get(texts[code], p))
             if lost:
-                errors.append(f"data/i18n/{code}.yaml {key(p)}: must keep {', '.join(lost)} as written in English")
+                errors.append(
+                    f"data/i18n/{code}.yaml {key(p)}: must keep {', '.join(lost)} as written in English"
+                )
     return errors
 
 
@@ -311,7 +355,9 @@ def main():
             for e in errors:
                 print("  " + e, file=sys.stderr)
             sys.exit(1)
-        print(f"translations OK: {len(codes)} machine-translated languages keep every protected term")
+        print(
+            f"translations OK: {len(codes)} machine-translated languages keep every protected term"
+        )
         return
 
     if not args.base:
@@ -325,8 +371,11 @@ def main():
             same = [c for c in others if get(base[c], p) == get(texts[c], p)]
             if same:
                 owner = [c for c in same if c not in codes]
-                print(f"::warning file=data/i18n/{REFERENCE}.yaml::English '{key(p)}' changed but not in: "
-                      f"{', '.join(same)}" + (f" (written by the owner: {', '.join(owner)})" if owner else ""))
+                print(
+                    f"::warning file=data/i18n/{REFERENCE}.yaml::English '{key(p)}' changed but not in: "
+                    f"{', '.join(same)}"
+                    + (f" (written by the owner: {', '.join(owner)})" if owner else "")
+                )
         return
 
     jobs = todo(en, base_en, texts, codes, own)
@@ -341,7 +390,9 @@ def main():
 
     async def run():
         limit = asyncio.Semaphore(PARALLEL)
-        return await asyncio.gather(*(translate(cfg, en, texts, c, ps, terms, limit) for c, ps in jobs.items()))
+        return await asyncio.gather(
+            *(translate(cfg, en, texts, c, ps, terms, limit) for c, ps in jobs.items())
+        )
 
     for code, results in asyncio.run(run()):
         write_language(code, en, own, results)
