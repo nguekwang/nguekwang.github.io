@@ -35,3 +35,7 @@ Loaded when Claude works on matching files:
 - `.claude/rules/css-and-browsers.md`: `static/**`, `templates/**` (CSS that works in Chromium, Firefox and WebKit/Safari)
 - `.claude/rules/build-and-ci.md`: `tools/**`, `.github/**`, `requirements*.txt`, `lychee.toml` (build, CI and automated checks)
 - `.claude/rules/measurement.md`: `data/site.yaml`, `templates/page.html.j2`, `static/cv.js`
+
+Shared skill (Claude Code does not load it from here; read it before the task):
+
+- `../research-aide/.claude/skills/i18n/SKILL.md`: the steps for adding, changing or removing page text in every language.
